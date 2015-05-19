@@ -48,6 +48,7 @@ class LoLNews
 {
 }
 ```
+
 * 在 AVA 資料夾底下創一個 AvaNews Class
 ```php
 /**
@@ -57,6 +58,7 @@ class AvaNews
 {
 }
 ```
+
 * 新聞頁面 show 出新聞
 ```php
 /**
@@ -64,11 +66,14 @@ class AvaNews
 **/
 require('lol/LoLNews.php');
 require('ava/AvaNews.php');
-$news = new LoLNews;
+$lolNews = new LoLNews;
+$avaNews = new AvaNews;
 ```
-**但這不是個好方法**
+
+**但這不是個好方法，都用資料夾分門別類了，為什麼還要加前綴呢。**
+
 ### Namespace
-* 在 LoL 資料夾底下創一個 News Class
+* 在 LoL 資料夾底下創一個 News Class，並加上 namespace
 ```php
 /**
  * project/lol/news.php
@@ -79,7 +84,8 @@ class News
 {
 }
 ```
-* 在 AVA 資料夾底下創一個 News Class
+
+* 在 AVA 資料夾底下創一個 News Class，並加上 namespace
 ```php
 /**
  * project/ava/news.php
@@ -90,6 +96,7 @@ class News
 {
 }
 ```
+
 * 新聞頁面 show 出新聞，可直接使用或使用 **use**
 ```php
 /**
