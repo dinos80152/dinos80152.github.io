@@ -1,0 +1,117 @@
+#PHP Namespace
+## 概念
+Namespace 其實就是資料夾的概念，可以解決同樣名字的 Class 如何被使用。
+
+## 情境
+今天在 AVA 有新聞, 在 LoL 也有新聞，我們需要有個新聞中心 show 出所有的新聞
+
+* 在 LoL 資料夾底下創一個 News Class
+```
+/**
+ * project/lol/news.php
+**/
+class News
+{
+}
+```
+* 在 AVA 資料夾底下創一個 News Class
+```
+/**
+ * project/ava/news.php
+**/
+class News
+{
+}
+```
+* 新聞頁面 show 出新聞
+```
+/**
+ * project/index.php
+**/
+require('lol/news.php');
+require('ava/news.php');
+$news = new News;
+```
+* 問題來了，兩個 class 都是 News，它不知道你是要 new 哪個 News，怎麼辦？
+
+## 解決辦法
+
+### 改名字
+* 在 LoL 資料夾底下創一個 LoLNews Class
+```
+/**
+ * project/lol/LoLNews.php
+**/
+class LoLNews
+{
+}
+```
+* 在 AVA 資料夾底下創一個 AvaNews Class
+```
+/**
+ * project/ava/AvaNews.php
+**/
+class AvaNews
+{
+}
+```
+* 新聞頁面 show 出新聞
+```
+/**
+ * project/index.php
+**/
+require('lol/LoLNews.php');
+require('ava/AvaNews.php');
+$news = new LoLNews;
+```
+**但這不是個好方法**
+### Namespace
+* 在 LoL 資料夾底下創一個 News Class
+```
+/**
+ * project/lol/news.php
+**/
+namespace Lol;
+
+class News
+{
+}
+```
+* 在 AVA 資料夾底下創一個 News Class
+```
+/**
+ * project/ava/news.php
+**/
+namespace Ava;
+
+class News
+{
+}
+```
+* 新聞頁面 show 出新聞
+```
+/**
+ * project/index.php
+ * 直接使用
+**/
+require('lol/news.php');
+require('ava/news.php');
+$lolNews = new Lol\News;
+$avaNews = new Ava\News;
+```
+
+```
+/**
+ * project/index.php
+ * 使用 use
+**/
+require('lol/news.php');
+require('ava/news.php');
+
+use Lol\News as LolNews;
+use Ava\News as AvaNews;
+
+$lolNews = new LolNews;
+$avaNews = new AvaNews;
+```
+### 是不是很 easy 呢~
