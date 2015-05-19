@@ -6,7 +6,7 @@ Namespace 其實就是資料夾的概念，可以解決同樣名字的 Class 如
 今天在 AVA 有新聞, 在 LoL 也有新聞，我們需要有個新聞中心 show 出所有的新聞
 
 * 在 LoL 資料夾底下創一個 News Class
-```
+```php
 /**
  * project/lol/news.php
 **/
@@ -14,8 +14,9 @@ class News
 {
 }
 ```
+
 * 在 AVA 資料夾底下創一個 News Class
-```
+```php
 /**
  * project/ava/news.php
 **/
@@ -23,8 +24,9 @@ class News
 {
 }
 ```
+
 * 新聞頁面 show 出新聞
-```
+```php
 /**
  * project/index.php
 **/
@@ -38,7 +40,7 @@ $news = new News;
 
 ### 改名字
 * 在 LoL 資料夾底下創一個 LoLNews Class
-```
+```php
 /**
  * project/lol/LoLNews.php
 **/
@@ -47,7 +49,7 @@ class LoLNews
 }
 ```
 * 在 AVA 資料夾底下創一個 AvaNews Class
-```
+```php
 /**
  * project/ava/AvaNews.php
 **/
@@ -56,7 +58,7 @@ class AvaNews
 }
 ```
 * 新聞頁面 show 出新聞
-```
+```php
 /**
  * project/index.php
 **/
@@ -67,7 +69,7 @@ $news = new LoLNews;
 **但這不是個好方法**
 ### Namespace
 * 在 LoL 資料夾底下創一個 News Class
-```
+```php
 /**
  * project/lol/news.php
 **/
@@ -78,7 +80,7 @@ class News
 }
 ```
 * 在 AVA 資料夾底下創一個 News Class
-```
+```php
 /**
  * project/ava/news.php
 **/
@@ -88,8 +90,8 @@ class News
 {
 }
 ```
-* 新聞頁面 show 出新聞
-```
+* 新聞頁面 show 出新聞，可直接使用或使用 **use**
+```php
 /**
  * project/index.php
  * 直接使用
@@ -100,7 +102,7 @@ $lolNews = new Lol\News;
 $avaNews = new Ava\News;
 ```
 
-```
+```php
 /**
  * project/index.php
  * 使用 use
