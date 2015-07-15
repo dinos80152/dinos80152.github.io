@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Scrum 333 Introduction</title>
+
+        <meta name="description" content="Scrum 333 Introduction">
+        <meta name="author" content="Dino Lai">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <!-- Use External -->
+                <section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n">
+                    <script type="text/template">
+# Scrum 333
+![Scrum Flow](https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Scrum_process.svg/1280px-Scrum_process.svg.png)
+### Dino Lai
+
+
+
+# Scrum 333
+* 3 Roles(角色)
+
+* 3 Ceremonies(儀式)
+
+* 3 Artifacts(產出物)
+
+
+
+# 3 Roles
+* Product Owner
+
+* Scrum Master
+
+* Team
+
+
+## Product Owner
+* 代表業務、客戶
+* 產品願景
+* 待辦清單
+* 劃定故事優先順序
+* 設定驗收標準
+* 回答團隊問題
+
+
+## Scrum Master
+* 引導者
+* 把團隊放到最高的位置
+* 與團隊同等，只是職責不同
+* 移除障礙
+
+
+## Team
+* 5 - 9 人
+* 開發、交付 User Story
+* 自我組織 (Self Organization)
+* 有估算權，做事的人權力最大
+* 避免與我無關
+* 豬與雞的故事
+
+
+
+# 3 Ceremonies
+* Sprint Planning
+
+* Daily Scrum
+
+* Sprint Review
+
+
+## Sprint Planning
+1. 要做什麼
+  * 與 Product Owner 討論
+  * 大 Story 拆成小的 Story
+  * 以過去經驗承諾這次完成幾個 Story
+
+2. 要怎麼做
+  * Story 分解成工作
+  * 估算
+  * 超過半天的工作需拆解
+  * Product Owner 需在場
+
+
+## 估算
+* 工作小時
+* 相對大小 (Story Point)
+  * 排卡遊戲
+    1. 排隊
+    2. 放數字
+  * 規劃撲克
+    1. 選卡片
+    2. 兩相差異最大者解釋
+    3. 選卡片直到大家相同
+
+
+## Daily Scrum
+* 每天工作開始前
+* 簡要，每人不超過兩分鐘
+  * 昨天完成
+  * 今天想做
+  * 遇到什麼阻礙
+
+
+## Sprint Review
+* 展現工作成果
+* 從 Product Owner 收集回饋
+* Team 自省
+
+
+
+# 3 Artifacts
+* Product Backlog
+
+* Sprint Backlog
+
+* Burndown Chart
+
+* (Board)
+
+
+## Product Backlog
+* Story
+* 持續不斷長出，永無完成之日
+* 按優先順序排序
+  * 上面是小的 Story，定義好的
+    * 作為 XXX 使用者
+    * 我想 做 YYY 事
+    * 這樣就能 ZZZ
+  * 下面是大的 Story，定義粗糙的
+
+
+## Sprint Backlog
+* To Do List
+* Sprint Planning 結束後，就不再更改
+* 每次 Sprint 專注做 Sprint Backlog
+
+
+## Burndown Chart
+* Product Burndown Chart
+* Sprint Burndown Chart
+![Scrum Burndown Chart](https://upload.wikimedia.org/wikipedia/commons/0/05/SampleBurndownChart.png)
+
+
+## Board
+* Kanban
+
+![Scrum Board](http://cdn2.slidehunter.com/wp-content/uploads/scrum-task-board-template-powerpoint.jpg)
+
+
+
+# Conclusion
+![The Agile: Scrum Framework at a glance](http://35qk152ejao6mi5pan29erbr9.wpengine.netdna-cdn.com/wp-content/uploads/2013/05/Scrum_Framework.jpg)
+
+
+
+# Referece
+* 敏捷與 Scrum 軟體開發速成, Chris Sims, Hillary Louise Johnson, 2014
+* 笑談軟體工程，敏捷開發法的逆襲, Teddy Chen, 2012
+                    </script>
+                </section>
+            </div>
+
+        </div>
+
+        <script src="reveal.js/lib/js/head.min.js"></script>
+        <script src="reveal.js/js/reveal.js"></script>
+
+        <script>
+
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                slideNumber: true,
+                history: true,
+                center: true,
+
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+                // Optional reveal.js plugins
+                dependencies: [
+                    { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+                    { src: 'reveal.js/plugin/notes/notes.js', async: true }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>
