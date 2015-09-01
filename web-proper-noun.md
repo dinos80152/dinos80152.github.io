@@ -175,6 +175,8 @@ http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
 ## Example
 
 
+
+
 ### Code
 
 * index.html
@@ -196,7 +198,7 @@ http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
 	     	</thead>
 	     	<tbody>
 	     		<tr>
-	     			<td><?php echo $user->name; ?>></td>
+	     			<td><?php echo $user->name; ?></td>
 	     			<td><?php echo $user->phone; ?></td>
 	     			<td><?php echo $user->birthdate; ?></td>
 	     		</tr>
