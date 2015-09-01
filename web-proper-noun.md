@@ -108,29 +108,31 @@ http://blog.catchpoint.com/2014/07/16/adaptive-vs-responsive-web-design-quantify
 
 
 ## 後端
-* PHP
+
+
+### PHP
   * 伺服器端程式語言
   * 跟資料庫做溝通
   * 對資料做處理
   * 產生回傳頁面
 
-* Cache (快取)
+### Cache (快取)
   * 減少 Application, Database Server Loading
   * 將第一次計算完的資料暫時存在記憶體或是檔案，這段期間都讀這個檔案所存的結果，不去做程式計算和資料庫存取。
   * 大約，不即時（每X分鐘更新一次）
 
-* Queue
+### Queue
   * 排隊
   * 非同步（不能即時回傳結果）
 
-* Database (資料庫)
+### Database (資料庫)
   * 存資料的地方
   * 撈資料
   * xxxQL
   * xxxDB
   * 記結果
 
-* Log (記錄檔)
+### Log (記錄檔)
   * 記過程
 
 
