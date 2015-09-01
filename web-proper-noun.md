@@ -15,6 +15,37 @@
 
 #### Meta Tag
 
+meta tag主要為表示此網頁屬性，目前主要目的為增強SEO(Search Engine Optimization，搜尋引擎最佳化)，讓使用者在搜尋時會更容易出現我們的網頁。
+
+
+常用標籤(tag)有以下
+* charset: 網頁字元編碼 固定為utf-8
+* title: 主標
+* description: 網頁敘述 (ex: 副標)
+* keywords: 關鍵字，以半形逗號分隔(,)
+* og(open graph): 目前主要目的為facebook分享用，title與type為必填項目。
+
+
+套用方式，以中括號[]包住為每個網站需要客製的地方
+
+```html
+<head>
+<meta charset="utf-8" />
+<title>[主標]</title>
+<meta name="description" content="[網頁敘述]" />
+<meta name="keywords" content="[關鍵字，以半形逗號分隔(,)]">
+<link rel="image_src" href="[一張1200*630的banner]" />
+<!-- start fb meta -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="[主標]" />
+<meta property="og:description" content="[網頁敘述]" />
+<meta property="og:image" content="[一張1200*630的banner]" />
+<meta property="og:url" content="[網頁路徑]"/>
+<meta property="og:site_name" content="[主網站名稱]" />
+<!-- end fb meta -->
+</head>
+```
+
 
 ### CSS (Cascading Style Sheets)
   * 樣式表
