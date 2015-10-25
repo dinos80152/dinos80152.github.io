@@ -45,6 +45,11 @@
 ## Database
 * [Mysql User Group](http://www.accupass.com/org/detail/r/1407090558017161928200/1/0)
 
+## Cloud
+* AWS
+* Google Could Platform(http://gcpugtw.kktix.cc/)
+* Azure
+
 ## Others
 * [Functional Thursday](http://www.meetup.com/Functional-Thursday/)
 * [Functional Programming - Taipei](http://www.meetup.com/Functional-Programming-Taipei/)
