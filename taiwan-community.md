@@ -1,5 +1,8 @@
 # Taiwan Community
 
+## UI/UX
+* [Taiwan UI/UX Designers](https://www.facebook.com/groups/TaiwanUIUXDesigners/events/)
+
 ## Java
 * [Java User Group](http://www.meetup.com/taiwanjug/)
 * [Android](https://www.facebook.com/groups/AndroidTaipei/)
