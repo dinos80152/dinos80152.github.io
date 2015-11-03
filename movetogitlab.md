@@ -1,6 +1,6 @@
 ## create repository in gitlab
 
-![gitlab](http://dinos80152.github.io/_data/gitlab.png)
+![alt tag](https://github.com/dinos80152/dinos80152.github.io/blob/master/_data/gitlab.png?raw=true)
 
 ## Set push url
 
