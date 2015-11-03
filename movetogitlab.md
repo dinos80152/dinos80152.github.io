@@ -4,12 +4,17 @@
 
 ## Set push url
 
+```
 cd /xxx.garena.tw/.git
 
 git remote set-url --push origin git@gitlab.garena.tw:GarenaTW/xxx.garena.tw.git
+```
 
+## Push mirror
+
+```
 git push --mirror
-
+```
 
 ## change remote url
 
