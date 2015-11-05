@@ -50,7 +50,7 @@
 
 ## Cloud
 * AWS
-* Google Could Platform(http://gcpugtw.kktix.cc/)
+* [Google Could Platform](http://gcpugtw.kktix.cc/)
 * Azure
 
 ## Others
