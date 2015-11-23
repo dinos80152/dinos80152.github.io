@@ -66,3 +66,4 @@
 * [Js Girls Taiwan](https://www.facebook.com/jsgirlstw)
 * [PyLadies](http://www.meetup.com/PyLadiesTW/)
 * [Rails Girl Taipei](http://railsgirls.com/taipei)
+* [.NET Sister](http://sister.codes/)
