@@ -17,8 +17,8 @@
     }
 
     function getUrlLastUri() {
-        var pathname = location.hash;
-        return pathname.split('/').pop();
+        var hash = location.hash;
+        return hash.split('/').pop();
     }
 
     function getUrlContent(url, callback) {
