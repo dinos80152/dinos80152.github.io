@@ -10,7 +10,7 @@
 
     function renderMarkDown() {
         var markdownFileName = getUrlLastUri() + '.md';
-        getUrlContent('/_posts/' + markdownFileName, function(content) {
+        getUrlContent('/notes/' + markdownFileName, function(content) {
             document.getElementById('content').innerHTML = marked(content);
 
         });
