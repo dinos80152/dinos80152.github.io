@@ -24,8 +24,11 @@
 | **Computer Science** |
 | Compilers: Principles, Techniques, and Tools | 編譯系統設計 | | |
 | **Software Engineering** |
+| Patterns of Enterprise Application Architecture | 企业应用架构模式 |  |  |
 | Countinuous Delivery | Countinuous Delivery 中文版 | | |
 | The Phoenix Project | 鳳凰項目：一個IT運維的傳奇故事 |  |  |
+| Software Architecture in Practice | 軟件構架實踐 |  |  |
+| Domain-Driven Design: Tackling Complexity in the Heart of Software | 領域驅動設計 |  |  |
 | **Programmer** |
 | The Pragmatic Programmer |程序員修煉之道︰從小工到專家 | | |
 | The Clean Coder | 無瑕的程式碼番外篇 | v | null |
@@ -54,3 +57,4 @@
 * [程式設計師應讀的十本好書@INSIDE](http://www.inside.com.tw/2011/03/03/books-programmer-must-read)
 * [91 推薦書籍](https://91-tdd.hackpad.com/91--SCin8rM6vpI)
 * [每位認真的程式設計師都要讀的10本經典書](https://softnshare.wordpress.com/2016/02/24/%E6%AF%8F%E4%BD%8D%E8%AA%8D%E7%9C%9F%E7%9A%84%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%E5%B8%AB%E9%83%BD%E8%A6%81%E8%AE%80%E7%9A%8410%E6%9C%AC%E7%B6%93%E5%85%B8%E6%9B%B8/)
+* [程序员必读书籍@计算机书籍控](http://bestcbooks.com/recommend/most-influential-book/)
