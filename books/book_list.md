@@ -49,7 +49,8 @@
 | Modern PHP | 現代 PHP：新的特點及良好習慣 | v | null |
 | Laravel: From Apprentice To Artisan | Laravel - 从百草园到三味书屋 | reading | |
 | **Management** |||
-| | 激發員工潛力的薩提爾教練模式 | v | null | 
+| The Silo Effect | 穀倉效應 |  |  |
+| | 激發員工潛力的薩提爾教練模式 | v | null |
 
 
 ## Reference
