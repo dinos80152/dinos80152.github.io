@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>從 AutoHotkey 碰觸程式設計</title>
+
+        <meta name="description" content="從 AutoHotkey 碰觸程式設計">
+        <meta name="author" content="Dino Lai">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+        <link rel="stylesheet" href="reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+        <style>
+        .reveal .slides {
+            text-align: left;
+        }
+
+        .reveal .slides h1, h2, h3 {
+            text-align: center;
+        }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <!-- Use External -->
+                <section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n">
+                    <script type="text/template">
+# 從 AutoHotkey「碰」觸程式設計
+
+賴珈汶 (Dino Lai)
+
+2016.04.13
+
+
+
+## 安裝
+
+
+### AutoHotkey
+
+* [官網](https://autohotkey.com/)
+  * Choose Unicode
+* [文件](https://autohotkey.com/docs/AutoHotkey.htm)
+
+
+### Sublime Text 3
+
+* [官網](https://www.sublimetext.com/)
+
+* [Package Control](https://packagecontrol.io/installation#st3)
+
+* AutoHotkey Plugin
+  * Preference &rarr; Package Control
+  * Install Package
+  * AutoHotkey
+
+
+
+## 基本指令
+
+
+
+## 鍵盤
+
+
+### 自訂快捷鍵
+
+* Syntax (句法)
+
+```autohotkey
+Send, Keys
+```
+
+* Example
+
+```autohotkey
+#h:: ; Win + h
+  Send, Hello World ; Type Hello World
+Return ; STOPS Code From going any further
+
+::hw::
+  Hello World
+```
+
+* 寄信名單
+
+* [鍵盤符號表](https://www.autohotkey.com/docs/Hotkeys.htm#Symbols)
+
+
+### 模擬鍵盤
+
+```AutoHotkey
+#h::
+  Send, Hello World {Enter}
+Return
+```
+
+* 試試 tab
+
+* [特殊鍵名稱表](https://www.autohotkey.com/docs/commands/Send.htm)
+
+
+
+## 滑鼠
+
+
+### Window Spy
+
+* 常駐列 &rarr; AutoHotkey &rarr; 右鍵 &rarr; Window Spy
+* 補圖
+
+
+### 點擊
+
+* Syntax
+
+```AutoHotkey
+MouseClick [, WhichButton , X, Y, ClickCount, Speed, D|U, R]
+```
+
+* Example
+
+```AutoHotkey
+MouseClick
+MouseClick right, 44, 55
+MouseClick right, 44, 55, 2
+MouseClick right, 44, 55, 2, 50
+MouseClick right, 44, 55, 2, , D
+MouseClick right, 44, 55, 2, , D, R
+```
+
+* Wheel
+
+```AutoHotkey
+MouseClick WheelUp
+MouseClick WheelDown, , , 2
+MouseClick WheelLeft
+MouseClick WheelRight
+```
+
+https://autohotkey.com/docs/commands/MouseClick.htm
+
+
+### 移動滑鼠
+
+* Syntax
+
+```AutoHotkey
+MouseMove, X, Y [, Speed, R]
+```
+
+* Example
+
+```AutoHotkey
+MouseMove 100, 100, 20
+```
+
+
+### 工單來了
+
+# 在小畫家裡畫出一條直線
+
+
+### 拖曳滑鼠
+
+* Syntax
+
+```AutoHotkey
+MouseClickDrag, WhichButton, X1, Y1, X2, Y2 [, Speed, R]
+```
+
+* Example
+
+```autohotkey
+MouseClickDrag, left, 100, 100, 200, 200
+```
+
+
+### 工單來了
+
+# 將使用者桌面圖示們都刪除
+
+
+
+## 開起程式
+
+* Syntax
+
+```AutoHotkey
+Run, Target [, WorkingDir, Max|Min|Hide|UseErrorLevel, OutputVarPID]
+```
+
+* Example
+
+```AutoHotkey
+Run mspaint, , max
+Run www.google.com.tw
+```
+
+```AutoHotkey
+RunWait www.google.com.tw
+Send garena
+Send {Enter}
+```
+
+
+## 訊息視窗
+
+```AutoHotkey
+MsgBox, Hello World
+```
+
+
+
+## 流程控制
+
+
+### 迴圈
+
+* 連點
+
+http://www.clickclickclick.com/
+
+按下 win+c，點擊 100 下。
+
+```
+Loop 100 {
+    Click
+}
+```
+
+
+### 選擇
+
+我爽再停
+
+```
+$F1::
+
+Loop {
+    if not getKeyState("F1", "P") {
+        break;
+    }
+    Click
+}
+```
+
+
+
+## 變數
+
+```
+clickTotal = 100
+Loop %clickTotal% {
+    Click
+}
+```
+
+
+
+## 綜合應用
+
+1. 開起小畫家
+2. 點擊 win + d
+3. 開始畫圖(多個正方型)
+4. 彈出完成
+
+
+
+## 封裝成 exe 檔
+
+                    </script>
+                </section>
+            </div>
+
+        </div>
+
+        <script src="reveal.js/lib/js/head.min.js"></script>
+        <script src="reveal.js/js/reveal.js"></script>
+
+        <script>
+
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                slideNumber: true,
+                history: true,
+                center: true,
+
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+                // Optional reveal.js plugins
+                dependencies: [
+                    { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+                    { src: 'reveal.js/plugin/notes/notes.js', async: true }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>
