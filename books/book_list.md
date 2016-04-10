@@ -6,7 +6,7 @@
 | The Mythical Man-Month | 人月神話 | v | null |
 | Joel on Software | 約耳趣談軟體：來自專案管理的現場實錄 | | |
 | More Joel on Software | 約耳續談軟體：探究軟體經營的根本實學 | | |
-| Peopleware: Productive Projects and Teams | Peopleware：腦力密集產業的人才管理之道(增訂版) | |
+| Peopleware: Productive Projects and Teams | Peopleware：腦力密集產業的人才管理之道(增訂版) | reading |
 | **Programming** |||
 | Code Complete | 軟體建構之道 | | |
 | Agile Software Development: Principles, Patterns, and Practices | 敏捷軟體開發，原則、樣式及實務 |  |  |
@@ -44,12 +44,13 @@
 | Kanban and Scrum - making the most of both | 看板和Scrum相得益彰 | v | null |
 | User Stories Applied:For Agile Software Development | 用户故事与敏捷方法 | | |
 | **Javascript** ||||
-| JavaScript: The Good Parts | JavaScript：優良部分 | reading |  |
+| JavaScript: The Good Parts | JavaScript：優良部分 | v | null |
 | **PHP** |
 | Modern PHP | 現代 PHP：新的特點及良好習慣 | v | null |
 | Laravel: From Apprentice To Artisan | Laravel - 从百草园到三味书屋 | reading | |
 | **Management** |||
-| | 激發員工潛力的薩提爾教練模式 | v | null | 
+| The Silo Effect | 穀倉效應 |  |  |
+| | 激發員工潛力的薩提爾教練模式 | v | null |
 
 
 ## Reference
