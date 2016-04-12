@@ -118,6 +118,31 @@ Return
 
 
 
+## 開起程式
+
+* Syntax
+
+```autohotkey
+Run, Target [, WorkingDir, Max|Min|Hide|UseErrorLevel, OutputVarPID]
+```
+
+* Example
+
+```autohotkey
+Run mspaint, , max
+Run www.google.com.tw
+```
+
+```autohotkey
+RunWait www.google.com.tw
+Sleep, 2000 ; 等待兩秒
+Send, garena
+Send, {Enter}
+Return
+```
+
+
+
 ## 滑鼠
 
 
@@ -192,33 +217,7 @@ MouseClickDrag, WhichButton, X1, Y1, X2, Y2 [, Speed, R]
 MouseClickDrag, left, 100, 100, 200, 200
 ```
 
-
-### 工單來囉
-
-# 選擇一區塊的桌面圖示們刪除
-
-
-
-## 開起程式
-
-* Syntax
-
-```autohotkey
-Run, Target [, WorkingDir, Max|Min|Hide|UseErrorLevel, OutputVarPID]
-```
-
-* Example
-
-```autohotkey
-Run mspaint, , max
-Run www.google.com.tw
-```
-
-```autohotkey
-RunWait www.google.com.tw
-Send garena
-Send {Enter}
-```
+* 選擇一區塊的桌面圖示們刪除
 
 
 
@@ -245,6 +244,68 @@ else
     MsgBox You pressed No.
 ```
 
+
+### 工單來囉
+
+# 開啟小畫家，移到畫布左上角，畫出一個長方形，完成後，跳出一視窗顯示完成。
+
+
+
+## PM 有話說
+
+# 可以大一點嗎？
+
+
+## 變數
+
+
+### Storing values in variable
+
+* 使用這種方法與一般程式語言用法較相近
+
+```autohotkey
+myBirthday := 19861011 ; store number
+myName := "Dino" ; store string
+copyOfMyName := myName
+result := myBirthday * 2 + (10 - 2)
+```
+
+* 另一種寫法
+
+```autohotkey
+myBirthday = 19861011 ; store number
+myName = Dino ; store string
+copyOfMyName = %myName%
+```
+
+** Avoid Reserved Words **
+
+
+### Variable in expression
+
+* 要使用 % 表示我們有使用變數在裡面
+
+* MsgBox
+
+```autohotkey
+clickTotal = 100
+MsgBox, % "Click " . clickTotal . " Times"
+```
+
+* Loop
+
+```autohotkey
+clickTotal = 100
+Loop % clickTotal {
+    Click
+}
+```
+
+
+
+## 主管有話說
+
+# 可以多一點嗎？
 
 
 ## 流程控制
@@ -283,11 +344,10 @@ Loop {
 ```
 
 
-### 工單來囉
 
-## 按下 win+c，點擊 100 下。
+## 老闆有話說
 
-### http://www.clickclickclick.com/
+# 可以多到不能再多嗎？
 
 
 ### 選擇
@@ -348,76 +408,6 @@ Loop 10 {
 }
 ```
 
-
-
-## 變數
-
-
-### Storing values in variable
-
-* 使用這種方法與一般程式語言用法較相近
-
-```autohotkey
-myBirthday := 19861011 ; store number
-myName := "Dino" ; store string
-copyOfMyName := myName
-result := myBirthday * 2 + (10 - 2)
-```
-
-* 另一種寫法
-
-```autohotkey
-myBirthday = 19861011 ; store number
-myName = Dino ; store string
-copyOfMyName = %myName%
-```
-
-** Avoid Reserved Words **
-
-
-### Variable in expression
-
-* 要使用 % 表示我們有使用變數在裡面
-
-* Loop
-
-```autohotkey
-clickTotal = 100
-Loop % clickTotal {
-    Click
-}
-```
-
-* MsgBox
-
-```autohotkey
-clickTotal = 100
-MsgBox, % "Click " . clickTotal . " Times"
-```
-
-
-
-## 工單來囉
-
-1. 開起小畫家
-2. 點擊 win + p
-3. 畫出一個長方型
-4. 彈出完成
-
-
-## PM 有話說
-
-# 可以大一點嗎？
-
-
-## 主管有話說
-
-# 可以多一點嗎？
-
-
-## 老闆有話說
-
-# 可以多到不能再多嗎？
 
 
 ## 玩家有話說
