@@ -106,7 +106,7 @@ Return ; STOPS Code From going any further
 
 ### 模擬鍵盤
 
-```AutoHotkey
+```autohotkey
 #h::
   Send, Hello World {Enter}
 Return
@@ -131,13 +131,13 @@ Return
 
 * Syntax
 
-```AutoHotkey
+```autohotkey
 MouseClick [, WhichButton , X, Y, ClickCount, Speed, D|U, R]
 ```
 
 * Example
 
-```AutoHotkey
+```autohotkey
 MouseClick
 MouseClick right, 44, 55
 MouseClick right, 44, 55, 2
@@ -148,7 +148,7 @@ MouseClick right, 44, 55, 2, , D, R
 
 * Wheel
 
-```AutoHotkey
+```autohotkey
 MouseClick WheelUp
 MouseClick WheelDown, , , 2
 MouseClick WheelLeft
@@ -162,13 +162,13 @@ https://autohotkey.com/docs/commands/MouseClick.htm
 
 * Syntax
 
-```AutoHotkey
+```autohotkey
 MouseMove, X, Y [, Speed, R]
 ```
 
 * Example
 
-```AutoHotkey
+```autohotkey
 MouseMove 100, 100, 20
 ```
 
@@ -182,7 +182,7 @@ MouseMove 100, 100, 20
 
 * Syntax
 
-```AutoHotkey
+```autohotkey
 MouseClickDrag, WhichButton, X1, Y1, X2, Y2 [, Speed, R]
 ```
 
@@ -203,18 +203,18 @@ MouseClickDrag, left, 100, 100, 200, 200
 
 * Syntax
 
-```AutoHotkey
+```autohotkey
 Run, Target [, WorkingDir, Max|Min|Hide|UseErrorLevel, OutputVarPID]
 ```
 
 * Example
 
-```AutoHotkey
+```autohotkey
 Run mspaint, , max
 Run www.google.com.tw
 ```
 
-```AutoHotkey
+```autohotkey
 RunWait www.google.com.tw
 Send garena
 Send {Enter}
@@ -226,18 +226,18 @@ Send {Enter}
 
 * Syntax
 
-```AutoHotkey
+```autohotkey
 MsgBox, Text
 MsgBox [, Options, Title, Text, Timeout]
 ```
 
 * Example
 
-```AutoHotkey
+```autohotkey
 MsgBox, Hello World
 ```
 
-```AutoHotkey
+```autohotkey
 MsgBox, 4, Are you sure, Would you like to continue?
 ifMsgBox Yes
     MsgBox You pressed Yes.
@@ -251,7 +251,7 @@ else
 
 ### 在進行以下實驗時，務必先此段 Code 放在檔案最後面
 
-```AutoHotkey
+```autohotkey
 Escape::
 ExitApp
 Return
@@ -262,13 +262,13 @@ Return
 
 * Syntax
 
-```AutoHotkey
+```autohotkey
 Loop [, Count]
 ```
 
 * 連點
 
-```
+```autohotkey
 Loop 100 {
     MouseClick, Left
 }
@@ -276,7 +276,7 @@ Loop 100 {
 
 * 無限連點
 
-```
+```autohotkey
 Loop {
     MouseClick, Left
 }
@@ -294,10 +294,10 @@ Loop {
 
 * Syntax
 
-```
+```autohotkey
 if (expression) {
 
-} elseif (expression) {
+} else if (expression) {
 
 } else {
 
@@ -306,11 +306,11 @@ if (expression) {
 
 * Example
 
-```
+```autohotkey
 Loop {
     if (a_index % 3 == 1) {
         MouseClick, Left
-    } elseif (a_index % 3 == 2) {
+    } else if (a_index % 3 == 2) {
         MouseClick, Right
     } else {
         MouseClick, WheelUp
@@ -319,15 +319,15 @@ Loop {
 ```
 
 
-#### AND & OR
+### AND n OR
 
 * 判斷是否在期間內
 
-```
+```autohotkey
 FormatTime, OutputVar [, YYYYMMDDHH24MISS, Format]
 ```
 
-```
+```autohotkey
 FormatTime, nowDate, , yyyyMMdd
 
 if (nowDate >= 20160321 AND nowDate <= 20160419) {
@@ -337,7 +337,7 @@ if (nowDate >= 20160321 AND nowDate <= 20160419) {
 
 * 除了零整除點右鍵，餘一餘二點左鍵
 
-```
+```autohotkey
 Loop 10 {
     remainder := mod(a_index, 3)
     if (remainder == 1 OR remainder == 2) {
@@ -357,7 +357,7 @@ Loop 10 {
 
 * 使用這種方法與一般程式語言用法較相近
 
-```
+```autohotkey
 myBirthday := 19861011 ; store number
 myName := "Dino" ; store string
 copyOfMyName := myName
@@ -366,7 +366,7 @@ result := myBirthday * 2 + (10 - 2)
 
 * 另一種寫法
 
-```
+```autohotkey
 myBirthday = 19861011 ; store number
 myName = Dino ; store string
 copyOfMyName = %myName%
@@ -381,7 +381,7 @@ copyOfMyName = %myName%
 
 * Loop
 
-```
+```autohotkey
 clickTotal = 100
 Loop % clickTotal {
     Click
@@ -390,7 +390,7 @@ Loop % clickTotal {
 
 * MsgBox
 
-```
+```autohotkey
 clickTotal = 100
 MsgBox, % "Click " . clickTotal . " Times"
 ```
@@ -460,13 +460,14 @@ MsgBox, % "Click " . clickTotal . " Times"
                     { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
                     { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                     { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                    { src: 'reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    // { src: 'reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    // remove condition for markdown code highlight
+                    { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
                     { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
                     { src: 'reveal.js/plugin/notes/notes.js', async: true }
                 ]
             });
 
         </script>
-
     </body>
 </html>
