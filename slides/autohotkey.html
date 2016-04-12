@@ -173,7 +173,7 @@ MouseMove 100, 100, 20
 ```
 
 
-### 工單來了
+### 工單來囉
 
 # 在小畫家裡畫出一條直線
 
@@ -193,9 +193,9 @@ MouseClickDrag, left, 100, 100, 200, 200
 ```
 
 
-### 工單來了
+### 工單來囉
 
-# 將使用者桌面圖示們都刪除
+# 選擇一區塊的桌面圖示們刪除
 
 
 
@@ -221,44 +221,130 @@ Send {Enter}
 ```
 
 
+
 ## 訊息視窗
+
+* Syntax
+
+```AutoHotkey
+MsgBox, Text
+MsgBox [, Options, Title, Text, Timeout]
+```
+
+* Example
 
 ```AutoHotkey
 MsgBox, Hello World
+```
+
+```AutoHotkey
+MsgBox, 4, Are you sure, Would you like to continue?
+ifMsgBox Yes
+    MsgBox You pressed Yes.
+else
+    MsgBox You pressed No.
 ```
 
 
 
 ## 流程控制
 
+### 在進行以下實驗時，務必先此段 Code 放在檔案最後面
+
+```AutoHotkey
+Escape::
+ExitApp
+Return
+```
+
 
 ### 迴圈
 
+* Syntax
+
+```AutoHotkey
+Loop [, Count]
+```
+
 * 連點
-
-http://www.clickclickclick.com/
-
-按下 win+c，點擊 100 下。
 
 ```
 Loop 100 {
-    Click
+    MouseClick, Left
+}
+```
+
+* 無限連點
+
+```
+Loop {
+    MouseClick, Left
 }
 ```
 
 
+### 工單來囉
+
+## 按下 win+c，點擊 100 下。
+
+### http://www.clickclickclick.com/
+
+
 ### 選擇
 
-我爽再停
+* Syntax
 
 ```
-$F1::
+if (expression) {
 
+} elseif (expression) {
+
+} else {
+
+}
+```
+
+* Example
+
+```
 Loop {
-    if not getKeyState("F1", "P") {
-        break;
+    if (a_index % 3 == 1) {
+        MouseClick, Left
+    } elseif (a_index % 3 == 2) {
+        MouseClick, Right
+    } else {
+        MouseClick, WheelUp
     }
-    Click
+}
+```
+
+
+#### AND & OR
+
+* 判斷是否在期間內
+
+```
+FormatTime, OutputVar [, YYYYMMDDHH24MISS, Format]
+```
+
+```
+FormatTime, nowDate, , yyyyMMdd
+
+if (nowDate >= 20160321 AND nowDate <= 20160419) {
+    MsgBox, Hello Aries
+}
+```
+
+* 除了零整除點右鍵，餘一餘二點左鍵
+
+```
+Loop 10 {
+    remainder := mod(a_index, 3)
+    if (remainder == 1 OR remainder == 2) {
+        MouseClick, Left
+    } else if (remainder == 0 AND a_index > 3) {
+        MouseClick, Right
+    }
 }
 ```
 
@@ -266,26 +352,87 @@ Loop {
 
 ## 變數
 
+
+### Storing values in variable
+
+* 使用這種方法與一般程式語言用法較相近
+
+```
+myBirthday := 19861011 ; store number
+myName := "Dino" ; store string
+copyOfMyName := myName
+result := myBirthday * 2 + (10 - 2)
+```
+
+* 另一種寫法
+
+```
+myBirthday = 19861011 ; store number
+myName = Dino ; store string
+copyOfMyName = %myName%
+```
+
+** Avoid Reserved Words **
+
+
+### Variable in expression
+
+* 要使用 % 表示我們有使用變數在裡面
+
+* Loop
+
 ```
 clickTotal = 100
-Loop %clickTotal% {
+Loop % clickTotal {
     Click
 }
 ```
 
+* MsgBox
+
+```
+clickTotal = 100
+MsgBox, % "Click " . clickTotal . " Times"
+```
 
 
-## 綜合應用
+
+## 工單來囉
 
 1. 開起小畫家
-2. 點擊 win + d
-3. 開始畫圖(多個正方型)
+2. 點擊 win + p
+3. 畫出一個長方型
 4. 彈出完成
+
+
+## PM 有話說
+
+# 可以大一點嗎？
+
+
+## 主管有話說
+
+# 可以多一點嗎？
+
+
+## 老闆有話說
+
+# 可以多到不能再多嗎？
+
+
+## 玩家有話說
+
+# 可以螺旋的嗎？
 
 
 
 ## 封裝成 exe 檔
 
+* test.ahk &rarr; 右鍵 &rarr; Compile Script &rarr; test.exe
+
+
+
+# Thank You for Your Attention
                     </script>
                 </section>
             </div>
