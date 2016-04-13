@@ -92,11 +92,9 @@ Send, Keys
 
 ```autohotkey
 #h:: ; Win + h
-  Send, Hello World ; Type Hello World
+    Send, Hello World ; Type Hello World
+::hw::Hello World
 Return ; STOPS Code From going any further
-
-::hw::
-  Hello World
 ```
 
 * 寄信名單
@@ -268,6 +266,8 @@ myBirthday := 19861011 ; store number
 myName := "Dino" ; store string
 copyOfMyName := myName
 result := myBirthday * 2 + (10 - 2)
+
+MsgBox, % "My Name is " . copyOfMyName . ", result is " . result
 ```
 
 * 另一種寫法
@@ -341,6 +341,10 @@ Loop 100 {
 Loop {
     MouseClick, Left
 }
+
+Escape::
+ExitApp
+Return
 ```
 
 
@@ -367,14 +371,15 @@ if (expression) {
 * Example
 
 ```autohotkey
-Loop {
-    if (a_index % 3 == 1) {
-        MouseClick, Left
-    } else if (a_index % 3 == 2) {
-        MouseClick, Right
+Loop 1000{
+    if (mod(a_index, 3) == 1) {
+        Send, 1
+    } else if (mod(a_index, 3) == 2) {
+        Send, 2
     } else {
-        MouseClick, WheelUp
+        Send, 0
     }
+    Sleep, 1000
 }
 ```
 
@@ -398,7 +403,7 @@ if (nowDate >= 20160321 AND nowDate <= 20160419) {
 * 除了零整除點右鍵，餘一餘二點左鍵
 
 ```autohotkey
-Loop 10 {
+Loop 100 {
     remainder := mod(a_index, 3)
     if (remainder == 1 OR remainder == 2) {
         MouseClick, Left
