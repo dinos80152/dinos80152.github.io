@@ -10,10 +10,27 @@
 <script>
 	var container = {
 		"tag": div,
-		
+		"style": {
+			"background": {
+				"color": "block",
+				"border": "dotted"
+			}
+		}
 	};
 
-	document.querySelector("#container");
+	container.style.background-color -> white
+
+	container.style.background-color = "black";
+
+	var bgColor = container.style;
+
+	container.style = {
+		"background-color": "white"
+	}
+
+	var bgColor = container.style.background-color;
+
+	bgColor = white;
 </script>
 </body>
 </html>
