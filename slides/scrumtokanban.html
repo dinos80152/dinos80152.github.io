@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Agile Development Introduction</title>
+
+        <meta name="description" content="Scrum 333 Introduction">
+        <meta name="author" content="Dino Lai">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+        <style type="text/css">
+        .reveal .slides {
+            text-align: left;
+        }
+
+        .reveal .slides h2, h1{
+            text-align: center;
+        }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <!-- Use External -->
+                <section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n">
+                    <script type="text/template">
+# 專案開發流程改善計劃, Kanban
+## DinoLai
+
+
+
+## Scrum 不適合
+* 不固定的上線時間
+* 無法固定每次 sprint 的需求
+* 無法組織橫跨所有必須功能的團隊
+* 需要更彈性的解決方案
+
+
+
+## 使用Kanban 方法
+* 流程可視化
+* 限制在制品
+* 度量生產週期
+
+
+
+## 改變
+* 卡片項目改變
+  * Planning
+  * Review
+* 不安排每個禮拜要做的卡片與數量
+* 不做估算
+* 固定時間迭代 -> 事件驅動
+* 限制每一項目的卡片數量
+* 跨功能團隊 -> 專職團隊
+* 沒有規定角色
+
+
+
+## 如何做
+* Scrum 與 Kanban 相得益彰, P.34
+* Google Spreadsheet (Bug and Issue Track List)
+* 認領卡片
+* 每個禮拜規劃與檢討會議
+                    </script>
+                </section>
+            </div>
+
+        </div>
+
+        <script src="reveal.js/lib/js/head.min.js"></script>
+        <script src="reveal.js/js/reveal.js"></script>
+
+        <script>
+
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                slideNumber: true,
+                history: true,
+                center: true,
+
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+                // Optional reveal.js plugins
+                dependencies: [
+                    { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+                    { src: 'reveal.js/plugin/notes/notes.js', async: true }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>

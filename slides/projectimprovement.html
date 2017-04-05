@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Project Improvement</title>
+
+        <meta name="description" content="Scrum 333 Introduction">
+        <meta name="author" content="Dino Lai">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+        <!-- Printing and PDF exports -->
+        <script>
+          var link = document.createElement( 'link' );
+          link.rel = 'stylesheet';
+          link.type = 'text/css';
+          link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+          document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+        <style type="text/css">
+        .reveal .slides {
+            text-align: left;
+        }
+
+        .reveal .slides h2, h1{
+            text-align: center;
+        }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <!-- Use External -->
+                <section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n">
+                    <script type="text/template">
+# 專案開發流程改善計劃
+## DinoLai
+
+
+
+## 專案遇到的問題
+### 大環境
+* 遊戲生命週期變短，新增太快，人力趕不上遊戲
+
+### 需求
+* 無法掌控進度，時不時需要關心
+* 需求常被遺忘
+
+### 開發
+* 負責該款遊戲的工程師一請假就無法處理
+* 時常會有問題產生
+
+
+
+## 部門遇到的問題
+### 開發前
+* 公司起飛專案變多，人手無法應付
+
+### 開發中
+* 需求經常更新
+* 工程師常被打擾，無法專心做事
+
+### 開發後
+* 無法互相代理，爽假不太爽
+
+
+
+## 解決方法
+## Scrum & Agile Development
+![The Agile: Scrum Framework at a glance](http://35qk152ejao6mi5pan29erbr9.wpengine.netdna-cdn.com/wp-content/uploads/2013/05/Scrum_Framework.jpg)
+
+
+### 無法掌控進度，時不時需要關心
+* 進度透明化
+  * 看板
+    * Trello
+    * Google Spreadsheet
+    * 白板、便條紙
+  * 每週 review 報告
+
+
+### 需求經常更新、工程師常被打擾、需求常被遺忘
+* 需求拆分
+  * 需求改變：每週提一次
+  * 上線當週、測試時：以信件通知，半天處理一次
+  * 上線後特急：G+ or 直接來找工程師
+* 規劃會議 (每週固定開需求的時間)
+* 看板
+
+
+### 遊戲生命週期變短，新增太快，人力趕不上遊戲
+* 以遊戲為分工條件，易造成工作時間分配不均
+* 打散專案，團隊開發，以 Story 拆分為工作項目做為分工條件
+  * 強的要命的英雄停服活動
+    1. 玩家可以到活動頁登入已進行轉點活動
+    2. 已登入的使用者可以選擇他有角色的遊戲登記轉點
+      * 判斷登入 <!-- .element: class="fragment"> -->
+      * 透過 API 得知是否有角色 <!-- .element: class="fragment"> -->
+      * 儲存至資料庫 <!-- .element: class="fragment"> -->
+
+
+### 負責該款遊戲的工程師一請假就無法處理、無法互相代理，爽假不太爽
+* 團隊開發
+* 團隊內所有成員有團隊所負責專案的所有權限
+  * 資料庫
+  * 系統
+* 一個專案至少有兩位工程師有 Know-How、有能力處理
+
+
+### 時常會有問題產生
+* 互相檢視程式碼
+* 共同撰寫
+* 自動化測試
+
+
+
+## 需要配合的事項
+* 需求與改變以信件為主，一段時間整理後再寄出
+* PM 需互相協調使用團隊的情況
+* 每週規劃與進度回報
+* 寒暑假以遊戲為主
+* 內部改善於遊戲低峰期提出 (避免寒暑假及活動檔期)
+  * 後台
+  * 公司內部系統
+  * 其餘非遊戲系統
+    * Shop
+    * 客服
+    * 其他
+
+                    </script>
+                </section>
+            </div>
+
+        </div>
+
+        <script src="reveal.js/lib/js/head.min.js"></script>
+        <script src="reveal.js/js/reveal.js"></script>
+
+        <script>
+
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                slideNumber: true,
+                history: true,
+                center: true,
+
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+                // Optional reveal.js plugins
+                dependencies: [
+                    { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+                    { src: 'reveal.js/plugin/notes/notes.js', async: true }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>
