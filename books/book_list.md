@@ -65,3 +65,5 @@
 * [每位認真的程式設計師都要讀的10本經典書](https://softnshare.wordpress.com/2016/02/24/%E6%AF%8F%E4%BD%8D%E8%AA%8D%E7%9C%9F%E7%9A%84%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88%E5%B8%AB%E9%83%BD%E8%A6%81%E8%AE%80%E7%9A%8410%E6%9C%AC%E7%B6%93%E5%85%B8%E6%9B%B8/)
 * [程序员必读书籍@计算机书籍控](http://bestcbooks.com/recommend/most-influential-book/)
 * [计算机领域的日系书籍](http://droidyue.com/blog/2016/04/19/japanese-it-books/)
+* [What is the single most influential book every programmer should read?@stackoverflow](http://stackoverflow.com/questions/1711/what-is-the-single-most-influential-book-every-programmer-should-read?page=1&tab=votes#tab-top)
+* [程序员技术练级攻略@coolshell](http://coolshell.cn/articles/4990.html)
