@@ -42,3 +42,27 @@ class Queue
 ```
 
 ### Laravel
+
+https://github.com/dinos80152/laravel5-example/tree/master/app/Jobs
+
+
+### Beanstalkd
+
+
+#### Beanstalkd Reference
+
+http://kr.github.io/beanstalkd/
+http://alister.github.io/presentations/Beanstalkd/
+
+
+#### Client Reference
+PHP
+https://github.com/pda/pheanstalk
+
+Laravel
+http://laravel.com/docs/5.1/queues
+
+
+#### Extended Reading
+RabbitMQ Tutorial (Know How Queue Work)
+https://www.rabbitmq.com/getstarted.html
