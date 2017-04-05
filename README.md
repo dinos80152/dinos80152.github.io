@@ -1,20 +1,16 @@
-# DinoLai's Page
+# Dino Lai Personal Web Site
 
-```php
-class Test
-{
-    public function test($arr) {
-        foreach ($arr as $item) {
-            echo $item;
-        }
-    }
-}
-```
+## Dino Lai 賴珈汶
 
-```json
-[
-    {
-        "id": 1
-    }
-]
-```
+我們只能靠創造消磨一天的精力。
+
+## Find Me
+
+* [Web Site](http://blog.dinolai.com)
+* [Github](https://github.com/dinos80152)
+* [LinkedIn](https://www.linkedin.com/in/dinolai/)
+* [Flickr](https://www.flickr.com/dinolai/)
+
+## Contact Me
+
+[dinos80152@gmail.com](dinos80152@gmail.com)
