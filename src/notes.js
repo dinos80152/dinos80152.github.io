@@ -40,7 +40,7 @@
     }
 
     function renderNotesList() {
-        var jsonFile = '/notes/notes.json';
+        var jsonFile = '/src/notes.json';
         getUrlContent(jsonFile, function(content) {
             var noteList = JSON.parse(content);
             var ul = document.getElementById('notes-list-all');
