@@ -6,7 +6,7 @@
 
 ## Git Mirror
 
-```
+```bash
 git clone --mirror gitolite@svn.garena.tw:GarenaTW/Authentication
 cd Authentication.git/
 git remote set-url --push origin git@gitlab.garena.tw:GarenaTW/Authentication.git
