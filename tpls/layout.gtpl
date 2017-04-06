@@ -70,6 +70,7 @@
                     <header>{{.LastEdit}}</header>
                     <main>{{.Content}}</main>
                 </article>
+                <hr>
                 <div id="disqus_thread"></div>
             </div>
             <div class="col-lg-3">
