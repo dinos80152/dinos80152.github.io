@@ -25,14 +25,25 @@ type article struct {
 }
 
 func main() {
-
 	readmeToIndex("./")
-
-	mdDir := noteMdDir
-	htmlDir := noteHTMLDir
-	files, _ := ioutil.ReadDir(mdDir)
+	cleanFolder(noteHTMLDir)
+	files, _ := ioutil.ReadDir(noteMdDir)
 	for _, f := range files {
-		genHTML(mdDir, htmlDir, f, "")
+		genHTML(noteMdDir, noteHTMLDir, f, "")
+	}
+}
+
+func cleanFolder(path string) {
+	root, _ := os.Getwd()
+	files, _ := ioutil.ReadDir(path)
+	os.Chdir(path)
+	defer os.Chdir(root)
+	for _, f := range files {
+		if f.IsDir() {
+			cleanFolder(f.Name())
+		} else {
+			os.Remove(f.Name())
+		}
 	}
 }
 
