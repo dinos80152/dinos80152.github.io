@@ -23,6 +23,7 @@
         crossorigin="anonymous">
     <!--<link rel="stylesheet" type="text/css" href="/node_modules/highlight.js/styles/default.css">-->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/default.min.css">    
+    <link rel="stylesheet" href="/node_modules/github-markdown-css/github-markdown.css">
     <link rel="stylesheet" href="/assets/css/layout.css">
     <script src="/assets/js/google-analytics.js"></script>
 </head>
@@ -67,7 +68,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-9">
-                <article>
+                <article class="markdown-body">
                     <header>{{.UpdatedAt}}</header>
                     <main>{{.Content}}</main>
                 </article>
@@ -152,7 +153,7 @@
         });
 
         //use bootstrap css
-        $("table").addClass("table")
+        $("table").addClass("table table-striped")
     });
 </script>
 </body>
