@@ -50,7 +50,7 @@
                         <li><a href="/slides">Slides</a></li>
                         <li><a href="/books">Books</a></li>
                         <li><a href="/records">Records</a></li>
-                        <li><a href="https://www.xmind.net/share/dinos80152/">MindMaps</a></li>
+                        <li><a href="https://www.xmind.net/share/dinos80152/" target="_blank">MindMaps</a></li>
                     </ul>
                     <!--<form class="navbar-form navbar-right" role="search">
                         <div class="form-group">
@@ -68,7 +68,7 @@
         <div class="row">
             <div class="col-lg-9">
                 <article>
-                    <header>{{.LastEdit}}</header>
+                    <header>{{.UpdatedAt}}</header>
                     <main>{{.Content}}</main>
                 </article>
                 <hr>
