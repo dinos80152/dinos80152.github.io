@@ -69,7 +69,7 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>{{.UpdatedAt}}</header>
+                    <header>Updated: {{.UpdatedAt}}</header>
                     <main>{{.Content}}</main>
                 </article>
                 <hr>

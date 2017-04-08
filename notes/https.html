@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Dino Lai Personal Page include blog, tutorial and code">
+    <meta name="description" content="Dino Lai Personal Web Site include Blogs, Tutorials and Code">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
     <title>HTTPS - Dino Lai</title>
     <!-- Facebook Open Graph -->
-    <meta property="og:url" content="http://dinos80152.github.io/" />
+    <meta property="og:url" content="http://dinolai.com/" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="HTTPS - Dino Lai" />
     <meta property="og:description" content="" />
@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
         crossorigin="anonymous">
     <!--<link rel="stylesheet" type="text/css" href="/node_modules/highlight.js/styles/default.css">-->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/default.min.css">    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/default.min.css">
     <link rel="stylesheet" href="/node_modules/github-markdown-css/github-markdown.css">
     <link rel="stylesheet" href="/assets/css/layout.css">
     <script src="/assets/js/google-analytics.js"></script>
@@ -69,7 +69,7 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>2017-03-31 23:10:22 CST +08</header>
+                    <header>Updated: 2017-03-31 23:10:22 CST +08</header>
                     <main><h1>HTTPS</h1>
 
 <h2>Workflow</h2>
@@ -179,6 +179,8 @@ browser-&gt;browser: decrypted response by session key
 
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<script id="dsq-count-scr" src="//dinolaigithubpersonalwebsite.disqus.com/count.js" async></script>
+<!--End Disqus Block-->
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
     crossorigin="anonymous"></script>
 <!-- Latest compiled and minified JavaScript -->
@@ -186,7 +188,13 @@ browser-&gt;browser: decrypted response by session key
     crossorigin="anonymous"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
 <script src="/google-search.js"></script>
-<script id="dsq-count-scr" src="//dinolaigithubpersonalwebsite.disqus.com/count.js" async></script>
+
+<script src="/bower_components/bower-webfontloader/webfont.js"></script>
+<script src="/bower_components/snap.svg/dist/snap.svg-min.js"></script>
+<script src="/bower_components/underscore/underscore-min.js"></script>
+<script src="/bower_components/js-sequence-diagrams/dist/sequence-diagram-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.6/flowchart.min.js"></script>
 <script>
     $(document).ready(function () {
         // enable highlight.js
@@ -196,7 +204,23 @@ browser-&gt;browser: decrypted response by session key
 
         //use bootstrap css
         $("table").addClass("table table-striped")
+
+        // use jsSequence
+        var options = {
+            theme: "simple"
+        }
+        $("pre code.language-sequence").sequenceDiagram(options);
+
+        // use flowchart.js
+        document.querySelectorAll("pre code.language-flow").forEach(function (element, index) {
+            let md = element.textContent
+            element.innerHTML = ""
+            let id = "flowchart" + index
+            element.id = id
+            flowchart.parse(md).drawSVG(id)
+        }, this);
     });
+
 </script>
 </body>
 
