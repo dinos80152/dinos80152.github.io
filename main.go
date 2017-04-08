@@ -7,6 +7,8 @@ import (
 
 	"strings"
 
+	"sort"
+
 	"github.com/russross/blackfriday"
 )
 
@@ -20,7 +22,7 @@ const (
 	htmlIndex      string = "index.html"
 )
 
-type article struct {
+type note struct {
 	Title       string
 	Content     string
 	UpdatedAt   string
@@ -28,7 +30,7 @@ type article struct {
 	Href        string
 }
 
-var noteList []article
+var notes []note
 
 func main() {
 	cleanFolder(noteHTMLDir)
@@ -85,7 +87,7 @@ func md2HTML(sourceDir, outputDir string, fi os.FileInfo, outputBaseName string)
 
 	// TODO: use regexp
 	title := content[strings.Index(content, ">")+1 : strings.Index(content, "/")-1]
-	atcl := article{
+	nt := note{
 		Title:       title,
 		Content:     content,
 		UpdatedAt:   fi.ModTime().Format("2006-01-02 15:04:05 MST Z07"),
@@ -97,23 +99,28 @@ func md2HTML(sourceDir, outputDir string, fi os.FileInfo, outputBaseName string)
 	}
 
 	if sourceDir == noteMdDir {
-		atcl.Href = noteURL + outputBaseName
-		noteList = append(noteList, atcl)
+		nt.Href = noteURL + outputBaseName
+		notes = append(notes, nt)
 	}
 
 	f, _ := os.Create(outputDir + "/" + outputBaseName)
 	defer f.Close()
 
 	t, _ := template.ParseFiles(layout)
-	t.Execute(f, atcl)
+	t.Execute(f, nt)
 }
 
 func genNoteList() {
+
+	sort.Slice(notes, func(i, j int) bool {
+		return notes[i].UpdatedAt > notes[j].UpdatedAt
+	})
+
 	f, _ := os.Create(noteMdDir + "/readme.md")
 	defer f.Close()
 
 	t, _ := template.ParseFiles(noteListLayout)
-	t.Execute(f, noteList)
+	t.Execute(f, notes)
 }
 
 func fileName(baseName string) string {
