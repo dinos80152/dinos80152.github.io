@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Personal Web Site include Blogs, Tutorials and Code">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>Note List - Dino Lai</title>
+    <title>PHP - Dino Lai</title>
     <!-- Facebook Open Graph -->
     <meta property="og:url" content="http://dinolai.com/" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Note List - Dino Lai" />
+    <meta property="og:title" content="PHP - Dino Lai" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <!-- End Facebook Open Graph -->
@@ -69,124 +69,54 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2017-04-09 18:12:14 CST +08</header>
-                    <main><h1>Note List</h1>
+                    <header>Updated: 2017-04-09 18:11:06 CST +08</header>
+                    <main><h1>PHP</h1>
 
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
+<h2>Linux</h2>
 
-<tbody>
-<tr>
-<td><a href="/notes/php.html">PHP</a></td>
-<td>2017-04-09</td>
-</tr>
+<h3>Update PHP version</h3>
 
-<tr>
-<td><a href="/notes/queue.html">Queue</a></td>
-<td>2017-04-09</td>
-</tr>
+<h4>Problem</h4>
 
-<tr>
-<td><a href="/notes/flowchart.html">Flowchart Test</a></td>
-<td>2017-04-08</td>
-</tr>
+<p>如果在 OS 上已經有 PHP，直接安裝新版 PHP 會出問題，必須使用 yum replace 去做 PHP 的版本更新</p>
 
-<tr>
-<td><a href="/notes/lisp.html">List</a></td>
-<td>2017-04-07</td>
-</tr>
+<h4>Enviroment</h4>
 
-<tr>
-<td><a href="/notes/golang.html">Golang</a></td>
-<td>2017-04-07</td>
-</tr>
+<p>作業系統：CentOS 7</p>
 
-<tr>
-<td><a href="/notes/git.html">Git</a></td>
-<td>2017-04-07</td>
-</tr>
+<h4>Solution</h4>
 
-<tr>
-<td><a href="/notes/phpunit.html">phpunit</a></td>
-<td>2017-04-05</td>
-</tr>
+<p>1.新增下載位置至 rpm 清單</p>
 
-<tr>
-<td><a href="/notes/laravel4and5.html">Folder and File</a></td>
-<td>2017-04-05</td>
-</tr>
+<pre><code class="language-bash">rpm -Uvh https://mirror.webtatic.com/yum/el7/epel-release.rpm
+rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+</code></pre>
 
-<tr>
-<td><a href="/notes/https.html">HTTPS</a></td>
-<td>2017-03-31</td>
-</tr>
+<p>2.安裝 yum replace plugin</p>
 
-<tr>
-<td><a href="/notes/phpcs.html">phpcs</a></td>
-<td>2016-04-13</td>
-</tr>
+<pre><code class="language-bash">yum install yum-plugin-replace
+</code></pre>
 
-<tr>
-<td><a href="/notes/user-story.html">User Story</a></td>
-<td>2016-02-27</td>
-</tr>
+<p>3.安裝 php 5.6</p>
 
-<tr>
-<td><a href="/notes/elastic-kibana.html">Logserver</a></td>
-<td>2016-02-27</td>
-</tr>
+<pre><code class="language-bash">yum replace –enablerepo=webtatic-testing php-common –replace-with=php56w-common
+</code></pre>
 
-<tr>
-<td><a href="/notes/selenium_with_phpunit.html">Selenium with PHPUnit</a></td>
-<td>2016-02-16</td>
-</tr>
+<p>4.查看現在 php 版本</p>
 
-<tr>
-<td><a href="/notes/linux-tunnel.html">Linux Tunnel</a></td>
-<td>2016-01-25</td>
-</tr>
+<pre><code class="language-bash">php -v
+</code></pre>
 
-<tr>
-<td><a href="/notes/taiwan-community.html">Taiwan Community</a></td>
-<td>2015-11-24</td>
-</tr>
+<p>5.重新 reload php-fpm</p>
 
-<tr>
-<td><a href="/notes/google-analytics.html">Google Analytics</a></td>
-<td>2015-11-05</td>
-</tr>
+<pre><code class="language-bash">systemctl reload php-fpm
+</code></pre>
 
-<tr>
-<td><a href="/notes/movetogitlab.html">create repository in gitlab</a></td>
-<td>2015-11-04</td>
-</tr>
+<h2>Reference</h2>
 
-<tr>
-<td><a href="/notes/repository-pattern.html">Repository</a></td>
-<td>2015-10-27</td>
-</tr>
-
-<tr>
-<td><a href="/notes/nginx-php-fpm.html">Nginx, Php-fpm</a></td>
-<td>2015-10-27</td>
-</tr>
-
-<tr>
-<td><a href="/notes/web-proper-noun.html">網站開發專有名詞 For Product Manager</a></td>
-<td>2015-10-14</td>
-</tr>
-
-<tr>
-<td><a href="/notes/gitlab.html">Gitlab Demo</a></td>
-<td>2015-07-16</td>
-</tr>
-</tbody>
-</table>
+<ul>
+<li><a href="https://webtatic.com/packages/php56/">https://webtatic.com/packages/php56/</a></li>
+</ul>
 </main>
                 </article>
                 <hr>
