@@ -24,31 +24,31 @@
     ping http://www.google.com.tw
     ```
 
-2. 中斷程序
+1. 中斷程序
 
     <kbd>Ctrl + z</kbd>
 
-3. 放於背景作業
+1. 放於背景作業
 
     ```bash
     bg
     ```
 
-4. 此時 <kbd>Ctrl + c</kbd> 無法中斷程序，可嘗試 cd 到任何地方
+1. 此時 <kbd>Ctrl + c</kbd> 無法中斷程序，可嘗試 cd 到任何地方
 
-5. 打上 jobs 可見
+1. 打上 jobs 可見
 
     ```bash
     [1]+ Stopped ping http://www.google.com.tw
     ```
 
-6. 程序挪至前景作業 or 指定 job id 移至前景 or 直接刪除
+1. 程序挪至前景作業 or 指定 job id 移至前景 or 直接刪除
 
     ```bash
     fg or fg %1 or kill %1
     ```
 
-7. 若移至前台，可 <kbd>Ctrl + c</kbd> 中斷程序
+1. 若移至前台，可 <kbd>Ctrl + c</kbd> 中斷程序
 
 #### 補充
 

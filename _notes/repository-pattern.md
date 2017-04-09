@@ -1,8 +1,10 @@
-# Repository
+# Repository Pattern
+
 源自 c#
 repository: 知識庫
 
 ## 好處
+
 * 隔離資料層
   * 方便單元測試
   * 利於將來可抽換 (ex: 從 Relational Database 換到 NoSQL or API)
@@ -10,7 +12,8 @@ repository: 知識庫
 ## Example
 
 Controllers/NewsController.php
-```
+
+```php
 class NewsController extends Controller
 {
     public function index() {
@@ -20,7 +23,8 @@ class NewsController extends Controller
 ```
 
 Models/News.php
-```
+
+```php
 class News extends Model
 {
     public function listAllAble() {
@@ -30,7 +34,8 @@ class News extends Model
 ```
 
 Repositories/NewsRepository.php
-```
+
+```php
 use App\Models\News;
 
 class NewsRepository
@@ -41,8 +46,7 @@ class NewsRepository
 }
 ```
 
-
-
 ## Reference
-[The Repository Pattern](https://msdn.microsoft.com/en-us/library/ff649690.aspx)
-[Repository，我可能不會用你](http://huan-lin.blogspot.com/2012/11/repository-yagni.html)
+
+* [The Repository Pattern](https://msdn.microsoft.com/en-us/library/ff649690.aspx)
+* [Repository，我可能不會用你](http://huan-lin.blogspot.com/2012/11/repository-yagni.html)

@@ -69,14 +69,14 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2015-10-14 23:43:29 CST +08</header>
+                    <header>Updated: 2017-04-10 00:18:24 CST +08</header>
                     <main><h1>網站開發專有名詞 For Product Manager</h1>
 
 <h2>前端</h2>
 
 <h3>HTML (Hyper Text Markup Language)</h3>
 
-<pre><code>&lt;html&gt;
+<pre><code class="language-html">&lt;html&gt;
   &lt;body&gt;
     &lt;b&gt;Example&lt;/b&gt;
   &lt;/body&gt;
@@ -87,12 +87,15 @@
 
 <p>meta tag主要為表示此網頁屬性，目前主要目的為增強SEO(Search Engine Optimization，搜尋引擎最佳化)，讓使用者在搜尋時會更容易出現我們的網頁。</p>
 
-<p>常用標籤(tag)有以下
-* charset: 網頁字元編碼 固定為utf-8
-* title: 主標
-* description: 網頁敘述 (ex: 副標)
-* keywords: 關鍵字，以半形逗號分隔(,)
-* og(open graph): 目前主要目的為facebook分享用，title與type為必填項目。</p>
+<p>常用標籤(tag)有以下</p>
+
+<ul>
+<li>charset: 網頁字元編碼 固定為utf-8</li>
+<li>title: 主標</li>
+<li>description: 網頁敘述 (ex: 副標)</li>
+<li>keywords: 關鍵字，以半形逗號分隔(,)</li>
+<li>og(open graph): 目前主要目的為facebook分享用，title與type為必填項目。</li>
+</ul>
 
 <p>套用方式，以中括號[]包住為每個網站需要客製的地方</p>
 
@@ -131,7 +134,7 @@
 <li>傳送資料</li>
 </ul>
 
-<p><a href="http://www.w3.org/TR/DOM-Level-2-Core/introduction.html）">http://www.w3.org/TR/DOM-Level-2-Core/introduction.html）</a></p>
+<p><a href="http://www.w3.org/TR/DOM-Level-2-Core/introduction.html">http://www.w3.org/TR/DOM-Level-2-Core/introduction.html</a></p>
 
 <h3>RWD (Responsive Web Design)</h3>
 
@@ -141,7 +144,7 @@
 <li>ex: <a href="http://headshot.garena.tw">http://headshot.garena.tw</a></li>
 </ul>
 
-<pre><code>@media screen and (max-width: 300px) {
+<pre><code class="language-css">@media screen and (max-width: 300px) {
     body {
         background-color: lightblue;
     }
@@ -251,7 +254,7 @@
 <li>ex: 分配者，主管決定事情要給誰做</li>
 </ul>
 
-<p><a href="https://en.wikipedia.org/wiki/Load_balancing_(computing">https://en.wikipedia.org/wiki/Load_balancing_(computing</a>)</p>
+<p><a href="https://en.wikipedia.org/wiki/Load_balancing_(computing)">https://en.wikipedia.org/wiki/Load_balancing_(computing)</a></p>
 
 <h3>常見 Http Error Code</h3>
 
@@ -307,28 +310,28 @@
 </ul>
 
 <pre><code class="language-html">&lt;html&gt;
-    &lt;head&gt;
-        &lt;title&gt;抽獎&lt;/title&gt;
-        &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;index.css&quot;&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;table&gt;
-            &lt;thead&gt;
-                &lt;tr&gt;
-                    &lt;th&gt;姓名&lt;/th&gt;
-                    &lt;th&gt;電話&lt;/th&gt;
-                    &lt;th&gt;出生年月日&lt;/th&gt;
-                &lt;/tr&gt;
-            &lt;/thead&gt;
-            &lt;tbody&gt;
-                &lt;tr&gt;
-                    &lt;td&gt;&lt;?php echo $user-&gt;name; ?&gt;&lt;/td&gt;
-                    &lt;td&gt;&lt;?php echo $user-&gt;phone; ?&gt;&lt;/td&gt;
-                    &lt;td&gt;&lt;?php echo $user-&gt;birthdate; ?&gt;&lt;/td&gt;
-                &lt;/tr&gt;
-            &lt;/tbody&gt;
-        &lt;/table&gt;
-        &lt;script src=&quot;index.js&quot;&gt;&lt;/script&gt;
+  &lt;head&gt;
+    &lt;title&gt;抽獎&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;index.css&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;table&gt;
+      &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;姓名&lt;/th&gt;
+            &lt;th&gt;電話&lt;/th&gt;
+            &lt;th&gt;出生年月日&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          &lt;tr&gt;
+            &lt;td&gt;&lt;?php echo $user-&gt;name; ?&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;?php echo $user-&gt;phone; ?&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;?php echo $user-&gt;birthdate; ?&gt;&lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+      &lt;script src=&quot;index.js&quot;&gt;&lt;/script&gt;
     &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
@@ -338,11 +341,11 @@
 </ul>
 
 <pre><code class="language-css">table tbody tr th {
-    color: red;
+  color: red;
 }
 
 table tbody tr td {
-    color: green;
+  color: green;
 }
 </code></pre>
 
@@ -351,9 +354,9 @@ table tbody tr td {
 </ul>
 
 <pre><code class="language-javascript">$(function() {
-    $('td').click(function() {
-        alert('恭喜得獎');
-    });
+  $('td').click(function() {
+    alert('恭喜得獎');
+  });
 });
 </code></pre>
 

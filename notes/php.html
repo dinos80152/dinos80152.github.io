@@ -69,7 +69,7 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2017-04-09 18:38:46 CST +08</header>
+                    <header>Updated: 2017-04-09 23:22:38 CST +08</header>
                     <main><h1>PHP</h1>
 
 <h2>Linux</h2>
@@ -86,31 +86,33 @@
 
 <h4>Solution</h4>
 
-<p>1.新增下載位置至 rpm 清單</p>
+<ol>
+<li><p>新增下載位置至 rpm 清單</p>
 
 <pre><code class="language-bash">rpm -Uvh https://mirror.webtatic.com/yum/el7/epel-release.rpm
 rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
-</code></pre>
+</code></pre></li>
 
-<p>2.安裝 yum replace plugin</p>
+<li><p>安裝 yum replace plugin</p>
 
 <pre><code class="language-bash">yum install yum-plugin-replace
-</code></pre>
+</code></pre></li>
 
-<p>3.安裝 php 5.6</p>
+<li><p>安裝 php 5.6</p>
 
 <pre><code class="language-bash">yum replace –enablerepo=webtatic-testing php-common –replace-with=php56w-common
-</code></pre>
+</code></pre></li>
 
-<p>4.查看現在 php 版本</p>
+<li><p>查看現在 php 版本</p>
 
 <pre><code class="language-bash">php -v
-</code></pre>
+</code></pre></li>
 
-<p>5.重新 reload php-fpm</p>
+<li><p>重新 reload php-fpm</p>
 
 <pre><code class="language-bash">systemctl reload php-fpm
-</code></pre>
+</code></pre></li>
+</ol>
 
 <h3>Reference</h3>
 
@@ -130,6 +132,26 @@ rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 <li><a href="http://www.slideshare.net/rdohms/annotations-in-php-they-exist">Annotations in PHP: They Exist</a></li>
 <li><a href="http://theunraveler.com/blog/2012/php-annotations-are-a-horrible-idea/">PHP Annotations Are a Horrible Idea</a></li>
 <li><a href="https://r.je/php-annotations-are-an-abomination.html">PHP: Annotations are an Abomination</a></li>
+</ul>
+
+<h3>PHPUnit</h3>
+
+<h2>Tools</h2>
+
+<h3>phpcs</h3>
+
+<h4>Command</h4>
+
+<ul>
+<li><p>Favor Setting</p>
+
+<pre><code class="language-bash">phpcs --standard=PSR1,PSR2 -n --ignore=Generic.Files.LineEndings,PSR2.Files.EndFileNewline
+</code></pre></li>
+
+<li><p>List Standard Sniffs</p>
+
+<pre><code class="language-bash">phpcs --standard=PSR1,PSR2 -e
+</code></pre></li>
 </ul>
 </main>
                 </article>

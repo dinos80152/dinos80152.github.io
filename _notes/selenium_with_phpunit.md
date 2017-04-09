@@ -12,17 +12,17 @@
 
   Download And Install Selenium Standalone Server
 
-  http://docs.seleniumhq.org/download/
+  <http://docs.seleniumhq.org/download/>
 
-2. Start
+1. Start
 
-```
+```bash
 java -jar selenium-server-standalone-2.52.0.jar
 ```
 
 ## Facebook PHP Web Driver
 
-```
+```bash
 php composer.phar require facebook/webdriver
 ```
 
@@ -54,17 +54,17 @@ class RegitsterTest extends PHPUnit_Framework_TestCase
 
 ## Example
 
-https://github.com/dinos80152/php-tutorial/selenium
+<https://github.com/dinos80152/php-tutorial/selenium>
 
 ## Tutorial
+
 * [Facebook PHP WebDriver Example](https://github.com/facebook/php-webdriver/blob/community/example.php)(Only WebDriver)
 * [Using the Selenium Web Driver API with PHPUnit@sitepoint](http://www.sitepoint.com/using-the-selenium-web-driver-api-with-phpunit/)
 * [Working with PHPUnit and Selenium Webdriver@codeception](http://codeception.com/11-12-2013/working-with-phpunit-and-selenium-webdriver.html#.VsIAAFV95QI)
 
-
 ## Documentation
 
-http://facebook.github.io/php-webdriver/
+<http://facebook.github.io/php-webdriver/>
 
 ## Reference
 

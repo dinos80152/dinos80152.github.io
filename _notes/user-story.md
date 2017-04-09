@@ -15,35 +15,28 @@
 
 ## Template
 
-```
-as a <role>, I want to <action> because of <business value>. 
-```
+**as a `<role>`, I want to `<action>` because of `<business value>`.**
 
 身為一個『使用者』，我想要『做什麼』因為『可以獲得成果。』
-
 
 ### Role
 
 * 不要用『使用者』，指定角色
 * 角色為真實顧客，不是 Product Owner，也不是開發人員。
 
-
 ### Action
 
 * 不講技術細節，盡量描述操作細節，如搜尋條件。
 
-
 ### Business Value
 
 * 價值決定權重
-
 
 ## Acceptance Testing
 
 * 提供完成的定義
 * 使用案例
 * 邊界測試
-
 
 ## Example
 

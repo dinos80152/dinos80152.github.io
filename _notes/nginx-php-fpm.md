@@ -1,9 +1,11 @@
 # Nginx, Php-fpm
 
 ## nginx
+
 ### configuration
 
 ### log
+
 * /var/log/nginx/
 
 ## php-fpm
@@ -11,6 +13,7 @@
 * php-fpm.ini
 
 ### CGI
+
 Common Gateway Interface
 > Common Gateway Interface (CGI) is a standard environment for web servers to interface with executable programs installed on a server that generate web pages dynamically. - wikipedia
 
@@ -25,18 +28,23 @@ Cons
 * Load environment variable every time (php.ini, extensions)
 
 ### FastCGI
+
 FastCGI uses persistent processes to handle a series of requests. These processes are owned by the FastCGI server, not the web server.
 
 * Socket
-```
+
+```bash
 // nginx example
 ```
+
 * TCP Connection
-```
+
+```bash
 // nginx example
 ```
 
 #### Pros
+
 * Each individual FastCGI process can handle many requests over its lifetime
 * Multiple FastCGI servers can be configured, increasing stability and scalability.
 * server and application processes to be restarted independently
@@ -45,8 +53,9 @@ FastCGI uses persistent processes to handle a series of requests. These processe
 * 服务器不用在每次需要时都载入php解释程序
 
 #### log
+
 /var/log/php-fpm/
 
 #### status
-http://example.com/status
 
+<http://example.com/status>

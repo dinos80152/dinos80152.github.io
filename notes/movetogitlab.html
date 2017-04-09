@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Personal Web Site include Blogs, Tutorials and Code">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>create repository in gitlab - Dino Lai</title>
+    <title>Move Repo from Gitolite to Gitlab - Dino Lai</title>
     <!-- Facebook Open Graph -->
     <meta property="og:url" content="http://dinolai.com/" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="create repository in gitlab - Dino Lai" />
+    <meta property="og:title" content="Move Repo from Gitolite to Gitlab - Dino Lai" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <!-- End Facebook Open Graph -->
@@ -69,38 +69,40 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2015-11-04 02:01:28 CST +08</header>
-                    <main><h2>create repository in gitlab</h2>
+                    <header>Updated: 2017-04-09 22:29:11 CST +08</header>
+                    <main><h1>Move Repo from Gitolite to Gitlab</h1>
+
+<h2>Create Repository in Gitlab</h2>
 
 <p><img src="https://github.com/dinos80152/dinos80152.github.io/blob/master/_data/gitlab.png?raw=true" alt="alt tag" /></p>
 
 <h2>Set push url</h2>
 
-<pre><code>cd /xxx.garena.tw/.git
+<pre><code class="language-bash">cd /xxx.garena.tw/.git
 
 git remote set-url --push origin git@gitlab.garena.tw:GarenaTW/xxx.garena.tw.git
 </code></pre>
 
 <h2>Push mirror</h2>
 
-<pre><code>git push --mirror
+<pre><code class="language-bash">git push --mirror
 </code></pre>
 
 <h2>change remote url</h2>
 
 <p>本機、測試機、正式機已有 git</p>
 
-<pre><code>git remote set-url origin git@gitlab.garena.tw:GarenaTW/xxx.garena.tw.git
+<pre><code class="language-bash">git remote set-url origin git@gitlab.garena.tw:GarenaTW/xxx.garena.tw.git
 </code></pre>
 
 <h2>add remote origin</h2>
 
 <p>測試機無 git</p>
 
-<pre><code>git init
+<pre><code class="language-bash">git init
 </code></pre>
 
-<pre><code>git remote add origin git@gitlab.garena.tw:GarenaTW/xxx.garena.tw.git
+<pre><code class="language-bash">git remote add origin git@gitlab.garena.tw:GarenaTW/xxx.garena.tw.git
 </code></pre>
 </main>
                 </article>

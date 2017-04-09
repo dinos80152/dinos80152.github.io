@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Personal Web Site include Blogs, Tutorials and Code">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>Repository - Dino Lai</title>
+    <title>Repository Pattern - Dino Lai</title>
     <!-- Facebook Open Graph -->
     <meta property="og:url" content="http://dinolai.com/" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Repository - Dino Lai" />
+    <meta property="og:title" content="Repository Pattern - Dino Lai" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <!-- End Facebook Open Graph -->
@@ -69,8 +69,8 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2015-10-27 23:56:52 CST +08</header>
-                    <main><h1>Repository</h1>
+                    <header>Updated: 2017-04-09 23:26:22 CST +08</header>
+                    <main><h1>Repository Pattern</h1>
 
 <p>源自 c#
 repository: 知識庫</p>
@@ -90,7 +90,7 @@ repository: 知識庫</p>
 
 <p>Controllers/NewsController.php</p>
 
-<pre><code>class NewsController extends Controller
+<pre><code class="language-php">class NewsController extends Controller
 {
     public function index() {
         return News::listAllAble();
@@ -100,7 +100,7 @@ repository: 知識庫</p>
 
 <p>Models/News.php</p>
 
-<pre><code>class News extends Model
+<pre><code class="language-php">class News extends Model
 {
     public function listAllAble() {
         return $this-&gt;where('status', 1)-&gt;get();
@@ -110,7 +110,7 @@ repository: 知識庫</p>
 
 <p>Repositories/NewsRepository.php</p>
 
-<pre><code>use App\Models\News;
+<pre><code class="language-php">use App\Models\News;
 
 class NewsRepository
 {
@@ -122,8 +122,10 @@ class NewsRepository
 
 <h2>Reference</h2>
 
-<p><a href="https://msdn.microsoft.com/en-us/library/ff649690.aspx">The Repository Pattern</a>
-<a href="http://huan-lin.blogspot.com/2012/11/repository-yagni.html">Repository，我可能不會用你</a></p>
+<ul>
+<li><a href="https://msdn.microsoft.com/en-us/library/ff649690.aspx">The Repository Pattern</a></li>
+<li><a href="http://huan-lin.blogspot.com/2012/11/repository-yagni.html">Repository，我可能不會用你</a></li>
+</ul>
 </main>
                 </article>
                 <hr>

@@ -28,8 +28,8 @@ Worker-->Consumer: Notice
 ### Computer World
 
 1. 使用者上傳圖片
-2. 將圖片縮圖、優化
-3. 上傳至 File Server
+1. 將圖片縮圖、優化
+1. 上傳至 File Server
 
 若一般的作法會在網站伺服器做處理，若使用者過多很容易造成伺服器爆炸，連網站都掛點。
 
@@ -52,7 +52,7 @@ WorkerA 與 WorkerB 分別聽取 Queue Server 等待工作，誰有空誰就拿�
 
 ### What is Queue
 
-* Data Structure: FIFO (First In First Out) 
+* Data Structure: FIFO (First In First Out)
 * Line Up (排隊)
 
 ### Why
@@ -64,6 +64,7 @@ WorkerA 與 WorkerB 分別聽取 Queue Server 等待工作，誰有空誰就拿�
 * 事情需要專心處理時，事情需要消耗大量資源時。
 
 ### Where
+
 * Beanstalk
 * Redis
 * Iron.io
@@ -91,8 +92,8 @@ class Queue
 
 [Laravel 5 Example by Dino Lai @github](https://github.com/dinos80152/laravel5-example/tree/master/app/Jobs)
 
-
 ## Beanstalk
+
 [official web site](http://kr.github.io/beanstalkd/)
 
 ### Beanstalk Client Reference
@@ -101,11 +102,14 @@ class Queue
 * [Laravel Documentation](http://laravel.com/docs/5.1/queues)
 
 ### Tools
+
 * [Beanstalk Console](https://github.com/ptrofimov/beanstalk_console)
 
 ### Reference
+
 * [http://www.haodaima.net/art/2428782](http://www.haodaima.net/art/2428782)
 * [BeanstalkD: An Introduction to queuing by Alister Bulman](http://alister.github.io/presentations/Beanstalkd/)
 
 ## Extended Reading
+
 * [RabbitMQ Tutorial (Know How Queue Work)](https://www.rabbitmq.com/getstarted.html)
