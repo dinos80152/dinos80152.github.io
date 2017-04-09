@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Personal Web Site include Blogs, Tutorials and Code">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>Linux Tunnel - Dino Lai</title>
+    <title>Linux - Dino Lai</title>
     <!-- Facebook Open Graph -->
     <meta property="og:url" content="http://dinolai.com/" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Linux Tunnel - Dino Lai" />
+    <meta property="og:title" content="Linux - Dino Lai" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <!-- End Facebook Open Graph -->
@@ -69,14 +69,108 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2016-01-25 02:33:32 CST +08</header>
-                    <main><h1>Linux Tunnel</h1>
+                    <header>Updated: 2017-04-09 20:42:08 CST +08</header>
+                    <main><h1>Linux</h1>
 
-<h2>說明</h2>
+<h2>Signal</h2>
+
+<h3>Ctrl+z</h3>
+
+<p><kbd>Ctrl + z </kbd>是 Unix 裡的一種 Signal，目的是為了暫時執行中的程序，並可對執行程序進行前背景的切換</p>
+
+<h4>Commands</h4>
+
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>說明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>bg</td>
+<td>切換至被背景作業</td>
+</tr>
+
+<tr>
+<td>fg</td>
+<td>切回前景作業 (後進先出，先彈出最後進去背景作業的程序)</td>
+</tr>
+
+<tr>
+<td>jobs</td>
+<td>看目前所有運行於背景的程序</td>
+</tr>
+
+<tr>
+<td>fg %id</td>
+<td>指定程序至前景作業</td>
+</tr>
+
+<tr>
+<td>kill %id</td>
+<td>刪除指定背景程序</td>
+</tr>
+</tbody>
+</table>
+
+<h4>Example</h4>
+
+<ol>
+<li><p>執行 ping</p>
+
+<pre><code class="language-bash">ping http://www.google.com.tw
+</code></pre></li>
+
+<li><p>中斷程序</p>
+
+<p><kbd>Ctrl + z</kbd></p></li>
+
+<li><p>放於背景作業</p>
+
+<pre><code class="language-bash">bg
+</code></pre></li>
+
+<li><p>此時 <kbd>Ctrl + c</kbd> 無法中斷程序，可嘗試 cd 到任何地方</p></li>
+
+<li><p>打上 jobs 可見</p>
+
+<pre><code class="language-bash">[1]+ Stopped ping http://www.google.com.tw
+</code></pre></li>
+
+<li><p>程序挪至前景作業 or 指定 job id 移至前景 or 直接刪除</p>
+
+<pre><code class="language-bash">fg or fg %1 or kill %1
+</code></pre></li>
+
+<li><p>若移至前台，可 <kbd>Ctrl + c</kbd> 中斷程序</p></li>
+</ol>
+
+<h4>補充</h4>
+
+<p>也可以直接在要執行的程序後面加上 &amp; 就會在背景執行囉</p>
+
+<pre><code class="language-bash">ping http://www.google.com.tw &amp;
+</code></pre>
+
+<h4>Reference</h4>
+
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Unix_signalhttp://en.wikipedia.org/wiki/Unix_signal">Unix signal@Wikipedia</a></li>
+<li><a href="http://superuser.com/questions/476873/what-is-effect-of-ctrl-z-on-a-unix-linux-application">What is effect of CTRL + Z on a unix\Linux application@superuser</a></li>
+<li><a href="http://www.thegeekstuff.com/2010/05/unix-background-job/">unix-background-job</a></li>
+<li><a href="http://linux.vbird.org/linux_basic/0440processcontrol.php">第十七章、程序管理與 SELinux 初探@鳥哥</a></li>
+</ul>
+
+<h2>Linux Tunnel</h2>
 
 <h3>網路架構</h3>
 
-<p>local -&gt; ssh server(128.18.123.111) -&gt; dest server(10.59.1.23:19336)</p>
+<pre><code class="language-sequence">local-&gt;ssh server(128.18.123.111): connect
+ssh server(128.18.123.111)-&gt;dist server(10.59.1.23;19336): connect
+</code></pre>
 
 <h3>使用說明</h3>
 
@@ -86,27 +180,29 @@
 <li>-L 啟用SSH Tunnel</li>
 </ul>
 
-<pre><code>ssh -N -f -L LOCAL_PORT:DEST_HOST:DEST_HOST_PORT SSH_USER@SSH_SERVER_IP
+<pre><code class="language-bash">ssh -N -f -L LOCAL_PORT:DEST_HOST:DEST_HOST_PORT SSH_USER@SSH_SERVER_IP
 </code></pre>
 
 <h3>範例</h3>
 
-<pre><code>ssh -N -f -L 59196:10.59.1.23:19336 dino@124.18.123.111
+<pre><code class="language-bash">ssh -N -f -L 59196:10.59.1.23:19336 dino@124.18.123.111
 </code></pre>
 
 <h3>查看連線資訊</h3>
 
-<pre><code>netstat -ntulp
+<pre><code class="language-bash">netstat -ntulp
 </code></pre>
 
 <h3>刪除連線</h3>
 
-<pre><code>kill PID
+<pre><code class="language-bash">kill PID
 </code></pre>
 
-<h2>Reference</h2>
+<h3>Reference</h3>
 
-<p><a href="http://gwokae.mewggle.com/wordpress/index.php/archives/678">http://gwokae.mewggle.com/wordpress/index.php/archives/678</a></p>
+<ul>
+<li><a href="http://gwokae.mewggle.com/wordpress/index.php/archives/678">http://gwokae.mewggle.com/wordpress/index.php/archives/678</a></li>
+</ul>
 </main>
                 </article>
                 <hr>
