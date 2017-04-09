@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Personal Web Site include Blogs, Tutorials and Code">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>Note List - Dino Lai</title>
+    <title>Nginx - Dino Lai</title>
     <!-- Facebook Open Graph -->
     <meta property="og:url" content="http://dinolai.com/" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Note List - Dino Lai" />
+    <meta property="og:title" content="Nginx - Dino Lai" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <!-- End Facebook Open Graph -->
@@ -69,129 +69,220 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2017-04-09 18:32:46 CST +08</header>
-                    <main><h1>Note List</h1>
+                    <header>Updated: 2017-04-09 18:32:43 CST +08</header>
+                    <main><h1>Nginx</h1>
 
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
+<h2>Introduction</h2>
 
-<tbody>
-<tr>
-<td><a href="/notes/nginx.html">Nginx</a></td>
-<td>2017-04-09</td>
-</tr>
+<p>NGINX 是一個 HTTP 和反向代理伺服器(Reverse Proxy Server)，與知名的 Apache Server 一樣可作為 HTTP Server，但比 Apache 更為快速，節省更多系統資源。</p>
 
-<tr>
-<td><a href="/notes/php.html">PHP</a></td>
-<td>2017-04-09</td>
-</tr>
+<blockquote>
+<p>Apache is like Microsoft Word, it has a million options but you only need six. Nginx does those six things, and it does five of them 50 times faster than Apache. — Chris Lea on nginx and WordPress</p>
+</blockquote>
 
-<tr>
-<td><a href="/notes/queue.html">Queue</a></td>
-<td>2017-04-09</td>
-</tr>
+<h2>Install</h2>
 
-<tr>
-<td><a href="/notes/flowchart.html">Flowchart Test</a></td>
-<td>2017-04-08</td>
-</tr>
+<h3>Enviroment</h3>
 
-<tr>
-<td><a href="/notes/lisp.html">List</a></td>
-<td>2017-04-07</td>
-</tr>
+<p>OS: CentOS 7</p>
 
-<tr>
-<td><a href="/notes/golang.html">Golang</a></td>
-<td>2017-04-07</td>
-</tr>
+<h3>Step</h3>
 
-<tr>
-<td><a href="/notes/git.html">Git</a></td>
-<td>2017-04-07</td>
-</tr>
+<ol>
+<li><p>加入下載位置至 RPM 清單</p>
 
-<tr>
-<td><a href="/notes/laravel4and5.html">Folder and File</a></td>
-<td>2017-04-05</td>
-</tr>
+<pre><code class="language-bash">rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
+</code></pre></li>
 
-<tr>
-<td><a href="/notes/phpunit.html">phpunit</a></td>
-<td>2017-04-05</td>
-</tr>
+<li><p>透過安裝工具 yum 安裝 nginx</p>
 
-<tr>
-<td><a href="/notes/https.html">HTTPS</a></td>
-<td>2017-03-31</td>
-</tr>
+<pre><code class="language-bash">yum install nginx
+</code></pre></li>
 
-<tr>
-<td><a href="/notes/phpcs.html">phpcs</a></td>
-<td>2016-04-13</td>
-</tr>
+<li><p>加入防火牆允許清單並重啟防火牆</p>
 
-<tr>
-<td><a href="/notes/user-story.html">User Story</a></td>
-<td>2016-02-27</td>
-</tr>
+<pre><code class="language-bash">firewall-cmd –permanent –zone=public –add-service=http
+firewall-cmd –permanent –zone=public –add-service=httpd
+firewall-cmd –permanent –zone=public –add-service=https
+firewall-cmd –reload
+</code></pre></li>
 
-<tr>
-<td><a href="/notes/elastic-kibana.html">Logserver</a></td>
-<td>2016-02-27</td>
-</tr>
+<li><p>啟動 NGINX服務</p>
 
-<tr>
-<td><a href="/notes/selenium_with_phpunit.html">Selenium with PHPUnit</a></td>
-<td>2016-02-16</td>
-</tr>
+<pre><code class="language-bash">systemctl start nginx.service
+</code></pre></li>
+</ol>
 
-<tr>
-<td><a href="/notes/linux-tunnel.html">Linux Tunnel</a></td>
-<td>2016-01-25</td>
-</tr>
+<h2>Path</h2>
 
-<tr>
-<td><a href="/notes/taiwan-community.html">Taiwan Community</a></td>
-<td>2015-11-24</td>
-</tr>
+<h3>Config</h3>
 
-<tr>
-<td><a href="/notes/google-analytics.html">Google Analytics</a></td>
-<td>2015-11-05</td>
-</tr>
+<pre><code class="language-bash">/etc/nginx/
+</code></pre>
 
-<tr>
-<td><a href="/notes/movetogitlab.html">create repository in gitlab</a></td>
-<td>2015-11-04</td>
-</tr>
+<h3>Log</h3>
 
-<tr>
-<td><a href="/notes/repository-pattern.html">Repository</a></td>
-<td>2015-10-27</td>
-</tr>
+<pre><code class="language-bash">/var/log/nginx
+</code></pre>
 
-<tr>
-<td><a href="/notes/nginx-php-fpm.html">Nginx, Php-fpm</a></td>
-<td>2015-10-27</td>
-</tr>
+<h2>Daemon</h2>
 
-<tr>
-<td><a href="/notes/web-proper-noun.html">網站開發專有名詞 For Product Manager</a></td>
-<td>2015-10-14</td>
-</tr>
+<p>1.新增以下 Shell Script 至 /ect/init.d/nginx (記得確認 nginx.conf 與 bin 檔的位置)</p>
 
-<tr>
-<td><a href="/notes/gitlab.html">Gitlab Demo</a></td>
-<td>2015-07-16</td>
-</tr>
-</tbody>
-</table>
+<pre><code class="language-bash">#!/bin/sh
+#
+# nginx - this script starts and stops the nginx daemon
+#
+# chkconfig:   - 85 15 
+# description:  Nginx is an HTTP(S) server, HTTP(S) reverse \
+#               proxy and IMAP/POP3 proxy server
+# processname: nginx
+# config:      /etc/nginx/nginx.conf
+# config:      /etc/sysconfig/nginx
+# pidfile:     /var/run/nginx.pid
+ 
+# Source function library.
+. /etc/rc.d/init.d/functions
+ 
+# Source networking configuration.
+. /etc/sysconfig/network
+ 
+# Check that networking is up.
+[ &quot;$NETWORKING&quot; = &quot;no&quot; ] &amp;&amp; exit 0
+ 
+nginx=&quot;/usr/sbin/nginx&quot;
+prog=$(basename $nginx)
+ 
+NGINX_CONF_FILE=&quot;/etc/nginx/nginx.conf&quot;
+ 
+[ -f /etc/sysconfig/nginx ] &amp;&amp; . /etc/sysconfig/nginx
+ 
+lockfile=/var/lock/subsys/nginx
+ 
+make_dirs() {
+   # make required directories
+   user=`$nginx -V 2&gt;&amp;1 | grep &quot;configure arguments:&quot; | sed 's/[^*]*--user=\([^ ]*\).*/\1/g' -`
+   if [ -z &quot;`grep $user /etc/passwd`&quot; ]; then
+       useradd -M -s /bin/nologin $user
+   fi
+   options=`$nginx -V 2&gt;&amp;1 | grep 'configure arguments:'`
+   for opt in $options; do
+       if [ `echo $opt | grep '.*-temp-path'` ]; then
+           value=`echo $opt | cut -d &quot;=&quot; -f 2`
+           if [ ! -d &quot;$value&quot; ]; then
+               # echo &quot;creating&quot; $value
+               mkdir -p $value &amp;&amp; chown -R $user $value
+           fi
+       fi
+   done
+}
+ 
+start() {
+    [ -x $nginx ] || exit 5
+    [ -f $NGINX_CONF_FILE ] || exit 6
+    make_dirs
+    echo -n $&quot;Starting $prog: &quot;
+    daemon $nginx -c $NGINX_CONF_FILE
+    retval=$?
+    echo
+    [ $retval -eq 0 ] &amp;&amp; touch $lockfile
+    return $retval
+}
+ 
+stop() {
+    echo -n $&quot;Stopping $prog: &quot;
+    killproc $prog -QUIT
+    retval=$?
+    echo
+    [ $retval -eq 0 ] &amp;&amp; rm -f $lockfile
+    return $retval
+}
+ 
+restart() {
+    configtest || return $?
+    stop
+    sleep 1
+    start
+}
+ 
+reload() {
+    configtest || return $?
+    echo -n $&quot;Reloading $prog: &quot;
+    killproc $nginx -HUP
+    RETVAL=$?
+    echo
+}
+ 
+force_reload() {
+    restart
+}
+ 
+configtest() {
+  $nginx -t -c $NGINX_CONF_FILE
+}
+ 
+rh_status() {
+    status $prog
+}
+ 
+rh_status_q() {
+    rh_status &gt;/dev/null 2&gt;&amp;1
+}
+ 
+case &quot;$1&quot; in
+    start)
+        rh_status_q &amp;&amp; exit 0
+        $1
+        ;;
+    stop)
+        rh_status_q || exit 0
+        $1
+        ;;
+    restart|configtest)
+        $1
+        ;;
+    reload)
+        rh_status_q || exit 7
+        $1
+        ;;
+    force-reload)
+        force_reload
+        ;;
+    status)
+        rh_status
+        ;;
+    condrestart|try-restart)
+        rh_status_q || exit 0
+            ;;
+    *)
+        echo $&quot;Usage: $0 {start|stop|status|restart|condrestart|try-restart|reload|force-reload|configtest}&quot;
+        exit 2
+esac
+</code></pre>
+
+<p>2.修改權限</p>
+
+<pre><code class="language-bash">chmod +x /etc/init.d/nginx
+</code></pre>
+
+<p>3.設定開機啟動</p>
+
+<pre><code class="language-bash">systemctl enable nginx
+</code></pre>
+
+<p>4.查看是否成功</p>
+
+<pre><code class="language-bash"># systemctl list-unit-files | grep nginx
+nginx.service enabled
+</code></pre>
+
+<h2>Reference</h2>
+
+<ul>
+<li><a href="http://www.wikivs.com/wiki/apache_vs_nginx">http://www.wikivs.com/wiki/apache_vs_nginx)</a></li>
+<li><a href="http://wiki.nginx.org/RedHatNginxInitScript">http://wiki.nginx.org/RedHatNginxInitScript</a></li>
+<li><a href="http://www.rackspace.com/knowledge_center/article/centos-adding-an-nginx-init-script">http://www.rackspace.com/knowledge_center/article/centos-adding-an-nginx-init-script</a></li>
+</ul>
 </main>
                 </article>
                 <hr>
