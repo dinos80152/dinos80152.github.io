@@ -1,13 +1,13 @@
 # Note List
 |Title | Updated Date |
 |------|------------|
+| [Queue](/notes/queue.html) | 2017-04-09 |
 | [Flowchart Test](/notes/flowchart.html) | 2017-04-08 |
 | [List](/notes/lisp.html) | 2017-04-07 |
 | [Golang](/notes/golang.html) | 2017-04-07 |
 | [Git](/notes/git.html) | 2017-04-07 |
-| [Folder and File](/notes/laravel4and5.html) | 2017-04-05 |
 | [phpunit](/notes/phpunit.html) | 2017-04-05 |
-| [Queue](/notes/queue.html) | 2017-04-05 |
+| [Folder and File](/notes/laravel4and5.html) | 2017-04-05 |
 | [HTTPS](/notes/https.html) | 2017-03-31 |
 | [phpcs](/notes/phpcs.html) | 2016-04-13 |
 | [Logserver](/notes/elastic-kibana.html) | 2016-02-27 |

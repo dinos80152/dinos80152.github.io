@@ -5,13 +5,14 @@ Consumer->Queue Server: Add Job
 Worker->Queue Server: Listen
 Worker->Queue Server: Get Job
 Worker->Worker: Do Something
+Worker-->Consumer: Notice
 ```
 
 ## Scenario
 
 ### Real World
 
-百貨公司地下街點餐，
+百貨公司地下街點餐。
 
 ```sequence
 顧客(Client)->櫃臺(Web Application Server): 點餐
@@ -21,11 +22,16 @@ Worker->Worker: Do Something
 廚師(Worker)->顧客(Client):通知
 ```
 
-直接接觸顧客的櫃臺或服務生就如 Web Server，在廚房專心做菜的廚師就像 Worker，而顧客如何知道何時取餐？靠看板上的號碼或是通知器。
+直接接觸顧客的櫃臺或服務生就如 Web Server，在廚房專心做菜的廚師就像 Worker。
+而顧客如何知道何時取餐？靠看板上的號碼或是通知器。
 
 ### Computer World
 
-使用者從你的網站上傳圖片後，你會將使用者的圖片縮圖及優化處理後上傳至 File Server，若一般的作法會在網站伺服器做處理，若使用者過多很容易造成伺服器爆炸，連網站都掛點。
+1. 使用者上傳圖片
+2. 將圖片縮圖、優化
+3. 上傳至 File Server
+
+若一般的作法會在網站伺服器做處理，若使用者過多很容易造成伺服器爆炸，連網站都掛點。
 
 使用Job Queue的話，假設你現在有三台機器，一台當 Web Server，兩台當 Worker Server。
 
@@ -33,21 +39,18 @@ Worker->Worker: Do Something
 Client->Web Server: Upload Picture
 Web Server->File Server: Upload Picture
 Web Server->Queue: Add Picture Process Job
-WorkerA->Queue: Listen
-WorkerA->Queue: Get Job
-WorkerA->File Server: Download Picture
-WorkerA->WorkerA: Process Picture
-WorkerA->File Server: Upload Thumbnail and Optimized Picture
-WorkerB->Queue: Listen
-WorkerB->Queue: Get Job
-WorkerB->File Server: Download Picture
-WorkerB->WorkerB: Process Picture
-WorkerB->File Server: Upload Thumbnail and Optimized Picture
+WorkerA.B->Queue: Listen
+WorkerA.B->Queue: Get Job
+WorkerA.B->File Server: Download Picture
+WorkerA.B->WorkerA.B: Process Picture
+WorkerA.B->File Server: Upload Thumbnail and Optimized Picture
 ```
+
+WorkerA 與 WorkerB 分別聽取 Queue Server 等待工作，誰有空誰就拿取工作做。
 
 ### Details
 
-### What's Queue
+### What is Queue
 
 * Data Structure: FIFO (First In First Out) 
 * Line Up (排隊)
@@ -98,11 +101,11 @@ class Queue
 * [Laravel Documentation](http://laravel.com/docs/5.1/queues)
 
 ### Tools
-[Beanstalk Console](https://github.com/ptrofimov/beanstalk_console)
+* [Beanstalk Console](https://github.com/ptrofimov/beanstalk_console)
 
 ### Reference
 * [http://www.haodaima.net/art/2428782](http://www.haodaima.net/art/2428782)
 * [BeanstalkD: An Introduction to queuing by Alister Bulman](http://alister.github.io/presentations/Beanstalkd/)
 
 ## Extended Reading
-[RabbitMQ Tutorial (Know How Queue Work)](https://www.rabbitmq.com/getstarted.html)
+* [RabbitMQ Tutorial (Know How Queue Work)](https://www.rabbitmq.com/getstarted.html)
