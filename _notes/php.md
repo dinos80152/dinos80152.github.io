@@ -40,5 +40,17 @@ php -v
 systemctl reload php-fpm
 ```
 
-## Reference
+### Reference
 * https://webtatic.com/packages/php56/
+
+
+## Programming
+
+### Annotation
+
+最近在碰 Java Spring 和 Hibernate，發現有個 @ 怎麼沒看過，原來叫做 Annotation，查了一下發現 PHP 有些 Framework 也開始使用這東西了，不過是寫在 DocBlockr 裡阿，所以 PHP 的各位們似乎不太喜歡這東西。
+
+#### Reference
+* [Annotations in PHP: They Exist](http://www.slideshare.net/rdohms/annotations-in-php-they-exist)
+* [PHP Annotations Are a Horrible Idea](http://theunraveler.com/blog/2012/php-annotations-are-a-horrible-idea/)
+* [PHP: Annotations are an Abomination](https://r.je/php-annotations-are-an-abomination.html)
