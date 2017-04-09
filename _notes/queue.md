@@ -1,26 +1,69 @@
 # Queue
 
-## What's Queue
+```sequence
+Consumer->Queue Server: Add Job
+Worker->Queue Server: Listen
+Worker->Queue Server: Get Job
+Worker->Worker: Do Something
+```
 
-* FIFO (First In First Out) Data Structure
+## Scenario
+
+### Real World
+
+百貨公司地下街點餐，
+
+```sequence
+顧客(Client)->櫃臺(Web Application Server): 點餐
+櫃臺(Web Application Server)->佇列(Queue Server): 紀錄
+廚師(Worker)->佇列(Queue Server):拿單
+廚師(Worker)->廚師(Worker):煮菜
+廚師(Worker)->顧客(Client):通知
+```
+
+直接接觸顧客的櫃臺或服務生就如 Web Server，在廚房專心做菜的廚師就像 Worker，而顧客如何知道何時取餐？靠看板上的號碼或是通知器。
+
+### Computer World
+
+使用者從你的網站上傳圖片後，你會將使用者的圖片縮圖及優化處理後上傳至 File Server，若一般的作法會在網站伺服器做處理，若使用者過多很容易造成伺服器爆炸，連網站都掛點。
+
+使用Job Queue的話，假設你現在有三台機器，一台當 Web Server，兩台當 Worker Server。
+
+```sequence
+Client->Web Server: Upload Picture
+Web Server->File Server: Upload Picture
+Web Server->Queue: Add Picture Process Job
+WorkerA->Queue: Listen
+WorkerA->Queue: Get Job
+WorkerA->File Server: Download Picture
+WorkerA->WorkerA: Process Picture
+WorkerA->File Server: Upload Thumbnail and Optimized Picture
+WorkerB->Queue: Listen
+WorkerB->Queue: Get Job
+WorkerB->File Server: Download Picture
+WorkerB->WorkerB: Process Picture
+WorkerB->File Server: Upload Thumbnail and Optimized Picture
+```
+
+### Details
+
+### What's Queue
+
+* Data Structure: FIFO (First In First Out) 
 * Line Up (排隊)
 
-## Why
+### Why
 
 * 一次做好一件事
 
-## When
+### When
 
 * 事情需要專心處理時，事情需要消耗大量資源時。
 
-## Where
-* Beanstalkd
+### Where
+* Beanstalk
 * Redis
 * Iron.io
-
-## How
-
-* 顧客點餐(Client)→服務生紀錄(Web Application Server)→佇列(Queue Server)→廚師煮菜(Job Server)→通知顧客
 
 ### Simple Queue Example In PHP
 
@@ -41,28 +84,25 @@ class Queue
 }
 ```
 
-### Laravel
+### Laravel Example
 
-https://github.com/dinos80152/laravel5-example/tree/master/app/Jobs
-
-
-### Beanstalkd
+[Laravel 5 Example by Dino Lai @github](https://github.com/dinos80152/laravel5-example/tree/master/app/Jobs)
 
 
-#### Beanstalkd Reference
+## Beanstalk
+[official web site](http://kr.github.io/beanstalkd/)
 
-http://kr.github.io/beanstalkd/
-http://alister.github.io/presentations/Beanstalkd/
+### Beanstalk Client Reference
 
+* [PHP Client](https://github.com/pda/pheanstalk)
+* [Laravel Documentation](http://laravel.com/docs/5.1/queues)
 
-#### Client Reference
-PHP
-https://github.com/pda/pheanstalk
+### Tools
+[Beanstalk Console](https://github.com/ptrofimov/beanstalk_console)
 
-Laravel
-http://laravel.com/docs/5.1/queues
+### Reference
+* [http://www.haodaima.net/art/2428782](http://www.haodaima.net/art/2428782)
+* [BeanstalkD: An Introduction to queuing by Alister Bulman](http://alister.github.io/presentations/Beanstalkd/)
 
-
-#### Extended Reading
-RabbitMQ Tutorial (Know How Queue Work)
-https://www.rabbitmq.com/getstarted.html
+## Extended Reading
+[RabbitMQ Tutorial (Know How Queue Work)](https://www.rabbitmq.com/getstarted.html)
