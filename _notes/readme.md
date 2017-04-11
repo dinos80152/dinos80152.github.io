@@ -1,7 +1,7 @@
 # Note List
 |Title | Updated Date |
 |------|------------|
-| [Laravel Update 4.2 to 5.0](/notes/laravel-4.html) | 2017-04-11 |
+| [Laravel Update 4.2 to 5.0](/notes/laravel-42-to-50.html) | 2017-04-11 |
 | [PHP](/notes/php.html) | 2017-04-11 |
 | [MySQL](/notes/mysql.html) | 2017-04-11 |
 | [SEO](/notes/seo.html) | 2017-04-11 |
