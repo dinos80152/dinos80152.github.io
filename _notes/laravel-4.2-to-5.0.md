@@ -12,7 +12,7 @@ Controller->View:
 
 ## Env
 
-**Laravel 5 doesn't have environment detection **, use .env.example
+**Laravel 5 doesn't have environment detection**, use .env.example
 
 |     | 4.2                    | 5    |
 | --- | ---------------------- | ---- |
@@ -213,20 +213,20 @@ protected $routeMiddleware = [
   * [Adding html package](http://laravelcollective.com/docs/5.0/html)
   * Using original html tag
 
-    ```html
-    <script src="{{ asset("js/jquery.js") }}"></script>
-    ```
+        ```html
+        <script src="{{ asset("js/jquery.js") }}"></script>
+        ```
 
-    ```html
-    <link rel="stylesheet" href="{{ asset("css/style.css") }}">
-    ```
+        ```html
+        <link rel="stylesheet" href="{{ asset("css/style.css") }}">
+        ```
 
-    ```html
-    <form>
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <input type="hidden" name="_method" value="PUT">
-    </form>
-    ```
+        ```html
+        <form>
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="_method" value="PUT">
+        </form>
+        ```
 
 ## Pagination
 
