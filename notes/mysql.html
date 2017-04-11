@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Personal Web Site include Blogs, Tutorials and Code">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>Note List - Dino Lai</title>
+    <title>MySQL - Dino Lai</title>
     <!-- Facebook Open Graph -->
     <meta property="og:url" content="http://dinolai.com/" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Note List - Dino Lai" />
+    <meta property="og:title" content="MySQL - Dino Lai" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <!-- End Facebook Open Graph -->
@@ -69,134 +69,93 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2017-04-11 21:06:53 CST +08</header>
-                    <main><h1>Note List</h1>
+                    <header>Updated: 2017-04-11 21:06:44 CST +08</header>
+                    <main><h1>MySQL</h1>
+
+<h2>Storage Engine</h2>
+
+<blockquote>
+<p>Storage engines are MySQL components that handle the SQL operations for different table types&ndash;MySQL 5.6 Reference Manual</p>
+</blockquote>
+
+<h2>Comparison</h2>
+
+<p>InnoDB vs. MyISAM</p>
 
 <table>
 <thead>
 <tr>
-<th>Title</th>
-<th>Updated Date</th>
+<th>MySQL</th>
+<th>MyISAM</th>
+<th>InnoDB</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-<td><a href="/notes/mysql.html">MySQL</a></td>
-<td>2017-04-11</td>
+<td>Full Text Search</td>
+<td>Yes</td>
+<td>&gt; 5.6.4</td>
 </tr>
 
 <tr>
-<td><a href="/notes/seo.html">SEO</a></td>
-<td>2017-04-11</td>
+<td>Design</td>
+<td>DBMS</td>
+<td>RDBMS</td>
 </tr>
 
 <tr>
-<td><a href="/notes/web-proper-noun.html">網站開發專有名詞 For Product Manager</a></td>
-<td>2017-04-10</td>
+<td>Referential integrity</td>
+<td></td>
+<td>Yes</td>
 </tr>
 
 <tr>
-<td><a href="/notes/user-story.html">User Story</a></td>
-<td>2017-04-10</td>
+<td>Transactions</td>
+<td></td>
+<td>ACID Transaction</td>
 </tr>
 
 <tr>
-<td><a href="/notes/taiwan-community.html">Taiwan Community</a></td>
-<td>2017-04-10</td>
+<td>Foreign Key</td>
+<td></td>
+<td>Yes</td>
 </tr>
 
 <tr>
-<td><a href="/notes/selenium_with_phpunit.html">Selenium with PHPUnit</a></td>
-<td>2017-04-10</td>
+<td>Locking</td>
+<td>Table Level</td>
+<td>Row Level</td>
 </tr>
 
 <tr>
-<td><a href="/notes/repository-pattern.html">Repository Pattern</a></td>
-<td>2017-04-09</td>
+<td>select</td>
+<td>better</td>
+<td></td>
 </tr>
 
 <tr>
-<td><a href="/notes/queue.html">Queue</a></td>
-<td>2017-04-09</td>
+<td>insert, update</td>
+<td></td>
+<td>better</td>
 </tr>
 
 <tr>
-<td><a href="/notes/php.html">PHP</a></td>
-<td>2017-04-09</td>
-</tr>
-
-<tr>
-<td><a href="/notes/nginx.html">Nginx</a></td>
-<td>2017-04-09</td>
-</tr>
-
-<tr>
-<td><a href="/notes/nginx-php-fpm.html">Nginx, Php-fpm</a></td>
-<td>2017-04-09</td>
-</tr>
-
-<tr>
-<td><a href="/notes/movetogitlab.html">Move Repo from Gitolite to Gitlab</a></td>
-<td>2017-04-09</td>
-</tr>
-
-<tr>
-<td><a href="/notes/linux.html">Linux</a></td>
-<td>2017-04-09</td>
-</tr>
-
-<tr>
-<td><a href="/notes/google-analytics.html">Google Analytics</a></td>
-<td>2017-04-09</td>
-</tr>
-
-<tr>
-<td><a href="/notes/golang.html">Golang</a></td>
-<td>2017-04-09</td>
-</tr>
-
-<tr>
-<td><a href="/notes/gitlab.html">Gitlab Demo</a></td>
-<td>2017-04-09</td>
-</tr>
-
-<tr>
-<td><a href="/notes/elastic-kibana.html">Logserver</a></td>
-<td>2017-04-09</td>
-</tr>
-
-<tr>
-<td><a href="/notes/redis.html">Redis</a></td>
-<td>2017-04-09</td>
-</tr>
-
-<tr>
-<td><a href="/notes/flowchart.html">Flowchart Test</a></td>
-<td>2017-04-08</td>
-</tr>
-
-<tr>
-<td><a href="/notes/lisp.html">List</a></td>
-<td>2017-04-07</td>
-</tr>
-
-<tr>
-<td><a href="/notes/git.html">Git</a></td>
-<td>2017-04-07</td>
-</tr>
-
-<tr>
-<td><a href="/notes/laravel4and5.html">Folder and File</a></td>
-<td>2017-04-05</td>
-</tr>
-
-<tr>
-<td><a href="/notes/https.html">HTTPS</a></td>
-<td>2017-03-31</td>
+<td>Storage</td>
+<td>No ordering in storage of data</td>
+<td>Row data stored in pages in PK order</td>
 </tr>
 </tbody>
 </table>
+
+<h2>Reference</h2>
+
+<ul>
+<li><a href="http://stackoverflow.com/questions/20148/myisam-versus-innodb">MyISAM versus InnoDB@stackoverflow</a></li>
+<li><a href="http://www.rackspace.com/knowledge_center/article/mysql-engines-myisam-vs-innodb">Rackspace</a></li>
+<li><a href="http://stackoverflow.com/questions/12614541/whats-the-difference-between-myisam-and-innodb">What&rsquo;s the difference between MyISAM and InnoDB?@stackoverflow</a></li>
+<li><a href="http://dev.mysql.com/doc/refman/5.6/en/storage-engines.html">MySQL 5.6 Reference Manual</a></li>
+</ul>
 </main>
                 </article>
                 <hr>

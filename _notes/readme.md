@@ -1,6 +1,7 @@
 # Note List
 |Title | Updated Date |
 |------|------------|
+| [MySQL](/notes/mysql.html) | 2017-04-11 |
 | [SEO](/notes/seo.html) | 2017-04-11 |
 | [網站開發專有名詞 For Product Manager](/notes/web-proper-noun.html) | 2017-04-10 |
 | [User Story](/notes/user-story.html) | 2017-04-10 |
