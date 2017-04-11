@@ -61,7 +61,29 @@
 * [PHP Annotations Are a Horrible Idea](http://theunraveler.com/blog/2012/php-annotations-are-a-horrible-idea/)
 * [PHP: Annotations are an Abomination](https://r.je/php-annotations-are-an-abomination.html)
 
+## Test
+
 ### PHPUnit
+
+#### phpunit.xml
+
+1. testsuites
+1. filter
+1. php
+
+#### Test Exception
+
+```php
+$this->setExpectedException('App\Exceptions\APIException');
+```
+
+#### Mock
+
+[Mockery: PHP mock object framework](https://github.com/padraic/mockery)
+
+#### Coverage
+
+[PHP Code Coverage](https://github.com/sebastianbergmann/php-code-coverage)
 
 ## Tools
 
