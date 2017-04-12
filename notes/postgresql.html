@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Personal Web Site include Blogs, Tutorials and Code">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>Git - Dino Lai</title>
+    <title>PostgreSQL - Dino Lai</title>
     <!-- Facebook Open Graph -->
     <meta property="og:url" content="http://dinolai.com/" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Git - Dino Lai" />
+    <meta property="og:title" content="PostgreSQL - Dino Lai" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <!-- End Facebook Open Graph -->
@@ -69,56 +69,22 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2017-04-12 17:32:52 CST +08</header>
-                    <main><h1>Git</h1>
+                    <header>Updated: 2017-04-12 17:49:33 CST +08</header>
+                    <main><h1>PostgreSQL</h1>
 
-<h2>Commit Message</h2>
+<h2>Enviroment</h2>
 
-<p><a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">A Note About Git Commit Messages@tpope</a></p>
+<ul>
+<li>OS: CentOS 7</li>
+<li>PostgreSQL: 9.4</li>
+</ul>
 
-<h2>Git Mirror</h2>
-
-<p>最近想把公司的舊專案慢慢從 Gitolite 換到 Gitlab 上。</p>
-
-<p>研究了一下 git clone mirror 選項，它可以把整個 repo 的資訊都 clone 下來，包括 branches, tags。</p>
-
-<p>如果你有連進去 git server 看過遠端 repo 怎麼存的話，它就是把那整個資料夾給載下來。</p>
-
-<p>我們再用 git push --mirror 把整包都丟到新的 git server 上面的 repo 裡。</p>
-
-<h3>Example</h3>
-
-<ol>
-<li><p>整包 clone 下來</p>
-
-<pre><code class="language-bash">git clone --mirror gitolite@git.lab317.org:dinos80152/Authentication
-</code></pre></li>
-
-<li><p>到 gitlab 建一個空的 repo</p></li>
-
-<li><p>進到專案資料夾，設定新的遠端 git repo 位置</p>
-
-<pre><code class="language-bash">cd Authentication.git/
-git remote set-url --push origin git@gitlab.lab317.org:dinos80152/Authentication.git
-</code></pre></li>
-
-<li><p>local 更新 remote branch，因為是新的 repo，就是將本地的 origin/xxx 都刪囉。-p == --prune</p>
-
-<pre><code class="language-bash">git fetch -p origin
-</code></pre></li>
-
-<li><p>最後將整包 push 上去</p>
-
-<pre><code class="language-bash">git push --mirror
-</code></pre></li>
-
-<li><p>可以在 Gitlab 上看到 repo 裡有以前在 Gitolite 的所有紀錄與東西囉。</p></li>
-</ol>
+<h2>Install</h2>
 
 <h2>Reference</h2>
 
 <ul>
-<li><a href="https://help.github.com/articles/duplicating-a-repository/">Duplicating a repository@github.com</a></li>
+<li><a href="https://wiki.postgresql.org/wiki/YUM_Installation">PostgreSQL wiki</a></li>
 </ul>
 </main>
                 </article>

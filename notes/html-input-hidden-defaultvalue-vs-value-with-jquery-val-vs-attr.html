@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Personal Web Site include Blogs, Tutorials and Code">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>Git - Dino Lai</title>
+    <title>HTML Input hidden defaultValue vs. value with jQuery val() vs. attr() - Dino Lai</title>
     <!-- Facebook Open Graph -->
     <meta property="og:url" content="http://dinolai.com/" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Git - Dino Lai" />
+    <meta property="og:title" content="HTML Input hidden defaultValue vs. value with jQuery val() vs. attr() - Dino Lai" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <!-- End Facebook Open Graph -->
@@ -69,56 +69,69 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2017-04-12 17:32:52 CST +08</header>
-                    <main><h1>Git</h1>
+                    <header>Updated: 2017-04-12 17:42:09 CST +08</header>
+                    <main><h1>HTML Input hidden defaultValue vs. value with jQuery val() vs. attr()</h1>
 
-<h2>Commit Message</h2>
+<h2>Problem</h2>
 
-<p><a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">A Note About Git Commit Messages@tpope</a></p>
+<p>承續上一篇 <a href="https://dinos80152.wordpress.com/2015/10/07/html-input-defaultvalue-vs-value-jquery-val-vs-attr/">HTML Input defaultValue vs. value, jQuery val() vs. attr()</a></p>
 
-<h2>Git Mirror</h2>
+<p>這篇探討為什麼 type 使用 hidden，html 就成功的被改變了呢？</p>
 
-<p>最近想把公司的舊專案慢慢從 Gitolite 換到 Gitlab 上。</p>
+<h2>Example</h2>
 
-<p>研究了一下 git clone mirror 選項，它可以把整個 repo 的資訊都 clone 下來，包括 branches, tags。</p>
+<p>範例如下</p>
 
-<p>如果你有連進去 git server 看過遠端 repo 怎麼存的話，它就是把那整個資料夾給載下來。</p>
+<pre><code class="language-html">&lt;form&gt;
+&lt;input type=&quot;hidden&quot; name=&quot;test&quot; value=&quot;abc&quot;&gt;
+&lt;input type=&quot;hidden&quot; name=&quot;test2&quot; value=&quot;abc&quot;&gt;
+&lt;/form&gt;
+</code></pre>
 
-<p>我們再用 git push --mirror 把整包都丟到新的 git server 上面的 repo 裡。</p>
+<p>Javascript</p>
 
-<h3>Example</h3>
+<pre><code class="language-js">document.getElementsByName('test')[0].value = 123;
+document.getElementsByName('test')[0].setAttribute('value', 123);
+console.log(document.getElementsByTagName('form')[0].innerHTML);
+</code></pre>
 
-<ol>
-<li><p>整包 clone 下來</p>
+<p>jQuery</p>
 
-<pre><code class="language-bash">git clone --mirror gitolite@git.lab317.org:dinos80152/Authentication
-</code></pre></li>
+<pre><code class="language-js">$('input[name=&quot;test&quot;]').val(123);
+$('input[name=&quot;test&quot;]').attr('value', 123);
+console.log($('form').html());
+</code></pre>
 
-<li><p>到 gitlab 建一個空的 repo</p></li>
+<p>Output</p>
 
-<li><p>進到專案資料夾，設定新的遠端 git repo 位置</p>
+<pre><code class="language-html">&lt;input type=&quot;text&quot; name=&quot;test&quot; value=&quot;123&quot;&gt;
+&lt;input type=&quot;text&quot; name=&quot;test2&quot; value=&quot;123&quot;&gt;
+</code></pre>
 
-<pre><code class="language-bash">cd Authentication.git/
-git remote set-url --push origin git@gitlab.lab317.org:dinos80152/Authentication.git
-</code></pre></li>
+<p>原因很簡單，一樣參考<a href="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-6043025">Input 的屬性</a>。</p>
 
-<li><p>local 更新 remote branch，因為是新的 repo，就是將本地的 origin/xxx 都刪囉。-p == --prune</p>
+<p>我們可以看到 defaultValue 是只有 <strong>text</strong>, <strong>file</strong>, <strong>password</strong> 才有的屬性，所以 hidden 這個 type 並沒有 defaultValue，只有 value，因為在制定時，hidden 的值是不會被 user 改變的。</p>
 
-<pre><code class="language-bash">git fetch -p origin
-</code></pre></li>
+<p>因為沒有 defaultValue，所以 input type hidden 上原本的 value attribute 就是對到 value property，所以當你使用 js 改變 value 時，它的 html 也會一起被改變了。</p>
 
-<li><p>最後將整包 push 上去</p>
+<p>但這邊最奇怪的地方，就算它沒有 defaultValue 這個屬性，但依舊可以使用</p>
 
-<pre><code class="language-bash">git push --mirror
-</code></pre></li>
+<pre><code class="language-js">document.getElementsByName('test')[0].setAttribute('value', 123);
+document.getElementsByName('test')[0].defaultValue = 123;
+</code></pre>
 
-<li><p>可以在 Gitlab 上看到 repo 裡有以前在 Gitolite 的所有紀錄與東西囉。</p></li>
-</ol>
+<p>這兩個 method 則會去改 input type=hidden 元素的 value 了。</p>
 
-<h2>Reference</h2>
+<p>這該說方便還是讓人混淆呢..?</p>
+
+<p>或許之後有機會看到更多討論再來做更多的釐清吧！</p>
+
+<h3>Reference</h3>
 
 <ul>
-<li><a href="https://help.github.com/articles/duplicating-a-repository/">Duplicating a repository@github.com</a></li>
+<li><a href="http://stackoverflow.com/questions/5319678/javascript-and-defaultvalue-of-hidden-input-elements">Javascript and defaultValue of hidden input elements@stackoverflow</a></li>
+<li><a href="http://forums.mozillazine.org/viewtopic.php?f=25&amp;t=1787115">Firefox will not reset hidden fields@mozillazine</a></li>
+<li><a href="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-6043025">Document Object Model HTML-Interface HTMLInputElement</a></li>
 </ul>
 </main>
                 </article>

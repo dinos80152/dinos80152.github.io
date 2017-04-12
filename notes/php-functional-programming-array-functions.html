@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Personal Web Site include Blogs, Tutorials and Code">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>Git - Dino Lai</title>
+    <title>PHP Functinoal Programming Array Functions - Dino Lai</title>
     <!-- Facebook Open Graph -->
     <meta property="og:url" content="http://dinolai.com/" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Git - Dino Lai" />
+    <meta property="og:title" content="PHP Functinoal Programming Array Functions - Dino Lai" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <!-- End Facebook Open Graph -->
@@ -69,56 +69,143 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2017-04-12 17:32:52 CST +08</header>
-                    <main><h1>Git</h1>
+                    <header>Updated: 2017-04-12 17:24:35 CST +08</header>
+                    <main><h1>PHP Functinoal Programming Array Functions</h1>
 
-<h2>Commit Message</h2>
+<h2>Filter</h2>
 
-<p><a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">A Note About Git Commit Messages@tpope</a></p>
+<p><em>array_filter</em> 會去走訪 array 裡的所有元素，並將符合條件的串成 array 回傳出來。</p>
 
-<h2>Git Mirror</h2>
+<pre><code class="language-php">array array_filter ( array $array [, callable $callback [, int $flag = 0 ]] )
+</code></pre>
 
-<p>最近想把公司的舊專案慢慢從 Gitolite 換到 Gitlab 上。</p>
+<p>判斷來源 IP 是否在白名單裡。</p>
 
-<p>研究了一下 git clone mirror 選項，它可以把整個 repo 的資訊都 clone 下來，包括 branches, tags。</p>
+<pre><code class="language-php">array_filter($allow_ips, function($ip) {
+    return $ip == $_SERVER['REMOTE_ADDR'];
+}) ? : throw new Exception('Denied IP');
+</code></pre>
 
-<p>如果你有連進去 git server 看過遠端 repo 怎麼存的話，它就是把那整個資料夾給載下來。</p>
+<p>當沒有設定條件時，會傳回符合 true 條件的 array</p>
 
-<p>我們再用 git push --mirror 把整包都丟到新的 git server 上面的 repo 裡。</p>
+<pre><code class="language-php">array_filter(array('', true, 's', 0, null));
+//[true, 's']
+</code></pre>
 
-<h3>Example</h3>
+<h2>Map</h2>
 
-<ol>
-<li><p>整包 clone 下來</p>
+<p><em>array_map</em> 會將每個 array 裡的元素經過指定的 function 處理，並將結果丟進另一個 array 傳出來。</p>
 
-<pre><code class="language-bash">git clone --mirror gitolite@git.lab317.org:dinos80152/Authentication
-</code></pre></li>
+<pre><code class="language-php">array array_map ( callable $callback , array $array1 [, array $... ] )
+</code></pre>
 
-<li><p>到 gitlab 建一個空的 repo</p></li>
+<p>將 array 裡的元素做大寫處理</p>
 
-<li><p>進到專案資料夾，設定新的遠端 git repo 位置</p>
+<pre><code class="language-php">$array = ['p', 'h', 'p'];
+$post_array = array_map(function($value) {
+    return strtoupper($value);
+}, $array);
+var_dump($post_array); //['P', 'H', 'P']
+</code></pre>
 
-<pre><code class="language-bash">cd Authentication.git/
-git remote set-url --push origin git@gitlab.lab317.org:dinos80152/Authentication.git
-</code></pre></li>
+<p>將兩個 array 做對應，數字對應到英文單字。</p>
 
-<li><p>local 更新 remote branch，因為是新的 repo，就是將本地的 origin/xxx 都刪囉。-p == --prune</p>
+<pre><code class="language-php">function map_num($num, $word) {
+    return [$num =&gt; $word];
+}
 
-<pre><code class="language-bash">git fetch -p origin
-</code></pre></li>
+$number = [1,2,3,4,5];
+$number_eng = ['one', 'two', 'three', 'four', 'five'];
+array_map('map_num', $number, $number_eng);
+//[1 =&gt; 'one', 2 =&gt; 'two', 3 =&gt; 'three', 4 =&gt; 'four', 5 =&gt; 'five']
+</code></pre>
 
-<li><p>最後將整包 push 上去</p>
+<p>這邊有個很像的叫 *array_walk*，它會走訪每個元素，但是回傳 boolean，若全部成功走完傳回 true，沒走完回傳 false。</p>
 
-<pre><code class="language-bash">git push --mirror
-</code></pre></li>
+<pre><code class="language-php">bool array_walk ( array &amp;$array , callable $callback [, mixed $userdata = NULL ] )
+</code></pre>
 
-<li><p>可以在 Gitlab 上看到 repo 裡有以前在 Gitolite 的所有紀錄與東西囉。</p></li>
-</ol>
+<p><strong>若要真的改變元素，請 passing by reference.</strong></p>
+
+<pre><code class="language-php">function upper_str($value, $key, $prefix) {
+    $value = strtoupper($prefix . $value);
+}
+
+function upper_str_reference(&amp;$value, $key, $prefix) {
+    $value = strtoupper($prefix . $value);
+}
+
+$array = ['p', 'h', 'p'];
+
+$bool = array_walk($array, 'upper_str', '_');
+var_dump($array); //['p', 'h', 'p']
+
+$bool = array_walk($array, 'upper_str_reference', '_');
+var_dump($array); //['_P', '_H', '_P']
+</code></pre>
+
+<h2>Reduce</h2>
+
+<p>array 裡的元素會一個一個依序被丟到 function 裡做處理，上一個元素的處理結果都會被存進 function 裡的第一次參數，供下一個元素處理時使用。</p>
+
+<pre><code class="language-php">mixed array_reduce ( array $array , callable $callback [, mixed $initial = NULL ] )
+</code></pre>
+
+<p>傳統用 foreach 做 1 到 5 的相乘結果。</p>
+
+<pre><code class="language-php">function multiply_array($array) {
+    foreach($array as $value) {
+        $sum *= $value;
+    }
+
+    return $sum;
+}
+
+multiply_array([1, 2, 3, 4, 5]);
+</code></pre>
+
+<p>改用 array_reduce 的 1 到 5 的相乘結果。並給定第一個初始值為 10。</p>
+
+<pre><code class="language-php">$array = [1, 2, 3, 4, 5];
+array_reduce($array, function($carry, $item) {
+    return $carry *= $item;
+}, 10);
+
+//1200, because: 10*1*2*3*4*5
+</code></pre>
+
+<h2>Map and Reduce</h2>
+
+<p>綜合應用。array 的元素變大寫以後，再一個一個接成字串。</p>
+
+<pre><code class="language-php">$array = ['p', 'h', 'p'];
+array_reduce(array_map(function($value) {
+    return strtoupper($value);
+}, $array), function($carry, $value) {
+    return $carry .= $value;
+});
+//PHP
+</code></pre>
+
+<h2>others</h2>
+
+<h3>array_sum</h3>
+
+<p>加總 array 裡的元素。</p>
+
+<pre><code class="language-php">number array_sum ( array $array )
+</code></pre>
+
+<p>產生一個 1 到 10 的 array，並將 array 裡的元素做加總。</p>
+
+<pre><code class="language-php">array_sum(range(1, 10));
+</code></pre>
 
 <h2>Reference</h2>
 
 <ul>
-<li><a href="https://help.github.com/articles/duplicating-a-repository/">Duplicating a repository@github.com</a></li>
+<li><a href="https://www.simonholywell.com/static/slides/2014-02-12/">Functional Programming in PHP by Simon Holywell</a></li>
+<li><a href="http://php.net/manual/en/function.array.php">PHP Manual - Array Functions</a></li>
 </ul>
 </main>
                 </article>

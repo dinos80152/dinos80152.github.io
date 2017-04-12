@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Personal Web Site include Blogs, Tutorials and Code">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>Git - Dino Lai</title>
+    <title>Laravel Performance - Dino Lai</title>
     <!-- Facebook Open Graph -->
     <meta property="og:url" content="http://dinolai.com/" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Git - Dino Lai" />
+    <meta property="og:title" content="Laravel Performance - Dino Lai" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <!-- End Facebook Open Graph -->
@@ -69,56 +69,70 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2017-04-12 17:32:52 CST +08</header>
-                    <main><h1>Git</h1>
+                    <header>Updated: 2017-04-12 17:49:29 CST +08</header>
+                    <main><h1>Laravel Performance</h1>
 
-<h2>Commit Message</h2>
+<h2>Database Read/Write</h2>
 
-<p><a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">A Note About Git Commit Messages@tpope</a></p>
-
-<h2>Git Mirror</h2>
-
-<p>最近想把公司的舊專案慢慢從 Gitolite 換到 Gitlab 上。</p>
-
-<p>研究了一下 git clone mirror 選項，它可以把整個 repo 的資訊都 clone 下來，包括 branches, tags。</p>
-
-<p>如果你有連進去 git server 看過遠端 repo 怎麼存的話，它就是把那整個資料夾給載下來。</p>
-
-<p>我們再用 git push --mirror 把整包都丟到新的 git server 上面的 repo 裡。</p>
+<p>在 Laravel 裡要做讀寫分離很簡單，首先要調整 config 裡的 db 連線，把 host 改為 read 與 write 分開，範例如下</p>
 
 <h3>Example</h3>
 
-<ol>
-<li><p>整包 clone 下來</p>
+<p>app/config/database.php</p>
 
-<pre><code class="language-bash">git clone --mirror gitolite@git.lab317.org:dinos80152/Authentication
-</code></pre></li>
+<pre><code class="language-php">// ...
+'mysql' =&gt; [
+    'read' =&gt; [
+        'host' =&gt; env('DB_HOST_READ', 'localhost'),
+    ],
+    'write' =&gt; [
+        'host' =&gt; env('DB_HOST_WRITE', 'localhost'),
+    ],
+    'driver'    =&gt; 'mysql',
+    'database'  =&gt; env('DB_DATABASE', 'forge'),
+    'username'  =&gt; env('DB_USERNAME', 'forge'),
+    'password'  =&gt; env('DB_PASSWORD', ''),
+    'charset'   =&gt; 'utf8',
+    'collation' =&gt; 'utf8_unicode_ci',
+    'prefix'    =&gt; '',
+    'strict'    =&gt; false,
+],
+// ...
+</code></pre>
 
-<li><p>到 gitlab 建一個空的 repo</p></li>
+<p>.env</p>
 
-<li><p>進到專案資料夾，設定新的遠端 git repo 位置</p>
+<pre><code class="language-php">// ...
+DB_HOST_READ=192.168.1.1
+DB_HOST_WRITE=192.168.1.2
+DB_DATABASE=homestead
+DB_USERNAME=homestead
+DB_PASSWORD=secret
+// ...
+</code></pre>
 
-<pre><code class="language-bash">cd Authentication.git/
-git remote set-url --push origin git@gitlab.lab317.org:dinos80152/Authentication.git
-</code></pre></li>
+<p>這樣在 select 時會使用 read 的 connection, 而做 delete, update, insert 時則會使用 write 的 connection。</p>
 
-<li><p>local 更新 remote branch，因為是新的 repo，就是將本地的 origin/xxx 都刪囉。-p == --prune</p>
+<p>那問題來了，因為 database replicate 其實是需要時間的，那在一些需要即時的資料時〈例如搶票〉，為了確保資料沒有落差，我們就不能使用讀寫分離，此時我們可以使用以下語法讓 select 去使用 write connection。</p>
 
-<pre><code class="language-bash">git fetch -p origin
-</code></pre></li>
+<p>Eloquent</p>
 
-<li><p>最後將整包 push 上去</p>
+<pre><code class="language-php">User::onWriteConnection()-&gt;find($id);
+</code></pre>
 
-<pre><code class="language-bash">git push --mirror
-</code></pre></li>
+<p>Query Builder</p>
 
-<li><p>可以在 Gitlab 上看到 repo 裡有以前在 Gitolite 的所有紀錄與東西囉。</p></li>
-</ol>
+<pre><code class="language-php">DB::table('users')-&gt;selectFromWriteConnection('*')-&gt;where('id', $id)-&gt;first();
+</code></pre>
+
+<p>若網站的效能是卡在 database，讀寫分離是個可以嘗試改善效能的方法，但也意味著需要額一台機器做原先 database 的 slave。</p>
 
 <h2>Reference</h2>
 
 <ul>
-<li><a href="https://help.github.com/articles/duplicating-a-repository/">Duplicating a repository@github.com</a></li>
+<li><a href="http://laravel.com/docs/5.1/database#read-write-connections">Read / Write Connections@laravel.com</a></li>
+<li><a href="http://laravel.com/api/5.1/Illuminate/Database/Eloquent/Model.html#method_onWriteConnection">onWriteConnection@Laravel API</a></li>
+<li><a href="http://laravel.com/api/5.1/Illuminate/Database/Connection.html#method_selectFromWriteConnection">selectFromWriteConnection@Laravel API</a></li>
 </ul>
 </main>
                 </article>

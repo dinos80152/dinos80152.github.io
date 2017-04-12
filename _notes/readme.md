@@ -1,6 +1,16 @@
 # Note List
 |Title | Updated Date |
 |------|------------|
+| [ELK: Elasticsearch, Logstash, Kibana](/notes/elk-elasticsearch-logstash-kibana.html) | 2017-04-12 |
+| [CentOS 7](/notes/centos7.html) | 2017-04-12 |
+| [PostgreSQL](/notes/postgresql.html) | 2017-04-12 |
+| [Laravel Performance](/notes/laravel-performance.html) | 2017-04-12 |
+| [HTML Input hidden defaultValue vs. value with jQuery val() vs. attr()](/notes/html-input-hidden-defaultvalue-vs-value-with-jquery-val-vs-attr.html) | 2017-04-12 |
+| [HTML Input defaultValue vs. value with jQuery val() vs. attr()](/notes/html-input-defaultvalue-vs-value-with-jquery-val-vs-attr.html) | 2017-04-12 |
+| [Git](/notes/git.html) | 2017-04-12 |
+| [Laravel - 設計一個好的 Blade Template, 使用 @parent](/notes/laravel-blade-parent.html) | 2017-04-12 |
+| [PHP Functional Programming Lambda](/notes/php-functional-programming-lambda.html) | 2017-04-12 |
+| [PHP Functinoal Programming Array Functions](/notes/php-functional-programming-array-functions.html) | 2017-04-12 |
 | [Laravel Update 4.2 to 5.0](/notes/laravel-42-to-50.html) | 2017-04-11 |
 | [PHP](/notes/php.html) | 2017-04-11 |
 | [MySQL](/notes/mysql.html) | 2017-04-11 |
@@ -18,9 +28,7 @@
 | [Google Analytics](/notes/google-analytics.html) | 2017-04-09 |
 | [Golang](/notes/golang.html) | 2017-04-09 |
 | [Gitlab Demo](/notes/gitlab.html) | 2017-04-09 |
-| [Logserver](/notes/elastic-kibana.html) | 2017-04-09 |
 | [Redis](/notes/redis.html) | 2017-04-09 |
 | [Flowchart Test](/notes/flowchart.html) | 2017-04-08 |
 | [List](/notes/lisp.html) | 2017-04-07 |
-| [Git](/notes/git.html) | 2017-04-07 |
 | [HTTPS](/notes/https.html) | 2017-03-31 |

@@ -1,4 +1,4 @@
-# Logserver
+# ELK: Elasticsearch, Logstash, Kibana
 
 ## ELK
 
@@ -7,6 +7,30 @@
 * Kibana
 
 ## Kibana
+
+### Install
+
+```bash
+/opt/kibana
+```
+
+deamon <https://github.com/akabdog/scripts/blob/master/kibana4_init>
+
+```bash
+/etc/init.d/kibana
+```
+
+```bash
+/etc/init.d/kibana start
+```
+
+start on boot
+
+```bash
+update-rc.d kibana defaults
+```
+
+## Introduction
 
 * Discover
 * Visualize

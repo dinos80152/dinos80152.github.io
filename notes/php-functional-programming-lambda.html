@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Personal Web Site include Blogs, Tutorials and Code">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>Git - Dino Lai</title>
+    <title>PHP Functional Programming Lambda - Dino Lai</title>
     <!-- Facebook Open Graph -->
     <meta property="og:url" content="http://dinolai.com/" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Git - Dino Lai" />
+    <meta property="og:title" content="PHP Functional Programming Lambda - Dino Lai" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <!-- End Facebook Open Graph -->
@@ -69,56 +69,164 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2017-04-12 17:32:52 CST +08</header>
-                    <main><h1>Git</h1>
+                    <header>Updated: 2017-04-12 17:25:48 CST +08</header>
+                    <main><h1>PHP Functional Programming Lambda</h1>
 
-<h2>Commit Message</h2>
+<h2>Recursion</h2>
 
-<p><a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">A Note About Git Commit Messages@tpope</a></p>
+<p>遞迴。例：運算連續整數總合</p>
 
-<h2>Git Mirror</h2>
+<ul>
+<li>loop</li>
+</ul>
 
-<p>最近想把公司的舊專案慢慢從 Gitolite 換到 Gitlab 上。</p>
+<pre><code class="language-php">function head_sum($x) {
+    for($x; $x &gt; 0; $x--) {
+        $sum += $x;
+    }
+    return $sum;
+}
+</code></pre>
 
-<p>研究了一下 git clone mirror 選項，它可以把整個 repo 的資訊都 clone 下來，包括 branches, tags。</p>
+<ul>
+<li>recursion</li>
+</ul>
 
-<p>如果你有連進去 git server 看過遠端 repo 怎麼存的話，它就是把那整個資料夾給載下來。</p>
+<pre><code class="language-php">function head_sum($x) {
+    return ($x == 1) ? $x : $x + head_sum($x - 1);
+}
+head_sum(10)
+</code></pre>
 
-<p>我們再用 git push --mirror 把整包都丟到新的 git server 上面的 repo 裡。</p>
+<h2>Anonymous function</h2>
 
-<h3>Example</h3>
+<p>匿名函数</p>
 
-<ol>
-<li><p>整包 clone 下來</p>
+<pre><code class="language-php">$value = 5;
+$func_name = function($param) use ($value) {
+    return $param + $value;
+};
+echo $func_name(3); //8
+</code></pre>
 
-<pre><code class="language-bash">git clone --mirror gitolite@git.lab317.org:dinos80152/Authentication
-</code></pre></li>
+<pre><code class="language-php">$plus_one = function($var) {
+    return $var + 1;
+};
 
-<li><p>到 gitlab 建一個空的 repo</p></li>
+$func_name = function($param) use ($plus_one) {
+    return $param + $plus_one($param);
+};
+echo $func_name(3); //7
+</code></pre>
 
-<li><p>進到專案資料夾，設定新的遠端 git repo 位置</p>
+<h2>Advanced</h2>
 
-<pre><code class="language-bash">cd Authentication.git/
-git remote set-url --push origin git@gitlab.lab317.org:dinos80152/Authentication.git
-</code></pre></li>
+<p>判斷隨機數為奇偶數後對陣列裡的值做運算。</p>
 
-<li><p>local 更新 remote branch，因為是新的 repo，就是將本地的 origin/xxx 都刪囉。-p == --prune</p>
+<pre><code class="language-php">function get_algorithm($rand_seed_func) {
+    return (odd_even($rand_seed_func()))
+        ? function($value) {
+            return $value * $value;
+        }
+        : function($value) use ($rand_seed_func) {
+            return ($value * $value / $rand_seed_func()) + 10;
+        };
+}
 
-<pre><code class="language-bash">git fetch -p origin
-</code></pre></li>
+function odd_even($value) {
+    return ($value % 2 === 0);
+}
 
-<li><p>最後將整包 push 上去</p>
+$rand_seed_func = function() {
+    return rand();
+};
 
-<pre><code class="language-bash">git push --mirror
-</code></pre></li>
+$data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+$results = array_map(get_algorithm($rand_seed_func), $data);
+</code></pre>
 
-<li><p>可以在 Gitlab 上看到 repo 裡有以前在 Gitolite 的所有紀錄與東西囉。</p></li>
-</ol>
+<h2><a href="https://en.wikipedia.org/wiki/Partial_application">Partial Function Application</a></h2>
+
+<p>從一函數中創造出它的局部函數出來。</p>
+
+<pre><code class="language-php">$first_char = function($string) {
+    return substr($string, 0, 1);
+};
+
+$second_char = function($string) {
+    return substr($string, 1, 2);
+};
+
+array_map($first_char, ['Dino', 'Amy', 'Birdy']);
+// ['D', 'A', 'B']
+
+array_map($second_char, ['Dino', 'Amy', 'Birdy']);
+// ['i', 'm', 'i']
+</code></pre>
+
+<p>動態創建局部函數</p>
+
+<pre><code class="language-php">function partial(/* $func, $args... */)
+{
+    $args = func_get_args();
+    $func = array_shift($args);
+
+    return function() use ($func, $args)
+    {
+        return call_user_func_array($func, array_merge($args, func_get_args()));
+    };
+}
+
+function add($a, $b)
+{
+    return $a + $b;
+}
+
+$inc = partial('add', 1);
+$dec = partial('add', -1);
+
+echo $inc(3); //4
+echo $dec(3); //2
+</code></pre>
+
+<h2><a href="https://en.wikipedia.org/wiki/Currying">Currying</a></h2>
+
+<p>將接受多個參數的函數變成一個一個接受單個參數的函數，並返回結果的新函數。使得固定某一值後的函數可再被重覆化利用。</p>
+
+<pre><code class="language-php">$first_char = function($start) {
+    return function($length) use ($start) {
+        return function($string) use ($start, $length) {
+            return substr($string, $start, $length);
+        };
+    };
+};
+$a = $first_char(0);
+$b = $a(1);
+$b('foo'); //f
+$c = $a(2);
+$c('foo'); //fo
+</code></pre>
+
+<h2>Memoization</h2>
+
+<p>如果你需要返回的函式需要經過繁重的運算或串接，可以使用記憶化將它快取住，下次取用減少資源浪費。</p>
+
+<pre><code class="language-php">function demo() {
+    static $cache;
+    if(is_null($cache)) {
+        $cache = some_expensive_operation();
+    }
+    return $cache;
+}
+</code></pre>
 
 <h2>Reference</h2>
 
 <ul>
-<li><a href="https://help.github.com/articles/duplicating-a-repository/">Duplicating a repository@github.com</a></li>
+<li><a href="https://www.simonholywell.com/static/slides/2014-02-12/">Functional Programming in PHP by Simon Holywell</a></li>
+<li><a href="http://php.net/manual/en/function.array.php">PHP Manual - Variable functions</a></li>
+<li><a href="http://php.net/manual/en/functions.anonymous.php">PHP Manual - Anonymous functions</a></li>
+<li><a href="http://eddmann.com/posts/using-partial-application-in-php/">Using Partial Application in PHP • edd mann</a></li>
 </ul>
 </main>
                 </article>
