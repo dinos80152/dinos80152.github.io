@@ -44,12 +44,11 @@
             <div id="navbar" class="collapse navbar-collapse">
                 <div class="row">
                     <ul class="nav nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="/about">Info</a></li>
-                        <li><a href="/notes">Notes</a></li>
-                        <li><a href="/toys">Toys</a></li>
-                        <li><a href="/slides">Slides</a></li>
-                        <li><a href="/books">Books</a></li>
+                        <li id="info-link"><a href="/info">Info</a></li>
+                        <li id="notes-link"><a href="/notes">Notes</a></li>
+                        <li id="toys-link"><a href="/toys">Toys</a></li>
+                        <li id="slides-link"><a href="/slides">Slides</a></li>
+                        <li id="books-link"><a href="/books">Books</a></li>
                         <li><a href="/records">Records</a></li>
                         <li><a href="https://www.xmind.net/share/dinos80152/" target="_blank">MindMaps</a></li>
                     </ul>
@@ -315,12 +314,18 @@ WorkerA.B-&gt;File Server: Upload Thumbnail and Optimized Picture
 
         // use flowchart.js
         document.querySelectorAll("pre code.language-flow").forEach(function (element, index) {
-            let md = element.textContent
-            element.innerHTML = ""
-            let id = "flowchart" + index
-            element.id = id
-            flowchart.parse(md).drawSVG(id)
+            let md = element.textContent;
+            element.innerHTML = "";
+            let id = "flowchart" + index;
+            element.id = id;
+            flowchart.parse(md).drawSVG(id);
         }, this);
+
+        // navbar button active
+        $("div#navbar div.row ul.nav li").removeClass("active");
+        parentDir = location.pathname.split("/")[1];
+        $("#" + parentDir + "-link").addClass("active")
+
     });
 
 </script>
