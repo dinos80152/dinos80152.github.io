@@ -9,6 +9,8 @@
 | [User Story](/notes/development/user-story.html) | 2017-04-13 |
 | [Repository Pattern](/notes/development/repository-pattern.html) | 2017-04-13 |
 | [Queue](/notes/development/queue.html) | 2017-04-09 |
+|  **Editor** | |
+| [Visual Studio Code](/notes/editor/visual-studio-code.html) | 2017-04-13 |
 |  **Git** | |
 | [Gitlab Demo](/notes/git/gitlab.html) | 2017-04-13 |
 | [Git](/notes/git/git.html) | 2017-04-13 |
