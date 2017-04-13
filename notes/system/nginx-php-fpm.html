@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Personal Web Site include Blogs, Tutorials and Code">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>List - Dino Lai</title>
+    <title>Nginx, Php-fpm - Dino Lai</title>
     <!-- Facebook Open Graph -->
     <meta property="og:url" content="http://dinolai.com/" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="List - Dino Lai" />
+    <meta property="og:title" content="Nginx, Php-fpm - Dino Lai" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <!-- End Facebook Open Graph -->
@@ -69,12 +69,78 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2017-04-07 23:21:42 CST +08</header>
-                    <main><h1>List</h1>
+                    <header>Updated: 2017-04-13 17:43:53 CST +08</header>
+                    <main><h1>Nginx, Php-fpm</h1>
+
+<h2>nginx</h2>
+
+<h3>configuration</h3>
+
+<h3>log</h3>
 
 <ul>
-<li><a href="http://mp.weixin.qq.com/s?__biz=MzI0ODA2ODU2NQ==&amp;mid=2651128433&amp;idx=1&amp;sn=faab898685f5a4c0140afa2f009dc4c2&amp;scene=0#wechat_redirect">亚马逊工程师论各种编程语言的优缺点</a></li>
+<li>/var/log/nginx/</li>
 </ul>
+
+<h2>php-fpm</h2>
+
+<ul>
+<li>php-fpm.ini</li>
+</ul>
+
+<h3>CGI</h3>
+
+<p>Common Gateway Interface
+&gt; Common Gateway Interface (CGI) is a standard environment for web servers to interface with executable programs installed on a server that generate web pages dynamically. - wikipedia</p>
+
+<p>Cons
+&gt; CGI applications run in separate processes, which are created at the start of each request and torn down at the end.</p>
+
+<ul>
+<li><p>limits efficiency and scalability
+&gt; At high loads, the operating system process creation and destruction overhead becomes significant.</p></li>
+
+<li><p>limits resource reuse techniques (such as reusing database connections, in-memory caching, etc.).</p></li>
+
+<li><p>Load environment variable every time (php.ini, extensions)</p></li>
+</ul>
+
+<h3>FastCGI</h3>
+
+<p>FastCGI uses persistent processes to handle a series of requests. These processes are owned by the FastCGI server, not the web server.</p>
+
+<ul>
+<li>Socket</li>
+</ul>
+
+<pre><code class="language-bash">// nginx example
+</code></pre>
+
+<ul>
+<li>TCP Connection</li>
+</ul>
+
+<pre><code class="language-bash">// nginx example
+</code></pre>
+
+<h4>Pros</h4>
+
+<ul>
+<li>Each individual FastCGI process can handle many requests over its lifetime</li>
+<li>Multiple FastCGI servers can be configured, increasing stability and scalability.</li>
+<li>server and application processes to be restarted independently</li>
+<li>Different types of incoming requests can be distributed to specific FastCGI servers which have been equipped to handle those particular types of requests efficiently.</li>
+<li>php解释程序被载入内存而不是每次需要时从存储器读取</li>
+<li>服务器不用在每次需要时都载入php解释程序</li>
+</ul>
+
+<h4>log</h4>
+
+<p>/var/log/php-fpm/</p>
+
+<h4>status</h4>
+
+<p><a href="http://example.com/status">http://example.com/status</a></p>
 </main>
                 </article>
                 <hr>

@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Personal Web Site include Blogs, Tutorials and Code">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>Laravel - 設計一個好的 Blade Template, 使用 @parent - Dino Lai</title>
+    <title>HTML Input hidden defaultValue vs. value with jQuery val() vs. attr() - Dino Lai</title>
     <!-- Facebook Open Graph -->
     <meta property="og:url" content="http://dinolai.com/" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Laravel - 設計一個好的 Blade Template, 使用 @parent - Dino Lai" />
+    <meta property="og:title" content="HTML Input hidden defaultValue vs. value with jQuery val() vs. attr() - Dino Lai" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <!-- End Facebook Open Graph -->
@@ -69,194 +69,69 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2017-04-12 17:27:37 CST +08</header>
-                    <main><h1>Laravel - 設計一個好的 Blade Template, 使用 @parent</h1>
+                    <header>Updated: 2017-04-13 17:33:19 CST +08</header>
+                    <main><h1>HTML Input hidden defaultValue vs. value with jQuery val() vs. attr()</h1>
 
-<p>做網站的都知道，一個 HTML 最佳的讀取順序應該是</p>
+<h2>Problem</h2>
 
-<ol>
-<li>meta tag</li>
-<li>css</li>
-<li>body</li>
-<li>js</li>
-</ol>
+<p>承續上一篇 <a href="https://dinos80152.wordpress.com/2015/10/07/html-input-defaultvalue-vs-value-jquery-val-vs-attr/">HTML Input defaultValue vs. value, jQuery val() vs. attr()</a></p>
 
-<p>在 Laravel 裡我們會把版面都用到的地方切成 layout 出來，如 基本的 HTML Tag, Meta Tag, CSS, Javascript 等等，而因為 js 要給子頁面用，所以都會把 js 移到上面來。</p>
+<p>這篇探討為什麼 type 使用 hidden，html 就成功的被改變了呢？</p>
 
-<pre><code class="language-html">&lt;!-- layout.blade.php --&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;title&gt;Laravel 5 Example - @yield('title')&lt;/title&gt;
-        &lt;meta charset=&quot;utf-8&quot;&gt;
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
-        &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js&quot;&gt;&lt;/script&gt;
-        &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;header&gt;
-        &lt;/header&gt;
+<h2>Example</h2>
 
-        &lt;nav&gt;
-        &lt;/nav&gt;
+<p>範例如下</p>
 
-        &lt;section&gt;
-            @yield('content')
-        &lt;/section&gt;
-
-        &lt;footer&gt;
-        &lt;/footer&gt;
-
-    &lt;/body&gt;
-&lt;/html&gt;
+<pre><code class="language-html">&lt;form&gt;
+&lt;input type=&quot;hidden&quot; name=&quot;test&quot; value=&quot;abc&quot;&gt;
+&lt;input type=&quot;hidden&quot; name=&quot;test2&quot; value=&quot;abc&quot;&gt;
+&lt;/form&gt;
 </code></pre>
 
-<p>而子頁面會這樣寫。</p>
+<p>Javascript</p>
 
-<pre><code class="language-html">&lt;!-- index.blade.php --&gt;
-@extends('layout')
-
-@section('title', 'index')
-
-@section('content')
-&lt;style&gt;
-    div {
-        text-align: center;
-    }
-&lt;/style&gt;
-
-&lt;div&gt;
-    Home Page
-&lt;/div&gt;
-
-&lt;script&gt;
-    $(function() {
-    });
-&lt;/script&gt;
-@endsection
+<pre><code class="language-js">document.getElementsByName('test')[0].value = 123;
+document.getElementsByName('test')[0].setAttribute('value', 123);
+console.log(document.getElementsByTagName('form')[0].innerHTML);
 </code></pre>
 
-<p>但這樣會讓 Laravel 在產生 view 時，css 與 js 在 section 區塊裡面出現，如果頁面又 include 一些區塊 blade 的話，整個產生的 HTML 會變得很糟很難看，body 裡面 html tag, css, js 此起彼落的出現，不僅難看也影響效能。</p>
+<p>jQuery</p>
 
-<p>這時我們可以擅用 @parent 來讓子頁面的 css 與 js 在我們想要的父區塊裡面，又能有 layout 裡那些我們共用的 css, js，完成我們的最佳實踐。(這邊就跟 OOP 裡，子類別可以在 function 裡加上 parent::functionName(); 一樣。)</p>
-
-<pre><code class="language-html">&lt;!-- layout.blade.php --&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;title&gt;Laravel 5 Example - @yield('title')&lt;/title&gt;
-        &lt;meta charset=&quot;utf-8&quot;&gt;
-
-        @section('style')
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
-        @show
-
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;header&gt;
-        &lt;/header&gt;
-
-        &lt;nav&gt;
-        &lt;/nav&gt;
-
-        &lt;section&gt;
-            @yield('content')
-        &lt;/section&gt;
-
-        &lt;footer&gt;
-        &lt;/footer&gt;
-
-        @section('script')
-        &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js&quot;&gt;&lt;/script&gt;
-        &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
-        @show
-
-    &lt;/body&gt;
-&lt;/html&gt;
+<pre><code class="language-js">$('input[name=&quot;test&quot;]').val(123);
+$('input[name=&quot;test&quot;]').attr('value', 123);
+console.log($('form').html());
 </code></pre>
 
-<p>內頁加上 style 和 script section，並用 @parent 讓父類別 section 裡的東西繼承下來，而不去覆寫它。</p>
+<p>Output</p>
 
-<pre><code class="language-html">&lt;!-- index.blade.php --&gt;
-@extends('layout')
-
-@section('title', 'index')
-
-@section('style')
-@parent
-&lt;style&gt;
-    div {
-        text-align: center;
-    }
-&lt;/style&gt;
-@endsection
-
-@section('content')
-&lt;div&gt;
-    Home Page
-&lt;/div&gt;
-@endsection
-
-@section('script')
-@parent
-&lt;script&gt;
-    $(function() {
-    });
-&lt;/script&gt;
-@endsection
+<pre><code class="language-html">&lt;input type=&quot;text&quot; name=&quot;test&quot; value=&quot;123&quot;&gt;
+&lt;input type=&quot;text&quot; name=&quot;test2&quot; value=&quot;123&quot;&gt;
 </code></pre>
 
-<p>這樣產生的 view 就會是按我們想要的順序出來囉！</p>
+<p>原因很簡單，一樣參考<a href="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-6043025">Input 的屬性</a>。</p>
 
-<pre><code class="language-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;title&gt;Laravel 5 Example - index&lt;/title&gt;
-        &lt;meta charset=&quot;utf-8&quot;&gt;
+<p>我們可以看到 defaultValue 是只有 <strong>text</strong>, <strong>file</strong>, <strong>password</strong> 才有的屬性，所以 hidden 這個 type 並沒有 defaultValue，只有 value，因為在制定時，hidden 的值是不會被 user 改變的。</p>
 
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
-        &lt;style&gt;
-            div {
-                text-align: center;
-            }
-        &lt;/style&gt;
+<p>因為沒有 defaultValue，所以 input type hidden 上原本的 value attribute 就是對到 value property，所以當你使用 js 改變 value 時，它的 html 也會一起被改變了。</p>
 
-    &lt;/head&gt;
-    &lt;body&gt;
-        &lt;header&gt;
-        &lt;/header&gt;
+<p>但這邊最奇怪的地方，就算它沒有 defaultValue 這個屬性，但依舊可以使用</p>
 
-        &lt;nav&gt;
-        &lt;/nav&gt;
-
-        &lt;section&gt;
-            &lt;div&gt;
-                Home Page
-            &lt;/div&gt;
-        &lt;/section&gt;
-
-        &lt;footer&gt;
-        &lt;/footer&gt;
-
-        &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js&quot;&gt;&lt;/script&gt;
-        &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
-        &lt;script&gt;
-            $(function() {
-            });
-        &lt;/script&gt;
-
-    &lt;/body&gt;
-&lt;/html&gt;
+<pre><code class="language-js">document.getElementsByName('test')[0].setAttribute('value', 123);
+document.getElementsByName('test')[0].defaultValue = 123;
 </code></pre>
 
-<h2>PS</h2>
+<p>這兩個 method 則會去改 input type=hidden 元素的 value 了。</p>
 
-<p>在官網 @parent 的例子是用 sidebar，可能是沒有立即有感，發現不多人記得有這個東西，所以寫了這篇來提示一下大家可以這樣用。</p>
+<p>這該說方便還是讓人混淆呢..?</p>
 
-<h2>Reference</h2>
+<p>或許之後有機會看到更多討論再來做更多的釐清吧！</p>
+
+<h3>Reference</h3>
 
 <ul>
-<li><a href="http://laravel.com/docs/5.1/blade">Blade Templates - Laravel</a></li>
+<li><a href="http://stackoverflow.com/questions/5319678/javascript-and-defaultvalue-of-hidden-input-elements">Javascript and defaultValue of hidden input elements@stackoverflow</a></li>
+<li><a href="http://forums.mozillazine.org/viewtopic.php?f=25&amp;t=1787115">Firefox will not reset hidden fields@mozillazine</a></li>
+<li><a href="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-6043025">Document Object Model HTML-Interface HTMLInputElement</a></li>
 </ul>
 </main>
                 </article>

@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Personal Web Site include Blogs, Tutorials and Code">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>HTML Input hidden defaultValue vs. value with jQuery val() vs. attr() - Dino Lai</title>
+    <title>HTML Input defaultValue vs. value with jQuery val() vs. attr() - Dino Lai</title>
     <!-- Facebook Open Graph -->
     <meta property="og:url" content="http://dinolai.com/" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="HTML Input hidden defaultValue vs. value with jQuery val() vs. attr() - Dino Lai" />
+    <meta property="og:title" content="HTML Input defaultValue vs. value with jQuery val() vs. attr() - Dino Lai" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <!-- End Facebook Open Graph -->
@@ -69,23 +69,24 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2017-04-12 17:42:09 CST +08</header>
-                    <main><h1>HTML Input hidden defaultValue vs. value with jQuery val() vs. attr()</h1>
+                    <header>Updated: 2017-04-13 17:33:17 CST +08</header>
+                    <main><h1>HTML Input defaultValue vs. value with jQuery val() vs. attr()</h1>
 
 <h2>Problem</h2>
 
-<p>承續上一篇 <a href="https://dinos80152.wordpress.com/2015/10/07/html-input-defaultvalue-vs-value-jquery-val-vs-attr/">HTML Input defaultValue vs. value, jQuery val() vs. attr()</a></p>
+<p>最近遇到有人想要把現有的 input tag 使用 .val(value) 改值以後，append 到另一個 form 上，結果發現怎麼 input 呈現的 value 沒變？！</p>
 
-<p>這篇探討為什麼 type 使用 hidden，html 就成功的被改變了呢？</p>
+<p>但實驗過後 .attr(&lsquo;value&rsquo;, value) 可以成功！</p>
+
+<p>那這個 attribute 和 value 到底哪裡不一樣呢？</p>
+
+<p>讓我們看看以下的例子</p>
 
 <h2>Example</h2>
 
-<p>範例如下</p>
-
-<pre><code class="language-html">&lt;form&gt;
-&lt;input type=&quot;hidden&quot; name=&quot;test&quot; value=&quot;abc&quot;&gt;
-&lt;input type=&quot;hidden&quot; name=&quot;test2&quot; value=&quot;abc&quot;&gt;
-&lt;/form&gt;
+<pre><code class="language-html">
+&lt;form&gt;&lt;input name=&quot;test&quot; type=&quot;text&quot; value=&quot;abc&quot; /&gt;
+&lt;input name=&quot;test2&quot; type=&quot;text&quot; value=&quot;abc&quot; /&gt;&lt;/form&gt;
 </code></pre>
 
 <p>Javascript</p>
@@ -104,33 +105,42 @@ console.log($('form').html());
 
 <p>Output</p>
 
-<pre><code class="language-html">&lt;input type=&quot;text&quot; name=&quot;test&quot; value=&quot;123&quot;&gt;
-&lt;input type=&quot;text&quot; name=&quot;test2&quot; value=&quot;123&quot;&gt;
+<pre><code class="language-html">&lt;input name=&quot;test&quot; type=&quot;text&quot; value=&quot;abc&quot; /&gt;
+&lt;input name=&quot;test2&quot; type=&quot;text&quot; value=&quot;123&quot; /&gt;
 </code></pre>
 
-<p>原因很簡單，一樣參考<a href="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-6043025">Input 的屬性</a>。</p>
+<p>我們可以看到改變 attribute 的話元素本身的 html 也會被改變。
+但是改變 value 的話，元素本身的 html 是不會被改變的。</p>
 
-<p>我們可以看到 defaultValue 是只有 <strong>text</strong>, <strong>file</strong>, <strong>password</strong> 才有的屬性，所以 hidden 這個 type 並沒有 defaultValue，只有 value，因為在制定時，hidden 的值是不會被 user 改變的。</p>
+<h2>Explain</h2>
 
-<p>因為沒有 defaultValue，所以 input type hidden 上原本的 value attribute 就是對到 value property，所以當你使用 js 改變 value 時，它的 html 也會一起被改變了。</p>
+<p>為什麼呢？</p>
 
-<p>但這邊最奇怪的地方，就算它沒有 defaultValue 這個屬性，但依舊可以使用</p>
+<p>這要從<a href="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-6043025">Input 的屬性</a>來看，可以看到裡面有 defaultValue 與 value 兩個關於 value 的值。</p>
 
-<pre><code class="language-js">document.getElementsByName('test')[0].setAttribute('value', 123);
-document.getElementsByName('test')[0].defaultValue = 123;
-</code></pre>
+<p>在 html 一開始 render 的時候，defaultValue 和 value 會是一樣的。</p>
 
-<p>這兩個 method 則會去改 input type=hidden 元素的 value 了。</p>
+<p>在 input 的欄位打上你想要的值，或是使用 javascript 改變 input 的 value 時，改變的是它的 value，defaultValue 並不會被改變，它依舊會是一開始被 render 時預設的那個值。</p>
 
-<p>這該說方便還是讓人混淆呢..?</p>
+<p>使用 value, val() 方法，改變的是蓋在 input 元素上面的東西，而不會真正改變它的本質。</p>
 
-<p>或許之後有機會看到更多討論再來做更多的釐清吧！</p>
+<p>而因為元素的 html 並沒有真正的被改變，所以使用 html 方法時，拿到的就會是它最原始的樣子。</p>
+
+<p>要改變元素的本質，必須更改元素 value 的 attribute，也就是它的 defaultValue，則需要使用 attribute 相關 method: setAttribute, attr()。</p>
+
+<p>如果想要更瞭解，可以查查 value attribute 與 value property。
+以為這一切都沒事了嗎？</p>
+
+<p>不，把 type 改成 hidden，value 和 val() 卻都成功改變了 html&hellip;</p>
+
+<p>因為這實在是太 geek 了，所以寫另一篇探討。</p>
+
+<p><a href="https://dinos80152.wordpress.com/2015/10/07/html-input-hidden-defaultvalue-vs-value-with-jquery-val-vs-attr/">HTML Input hidden defaultValue vs. value with jQuery val() vs. attr()</a></p>
 
 <h3>Reference</h3>
 
 <ul>
-<li><a href="http://stackoverflow.com/questions/5319678/javascript-and-defaultvalue-of-hidden-input-elements">Javascript and defaultValue of hidden input elements@stackoverflow</a></li>
-<li><a href="http://forums.mozillazine.org/viewtopic.php?f=25&amp;t=1787115">Firefox will not reset hidden fields@mozillazine</a></li>
+<li><a href="http://www.w3schools.com/jsref/prop_text_defaultvalue.asp">Input Text defaultValue Property@W3Schools</a></li>
 <li><a href="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-6043025">Document Object Model HTML-Interface HTMLInputElement</a></li>
 </ul>
 </main>

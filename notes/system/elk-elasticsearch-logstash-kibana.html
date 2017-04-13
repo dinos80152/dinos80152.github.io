@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Personal Web Site include Blogs, Tutorials and Code">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>Repository Pattern - Dino Lai</title>
+    <title>ELK: Elasticsearch, Logstash, Kibana - Dino Lai</title>
     <!-- Facebook Open Graph -->
     <meta property="og:url" content="http://dinolai.com/" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Repository Pattern - Dino Lai" />
+    <meta property="og:title" content="ELK: Elasticsearch, Logstash, Kibana - Dino Lai" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <!-- End Facebook Open Graph -->
@@ -69,62 +69,51 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2017-04-09 23:26:22 CST +08</header>
-                    <main><h1>Repository Pattern</h1>
+                    <header>Updated: 2017-04-13 17:43:49 CST +08</header>
+                    <main><h1>ELK: Elasticsearch, Logstash, Kibana</h1>
 
-<p>源自 c#
-repository: 知識庫</p>
-
-<h2>好處</h2>
+<h2>ELK</h2>
 
 <ul>
-<li>隔離資料層
-
-<ul>
-<li>方便單元測試</li>
-<li>利於將來可抽換 (ex: 從 Relational Database 換到 NoSQL or API)</li>
-</ul></li>
+<li>Elasticsearch</li>
+<li>Logstash</li>
+<li>Kibana</li>
 </ul>
 
-<h2>Example</h2>
+<h2>Kibana</h2>
 
-<p>Controllers/NewsController.php</p>
+<h3>Install</h3>
 
-<pre><code class="language-php">class NewsController extends Controller
-{
-    public function index() {
-        return News::listAllAble();
-    }
-}
+<pre><code class="language-bash">/opt/kibana
 </code></pre>
 
-<p>Models/News.php</p>
+<p>deamon <a href="https://github.com/akabdog/scripts/blob/master/kibana4_init">https://github.com/akabdog/scripts/blob/master/kibana4_init</a></p>
 
-<pre><code class="language-php">class News extends Model
-{
-    public function listAllAble() {
-        return $this-&gt;where('status', 1)-&gt;get();
-    }
-}
+<pre><code class="language-bash">/etc/init.d/kibana
 </code></pre>
 
-<p>Repositories/NewsRepository.php</p>
-
-<pre><code class="language-php">use App\Models\News;
-
-class NewsRepository
-{
-    public function listAllAble() {
-        return News::where('status', 1)-&gt;get();
-    }
-}
+<pre><code class="language-bash">/etc/init.d/kibana start
 </code></pre>
+
+<p>start on boot</p>
+
+<pre><code class="language-bash">update-rc.d kibana defaults
+</code></pre>
+
+<h2>Introduction</h2>
+
+<ul>
+<li>Discover</li>
+<li>Visualize</li>
+<li>Dashboard</li>
+</ul>
 
 <h2>Reference</h2>
 
 <ul>
-<li><a href="https://msdn.microsoft.com/en-us/library/ff649690.aspx">The Repository Pattern</a></li>
-<li><a href="http://huan-lin.blogspot.com/2012/11/repository-yagni.html">Repository，我可能不會用你</a></li>
+<li><a href="https://lucene.apache.org/core/2_9_4/queryparsersyntax.html">Apache Lucene - Query Parser Syntax</a></li>
+<li><a href="https://www.timroes.de/2015/02/07/kibana-4-tutorial-part-1-introduction/">Kibana 4 Tutorial</a></li>
+<li><a href="https://www.elastic.co/guide/en/kibana/3.0/index.html">Kibana 3.0 Docs</a></li>
 </ul>
 </main>
                 </article>

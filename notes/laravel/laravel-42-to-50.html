@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Personal Web Site include Blogs, Tutorials and Code">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>Laravel Performance - Dino Lai</title>
+    <title>Laravel Update 4.2 to 5.0 - Dino Lai</title>
     <!-- Facebook Open Graph -->
     <meta property="og:url" content="http://dinolai.com/" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Laravel Performance - Dino Lai" />
+    <meta property="og:title" content="Laravel Update 4.2 to 5.0 - Dino Lai" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <!-- End Facebook Open Graph -->
@@ -69,71 +69,481 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2017-04-12 17:49:29 CST +08</header>
-                    <main><h1>Laravel Performance</h1>
+                    <header>Updated: 2017-04-13 17:33:28 CST +08</header>
+                    <main><h1>Laravel Update 4.2 to 5.0</h1>
 
-<h2>Database Read/Write</h2>
+<h2>Basic Flow</h2>
 
-<p>在 Laravel 裡要做讀寫分離很簡單，首先要調整 config 裡的 db 連線，把 host 改為 read 與 write 分開，範例如下</p>
-
-<h3>Example</h3>
-
-<p>app/config/database.php</p>
-
-<pre><code class="language-php">// ...
-'mysql' =&gt; [
-    'read' =&gt; [
-        'host' =&gt; env('DB_HOST_READ', 'localhost'),
-    ],
-    'write' =&gt; [
-        'host' =&gt; env('DB_HOST_WRITE', 'localhost'),
-    ],
-    'driver'    =&gt; 'mysql',
-    'database'  =&gt; env('DB_DATABASE', 'forge'),
-    'username'  =&gt; env('DB_USERNAME', 'forge'),
-    'password'  =&gt; env('DB_PASSWORD', ''),
-    'charset'   =&gt; 'utf8',
-    'collation' =&gt; 'utf8_unicode_ci',
-    'prefix'    =&gt; '',
-    'strict'    =&gt; false,
-],
-// ...
+<pre><code class="language-sequence">/public/index.php-&gt;Route:
+Route-&gt;Controller:
+Controller-&gt;Model:
+Model--&gt;Controller:data
+Controller-&gt;View:
 </code></pre>
 
-<p>.env</p>
+<h2>Env</h2>
 
-<pre><code class="language-php">// ...
-DB_HOST_READ=192.168.1.1
-DB_HOST_WRITE=192.168.1.2
-DB_DATABASE=homestead
-DB_USERNAME=homestead
-DB_PASSWORD=secret
-// ...
-</code></pre>
+<p><strong>Laravel 5 doesn&rsquo;t have environment detection</strong>, use .env.example</p>
 
-<p>這樣在 select 時會使用 read 的 connection, 而做 delete, update, insert 時則會使用 write 的 connection。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>4.2</th>
+<th>5</th>
+</tr>
+</thead>
 
-<p>那問題來了，因為 database replicate 其實是需要時間的，那在一些需要即時的資料時〈例如搶票〉，為了確保資料沒有落差，我們就不能使用讀寫分離，此時我們可以使用以下語法讓 select 去使用 write connection。</p>
+<tbody>
+<tr>
+<td>env</td>
+<td>app/config/[envfolder]</td>
+<td>.env</td>
+</tr>
+</tbody>
+</table>
 
-<p>Eloquent</p>
-
-<pre><code class="language-php">User::onWriteConnection()-&gt;find($id);
-</code></pre>
-
-<p>Query Builder</p>
-
-<pre><code class="language-php">DB::table('users')-&gt;selectFromWriteConnection('*')-&gt;where('id', $id)-&gt;first();
-</code></pre>
-
-<p>若網站的效能是卡在 database，讀寫分離是個可以嘗試改善效能的方法，但也意味著需要額一台機器做原先 database 的 slave。</p>
-
-<h2>Reference</h2>
+<h2>Namespace</h2>
 
 <ul>
-<li><a href="http://laravel.com/docs/5.1/database#read-write-connections">Read / Write Connections@laravel.com</a></li>
-<li><a href="http://laravel.com/api/5.1/Illuminate/Database/Eloquent/Model.html#method_onWriteConnection">onWriteConnection@Laravel API</a></li>
-<li><a href="http://laravel.com/api/5.1/Illuminate/Database/Connection.html#method_selectFromWriteConnection">selectFromWriteConnection@Laravel API</a></li>
+<li><p>Naming Your Application (optional)</p>
+
+<pre><code class="language-bash">php artisan app:name Mstar
+</code></pre></li>
 </ul>
+
+<h2>Route</h2>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>4.2</th>
+<th>5</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>middleware</td>
+<td>filter</td>
+<td>middleware</td>
+</tr>
+
+<tr>
+<td>where(global)</td>
+<td>app/route.php</td>
+<td>app/Providers/RouteServiceProvider.php</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Middleware</h3>
+
+<p><strong>CSRF Protection is default middleware in Laravel 5</strong></p>
+
+<ul>
+<li><p>4.2</p>
+
+<pre><code class="language-php">// app/filter.php
+Route::filter('csrf', function()
+{
+    if (Session::token() != Input::get('_token'))
+    {
+        throw new IlluminateSessionTokenMismatchException;
+    }
+});
+</code></pre></li>
+
+<li><p>5</p>
+
+<pre><code class="language-php">// app/Http/Middleware/VerifyCsrfToken.php
+class VerifyCsrfToken extends BaseVerifier {
+
+    public function handle($request, Closure $next)
+    {
+        return parent::handle($request, $next);
+    }
+}
+</code></pre></li>
+</ul>
+
+<h4>Register</h4>
+
+<pre><code class="language-php">// app/Http/Kernel.php
+
+// The application's global HTTP middleware stack.
+protected $middleware = [
+    //...
+    'AppHttpMiddlewareVerifyCsrfToken',
+];
+
+// The application's route middleware.
+protected $routeMiddleware = [
+    //...
+    'csrf' =&gt; 'AppHttpMiddlewareVerifyCsrfToken',
+];
+</code></pre>
+
+<h4>Using</h4>
+
+<ul>
+<li><p>4.2</p>
+
+<pre><code class="language-php">Route::get('/', array('before' =&gt; 'csrf|auth', 'uses' =&gt; 'index@HomeController'));
+</code></pre></li>
+
+<li><p>5</p>
+
+<pre><code class="language-php">Route::get('/', ['middleware' =&gt; ['csrf', 'auth'], 'uses' =&gt; 'index@HomeController']);
+</code></pre></li>
+</ul>
+
+<h3>Where</h3>
+
+<h4>Global</h4>
+
+<ul>
+<li><p>4.2</p>
+
+<pre><code class="language-php">// app/route.php
+Route::pattern('id', '[0-9]+');
+</code></pre></li>
+
+<li><p>5</p>
+
+<pre><code class="language-php">// app/Providers/RouteServiceProvider.php
+public function boot(Router $router)
+{
+    $router-&gt;pattern('id', '[0-9]+');
+    parent::boot($router);
+}
+</code></pre></li>
+</ul>
+
+<h2>Controller</h2>
+
+<h3>Parent Class &amp; Namespace</h3>
+
+<ul>
+<li><p>4.2</p>
+
+<pre><code class="language-php">// app/controllers/HomeController.php
+
+class HomeController extends BaseController {}
+</code></pre></li>
+
+<li><p>5</p>
+
+<pre><code class="language-php">// app/Http/Controllers/HomeController.php
+
+namespace AppHttpControllers;
+
+class HomeController extends Controller {}
+</code></pre></li>
+</ul>
+
+<h2>Model</h2>
+
+<h3>Parent Class &amp; Namespace</h3>
+
+<ul>
+<li><p>4.2</p>
+
+<pre><code class="language-php">// app/models/User.php
+class User extends Eloquent {
+}
+</code></pre></li>
+
+<li><p>5</p>
+
+<pre><code class="language-php">// app/User.php
+use IlluminateDatabaseEloquentModel;
+
+class User extends Model {
+}
+</code></pre></li>
+</ul>
+
+<h3>Others</h3>
+
+<ul>
+<li><p>Laravel 5: if you wanna create instance, you have to set</p>
+
+<pre><code class="language-php">protected $guarded = [];
+
+//default
+protected $guarded = ['*'];
+</code></pre></li>
+
+<li><p>Relation has to setting namespace</p>
+
+<pre><code class="language-php">public function users()
+{
+    return $this-&gt;hasMany('AppModelsUser');
+}
+</code></pre></li>
+</ul>
+
+<h3>Eager Loading</h3>
+
+<ul>
+<li><p>4.2</p>
+
+<pre><code class="language-php">$report-&gt;report_assigns
+</code></pre></li>
+
+<li><p>5</p>
+
+<pre><code class="language-php">$report-&gt;reportAssigns
+</code></pre></li>
+</ul>
+
+<h2>View</h2>
+
+<h3>Echo</h3>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>4.2</th>
+<th>5</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>escape</td>
+<td><code>{{{ $data }}}</code></td>
+<td><code>{{ $data }}</code></td>
+</tr>
+
+<tr>
+<td>raw</td>
+<td><code>{{ $data }}</code></td>
+<td><code>{!! $data !!}</code></td>
+</tr>
+</tbody>
+</table>
+
+<h3>HTML Helper</h3>
+
+<ul>
+<li>4.2
+
+<ul>
+<li>HTML::</li>
+<li>FORM::</li>
+</ul></li>
+
+<li><p>5 (It&rsquo;s removed, solution)</p>
+
+<ul>
+<li><a href="http://laravelcollective.com/docs/5.0/html">Adding html package</a></li>
+
+<li><p>Using original html tag</p>
+
+<pre><code class="language-html">&lt;script src=&quot;{{ asset(&quot;js/jquery.js&quot;) }}&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ asset(&quot;css/style.css&quot;) }}&quot;&gt;
+</code></pre>
+
+<pre><code class="language-html">&lt;form&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;_token&quot; value=&quot;{{ csrf_token() }}&quot;&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;_method&quot; value=&quot;PUT&quot;&gt;
+&lt;/form&gt;
+</code></pre></li>
+</ul></li>
+</ul>
+
+<h2>Pagination</h2>
+
+<h3>Methods</h3>
+
+<table>
+<thead>
+<tr>
+<th>4.2</th>
+<th>5</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>getTotal()</strong></td>
+<td><strong>total()</strong></td>
+</tr>
+
+<tr>
+<td><strong>links()</strong></td>
+<td><strong>render()</strong></td>
+</tr>
+
+<tr>
+<td>getCurrentPage()</td>
+<td>currentPage()</td>
+</tr>
+
+<tr>
+<td>getLastPage()</td>
+<td>lastPage()</td>
+</tr>
+
+<tr>
+<td>getPerPage()</td>
+<td>perPage()</td>
+</tr>
+
+<tr>
+<td>getFrom()</td>
+<td>firstItem()</td>
+</tr>
+
+<tr>
+<td>getTo()</td>
+<td>lastItem()</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Customize</h3>
+
+<ul>
+<li><p>4.2, modify config or dynamic setting</p>
+
+<pre><code class="language-php">// app/config/view.php
+'pagination' =&gt; 'pagination::slider-3',
+</code></pre>
+
+<pre><code class="language-php">// views/news.php
+$news-&gt;links('view.name');
+</code></pre></li>
+
+<li><p>5</p>
+
+<ol>
+<li><p>Implement Presenter</p>
+
+<pre><code class="language-php">// Illuminate/Pagination/BootstrapThreePresenter.php
+
+use IlluminateContractsPaginationPresenter as PresenterContract;
+
+class BootstrapThreePresenter implements PresenterContract
+{
+}
+</code></pre></li>
+
+<li><p>Give render method presenter object</p>
+
+<pre><code class="language-php">$news-&gt;render($bootstrapThreePresenter);
+</code></pre></li>
+</ol></li>
+</ul>
+
+<h2>Error Handler</h2>
+
+<table>
+<thead>
+<tr>
+<th>4.2</th>
+<th>5</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>app/start/global.php</td>
+<td>app/Exceptions/</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Package</h2>
+
+<h3>Auth</h3>
+
+<ul>
+<li><p>4.2, it doesn&rsquo;t maintain anymore.</p>
+
+<pre><code class="language-json">&quot;artdarek/oauth-4-laravel&quot;
+</code></pre></li>
+
+<li><p>5 (Official Package: Socialite), <strong>Socialite needs your Google app to have Google+ API enabled.</strong></p>
+
+<pre><code class="language-json">&quot;laravel/socialite&quot;: &quot;~2.0&quot;
+</code></pre></li>
+</ul>
+
+<h3>Predis</h3>
+
+<ul>
+<li><p>Adding predis to proeject composer.json require block, <strong>In laravel 5,  predis move from require to require-dev.</strong></p>
+
+<pre><code class="language-json">&quot;predis/predis&quot;: &quot;~1.0&quot;
+</code></pre></li>
+</ul>
+
+<h2>Unit Test</h2>
+
+<table>
+<thead>
+<tr>
+<th>diff</th>
+<th>4.2</th>
+<th>5</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>test env</td>
+<td>app/config/testing</td>
+<td>phpunit.xml</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Core Concept</h2>
+
+<h3>Service Providers</h3>
+
+<h4>Folder</h4>
+
+<pre><code class="language-bash">app/Providers
+</code></pre>
+
+<h4>Register</h4>
+
+<pre><code class="language-php">// app/config/
+'providers' =&gt; [
+    //...
+]
+</code></pre>
+
+<h3>Contracts</h3>
+
+<h3>Repositories</h3>
+
+<h4>Binding Interfaces To Implementations</h4>
+
+<pre><code class="language-php">// app/Providers/AppServiceProvider.php
+public function register()
+{
+    $this-&gt;app-&gt;bind(
+        'App\Contracts\News',
+        'App\Repsitories\EloquentNewsRepository'
+    );
+}
+</code></pre>
+
+<p><strong>Remember to Clear Compiled Cache</strong></p>
+
+<pre><code class="language-bash">php artisan clear-compiled
+</code></pre>
+
+<h2>Facades</h2>
 </main>
                 </article>
                 <hr>

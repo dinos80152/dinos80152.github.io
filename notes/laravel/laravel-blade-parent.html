@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Personal Web Site include Blogs, Tutorials and Code">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>Laravel Update 4.2 to 5.0 - Dino Lai</title>
+    <title>Laravel - 設計一個好的 Blade Template, 使用 @parent - Dino Lai</title>
     <!-- Facebook Open Graph -->
     <meta property="og:url" content="http://dinolai.com/" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Laravel Update 4.2 to 5.0 - Dino Lai" />
+    <meta property="og:title" content="Laravel - 設計一個好的 Blade Template, 使用 @parent - Dino Lai" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <!-- End Facebook Open Graph -->
@@ -69,481 +69,195 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2017-04-11 23:59:14 CST +08</header>
-                    <main><h1>Laravel Update 4.2 to 5.0</h1>
+                    <header>Updated: 2017-04-13 17:33:30 CST +08</header>
+                    <main><h1>Laravel - 設計一個好的 Blade Template, 使用 @parent</h1>
 
-<h2>Basic Flow</h2>
-
-<pre><code class="language-sequence">/public/index.php-&gt;Route:
-Route-&gt;Controller:
-Controller-&gt;Model:
-Model--&gt;Controller:data
-Controller-&gt;View:
-</code></pre>
-
-<h2>Env</h2>
-
-<p><strong>Laravel 5 doesn&rsquo;t have environment detection</strong>, use .env.example</p>
-
-<table>
-<thead>
-<tr>
-<th></th>
-<th>4.2</th>
-<th>5</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>env</td>
-<td>app/config/[envfolder]</td>
-<td>.env</td>
-</tr>
-</tbody>
-</table>
-
-<h2>Namespace</h2>
-
-<ul>
-<li><p>Naming Your Application (optional)</p>
-
-<pre><code class="language-bash">php artisan app:name Mstar
-</code></pre></li>
-</ul>
-
-<h2>Route</h2>
-
-<table>
-<thead>
-<tr>
-<th></th>
-<th>4.2</th>
-<th>5</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>middleware</td>
-<td>filter</td>
-<td>middleware</td>
-</tr>
-
-<tr>
-<td>where(global)</td>
-<td>app/route.php</td>
-<td>app/Providers/RouteServiceProvider.php</td>
-</tr>
-</tbody>
-</table>
-
-<h3>Middleware</h3>
-
-<p><strong>CSRF Protection is default middleware in Laravel 5</strong></p>
-
-<ul>
-<li><p>4.2</p>
-
-<pre><code class="language-php">// app/filter.php
-Route::filter('csrf', function()
-{
-    if (Session::token() != Input::get('_token'))
-    {
-        throw new IlluminateSessionTokenMismatchException;
-    }
-});
-</code></pre></li>
-
-<li><p>5</p>
-
-<pre><code class="language-php">// app/Http/Middleware/VerifyCsrfToken.php
-class VerifyCsrfToken extends BaseVerifier {
-
-    public function handle($request, Closure $next)
-    {
-        return parent::handle($request, $next);
-    }
-}
-</code></pre></li>
-</ul>
-
-<h4>Register</h4>
-
-<pre><code class="language-php">// app/Http/Kernel.php
-
-// The application's global HTTP middleware stack.
-protected $middleware = [
-    //...
-    'AppHttpMiddlewareVerifyCsrfToken',
-];
-
-// The application's route middleware.
-protected $routeMiddleware = [
-    //...
-    'csrf' =&gt; 'AppHttpMiddlewareVerifyCsrfToken',
-];
-</code></pre>
-
-<h4>Using</h4>
-
-<ul>
-<li><p>4.2</p>
-
-<pre><code class="language-php">Route::get('/', array('before' =&gt; 'csrf|auth', 'uses' =&gt; 'index@HomeController'));
-</code></pre></li>
-
-<li><p>5</p>
-
-<pre><code class="language-php">Route::get('/', ['middleware' =&gt; ['csrf', 'auth'], 'uses' =&gt; 'index@HomeController']);
-</code></pre></li>
-</ul>
-
-<h3>Where</h3>
-
-<h4>Global</h4>
-
-<ul>
-<li><p>4.2</p>
-
-<pre><code class="language-php">// app/route.php
-Route::pattern('id', '[0-9]+');
-</code></pre></li>
-
-<li><p>5</p>
-
-<pre><code class="language-php">// app/Providers/RouteServiceProvider.php
-public function boot(Router $router)
-{
-    $router-&gt;pattern('id', '[0-9]+');
-    parent::boot($router);
-}
-</code></pre></li>
-</ul>
-
-<h2>Controller</h2>
-
-<h3>Parent Class &amp; Namespace</h3>
-
-<ul>
-<li><p>4.2</p>
-
-<pre><code class="language-php">// app/controllers/HomeController.php
-
-class HomeController extends BaseController {}
-</code></pre></li>
-
-<li><p>5</p>
-
-<pre><code class="language-php">// app/Http/Controllers/HomeController.php
-
-namespace AppHttpControllers;
-
-class HomeController extends Controller {}
-</code></pre></li>
-</ul>
-
-<h2>Model</h2>
-
-<h3>Parent Class &amp; Namespace</h3>
-
-<ul>
-<li><p>4.2</p>
-
-<pre><code class="language-php">// app/models/User.php
-class User extends Eloquent {
-}
-</code></pre></li>
-
-<li><p>5</p>
-
-<pre><code class="language-php">// app/User.php
-use IlluminateDatabaseEloquentModel;
-
-class User extends Model {
-}
-</code></pre></li>
-</ul>
-
-<h3>Others</h3>
-
-<ul>
-<li><p>Laravel 5: if you wanna create instance, you have to set</p>
-
-<pre><code class="language-php">protected $guarded = [];
-
-//default
-protected $guarded = ['*'];
-</code></pre></li>
-
-<li><p>Relation has to setting namespace</p>
-
-<pre><code class="language-php">public function users()
-{
-    return $this-&gt;hasMany('AppModelsUser');
-}
-</code></pre></li>
-</ul>
-
-<h3>Eager Loading</h3>
-
-<ul>
-<li><p>4.2</p>
-
-<pre><code class="language-php">$report-&gt;report_assigns
-</code></pre></li>
-
-<li><p>5</p>
-
-<pre><code class="language-php">$report-&gt;reportAssigns
-</code></pre></li>
-</ul>
-
-<h2>View</h2>
-
-<h3>Echo</h3>
-
-<table>
-<thead>
-<tr>
-<th></th>
-<th>4.2</th>
-<th>5</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>escape</td>
-<td><code>{{{ $data }}}</code></td>
-<td><code>{{ $data }}</code></td>
-</tr>
-
-<tr>
-<td>raw</td>
-<td><code>{{ $data }}</code></td>
-<td><code>{!! $data !!}</code></td>
-</tr>
-</tbody>
-</table>
-
-<h3>HTML Helper</h3>
-
-<ul>
-<li>4.2
-
-<ul>
-<li>HTML::</li>
-<li>FORM::</li>
-</ul></li>
-
-<li><p>5 (It&rsquo;s removed, solution)</p>
-
-<ul>
-<li><a href="http://laravelcollective.com/docs/5.0/html">Adding html package</a></li>
-
-<li><p>Using original html tag</p>
-
-<pre><code class="language-html">&lt;script src=&quot;{{ asset(&quot;js/jquery.js&quot;) }}&quot;&gt;&lt;/script&gt;
-</code></pre>
-
-<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ asset(&quot;css/style.css&quot;) }}&quot;&gt;
-</code></pre>
-
-<pre><code class="language-html">&lt;form&gt;
-    &lt;input type=&quot;hidden&quot; name=&quot;_token&quot; value=&quot;{{ csrf_token() }}&quot;&gt;
-    &lt;input type=&quot;hidden&quot; name=&quot;_method&quot; value=&quot;PUT&quot;&gt;
-&lt;/form&gt;
-</code></pre></li>
-</ul></li>
-</ul>
-
-<h2>Pagination</h2>
-
-<h3>Methods</h3>
-
-<table>
-<thead>
-<tr>
-<th>4.2</th>
-<th>5</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><strong>getTotal()</strong></td>
-<td><strong>total()</strong></td>
-</tr>
-
-<tr>
-<td><strong>links()</strong></td>
-<td><strong>render()</strong></td>
-</tr>
-
-<tr>
-<td>getCurrentPage()</td>
-<td>currentPage()</td>
-</tr>
-
-<tr>
-<td>getLastPage()</td>
-<td>lastPage()</td>
-</tr>
-
-<tr>
-<td>getPerPage()</td>
-<td>perPage()</td>
-</tr>
-
-<tr>
-<td>getFrom()</td>
-<td>firstItem()</td>
-</tr>
-
-<tr>
-<td>getTo()</td>
-<td>lastItem()</td>
-</tr>
-</tbody>
-</table>
-
-<h3>Customize</h3>
-
-<ul>
-<li><p>4.2, modify config or dynamic setting</p>
-
-<pre><code class="language-php">// app/config/view.php
-'pagination' =&gt; 'pagination::slider-3',
-</code></pre>
-
-<pre><code class="language-php">// views/news.php
-$news-&gt;links('view.name');
-</code></pre></li>
-
-<li><p>5</p>
+<p>做網站的都知道，一個 HTML 最佳的讀取順序應該是</p>
 
 <ol>
-<li><p>Implement Presenter</p>
+<li>meta tag</li>
+<li>css</li>
+<li>body</li>
+<li>js</li>
+</ol>
 
-<pre><code class="language-php">// Illuminate/Pagination/BootstrapThreePresenter.php
+<p>在 Laravel 裡我們會把版面都用到的地方切成 layout 出來，如 基本的 HTML Tag, Meta Tag, CSS, Javascript 等等，而因為 js 要給子頁面用，所以都會把 js 移到上面來。</p>
 
-use IlluminateContractsPaginationPresenter as PresenterContract;
+<pre><code class="language-html">&lt;!-- layout.blade.php --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Laravel 5 Example - @yield('title')&lt;/title&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+        &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;header&gt;
+        &lt;/header&gt;
 
-class BootstrapThreePresenter implements PresenterContract
-{
-}
-</code></pre></li>
+        &lt;nav&gt;
+        &lt;/nav&gt;
 
-<li><p>Give render method presenter object</p>
+        &lt;section&gt;
+            @yield('content')
+        &lt;/section&gt;
 
-<pre><code class="language-php">$news-&gt;render($bootstrapThreePresenter);
-</code></pre></li>
-</ol></li>
-</ul>
+        &lt;footer&gt;
+        &lt;/footer&gt;
 
-<h2>Error Handler</h2>
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
 
-<table>
-<thead>
-<tr>
-<th>4.2</th>
-<th>5</th>
-</tr>
-</thead>
+<p>而子頁面會這樣寫。</p>
 
-<tbody>
-<tr>
-<td>app/start/global.php</td>
-<td>app/Exceptions/</td>
-</tr>
-</tbody>
-</table>
+<pre><code class="language-html">&lt;!-- index.blade.php --&gt;
+@extends('layout')
 
-<h2>Package</h2>
+@section('title', 'index')
 
-<h3>Auth</h3>
+@section('content')
+&lt;style&gt;
+    div {
+        text-align: center;
+    }
+&lt;/style&gt;
+
+&lt;div&gt;
+    Home Page
+&lt;/div&gt;
+
+&lt;script&gt;
+    $(function() {
+    });
+&lt;/script&gt;
+@endsection
+</code></pre>
+
+<p>但這樣會讓 Laravel 在產生 view 時，css 與 js 在 section 區塊裡面出現，如果頁面又 include 一些區塊 blade 的話，整個產生的 HTML 會變得很糟很難看，body 裡面 html tag, css, js 此起彼落的出現，不僅難看也影響效能。</p>
+
+<p>這時我們可以擅用 @parent 來讓子頁面的 css 與 js 在我們想要的父區塊裡面，又能有 layout 裡那些我們共用的 css, js，完成我們的最佳實踐。(這邊就跟 OOP 裡，子類別可以在 function 裡加上 parent::functionName(); 一樣。)</p>
+
+<pre><code class="language-html">&lt;!-- layout.blade.php --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Laravel 5 Example - @yield('title')&lt;/title&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+
+        @section('style')
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+        @show
+
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;header&gt;
+        &lt;/header&gt;
+
+        &lt;nav&gt;
+        &lt;/nav&gt;
+
+        &lt;section&gt;
+            @yield('content')
+        &lt;/section&gt;
+
+        &lt;footer&gt;
+        &lt;/footer&gt;
+
+        @section('script')
+        &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+        @show
+
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>內頁加上 style 和 script section，並用 @parent 讓父類別 section 裡的東西繼承下來，而不去覆寫它。</p>
+
+<pre><code class="language-html">&lt;!-- index.blade.php --&gt;
+@extends('layout')
+
+@section('title', 'index')
+
+@section('style')
+@parent
+&lt;style&gt;
+    div {
+        text-align: center;
+    }
+&lt;/style&gt;
+@endsection
+
+@section('content')
+&lt;div&gt;
+    Home Page
+&lt;/div&gt;
+@endsection
+
+@section('script')
+@parent
+&lt;script&gt;
+    $(function() {
+    });
+&lt;/script&gt;
+@endsection
+</code></pre>
+
+<p>這樣產生的 view 就會是按我們想要的順序出來囉！</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Laravel 5 Example - index&lt;/title&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+        &lt;style&gt;
+            div {
+                text-align: center;
+            }
+        &lt;/style&gt;
+
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;header&gt;
+        &lt;/header&gt;
+
+        &lt;nav&gt;
+        &lt;/nav&gt;
+
+        &lt;section&gt;
+            &lt;div&gt;
+                Home Page
+            &lt;/div&gt;
+        &lt;/section&gt;
+
+        &lt;footer&gt;
+        &lt;/footer&gt;
+
+        &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script&gt;
+            $(function() {
+            });
+        &lt;/script&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h2>PS</h2>
+
+<p>在官網 @parent 的例子是用 sidebar，可能是沒有立即有感，發現不多人記得有這個東西，所以寫了這篇來提示一下大家可以這樣用。</p>
+
+<h2>Reference</h2>
 
 <ul>
-<li><p>4.2, it doesn&rsquo;t maintain anymore.</p>
-
-<pre><code class="language-json">&quot;artdarek/oauth-4-laravel&quot;
-</code></pre></li>
-
-<li><p>5 (Official Package: Socialite), <strong>Socialite needs your Google app to have Google+ API enabled.</strong></p>
-
-<pre><code class="language-json">&quot;laravel/socialite&quot;: &quot;~2.0&quot;
-</code></pre></li>
+<li><a href="http://laravel.com/docs/5.1/blade">Blade Templates - Laravel</a></li>
 </ul>
-
-<h3>Predis</h3>
-
-<ul>
-<li><p>Adding predis to proeject composer.json require block, <strong>In laravel 5,  predis move from require to require-dev.</strong></p>
-
-<pre><code class="language-json">&quot;predis/predis&quot;: &quot;~1.0&quot;
-</code></pre></li>
-</ul>
-
-<h2>Unit Test</h2>
-
-<table>
-<thead>
-<tr>
-<th>diff</th>
-<th>4.2</th>
-<th>5</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>test env</td>
-<td>app/config/testing</td>
-<td>phpunit.xml</td>
-</tr>
-</tbody>
-</table>
-
-<h2>Core Concept</h2>
-
-<h3>Service Providers</h3>
-
-<h4>Folder</h4>
-
-<pre><code class="language-bash">app/Providers
-</code></pre>
-
-<h4>Register</h4>
-
-<pre><code class="language-php">// app/config/
-'providers' =&gt; [
-    //...
-]
-</code></pre>
-
-<h3>Contracts</h3>
-
-<h3>Repositories</h3>
-
-<h4>Binding Interfaces To Implementations</h4>
-
-<pre><code class="language-php">// app/Providers/AppServiceProvider.php
-public function register()
-{
-    $this-&gt;app-&gt;bind(
-        'App\Contracts\News',
-        'App\Repsitories\EloquentNewsRepository'
-    );
-}
-</code></pre>
-
-<p><strong>Remember to Clear Compiled Cache</strong></p>
-
-<pre><code class="language-bash">php artisan clear-compiled
-</code></pre>
-
-<h2>Facades</h2>
 </main>
                 </article>
                 <hr>

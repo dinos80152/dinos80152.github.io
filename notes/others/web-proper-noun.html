@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Personal Web Site include Blogs, Tutorials and Code">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>User Story - Dino Lai</title>
+    <title>網站開發專有名詞 For Product Manager - Dino Lai</title>
     <!-- Facebook Open Graph -->
     <meta property="og:url" content="http://dinolai.com/" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="User Story - Dino Lai" />
+    <meta property="og:title" content="網站開發專有名詞 For Product Manager - Dino Lai" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <!-- End Facebook Open Graph -->
@@ -69,64 +69,311 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2017-04-10 00:11:49 CST +08</header>
-                    <main><h1>User Story</h1>
+                    <header>Updated: 2017-04-13 17:44:11 CST +08</header>
+                    <main><h1>網站開發專有名詞 For Product Manager</h1>
 
-<h2>Principl</h2>
+<h2>前端</h2>
+
+<h3>HTML (Hyper Text Markup Language)</h3>
+
+<pre><code class="language-html">&lt;html&gt;
+  &lt;body&gt;
+    &lt;b&gt;Example&lt;/b&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h4>Meta Tag</h4>
+
+<p>meta tag主要為表示此網頁屬性，目前主要目的為增強SEO(Search Engine Optimization，搜尋引擎最佳化)，讓使用者在搜尋時會更容易出現我們的網頁。</p>
+
+<p>常用標籤(tag)有以下</p>
 
 <ul>
-<li>無實作細節
+<li>charset: 網頁字元編碼 固定為utf-8</li>
+<li>title: 主標</li>
+<li>description: 網頁敘述 (ex: 副標)</li>
+<li>keywords: 關鍵字，以半形逗號分隔(,)</li>
+<li>og(open graph): 目前主要目的為facebook分享用，title與type為必填項目。</li>
+</ul>
+
+<p>套用方式，以中括號[]包住為每個網站需要客製的地方</p>
+
+<pre><code class="language-html">&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;[主標]&lt;/title&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;[網頁敘述]&quot; /&gt;
+    &lt;meta name=&quot;keywords&quot; content=&quot;[關鍵字，以半形逗號分隔(,)]&quot;&gt;
+    &lt;link rel=&quot;image_src&quot; href=&quot;[一張1200*630的banner]&quot; /&gt;
+    &lt;!-- start fb meta --&gt;
+    &lt;meta property=&quot;og:type&quot; content=&quot;website&quot; /&gt;
+    &lt;meta property=&quot;og:title&quot; content=&quot;[主標]&quot; /&gt;
+    &lt;meta property=&quot;og:description&quot; content=&quot;[網頁敘述]&quot; /&gt;
+    &lt;meta property=&quot;og:image&quot; content=&quot;[一張1200*630的banner]&quot; /&gt;
+    &lt;meta property=&quot;og:url&quot; content=&quot;[網頁路徑]&quot;/&gt;
+    &lt;meta property=&quot;og:site_name&quot; content=&quot;[主網站名稱]&quot; /&gt;
+    &lt;!-- end fb meta --&gt;
+&lt;/head&gt;
+</code></pre>
+
+<h3>CSS (Cascading Style Sheets)</h3>
 
 <ul>
-<li>Story for PM</li>
-<li>Task for Developer</li>
+<li>樣式表</li>
+<li>位置，顯示，大小，顏色&hellip;</li>
+<li>(動畫)</li>
+</ul>
+
+<h3>Javascript</h3>
+
+<ul>
+<li>DOM (Document Object Model) 元素控制</li>
+<li>動畫</li>
+<li>註冊事件</li>
+<li>邏輯</li>
+<li>傳送資料</li>
+</ul>
+
+<p><a href="http://www.w3.org/TR/DOM-Level-2-Core/introduction.html">http://www.w3.org/TR/DOM-Level-2-Core/introduction.html</a></p>
+
+<h3>RWD (Responsive Web Design)</h3>
+
+<ul>
+<li>一份 HTML, CSS, Javascript 打遍所有裝置</li>
+<li>透過 CSS Media Query 決定在哪個解析度時使用哪一些 CSS</li>
+<li>ex: <a href="http://headshot.garena.tw">http://headshot.garena.tw</a></li>
+</ul>
+
+<pre><code class="language-css">@media screen and (max-width: 300px) {
+    body {
+        background-color: lightblue;
+    }
+}
+</code></pre>
+
+<h3>AWD (Adaptive Web Design)</h3>
+
+<ul>
+<li>透過 Client 或 Server 偵測使用者瀏覽器屬性（哪種瀏覽器，裝備，螢幕大小），決定要回傳哪種 HTML, CSS, Javascript 給使用者。</li>
+<li>會做手機版，桌機版不同的版面。</li>
+<li>更彈性</li>
+<li>ex: <a href="http://thunderstrike.garena.tw">http://thunderstrike.garena.tw</a></li>
+</ul>
+
+<p><a href="http://blog.catchpoint.com/2014/07/16/adaptive-vs-responsive-web-design-quantifying-difference/">http://blog.catchpoint.com/2014/07/16/adaptive-vs-responsive-web-design-quantifying-difference/</a></p>
+
+<h3>CDN (Content Delivery Network)</h3>
+
+<ul>
+<li>多個節點會互相同步，要東西時可以去跟最近的拿，快又有效率。</li>
+</ul>
+
+<h2>Browser</h2>
+
+<h3>Browser Cache</h3>
+
+<ul>
+<li>Ctrl + F5</li>
+</ul>
+
+<h3>IE</h3>
+
+<ul>
+<li>模擬 IE 各版本</li>
+<li>請調成 IE 11</li>
+</ul>
+
+<h3>Chrome</h3>
+
+<ul>
+<li>AdBlock</li>
+<li>ad_ 都會被擋</li>
+<li>pop_ 也會被擋</li>
+</ul>
+
+<h3>RWD</h3>
+
+<ul>
+<li>F12</li>
+</ul>
+
+<h2>後端</h2>
+
+<h3>PHP</h3>
+
+<ul>
+<li>伺服器端程式語言</li>
+<li>跟資料庫做溝通</li>
+<li>對資料做處理</li>
+<li>產生回傳頁面</li>
+</ul>
+
+<h3>Cache (快取)</h3>
+
+<ul>
+<li>減少 Application, Database Server Loading</li>
+<li>將第一次計算完的資料暫時存在記憶體或是檔案，這段期間都讀這個檔案所存的結果，不去做程式計算和資料庫存取。</li>
+<li>大約，不即時（每X分鐘更新一次）</li>
+</ul>
+
+<h3>Queue</h3>
+
+<ul>
+<li>排隊</li>
+<li>非同步（不能即時回傳結果）</li>
+</ul>
+
+<h3>Database (資料庫)</h3>
+
+<ul>
+<li>存資料的地方</li>
+<li>撈資料</li>
+<li>xxxQL</li>
+<li>xxxDB</li>
+<li>記結果</li>
+</ul>
+
+<h3>Log (記錄檔)</h3>
+
+<ul>
+<li>記過程</li>
+</ul>
+
+<h2>伺服器</h2>
+
+<h3>DNS (Domain Name System)</h3>
+
+<ul>
+<li>找東西</li>
+</ul>
+
+<h3>Load Balance (負載平衡)</h3>
+
+<ul>
+<li>使用演算法判斷此請求要交給哪台伺服器做處理</li>
+<li>ex: 分配者，主管決定事情要給誰做</li>
+</ul>
+
+<p><a href="https://en.wikipedia.org/wiki/Load_balancing_(computing)">https://en.wikipedia.org/wiki/Load_balancing_(computing)</a></p>
+
+<h3>常見 Http Error Code</h3>
+
+<ul>
+<li><p>400 Bad Request</p>
+
+<ul>
+<li>參數錯（網址錯）</li>
+<li>ex: xxx.tw?id=abc</li>
 </ul></li>
-<li>獨立，Story 之間沒有相依性</li>
-<li>易修改的</li>
-<li>有價值</li>
-<li>可評估範圍</li>
-<li>可測試</li>
-<li>與客戶一同撰寫</li>
-<li>整理成主題</li>
-</ul>
 
-<h2>Template</h2>
-
-<p><strong>as a <code>&lt;role&gt;</code>, I want to <code>&lt;action&gt;</code> because of <code>&lt;business value&gt;</code>.</strong></p>
-
-<p>身為一個『使用者』，我想要『做什麼』因為『可以獲得成果。』</p>
-
-<h3>Role</h3>
+<li><p>403 Forbidden</p>
 
 <ul>
-<li>不要用『使用者』，指定角色</li>
-<li>角色為真實顧客，不是 Product Owner，也不是開發人員。</li>
-</ul>
+<li>Web Server (Nginx) IP 沒開</li>
+</ul></li>
 
-<h3>Action</h3>
-
-<ul>
-<li>不講技術細節，盡量描述操作細節，如搜尋條件。</li>
-</ul>
-
-<h3>Business Value</h3>
+<li><p>404 Not Found</p>
 
 <ul>
-<li>價值決定權重</li>
-</ul>
+<li>Application Server 沒同步</li>
+<li>網址錯</li>
+</ul></li>
 
-<h2>Acceptance Testing</h2>
+<li><p>500 Internal Server Error</p>
 
 <ul>
-<li>提供完成的定義</li>
-<li>使用案例</li>
-<li>邊界測試</li>
+<li>程式寫錯</li>
+</ul></li>
+
+<li><p>502 Bad Gateway</p>
+
+<ul>
+<li>Application Server 爆了</li>
+<li>Database Server 爆了</li>
+</ul></li>
+
+<li><p>503 Service Unavailable</p>
+
+<ul>
+<li>Load Balance Server 爆了</li>
+</ul></li>
 </ul>
+
+<p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html">http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html</a></p>
 
 <h2>Example</h2>
 
+<h3>Code</h3>
+
 <ul>
-<li>身為一個玩家，我想要</li>
+<li>index.html</li>
+</ul>
+
+<pre><code class="language-html">&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;抽獎&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;index.css&quot;&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;table&gt;
+      &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;姓名&lt;/th&gt;
+            &lt;th&gt;電話&lt;/th&gt;
+            &lt;th&gt;出生年月日&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          &lt;tr&gt;
+            &lt;td&gt;&lt;?php echo $user-&gt;name; ?&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;?php echo $user-&gt;phone; ?&gt;&lt;/td&gt;
+            &lt;td&gt;&lt;?php echo $user-&gt;birthdate; ?&gt;&lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+      &lt;script src=&quot;index.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<ul>
+<li>index.css</li>
+</ul>
+
+<pre><code class="language-css">table tbody tr th {
+  color: red;
+}
+
+table tbody tr td {
+  color: green;
+}
+</code></pre>
+
+<ul>
+<li>index.js</li>
+</ul>
+
+<pre><code class="language-javascript">$(function() {
+  $('td').click(function() {
+    alert('恭喜得獎');
+  });
+});
+</code></pre>
+
+<ul>
+<li>index.php</li>
+</ul>
+
+<pre><code class="language-php">&lt;?php
+    $employee_id = rand(1, 320);
+    $user = findOnGoogleSpreadsheetById($employee_id);
+?&gt;
+</code></pre>
+
+<h3>Rule</h3>
+
+<ul>
+<li>1 Browser, 1 LB, 2 Ap server, 1 DB, 1 Queue, 1 Cache. Total 7.</li>
 </ul>
 </main>
                 </article>
