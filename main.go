@@ -3,6 +3,7 @@ package main
 import (
 	"io/ioutil"
 	"os"
+	"path"
 	"text/template"
 
 	"strings"
@@ -30,7 +31,9 @@ type note struct {
 	Href        string
 }
 
-var notes []note
+type noteList map[string][]note
+
+var nl = noteList{}
 
 func main() {
 	cleanFolder(noteHTMLDir)
@@ -55,13 +58,13 @@ func readmeToIndex(dir string) {
 }
 
 func cleanFolder(path string) {
-	root, _ := os.Getwd()
 	files, _ := ioutil.ReadDir(path)
+	root, _ := os.Getwd()
 	os.Chdir(path)
 	defer os.Chdir(root)
 	for _, f := range files {
 		if f.IsDir() {
-			cleanFolder(f.Name())
+			os.RemoveAll(f.Name())
 		} else {
 			os.Remove(f.Name())
 		}
@@ -71,7 +74,14 @@ func cleanFolder(path string) {
 func genNotes(mdDir, htmlDir string) {
 	files, _ := ioutil.ReadDir(mdDir)
 	for _, f := range files {
-		if strings.EqualFold(f.Name(), "readme.md") {
+		if f.IsDir() {
+			nextMdDir := path.Join(mdDir, f.Name())
+			nextHTMLDir := path.Join(htmlDir, f.Name())
+			os.Mkdir(nextHTMLDir, 755)
+			genNotes(nextMdDir, nextHTMLDir)
+			continue
+		}
+		if strings.EqualFold(f.Name(), mdIndex) {
 			continue
 		}
 		md2HTML(mdDir, htmlDir, f, "")
@@ -81,7 +91,7 @@ func genNotes(mdDir, htmlDir string) {
 
 func md2HTML(sourceDir, outputDir string, fi os.FileInfo, outputBaseName string) {
 	baseName := fi.Name()
-	input, _ := ioutil.ReadFile(sourceDir + "/" + baseName)
+	input, _ := ioutil.ReadFile(path.Join(sourceDir, baseName))
 	output := blackfriday.MarkdownCommon(input)
 	content := string(output)
 
@@ -98,12 +108,13 @@ func md2HTML(sourceDir, outputDir string, fi os.FileInfo, outputBaseName string)
 		outputBaseName = fileName(baseName) + ".html"
 	}
 
-	if sourceDir == noteMdDir {
-		nt.Href = noteURL + outputBaseName
-		notes = append(notes, nt)
+	if path.Dir(sourceDir) == noteMdDir {
+		nt.Href = path.Join("/", outputDir, outputBaseName)
+		category := strings.Title(path.Base(sourceDir))
+		nl[category] = append(nl[category], nt)
 	}
 
-	f, _ := os.Create(outputDir + "/" + outputBaseName)
+	f, _ := os.Create(path.Join(outputDir, outputBaseName))
 	defer f.Close()
 
 	t, _ := template.ParseFiles(layout)
@@ -112,15 +123,17 @@ func md2HTML(sourceDir, outputDir string, fi os.FileInfo, outputBaseName string)
 
 func genNoteList() {
 
-	sort.Slice(notes, func(i, j int) bool {
-		return notes[i].UpdatedAt > notes[j].UpdatedAt
-	})
+	for _, notes := range nl {
+		sort.Slice(notes, func(i, j int) bool {
+			return notes[i].UpdatedAt > notes[j].UpdatedAt
+		})
+	}
 
-	f, _ := os.Create(noteMdDir + "/readme.md")
+	f, _ := os.Create(path.Join(noteMdDir, "/readme.md"))
 	defer f.Close()
 
 	t, _ := template.ParseFiles(noteListLayout)
-	t.Execute(f, notes)
+	t.Execute(f, nl)
 }
 
 func fileName(baseName string) string {
