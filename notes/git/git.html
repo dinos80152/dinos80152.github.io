@@ -69,13 +69,13 @@
             <div class="col-lg-9">
                 <article class="markdown-body">
                     <header>Updated: 2017-04-13 17:33:04 CST +08</header>
-                    <main><h1>Git</h1>
+                    <main><h1 id="git">Git</h1>
 
-<h2>Commit Message</h2>
+<h2 id="commit-message">Commit Message</h2>
 
 <p><a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">A Note About Git Commit Messages@tpope</a></p>
 
-<h2>Git Mirror</h2>
+<h2 id="git-mirror">Git Mirror</h2>
 
 <p>最近想把公司的舊專案慢慢從 Gitolite 換到 Gitlab 上。</p>
 
@@ -85,7 +85,7 @@
 
 <p>我們再用 git push --mirror 把整包都丟到新的 git server 上面的 repo 裡。</p>
 
-<h3>Example</h3>
+<h3 id="example">Example</h3>
 
 <ol>
 <li><p>整包 clone 下來</p>
@@ -114,7 +114,7 @@ git remote set-url --push origin git@gitlab.lab317.org:dinos80152/Authentication
 <li><p>可以在 Gitlab 上看到 repo 裡有以前在 Gitolite 的所有紀錄與東西囉。</p></li>
 </ol>
 
-<h2>Reference</h2>
+<h2 id="reference">Reference</h2>
 
 <ul>
 <li><a href="https://help.github.com/articles/duplicating-a-repository/">Duplicating a repository@github.com</a></li>
@@ -127,25 +127,42 @@ git remote set-url --push origin git@gitlab.lab317.org:dinos80152/Authentication
             <div class="col-lg-3">
                 <aside>
                     <section class="panel panel-grey">
-                        <div class="panel-heading">Featured Articles</div>
-                        <ul id="notes-list-all" class="list-group">
+                        <div class="panel-heading clickable" data-toggle="collapse" data-target="#notes-list-all" aria-controls="notes-list-all">
+                            Notes Categories
+                        </div>
+                        <ul id="notes-list-all" class="list-group collapse in" aria-expanded="true">
                             <li class="list-group-item">
-                                <a href="/notes/php/php.html">PHP</a>
+                                <a href="/notes#development">Development</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/git/git.html">Git</a>
+                                <a href="/notes#php">PHP</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/linux/linux.html">Linux</a>
+                                <a href="/notes#laravel">Laravel</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/golang/golang.html">Golang</a>
+                                <a href="/notes#golang">Golang</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/development/queue.html">Queue</a>
+                                <a href="/notes#git">Git</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/system/https.html">HTTPS</a>
+                                <a href="/notes#database">Database</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#linux">Linux</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#system">System</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#web">Web</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#editor">Editor</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#others">Others</a>
                             </li>
                         </ul>
                     </section>

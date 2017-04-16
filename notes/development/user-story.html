@@ -69,9 +69,9 @@
             <div class="col-lg-9">
                 <article class="markdown-body">
                     <header>Updated: 2017-04-13 17:44:04 CST +08</header>
-                    <main><h1>User Story</h1>
+                    <main><h1 id="user-story">User Story</h1>
 
-<h2>Principl</h2>
+<h2 id="principl">Principl</h2>
 
 <ul>
 <li>無實作細節
@@ -89,32 +89,32 @@
 <li>整理成主題</li>
 </ul>
 
-<h2>Template</h2>
+<h2 id="template">Template</h2>
 
 <p><strong>as a <code>&lt;role&gt;</code>, I want to <code>&lt;action&gt;</code> because of <code>&lt;business value&gt;</code>.</strong></p>
 
 <p>身為一個『使用者』，我想要『做什麼』因為『可以獲得成果。』</p>
 
-<h3>Role</h3>
+<h3 id="role">Role</h3>
 
 <ul>
 <li>不要用『使用者』，指定角色</li>
 <li>角色為真實顧客，不是 Product Owner，也不是開發人員。</li>
 </ul>
 
-<h3>Action</h3>
+<h3 id="action">Action</h3>
 
 <ul>
 <li>不講技術細節，盡量描述操作細節，如搜尋條件。</li>
 </ul>
 
-<h3>Business Value</h3>
+<h3 id="business-value">Business Value</h3>
 
 <ul>
 <li>價值決定權重</li>
 </ul>
 
-<h2>Acceptance Testing</h2>
+<h2 id="acceptance-testing">Acceptance Testing</h2>
 
 <ul>
 <li>提供完成的定義</li>
@@ -122,7 +122,7 @@
 <li>邊界測試</li>
 </ul>
 
-<h2>Example</h2>
+<h2 id="example">Example</h2>
 
 <ul>
 <li>身為一個玩家，我想要</li>
@@ -135,25 +135,42 @@
             <div class="col-lg-3">
                 <aside>
                     <section class="panel panel-grey">
-                        <div class="panel-heading">Featured Articles</div>
-                        <ul id="notes-list-all" class="list-group">
+                        <div class="panel-heading clickable" data-toggle="collapse" data-target="#notes-list-all" aria-controls="notes-list-all">
+                            Notes Categories
+                        </div>
+                        <ul id="notes-list-all" class="list-group collapse in" aria-expanded="true">
                             <li class="list-group-item">
-                                <a href="/notes/php/php.html">PHP</a>
+                                <a href="/notes#development">Development</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/git/git.html">Git</a>
+                                <a href="/notes#php">PHP</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/linux/linux.html">Linux</a>
+                                <a href="/notes#laravel">Laravel</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/golang/golang.html">Golang</a>
+                                <a href="/notes#golang">Golang</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/development/queue.html">Queue</a>
+                                <a href="/notes#git">Git</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/system/https.html">HTTPS</a>
+                                <a href="/notes#database">Database</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#linux">Linux</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#system">System</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#web">Web</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#editor">Editor</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#others">Others</a>
                             </li>
                         </ul>
                     </section>

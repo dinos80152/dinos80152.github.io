@@ -69,32 +69,32 @@
             <div class="col-lg-9">
                 <article class="markdown-body">
                     <header>Updated: 2017-04-09 22:29:11 CST +08</header>
-                    <main><h1>Move Repo from Gitolite to Gitlab</h1>
+                    <main><h1 id="move-repo-from-gitolite-to-gitlab">Move Repo from Gitolite to Gitlab</h1>
 
-<h2>Create Repository in Gitlab</h2>
+<h2 id="create-repository-in-gitlab">Create Repository in Gitlab</h2>
 
 <p><img src="https://github.com/dinos80152/dinos80152.github.io/blob/master/_data/gitlab.png?raw=true" alt="alt tag" /></p>
 
-<h2>Set push url</h2>
+<h2 id="set-push-url">Set push url</h2>
 
 <pre><code class="language-bash">cd /xxx.garena.tw/.git
 
 git remote set-url --push origin git@gitlab.garena.tw:GarenaTW/xxx.garena.tw.git
 </code></pre>
 
-<h2>Push mirror</h2>
+<h2 id="push-mirror">Push mirror</h2>
 
 <pre><code class="language-bash">git push --mirror
 </code></pre>
 
-<h2>change remote url</h2>
+<h2 id="change-remote-url">change remote url</h2>
 
 <p>本機、測試機、正式機已有 git</p>
 
 <pre><code class="language-bash">git remote set-url origin git@gitlab.garena.tw:GarenaTW/xxx.garena.tw.git
 </code></pre>
 
-<h2>add remote origin</h2>
+<h2 id="add-remote-origin">add remote origin</h2>
 
 <p>測試機無 git</p>
 
@@ -111,25 +111,42 @@ git remote set-url --push origin git@gitlab.garena.tw:GarenaTW/xxx.garena.tw.git
             <div class="col-lg-3">
                 <aside>
                     <section class="panel panel-grey">
-                        <div class="panel-heading">Featured Articles</div>
-                        <ul id="notes-list-all" class="list-group">
+                        <div class="panel-heading clickable" data-toggle="collapse" data-target="#notes-list-all" aria-controls="notes-list-all">
+                            Notes Categories
+                        </div>
+                        <ul id="notes-list-all" class="list-group collapse in" aria-expanded="true">
                             <li class="list-group-item">
-                                <a href="/notes/php/php.html">PHP</a>
+                                <a href="/notes#development">Development</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/git/git.html">Git</a>
+                                <a href="/notes#php">PHP</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/linux/linux.html">Linux</a>
+                                <a href="/notes#laravel">Laravel</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/golang/golang.html">Golang</a>
+                                <a href="/notes#golang">Golang</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/development/queue.html">Queue</a>
+                                <a href="/notes#git">Git</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/system/https.html">HTTPS</a>
+                                <a href="/notes#database">Database</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#linux">Linux</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#system">System</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#web">Web</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#editor">Editor</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#others">Others</a>
                             </li>
                         </ul>
                     </section>

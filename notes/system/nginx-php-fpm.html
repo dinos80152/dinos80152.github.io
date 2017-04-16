@@ -69,25 +69,25 @@
             <div class="col-lg-9">
                 <article class="markdown-body">
                     <header>Updated: 2017-04-13 17:43:53 CST +08</header>
-                    <main><h1>Nginx, Php-fpm</h1>
+                    <main><h1 id="nginx-php-fpm">Nginx, Php-fpm</h1>
 
-<h2>nginx</h2>
+<h2 id="nginx">nginx</h2>
 
-<h3>configuration</h3>
+<h3 id="configuration">configuration</h3>
 
-<h3>log</h3>
+<h3 id="log">log</h3>
 
 <ul>
 <li>/var/log/nginx/</li>
 </ul>
 
-<h2>php-fpm</h2>
+<h2 id="php-fpm">php-fpm</h2>
 
 <ul>
 <li>php-fpm.ini</li>
 </ul>
 
-<h3>CGI</h3>
+<h3 id="cgi">CGI</h3>
 
 <p>Common Gateway Interface
 &gt; Common Gateway Interface (CGI) is a standard environment for web servers to interface with executable programs installed on a server that generate web pages dynamically. - wikipedia</p>
@@ -104,7 +104,7 @@
 <li><p>Load environment variable every time (php.ini, extensions)</p></li>
 </ul>
 
-<h3>FastCGI</h3>
+<h3 id="fastcgi">FastCGI</h3>
 
 <p>FastCGI uses persistent processes to handle a series of requests. These processes are owned by the FastCGI server, not the web server.</p>
 
@@ -122,7 +122,7 @@
 <pre><code class="language-bash">// nginx example
 </code></pre>
 
-<h4>Pros</h4>
+<h4 id="pros">Pros</h4>
 
 <ul>
 <li>Each individual FastCGI process can handle many requests over its lifetime</li>
@@ -133,11 +133,11 @@
 <li>服务器不用在每次需要时都载入php解释程序</li>
 </ul>
 
-<h4>log</h4>
+<h4 id="log-1">log</h4>
 
 <p>/var/log/php-fpm/</p>
 
-<h4>status</h4>
+<h4 id="status">status</h4>
 
 <p><a href="http://example.com/status">http://example.com/status</a></p>
 </main>
@@ -148,25 +148,42 @@
             <div class="col-lg-3">
                 <aside>
                     <section class="panel panel-grey">
-                        <div class="panel-heading">Featured Articles</div>
-                        <ul id="notes-list-all" class="list-group">
+                        <div class="panel-heading clickable" data-toggle="collapse" data-target="#notes-list-all" aria-controls="notes-list-all">
+                            Notes Categories
+                        </div>
+                        <ul id="notes-list-all" class="list-group collapse in" aria-expanded="true">
                             <li class="list-group-item">
-                                <a href="/notes/php/php.html">PHP</a>
+                                <a href="/notes#development">Development</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/git/git.html">Git</a>
+                                <a href="/notes#php">PHP</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/linux/linux.html">Linux</a>
+                                <a href="/notes#laravel">Laravel</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/golang/golang.html">Golang</a>
+                                <a href="/notes#golang">Golang</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/development/queue.html">Queue</a>
+                                <a href="/notes#git">Git</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/system/https.html">HTTPS</a>
+                                <a href="/notes#database">Database</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#linux">Linux</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#system">System</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#web">Web</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#editor">Editor</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#others">Others</a>
                             </li>
                         </ul>
                     </section>

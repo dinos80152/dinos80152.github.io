@@ -69,15 +69,15 @@
             <div class="col-lg-9">
                 <article class="markdown-body">
                     <header>Updated: 2017-04-13 17:34:57 CST +08</header>
-                    <main><h1>Linux</h1>
+                    <main><h1 id="linux">Linux</h1>
 
-<h2>Signal</h2>
+<h2 id="signal">Signal</h2>
 
-<h3>Ctrl+z</h3>
+<h3 id="ctrl-z">Ctrl+z</h3>
 
 <p><kbd>Ctrl + z </kbd>是 Unix 裡的一種 Signal，目的是為了暫時執行中的程序，並可對執行程序進行前背景的切換</p>
 
-<h4>Commands</h4>
+<h4 id="commands">Commands</h4>
 
 <table>
 <thead>
@@ -115,7 +115,7 @@
 </tbody>
 </table>
 
-<h4>Example</h4>
+<h4 id="example">Example</h4>
 
 <ol>
 <li><p>執行 ping</p>
@@ -147,14 +147,14 @@
 <li><p>若移至前台，可 <kbd>Ctrl + c</kbd> 中斷程序</p></li>
 </ol>
 
-<h4>補充</h4>
+<h4 id="補充">補充</h4>
 
 <p>也可以直接在要執行的程序後面加上 &amp; 就會在背景執行囉</p>
 
 <pre><code class="language-bash">ping http://www.google.com.tw &amp;
 </code></pre>
 
-<h4>Reference</h4>
+<h4 id="reference">Reference</h4>
 
 <ul>
 <li><a href="http://en.wikipedia.org/wiki/Unix_signalhttp://en.wikipedia.org/wiki/Unix_signal">Unix signal@Wikipedia</a></li>
@@ -163,15 +163,15 @@
 <li><a href="http://linux.vbird.org/linux_basic/0440processcontrol.php">第十七章、程序管理與 SELinux 初探@鳥哥</a></li>
 </ul>
 
-<h2>Linux Tunnel</h2>
+<h2 id="linux-tunnel">Linux Tunnel</h2>
 
-<h3>網路架構</h3>
+<h3 id="網路架構">網路架構</h3>
 
 <pre><code class="language-sequence">local-&gt;ssh server(128.18.123.111): connect
 ssh server(128.18.123.111)-&gt;dist server(10.59.1.23;19336): connect
 </code></pre>
 
-<h3>使用說明</h3>
+<h3 id="使用說明">使用說明</h3>
 
 <ul>
 <li>-N 連線後不執行指令</li>
@@ -182,22 +182,22 @@ ssh server(128.18.123.111)-&gt;dist server(10.59.1.23;19336): connect
 <pre><code class="language-bash">ssh -N -f -L LOCAL_PORT:DEST_HOST:DEST_HOST_PORT SSH_USER@SSH_SERVER_IP
 </code></pre>
 
-<h3>範例</h3>
+<h3 id="範例">範例</h3>
 
 <pre><code class="language-bash">ssh -N -f -L 59196:10.59.1.23:19336 dino@124.18.123.111
 </code></pre>
 
-<h3>查看連線資訊</h3>
+<h3 id="查看連線資訊">查看連線資訊</h3>
 
 <pre><code class="language-bash">netstat -ntulp
 </code></pre>
 
-<h3>刪除連線</h3>
+<h3 id="刪除連線">刪除連線</h3>
 
 <pre><code class="language-bash">kill PID
 </code></pre>
 
-<h3>Reference</h3>
+<h3 id="reference-1">Reference</h3>
 
 <ul>
 <li><a href="http://gwokae.mewggle.com/wordpress/index.php/archives/678">http://gwokae.mewggle.com/wordpress/index.php/archives/678</a></li>
@@ -210,25 +210,42 @@ ssh server(128.18.123.111)-&gt;dist server(10.59.1.23;19336): connect
             <div class="col-lg-3">
                 <aside>
                     <section class="panel panel-grey">
-                        <div class="panel-heading">Featured Articles</div>
-                        <ul id="notes-list-all" class="list-group">
+                        <div class="panel-heading clickable" data-toggle="collapse" data-target="#notes-list-all" aria-controls="notes-list-all">
+                            Notes Categories
+                        </div>
+                        <ul id="notes-list-all" class="list-group collapse in" aria-expanded="true">
                             <li class="list-group-item">
-                                <a href="/notes/php/php.html">PHP</a>
+                                <a href="/notes#development">Development</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/git/git.html">Git</a>
+                                <a href="/notes#php">PHP</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/linux/linux.html">Linux</a>
+                                <a href="/notes#laravel">Laravel</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/golang/golang.html">Golang</a>
+                                <a href="/notes#golang">Golang</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/development/queue.html">Queue</a>
+                                <a href="/notes#git">Git</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/system/https.html">HTTPS</a>
+                                <a href="/notes#database">Database</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#linux">Linux</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#system">System</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#web">Web</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#editor">Editor</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#others">Others</a>
                             </li>
                         </ul>
                     </section>

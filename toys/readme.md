@@ -6,7 +6,7 @@ PTT 即時通知看板關鍵字。
 
 Link: [https://github.com/liam-lai/ptt-alertor](https://github.com/liam-lai/ptt-alertor)
 
-## 爬梯子
+## Ladder Game
 
 javascript 寫的爬梯子遊戲
 

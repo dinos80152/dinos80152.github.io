@@ -69,15 +69,15 @@
             <div class="col-lg-9">
                 <article class="markdown-body">
                     <header>Updated: 2017-04-13 17:33:19 CST +08</header>
-                    <main><h1>HTML Input hidden defaultValue vs. value with jQuery val() vs. attr()</h1>
+                    <main><h1 id="html-input-hidden-defaultvalue-vs-value-with-jquery-val-vs-attr">HTML Input hidden defaultValue vs. value with jQuery val() vs. attr()</h1>
 
-<h2>Problem</h2>
+<h2 id="problem">Problem</h2>
 
 <p>承續上一篇 <a href="https://dinos80152.wordpress.com/2015/10/07/html-input-defaultvalue-vs-value-jquery-val-vs-attr/">HTML Input defaultValue vs. value, jQuery val() vs. attr()</a></p>
 
 <p>這篇探討為什麼 type 使用 hidden，html 就成功的被改變了呢？</p>
 
-<h2>Example</h2>
+<h2 id="example">Example</h2>
 
 <p>範例如下</p>
 
@@ -125,7 +125,7 @@ document.getElementsByName('test')[0].defaultValue = 123;
 
 <p>或許之後有機會看到更多討論再來做更多的釐清吧！</p>
 
-<h3>Reference</h3>
+<h3 id="reference">Reference</h3>
 
 <ul>
 <li><a href="http://stackoverflow.com/questions/5319678/javascript-and-defaultvalue-of-hidden-input-elements">Javascript and defaultValue of hidden input elements@stackoverflow</a></li>
@@ -140,25 +140,42 @@ document.getElementsByName('test')[0].defaultValue = 123;
             <div class="col-lg-3">
                 <aside>
                     <section class="panel panel-grey">
-                        <div class="panel-heading">Featured Articles</div>
-                        <ul id="notes-list-all" class="list-group">
+                        <div class="panel-heading clickable" data-toggle="collapse" data-target="#notes-list-all" aria-controls="notes-list-all">
+                            Notes Categories
+                        </div>
+                        <ul id="notes-list-all" class="list-group collapse in" aria-expanded="true">
                             <li class="list-group-item">
-                                <a href="/notes/php/php.html">PHP</a>
+                                <a href="/notes#development">Development</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/git/git.html">Git</a>
+                                <a href="/notes#php">PHP</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/linux/linux.html">Linux</a>
+                                <a href="/notes#laravel">Laravel</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/golang/golang.html">Golang</a>
+                                <a href="/notes#golang">Golang</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/development/queue.html">Queue</a>
+                                <a href="/notes#git">Git</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/system/https.html">HTTPS</a>
+                                <a href="/notes#database">Database</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#linux">Linux</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#system">System</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#web">Web</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#editor">Editor</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#others">Others</a>
                             </li>
                         </ul>
                     </section>

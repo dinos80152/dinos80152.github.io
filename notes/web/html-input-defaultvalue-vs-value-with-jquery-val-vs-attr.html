@@ -69,9 +69,9 @@
             <div class="col-lg-9">
                 <article class="markdown-body">
                     <header>Updated: 2017-04-13 17:33:17 CST +08</header>
-                    <main><h1>HTML Input defaultValue vs. value with jQuery val() vs. attr()</h1>
+                    <main><h1 id="html-input-defaultvalue-vs-value-with-jquery-val-vs-attr">HTML Input defaultValue vs. value with jQuery val() vs. attr()</h1>
 
-<h2>Problem</h2>
+<h2 id="problem">Problem</h2>
 
 <p>最近遇到有人想要把現有的 input tag 使用 .val(value) 改值以後，append 到另一個 form 上，結果發現怎麼 input 呈現的 value 沒變？！</p>
 
@@ -81,7 +81,7 @@
 
 <p>讓我們看看以下的例子</p>
 
-<h2>Example</h2>
+<h2 id="example">Example</h2>
 
 <pre><code class="language-html">
 &lt;form&gt;&lt;input name=&quot;test&quot; type=&quot;text&quot; value=&quot;abc&quot; /&gt;
@@ -111,7 +111,7 @@ console.log($('form').html());
 <p>我們可以看到改變 attribute 的話元素本身的 html 也會被改變。
 但是改變 value 的話，元素本身的 html 是不會被改變的。</p>
 
-<h2>Explain</h2>
+<h2 id="explain">Explain</h2>
 
 <p>為什麼呢？</p>
 
@@ -136,7 +136,7 @@ console.log($('form').html());
 
 <p><a href="https://dinos80152.wordpress.com/2015/10/07/html-input-hidden-defaultvalue-vs-value-with-jquery-val-vs-attr/">HTML Input hidden defaultValue vs. value with jQuery val() vs. attr()</a></p>
 
-<h3>Reference</h3>
+<h3 id="reference">Reference</h3>
 
 <ul>
 <li><a href="http://www.w3schools.com/jsref/prop_text_defaultvalue.asp">Input Text defaultValue Property@W3Schools</a></li>
@@ -150,25 +150,42 @@ console.log($('form').html());
             <div class="col-lg-3">
                 <aside>
                     <section class="panel panel-grey">
-                        <div class="panel-heading">Featured Articles</div>
-                        <ul id="notes-list-all" class="list-group">
+                        <div class="panel-heading clickable" data-toggle="collapse" data-target="#notes-list-all" aria-controls="notes-list-all">
+                            Notes Categories
+                        </div>
+                        <ul id="notes-list-all" class="list-group collapse in" aria-expanded="true">
                             <li class="list-group-item">
-                                <a href="/notes/php/php.html">PHP</a>
+                                <a href="/notes#development">Development</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/git/git.html">Git</a>
+                                <a href="/notes#php">PHP</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/linux/linux.html">Linux</a>
+                                <a href="/notes#laravel">Laravel</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/golang/golang.html">Golang</a>
+                                <a href="/notes#golang">Golang</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/development/queue.html">Queue</a>
+                                <a href="/notes#git">Git</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/system/https.html">HTTPS</a>
+                                <a href="/notes#database">Database</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#linux">Linux</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#system">System</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#web">Web</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#editor">Editor</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#others">Others</a>
                             </li>
                         </ul>
                     </section>

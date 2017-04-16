@@ -69,9 +69,9 @@
             <div class="col-lg-9">
                 <article class="markdown-body">
                     <header>Updated: 2017-04-13 17:33:28 CST +08</header>
-                    <main><h1>Laravel Update 4.2 to 5.0</h1>
+                    <main><h1 id="laravel-update-4-2-to-5-0">Laravel Update 4.2 to 5.0</h1>
 
-<h2>Basic Flow</h2>
+<h2 id="basic-flow">Basic Flow</h2>
 
 <pre><code class="language-sequence">/public/index.php-&gt;Route:
 Route-&gt;Controller:
@@ -80,7 +80,7 @@ Model--&gt;Controller:data
 Controller-&gt;View:
 </code></pre>
 
-<h2>Env</h2>
+<h2 id="env">Env</h2>
 
 <p><strong>Laravel 5 doesn&rsquo;t have environment detection</strong>, use .env.example</p>
 
@@ -102,7 +102,7 @@ Controller-&gt;View:
 </tbody>
 </table>
 
-<h2>Namespace</h2>
+<h2 id="namespace">Namespace</h2>
 
 <ul>
 <li><p>Naming Your Application (optional)</p>
@@ -111,7 +111,7 @@ Controller-&gt;View:
 </code></pre></li>
 </ul>
 
-<h2>Route</h2>
+<h2 id="route">Route</h2>
 
 <table>
 <thead>
@@ -137,7 +137,7 @@ Controller-&gt;View:
 </tbody>
 </table>
 
-<h3>Middleware</h3>
+<h3 id="middleware">Middleware</h3>
 
 <p><strong>CSRF Protection is default middleware in Laravel 5</strong></p>
 
@@ -167,7 +167,7 @@ class VerifyCsrfToken extends BaseVerifier {
 </code></pre></li>
 </ul>
 
-<h4>Register</h4>
+<h4 id="register">Register</h4>
 
 <pre><code class="language-php">// app/Http/Kernel.php
 
@@ -184,7 +184,7 @@ protected $routeMiddleware = [
 ];
 </code></pre>
 
-<h4>Using</h4>
+<h4 id="using">Using</h4>
 
 <ul>
 <li><p>4.2</p>
@@ -198,9 +198,9 @@ protected $routeMiddleware = [
 </code></pre></li>
 </ul>
 
-<h3>Where</h3>
+<h3 id="where">Where</h3>
 
-<h4>Global</h4>
+<h4 id="global">Global</h4>
 
 <ul>
 <li><p>4.2</p>
@@ -220,9 +220,9 @@ public function boot(Router $router)
 </code></pre></li>
 </ul>
 
-<h2>Controller</h2>
+<h2 id="controller">Controller</h2>
 
-<h3>Parent Class &amp; Namespace</h3>
+<h3 id="parent-class-namespace">Parent Class &amp; Namespace</h3>
 
 <ul>
 <li><p>4.2</p>
@@ -242,9 +242,9 @@ class HomeController extends Controller {}
 </code></pre></li>
 </ul>
 
-<h2>Model</h2>
+<h2 id="model">Model</h2>
 
-<h3>Parent Class &amp; Namespace</h3>
+<h3 id="parent-class-namespace-1">Parent Class &amp; Namespace</h3>
 
 <ul>
 <li><p>4.2</p>
@@ -264,7 +264,7 @@ class User extends Model {
 </code></pre></li>
 </ul>
 
-<h3>Others</h3>
+<h3 id="others">Others</h3>
 
 <ul>
 <li><p>Laravel 5: if you wanna create instance, you have to set</p>
@@ -284,7 +284,7 @@ protected $guarded = ['*'];
 </code></pre></li>
 </ul>
 
-<h3>Eager Loading</h3>
+<h3 id="eager-loading">Eager Loading</h3>
 
 <ul>
 <li><p>4.2</p>
@@ -298,9 +298,9 @@ protected $guarded = ['*'];
 </code></pre></li>
 </ul>
 
-<h2>View</h2>
+<h2 id="view">View</h2>
 
-<h3>Echo</h3>
+<h3 id="echo">Echo</h3>
 
 <table>
 <thead>
@@ -326,7 +326,7 @@ protected $guarded = ['*'];
 </tbody>
 </table>
 
-<h3>HTML Helper</h3>
+<h3 id="html-helper">HTML Helper</h3>
 
 <ul>
 <li>4.2
@@ -357,9 +357,9 @@ protected $guarded = ['*'];
 </ul></li>
 </ul>
 
-<h2>Pagination</h2>
+<h2 id="pagination">Pagination</h2>
 
-<h3>Methods</h3>
+<h3 id="methods">Methods</h3>
 
 <table>
 <thead>
@@ -407,7 +407,7 @@ protected $guarded = ['*'];
 </tbody>
 </table>
 
-<h3>Customize</h3>
+<h3 id="customize">Customize</h3>
 
 <ul>
 <li><p>4.2, modify config or dynamic setting</p>
@@ -441,7 +441,7 @@ class BootstrapThreePresenter implements PresenterContract
 </ol></li>
 </ul>
 
-<h2>Error Handler</h2>
+<h2 id="error-handler">Error Handler</h2>
 
 <table>
 <thead>
@@ -459,9 +459,9 @@ class BootstrapThreePresenter implements PresenterContract
 </tbody>
 </table>
 
-<h2>Package</h2>
+<h2 id="package">Package</h2>
 
-<h3>Auth</h3>
+<h3 id="auth">Auth</h3>
 
 <ul>
 <li><p>4.2, it doesn&rsquo;t maintain anymore.</p>
@@ -475,7 +475,7 @@ class BootstrapThreePresenter implements PresenterContract
 </code></pre></li>
 </ul>
 
-<h3>Predis</h3>
+<h3 id="predis">Predis</h3>
 
 <ul>
 <li><p>Adding predis to proeject composer.json require block, <strong>In laravel 5,  predis move from require to require-dev.</strong></p>
@@ -484,7 +484,7 @@ class BootstrapThreePresenter implements PresenterContract
 </code></pre></li>
 </ul>
 
-<h2>Unit Test</h2>
+<h2 id="unit-test">Unit Test</h2>
 
 <table>
 <thead>
@@ -504,16 +504,16 @@ class BootstrapThreePresenter implements PresenterContract
 </tbody>
 </table>
 
-<h2>Core Concept</h2>
+<h2 id="core-concept">Core Concept</h2>
 
-<h3>Service Providers</h3>
+<h3 id="service-providers">Service Providers</h3>
 
-<h4>Folder</h4>
+<h4 id="folder">Folder</h4>
 
 <pre><code class="language-bash">app/Providers
 </code></pre>
 
-<h4>Register</h4>
+<h4 id="register-1">Register</h4>
 
 <pre><code class="language-php">// app/config/
 'providers' =&gt; [
@@ -521,11 +521,11 @@ class BootstrapThreePresenter implements PresenterContract
 ]
 </code></pre>
 
-<h3>Contracts</h3>
+<h3 id="contracts">Contracts</h3>
 
-<h3>Repositories</h3>
+<h3 id="repositories">Repositories</h3>
 
-<h4>Binding Interfaces To Implementations</h4>
+<h4 id="binding-interfaces-to-implementations">Binding Interfaces To Implementations</h4>
 
 <pre><code class="language-php">// app/Providers/AppServiceProvider.php
 public function register()
@@ -542,7 +542,7 @@ public function register()
 <pre><code class="language-bash">php artisan clear-compiled
 </code></pre>
 
-<h2>Facades</h2>
+<h2 id="facades">Facades</h2>
 </main>
                 </article>
                 <hr>
@@ -551,25 +551,42 @@ public function register()
             <div class="col-lg-3">
                 <aside>
                     <section class="panel panel-grey">
-                        <div class="panel-heading">Featured Articles</div>
-                        <ul id="notes-list-all" class="list-group">
+                        <div class="panel-heading clickable" data-toggle="collapse" data-target="#notes-list-all" aria-controls="notes-list-all">
+                            Notes Categories
+                        </div>
+                        <ul id="notes-list-all" class="list-group collapse in" aria-expanded="true">
                             <li class="list-group-item">
-                                <a href="/notes/php/php.html">PHP</a>
+                                <a href="/notes#development">Development</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/git/git.html">Git</a>
+                                <a href="/notes#php">PHP</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/linux/linux.html">Linux</a>
+                                <a href="/notes#laravel">Laravel</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/golang/golang.html">Golang</a>
+                                <a href="/notes#golang">Golang</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/development/queue.html">Queue</a>
+                                <a href="/notes#git">Git</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/system/https.html">HTTPS</a>
+                                <a href="/notes#database">Database</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#linux">Linux</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#system">System</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#web">Web</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#editor">Editor</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#others">Others</a>
                             </li>
                         </ul>
                     </section>

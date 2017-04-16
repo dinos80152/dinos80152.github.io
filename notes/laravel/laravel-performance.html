@@ -69,13 +69,13 @@
             <div class="col-lg-9">
                 <article class="markdown-body">
                     <header>Updated: 2017-04-13 17:33:32 CST +08</header>
-                    <main><h1>Laravel Performance</h1>
+                    <main><h1 id="laravel-performance">Laravel Performance</h1>
 
-<h2>Database Read/Write</h2>
+<h2 id="database-read-write">Database Read/Write</h2>
 
 <p>在 Laravel 裡要做讀寫分離很簡單，首先要調整 config 裡的 db 連線，把 host 改為 read 與 write 分開，範例如下</p>
 
-<h3>Example</h3>
+<h3 id="example">Example</h3>
 
 <p>app/config/database.php</p>
 
@@ -126,7 +126,7 @@ DB_PASSWORD=secret
 
 <p>若網站的效能是卡在 database，讀寫分離是個可以嘗試改善效能的方法，但也意味著需要額一台機器做原先 database 的 slave。</p>
 
-<h2>Reference</h2>
+<h2 id="reference">Reference</h2>
 
 <ul>
 <li><a href="http://laravel.com/docs/5.1/database#read-write-connections">Read / Write Connections@laravel.com</a></li>
@@ -141,25 +141,42 @@ DB_PASSWORD=secret
             <div class="col-lg-3">
                 <aside>
                     <section class="panel panel-grey">
-                        <div class="panel-heading">Featured Articles</div>
-                        <ul id="notes-list-all" class="list-group">
+                        <div class="panel-heading clickable" data-toggle="collapse" data-target="#notes-list-all" aria-controls="notes-list-all">
+                            Notes Categories
+                        </div>
+                        <ul id="notes-list-all" class="list-group collapse in" aria-expanded="true">
                             <li class="list-group-item">
-                                <a href="/notes/php/php.html">PHP</a>
+                                <a href="/notes#development">Development</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/git/git.html">Git</a>
+                                <a href="/notes#php">PHP</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/linux/linux.html">Linux</a>
+                                <a href="/notes#laravel">Laravel</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/golang/golang.html">Golang</a>
+                                <a href="/notes#golang">Golang</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/development/queue.html">Queue</a>
+                                <a href="/notes#git">Git</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/system/https.html">HTTPS</a>
+                                <a href="/notes#database">Database</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#linux">Linux</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#system">System</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#web">Web</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#editor">Editor</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#others">Others</a>
                             </li>
                         </ul>
                     </section>

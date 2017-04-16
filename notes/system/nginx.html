@@ -69,9 +69,9 @@
             <div class="col-lg-9">
                 <article class="markdown-body">
                     <header>Updated: 2017-04-13 17:43:55 CST +08</header>
-                    <main><h1>Nginx</h1>
+                    <main><h1 id="nginx">Nginx</h1>
 
-<h2>Introduction</h2>
+<h2 id="introduction">Introduction</h2>
 
 <p>NGINX 是一個 HTTP 和反向代理伺服器(Reverse Proxy Server)，與知名的 Apache Server 一樣可作為 HTTP Server，但比 Apache 更為快速，節省更多系統資源。</p>
 
@@ -79,13 +79,13 @@
 <p>Apache is like Microsoft Word, it has a million options but you only need six. Nginx does those six things, and it does five of them 50 times faster than Apache. — Chris Lea on nginx and WordPress</p>
 </blockquote>
 
-<h2>Install</h2>
+<h2 id="install">Install</h2>
 
-<h3>Enviroment</h3>
+<h3 id="enviroment">Enviroment</h3>
 
 <p>OS: CentOS 7</p>
 
-<h3>Step</h3>
+<h3 id="step">Step</h3>
 
 <ol>
 <li><p>加入下載位置至 RPM 清單</p>
@@ -112,19 +112,19 @@ firewall-cmd –reload
 </code></pre></li>
 </ol>
 
-<h2>Path</h2>
+<h2 id="path">Path</h2>
 
-<h3>Config</h3>
+<h3 id="config">Config</h3>
 
 <pre><code class="language-bash">/etc/nginx/
 </code></pre>
 
-<h3>Log</h3>
+<h3 id="log">Log</h3>
 
 <pre><code class="language-bash">/var/log/nginx
 </code></pre>
 
-<h2>Daemon</h2>
+<h2 id="daemon">Daemon</h2>
 
 <ol>
 <li><p>新增以下 Shell Script 至 /ect/init.d/nginx (記得確認 nginx.conf 與 bin 檔的位置)</p>
@@ -277,7 +277,7 @@ nginx.service enabled
 </code></pre></li>
 </ol>
 
-<h2>Reference</h2>
+<h2 id="reference">Reference</h2>
 
 <ul>
 <li><a href="http://www.wikivs.com/wiki/apache_vs_nginx">http://www.wikivs.com/wiki/apache_vs_nginx)</a></li>
@@ -292,25 +292,42 @@ nginx.service enabled
             <div class="col-lg-3">
                 <aside>
                     <section class="panel panel-grey">
-                        <div class="panel-heading">Featured Articles</div>
-                        <ul id="notes-list-all" class="list-group">
+                        <div class="panel-heading clickable" data-toggle="collapse" data-target="#notes-list-all" aria-controls="notes-list-all">
+                            Notes Categories
+                        </div>
+                        <ul id="notes-list-all" class="list-group collapse in" aria-expanded="true">
                             <li class="list-group-item">
-                                <a href="/notes/php/php.html">PHP</a>
+                                <a href="/notes#development">Development</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/git/git.html">Git</a>
+                                <a href="/notes#php">PHP</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/linux/linux.html">Linux</a>
+                                <a href="/notes#laravel">Laravel</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/golang/golang.html">Golang</a>
+                                <a href="/notes#golang">Golang</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/development/queue.html">Queue</a>
+                                <a href="/notes#git">Git</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/system/https.html">HTTPS</a>
+                                <a href="/notes#database">Database</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#linux">Linux</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#system">System</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#web">Web</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#editor">Editor</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#others">Others</a>
                             </li>
                         </ul>
                     </section>

@@ -69,21 +69,21 @@
             <div class="col-lg-9">
                 <article class="markdown-body">
                     <header>Updated: 2017-04-11 21:52:57 CST +08</header>
-                    <main><h1>PHP</h1>
+                    <main><h1 id="php">PHP</h1>
 
-<h2>Linux</h2>
+<h2 id="linux">Linux</h2>
 
-<h3>Update PHP version</h3>
+<h3 id="update-php-version">Update PHP version</h3>
 
-<h4>Problem</h4>
+<h4 id="problem">Problem</h4>
 
 <p>如果在 OS 上已經有 PHP，直接安裝新版 PHP 會出問題，必須使用 yum replace 去做 PHP 的版本更新</p>
 
-<h4>Enviroment</h4>
+<h4 id="enviroment">Enviroment</h4>
 
 <p>作業系統：CentOS 7</p>
 
-<h4>Solution</h4>
+<h4 id="solution">Solution</h4>
 
 <ol>
 <li><p>新增下載位置至 rpm 清單</p>
@@ -113,19 +113,19 @@ rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 </code></pre></li>
 </ol>
 
-<h3>Reference</h3>
+<h3 id="reference">Reference</h3>
 
 <ul>
 <li><a href="https://webtatic.com/packages/php56/">https://webtatic.com/packages/php56/</a></li>
 </ul>
 
-<h2>Programming</h2>
+<h2 id="programming">Programming</h2>
 
-<h3>Annotation</h3>
+<h3 id="annotation">Annotation</h3>
 
 <p>最近在碰 Java Spring 和 Hibernate，發現有個 @ 怎麼沒看過，原來叫做 Annotation，查了一下發現 PHP 有些 Framework 也開始使用這東西了，不過是寫在 DocBlockr 裡阿，所以 PHP 的各位們似乎不太喜歡這東西。</p>
 
-<h4>Reference</h4>
+<h4 id="reference-1">Reference</h4>
 
 <ul>
 <li><a href="http://www.slideshare.net/rdohms/annotations-in-php-they-exist">Annotations in PHP: They Exist</a></li>
@@ -133,11 +133,11 @@ rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 <li><a href="https://r.je/php-annotations-are-an-abomination.html">PHP: Annotations are an Abomination</a></li>
 </ul>
 
-<h2>Test</h2>
+<h2 id="test">Test</h2>
 
-<h3>PHPUnit</h3>
+<h3 id="phpunit">PHPUnit</h3>
 
-<h4>phpunit.xml</h4>
+<h4 id="phpunit-xml">phpunit.xml</h4>
 
 <ol>
 <li>testsuites</li>
@@ -145,24 +145,24 @@ rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 <li>php</li>
 </ol>
 
-<h4>Test Exception</h4>
+<h4 id="test-exception">Test Exception</h4>
 
 <pre><code class="language-php">$this-&gt;setExpectedException('App\Exceptions\APIException');
 </code></pre>
 
-<h4>Mock</h4>
+<h4 id="mock">Mock</h4>
 
 <p><a href="https://github.com/padraic/mockery">Mockery: PHP mock object framework</a></p>
 
-<h4>Coverage</h4>
+<h4 id="coverage">Coverage</h4>
 
 <p><a href="https://github.com/sebastianbergmann/php-code-coverage">PHP Code Coverage</a></p>
 
-<h2>Tools</h2>
+<h2 id="tools">Tools</h2>
 
-<h3>phpcs</h3>
+<h3 id="phpcs">phpcs</h3>
 
-<h4>Command</h4>
+<h4 id="command">Command</h4>
 
 <ul>
 <li><p>Favor Setting</p>
@@ -183,25 +183,42 @@ rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
             <div class="col-lg-3">
                 <aside>
                     <section class="panel panel-grey">
-                        <div class="panel-heading">Featured Articles</div>
-                        <ul id="notes-list-all" class="list-group">
+                        <div class="panel-heading clickable" data-toggle="collapse" data-target="#notes-list-all" aria-controls="notes-list-all">
+                            Notes Categories
+                        </div>
+                        <ul id="notes-list-all" class="list-group collapse in" aria-expanded="true">
                             <li class="list-group-item">
-                                <a href="/notes/php/php.html">PHP</a>
+                                <a href="/notes#development">Development</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/git/git.html">Git</a>
+                                <a href="/notes#php">PHP</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/linux/linux.html">Linux</a>
+                                <a href="/notes#laravel">Laravel</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/golang/golang.html">Golang</a>
+                                <a href="/notes#golang">Golang</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/development/queue.html">Queue</a>
+                                <a href="/notes#git">Git</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="/notes/system/https.html">HTTPS</a>
+                                <a href="/notes#database">Database</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#linux">Linux</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#system">System</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#web">Web</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#editor">Editor</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="/notes#others">Others</a>
                             </li>
                         </ul>
                     </section>
