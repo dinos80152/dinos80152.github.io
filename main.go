@@ -92,7 +92,7 @@ func genNotes(mdDir, htmlDir string) {
 func md2HTML(sourceDir, outputDir string, fi os.FileInfo, outputBaseName string) {
 	baseName := fi.Name()
 	input, _ := ioutil.ReadFile(path.Join(sourceDir, baseName))
-	output := blackfriday.MarkdownCommon(input)
+	output := markdown(input)
 	content := string(output)
 
 	// TODO: use regexp
@@ -139,4 +139,29 @@ func genNoteList() {
 func fileName(baseName string) string {
 	names := strings.Split(baseName, ".")
 	return names[0]
+}
+
+func markdown(input []byte) []byte {
+	htmlFlags := 0 |
+		blackfriday.HTML_USE_XHTML |
+		blackfriday.HTML_USE_SMARTYPANTS |
+		blackfriday.HTML_SMARTYPANTS_FRACTIONS |
+		blackfriday.HTML_SMARTYPANTS_DASHES |
+		blackfriday.HTML_SMARTYPANTS_LATEX_DASHES
+
+	extensions := 0 |
+		blackfriday.EXTENSION_NO_INTRA_EMPHASIS |
+		blackfriday.EXTENSION_TABLES |
+		blackfriday.EXTENSION_FENCED_CODE |
+		blackfriday.EXTENSION_AUTOLINK |
+		blackfriday.EXTENSION_STRIKETHROUGH |
+		blackfriday.EXTENSION_SPACE_HEADERS |
+		blackfriday.EXTENSION_HEADER_IDS |
+		blackfriday.EXTENSION_AUTO_HEADER_IDS |
+		blackfriday.EXTENSION_BACKSLASH_LINE_BREAK |
+		blackfriday.EXTENSION_DEFINITION_LISTS
+
+	renderer := blackfriday.HtmlRenderer(htmlFlags, "", "")
+	return blackfriday.MarkdownOptions(input, renderer, blackfriday.Options{
+		Extensions: extensions})
 }
