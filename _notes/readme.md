@@ -21,6 +21,7 @@
 
 |Title | Updated Date |
 |------|------------|
+| [Mac](/notes/editor/mac.html) | 2017-04-20 |
 | [Visual Studio Code](/notes/editor/visual-studio-code.html) | 2017-04-13 |
 
 ## Git
