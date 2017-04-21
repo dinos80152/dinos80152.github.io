@@ -8,6 +8,7 @@
 | More Joel on Software | 約耳續談軟體：探究軟體經營的根本實學 | | |
 | Peopleware: Productive Projects and Teams | Peopleware：腦力密集產業的人才管理之道(增訂版) | v | null |
 | ***Programming*** |||
+|  | 代碼之髓 | v | null |
 | The Art of Readable Code| 易讀程式之美學 | v | [連結](https://github.com/dinoistheboss/dinoistheboss.github.io) |
 | Code Craft | 編程創藝 : 編寫出卓越的程式碼 | | |
 | Code Complete | 軟體建構之道 | | |
@@ -27,7 +28,7 @@
 | Compilers: Principles, Techniques, and Tools | 編譯系統設計 | | |
 | ***Software Engineering*** |
 | The Phoenix Project | 鳳凰項目：一個IT運維的傳奇故事 | v | null |
-| Countinuous Delivery | Countinuous Delivery 中文版 | | |
+| Continuous Delivery | Continuous Delivery 中文版 | | |
 | Domain-Driven Design: Tackling Complexity in the Heart of Software | 領域驅動設計 |
 |  |
 | Software Architecture in Practice | 軟件構架實踐 |  |  |
@@ -38,6 +39,7 @@
 | The Pragmatic Programmer |程序員修煉之道︰從小工到專家 | | |
 | Soft Skills: The software developer’s life manual | | | |
 | The Productive Programmer | 程式設計師提升生產力之秘笈 | v | null |
+| The Zen Programmer | 程式設計師之禪 | reading | |
 | ***Security*** |
 | | 白帽子講Web安全 | | |
 | ***Agile*** |
@@ -45,13 +47,13 @@
 | The Elements of Scrum | 敏捷與Scrum軟體開發速成 | v | null |
 | SCRUM:The Art of Doing Twice the Work in Half the Time | SCRUM：用一半的時間做兩倍的事 | v | null |
 |  | 笑談軟體工程，敏捷開發法的逆襲 | v | null |
-| Kanban and Scrum - making the most of both | 看板和Scrum相得益彰 | v | null |
+| Kanban and Scrum - making the most of both | 看板和 Scrum 相得益彰 | v | null |
 | User Stories Applied:For Agile Software Development | 用户故事与敏捷方法 | | |
 | ***Javascript*** ||||
 | JavaScript: The Good Parts | JavaScript：優良部分 | v | null |
 | ***PHP*** |
 | Modern PHP | 現代 PHP：新的特點及良好習慣 | v | null |
-| Laravel: From Apprentice To Artisan | Laravel - 从百草园到三味书屋 | reading | |
+| Laravel: From Apprentice To Artisan | Laravel - 从百草园到三味书屋 | | |
 | ***Management*** |||
 | The Goal: A Process of Ongoing Improvement | 目標：簡單有效的常識管理 |||
 | The Silo Effect | 穀倉效應 | reading |  |
