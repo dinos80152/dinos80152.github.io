@@ -21,7 +21,6 @@
 
 |Title | Updated Date |
 |------|------------|
-| [Mac](/notes/editor/mac.html) | 2017-04-20 |
 | [Visual Studio Code](/notes/editor/visual-studio-code.html) | 2017-04-13 |
 
 ## Git
@@ -52,6 +51,12 @@
 |------|------------|
 | [Linux](/notes/linux/linux.html) | 2017-04-13 |
 | [CentOS 7](/notes/linux/centos7.html) | 2017-04-13 |
+
+## Os
+
+|Title | Updated Date |
+|------|------------|
+| [Mac](/notes/os/mac.html) | 2017-04-22 |
 
 ## Others
 
