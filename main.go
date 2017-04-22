@@ -17,15 +17,17 @@ const (
 	noteMdDir      string = "_notes"
 	noteHTMLDir    string = "notes"
 	noteURL        string = "/notes/"
-	noteListLayout string = "tpls/notelist.gtpl"
-	layout         string = "tpls/layout.gtpl"
 	mdIndex        string = "readme.md"
 	htmlIndex      string = "index.html"
+	layout         string = "tpls/layout.gtpl"
+	noteListLayout string = "tpls/notelist.gtpl"
+	logLayout      string = "tpls/log.gtpl"
 )
 
 type note struct {
 	Title       string
 	Content     string
+	Category    string
 	UpdatedAt   string
 	UpdatedDate string
 	Href        string
@@ -38,6 +40,7 @@ var nl = noteList{}
 func main() {
 	cleanFolder(noteHTMLDir)
 	genNotes(noteMdDir, noteHTMLDir)
+	genUpdateLog()
 	readmeToIndex("./")
 }
 
@@ -100,10 +103,12 @@ func md2HTML(sourceDir, outputDir string, fi os.FileInfo, outputBaseName string)
 	nt := note{
 		Title:       title,
 		Content:     content,
+		Category:    outputDir,
 		UpdatedAt:   fi.ModTime().Format("2006-01-02 15:04:05 MST Z07"),
 		UpdatedDate: fi.ModTime().Format("2006-01-02"),
 	}
 
+	// for note
 	if outputBaseName == "" {
 		outputBaseName = fileName(baseName) + ".html"
 	}
@@ -111,6 +116,7 @@ func md2HTML(sourceDir, outputDir string, fi os.FileInfo, outputBaseName string)
 	if path.Dir(sourceDir) == noteMdDir {
 		nt.Href = path.Join("/", outputDir, outputBaseName)
 		category := strings.Title(path.Base(sourceDir))
+		nt.Category = category
 		nl[category] = append(nl[category], nt)
 	}
 
@@ -134,6 +140,36 @@ func genNoteList() {
 
 	t, _ := template.ParseFiles(noteListLayout)
 	t.Execute(f, nl)
+}
+
+func genUpdateLog() {
+
+	log := make(map[string][]note)
+	logDate := make([]string, 0)
+
+	for _, notes := range nl {
+		for _, note := range notes {
+			log[note.UpdatedDate] = append(log[note.UpdatedDate], note)
+		}
+	}
+
+	for key := range log {
+		logDate = append(logDate, key)
+	}
+
+	sort.Sort(sort.Reverse(sort.StringSlice(logDate)))
+
+	f, _ := os.Create("README.md")
+	defer f.Close()
+
+	t, _ := template.ParseFiles(logLayout)
+	t.Execute(f, struct {
+		Log     map[string][]note
+		LogDate []string
+	}{
+		log,
+		logDate,
+	})
 }
 
 func fileName(baseName string) string {
