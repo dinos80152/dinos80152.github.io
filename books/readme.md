@@ -59,7 +59,6 @@
 | The Silo Effect | 穀倉效應 | reading |  |
 | | 激發員工潛力的薩提爾教練模式 | v | null |
 
-
 ## Reference
 
 * [程式設計師應讀的十本好書@INSIDE](http://www.inside.com.tw/2011/03/03/books-programmer-must-read)
