@@ -1,5 +1,9 @@
 # Last Updated
 
+## 2017-04-26
+
+* [[System] Windows 共用資料夾(Shared folder)至 VirtualBox Linux - 設定與自動掛載](/notes/system/windows-shared-folder-with-virtualbox-linux.html)
+
 ## 2017-04-22
 
 * [[Os] Mac](/notes/os/mac.html)
@@ -11,7 +15,8 @@
 
 ## 2017-04-13
 
-* [[Editor] Visual Studio Code](/notes/editor/visual-studio-code.html)
+* [[Development] User Story](/notes/development/user-story.html)
+* [[Development] Repository Pattern](/notes/development/repository-pattern.html)
 * [[Golang] Golang](/notes/golang/golang.html)
 * [[Laravel] Laravel Performance](/notes/laravel/laravel-performance.html)
 * [[Laravel] Laravel - 設計一個好的 Blade Template, 使用 @parent](/notes/laravel/laravel-blade-parent.html)
@@ -23,8 +28,7 @@
 * [[System] Nginx](/notes/system/nginx.html)
 * [[System] Nginx, Php-fpm](/notes/system/nginx-php-fpm.html)
 * [[System] ELK: Elasticsearch, Logstash, Kibana](/notes/system/elk-elasticsearch-logstash-kibana.html)
-* [[Development] User Story](/notes/development/user-story.html)
-* [[Development] Repository Pattern](/notes/development/repository-pattern.html)
+* [[Editor] Visual Studio Code](/notes/editor/visual-studio-code.html)
 * [[Git] Gitlab Demo](/notes/git/gitlab.html)
 * [[Git] Git](/notes/git/git.html)
 * [[Linux] Linux](/notes/linux/linux.html)
@@ -33,15 +37,15 @@
 
 ## 2017-04-12
 
+* [[Database] PostgreSQL](/notes/database/postgresql.html)
 * [[Php] PHP Functional Programming Lambda](/notes/php/php-functional-programming-lambda.html)
 * [[Php] PHP Functinoal Programming Array Functions](/notes/php/php-functional-programming-array-functions.html)
-* [[Database] PostgreSQL](/notes/database/postgresql.html)
 
 ## 2017-04-11
 
+* [[Database] MySQL](/notes/database/mysql.html)
 * [[Web] SEO](/notes/web/seo.html)
 * [[Php] PHP](/notes/php/php.html)
-* [[Database] MySQL](/notes/database/mysql.html)
 
 ## 2017-04-10
 
