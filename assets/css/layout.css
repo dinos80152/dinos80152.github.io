@@ -36,3 +36,12 @@ footer p {
 .clickable:hover {
     cursor: pointer;
 }
+
+/* fix google search result display */
+div#___gcse_0 {
+    word-wrap: normal;
+}
+
+td.gsc-table-cell-snippet-close, td.gsc-table-cell-thumbnail {
+    padding-left:8px;
+}
