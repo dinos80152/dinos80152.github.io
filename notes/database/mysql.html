@@ -48,7 +48,7 @@
                     <li id="toys-link"><a href="/toys">Toys</a></li>
                     <li id="slides-link"><a href="/slides">Slides</a></li>
                     <li id="books-link"><a href="/books">Books</a></li>
-                    <li><a href="https://flic.kr/s/aHskVZ1hES">Records</a></li>
+                    <li><a href="https://flic.kr/s/aHskVZ1hES" target="_blank">Records</a></li>
                     <li><a href="https://www.xmind.net/share/dinos80152/" target="_blank">MindMaps</a></li>
                 </ul>
                 <form id="search-form" class="navbar-form navbar-right" role="search">
