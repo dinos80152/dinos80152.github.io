@@ -4,8 +4,8 @@
 
 |Title | Updated Date |
 |------|------------|
+| [MySQL](/notes/database/mysql.html) | 2017-05-03 |
 | [PostgreSQL](/notes/database/postgresql.html) | 2017-04-12 |
-| [MySQL](/notes/database/mysql.html) | 2017-04-11 |
 | [Redis](/notes/database/redis.html) | 2017-04-09 |
 
 ## Development
