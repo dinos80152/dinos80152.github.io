@@ -1,5 +1,10 @@
 # Last Updated
 
+## 2017-05-04
+
+* [[Web] Google Custom Search](/notes/web/google-custom-search.html)
+* [[Web] 網站開發專有名詞 For Product Manager](/notes/web/web-proper-noun.html)
+
 ## 2017-05-03
 
 * [[System] Docker](/notes/system/docker.html)
@@ -26,19 +31,18 @@
 * [[System] Nginx](/notes/system/nginx.html)
 * [[System] Nginx, Php-fpm](/notes/system/nginx-php-fpm.html)
 * [[System] ELK: Elasticsearch, Logstash, Kibana](/notes/system/elk-elasticsearch-logstash-kibana.html)
+* [[Development] User Story](/notes/development/user-story.html)
+* [[Development] Repository Pattern](/notes/development/repository-pattern.html)
+* [[Editor] Visual Studio Code](/notes/editor/visual-studio-code.html)
+* [[Golang] Golang](/notes/golang/golang.html)
 * [[Web] HTML Input hidden defaultValue vs. value with jQuery val() vs. attr()](/notes/web/html-input-hidden-defaultvalue-vs-value-with-jquery-val-vs-attr.html)
 * [[Web] HTML Input defaultValue vs. value with jQuery val() vs. attr()](/notes/web/html-input-defaultvalue-vs-value-with-jquery-val-vs-attr.html)
 * [[Web] Google Analytics](/notes/web/google-analytics.html)
-* [[Development] User Story](/notes/development/user-story.html)
-* [[Development] Repository Pattern](/notes/development/repository-pattern.html)
 * [[Git] Gitlab Demo](/notes/git/gitlab.html)
 * [[Git] Git](/notes/git/git.html)
 * [[Laravel] Laravel Performance](/notes/laravel/laravel-performance.html)
 * [[Laravel] Laravel - 設計一個好的 Blade Template, 使用 @parent](/notes/laravel/laravel-blade-parent.html)
 * [[Laravel] Laravel Update 4.2 to 5.0](/notes/laravel/laravel-42-to-50.html)
-* [[Editor] Visual Studio Code](/notes/editor/visual-studio-code.html)
-* [[Golang] Golang](/notes/golang/golang.html)
-* [[Others] 網站開發專有名詞 For Product Manager](/notes/others/web-proper-noun.html)
 
 ## 2017-04-12
 
@@ -48,13 +52,13 @@
 
 ## 2017-04-11
 
-* [[Web] SEO](/notes/web/seo.html)
 * [[Php] PHP](/notes/php/php.html)
+* [[Web] SEO](/notes/web/seo.html)
 
 ## 2017-04-10
 
-* [[Others] Taiwan Community](/notes/others/taiwan-community.html)
 * [[Php] Selenium with PHPUnit](/notes/php/selenium_with_phpunit.html)
+* [[Others] Taiwan Community](/notes/others/taiwan-community.html)
 
 ## 2017-04-09
 

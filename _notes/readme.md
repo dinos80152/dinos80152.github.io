@@ -63,7 +63,6 @@
 |Title | Updated Date |
 |------|------------|
 | [Lisp](/notes/others/lisp.html) | 2017-04-17 |
-| [網站開發專有名詞 For Product Manager](/notes/others/web-proper-noun.html) | 2017-04-13 |
 | [Taiwan Community](/notes/others/taiwan-community.html) | 2017-04-10 |
 | [Flowchart Test](/notes/others/flowchart.html) | 2017-04-08 |
 
@@ -91,6 +90,8 @@
 
 |Title | Updated Date |
 |------|------------|
+| [Google Custom Search](/notes/web/google-custom-search.html) | 2017-05-04 |
+| [網站開發專有名詞 For Product Manager](/notes/web/web-proper-noun.html) | 2017-05-04 |
 | [HTML Input hidden defaultValue vs. value with jQuery val() vs. attr()](/notes/web/html-input-hidden-defaultvalue-vs-value-with-jquery-val-vs-attr.html) | 2017-04-13 |
 | [HTML Input defaultValue vs. value with jQuery val() vs. attr()](/notes/web/html-input-defaultvalue-vs-value-with-jquery-val-vs-attr.html) | 2017-04-13 |
 | [Google Analytics](/notes/web/google-analytics.html) | 2017-04-13 |
