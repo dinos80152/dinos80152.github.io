@@ -39,7 +39,7 @@
 | The Pragmatic Programmer |程序員修煉之道︰從小工到專家 | | |
 | Soft Skills: The software developer’s life manual | | | |
 | The Productive Programmer | 程式設計師提升生產力之秘笈 | v | null |
-| The Zen Programmer | 程式設計師之禪 | reading | |
+| The Zen Programmer | 程式設計師之禪 | v | null |
 | ***Security*** |
 | | 白帽子講Web安全 | | |
 | ***Agile*** |
