@@ -49,7 +49,7 @@
     * Private package repository writing and importing
   * Web Application Engineer, April 2014 - May 2016
     * Game
-      * Game API develop
+      * Game Restful API develop
       * Web game for campaign design and develop (Monopoly, Pull Pa, )
       * Game Data Query and Analysis
       * Web site build and maintain
