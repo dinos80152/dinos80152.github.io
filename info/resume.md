@@ -13,6 +13,7 @@
 * NoSQL Database: Redis
 * Operation System: CentOS, Ubuntu
 * Version Control: Git
+* Queue Server: Beanstalkd
 * Others: Google Analytics
 
 ## Education
@@ -50,7 +51,7 @@
     * Game
       * Game API develop
       * Web game for campaign design and develop (Monopoly, Pull Pa, )
-      * Game Data Qeury and Analysis
+      * Game Data Query and Analysis
       * Web site build and maintain
       * Social Network API Integration (Facebook, Line, etc...)
     * Customer Service
