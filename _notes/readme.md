@@ -79,6 +79,7 @@
 
 |Title | Updated Date |
 |------|------------|
+| [WannaCrypt0r 2.0](/notes/system/wannacrypt0r.html) | 2017-05-19 |
 | [Docker](/notes/system/docker.html) | 2017-05-03 |
 | [Windows 共用資料夾(Shared folder)至 VirtualBox Linux - 設定與自動掛載](/notes/system/windows-shared-folder-with-virtualbox-linux.html) | 2017-04-26 |
 | [HTTPS](/notes/system/https.html) | 2017-04-13 |

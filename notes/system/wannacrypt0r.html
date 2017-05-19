@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Personal Web Site include Blogs, Tutorials and Code">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>Last Updated - Dino Lai</title>
+    <title>WannaCrypt0r 2.0 - Dino Lai</title>
     <!-- Facebook Open Graph -->
     <meta property="og:url" content="http://dinolai.com/" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Last Updated - Dino Lai" />
+    <meta property="og:title" content="WannaCrypt0r 2.0 - Dino Lai" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <!-- End Facebook Open Graph -->
@@ -66,106 +66,88 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2017-05-19 11:43:28 CST +08</header>
+                    <header>Updated: 2017-05-19 11:42:55 CST +08</header>
                     <main>
-                        <h1 id="last-updated">Last Updated</h1>
+                        <h1 id="wannacrypt0r-2-0">WannaCrypt0r 2.0</h1>
 
-<h2 id="2017-05-19">2017-05-19</h2>
+<h2 id="translation">Translation</h2>
 
-<ul>
-<li><a href="/notes/system/wannacrypt0r.html">[System] WannaCrypt0r 2.0</a></li>
-</ul>
+<h3 id="malware-analysis">Malware Analysis</h3>
 
-<h2 id="2017-05-04">2017-05-04</h2>
+<ol>
+<li><p>最一開始的這隻 mssecsvc.exe 會丟出 tasksche.exe 並執行。</p></li>
 
-<ul>
-<li><a href="/notes/web/google-custom-search.html">[Web] Google Custom Search</a></li>
-<li><a href="/notes/web/web-proper-noun.html">[Web] 網站開發專有名詞 For Product Manager</a></li>
-</ul>
+<li><p>送出 HTTP 請求給特定網域名，確認是否傳播。</p></li>
 
-<h2 id="2017-05-03">2017-05-03</h2>
+<li><p>mssecsvc2.0 服務被創建，這個服務會再次執行 mssecsvc.exe</p>
 
-<ul>
-<li><a href="/notes/database/mysql.html">[Database] MySQL</a></li>
-<li><a href="/notes/system/docker.html">[System] Docker</a></li>
-</ul>
+<ol>
+<li>這次執行會透過 TCP PORT 445 去嘗試連結子網路(subnet)所有的IP</li>
+<li>連結成功便會開始傳送資料。（這邊可能是感染其他被連結的電腦）</li>
+</ol></li>
 
-<h2 id="2017-04-26">2017-04-26</h2>
+<li><p>tasksche.exe 開始找所有儲存裝置，包含網路資料夾、USB、隨身硬碟</p></li>
+
+<li><p>找硬碟裡副檔名符合以下列表的檔案，並以 2048-bit RSA 加密</p>
 
 <ul>
-<li><a href="/notes/system/windows-shared-folder-with-virtualbox-linux.html">[System] Windows 共用資料夾(Shared folder)至 VirtualBox Linux - 設定與自動掛載</a></li>
-</ul>
+<li>常見文件檔 (.ppt, .doc, .docx, .xlsx, .sxi)</li>
+<li>罕見文件檔 (.sxw, .odt, .hwp)</li>
+<li>壓縮檔、影音檔 (.zip, .rar, .tar, .bz2, .mp4, .mkv)</li>
+<li>電子郵件相關 (.eml, .msg, .ost, .pst, .edb)</li>
+<li>資料庫相關 (.sql, .accdb, .mdb, .dbf, .odb, .myd)</li>
+<li>程式碼相關 (.php, .java, .cpp, .pas, .asm)</li>
+<li>加解密鑰匙與認證 (.key, .pfx, .pem, .p12, .csr, .gpg, .aes)</li>
+<li>設計、圖片、照片 (.vsd, .odg, .raw, .nef, .svg, .psd)</li>
+<li>虛擬機器相關 (.vmx, .vmdk, .vdi)</li>
+</ul></li>
 
-<h2 id="2017-04-22">2017-04-22</h2>
+<li><p>新增一個資料夾&rdquo;Tor&rdquo;，裡面有 tor.exe 、 9 個 dll 檔、taskdl.exe、taskse.exe</p></li>
 
-<ul>
-<li><a href="/notes/os/mac.html">[Os] Mac</a></li>
-</ul>
-
-<h2 id="2017-04-17">2017-04-17</h2>
-
-<ul>
-<li><a href="/notes/development/object-oriented-programming.html">[Development] Object Oriented Programming</a></li>
-<li><a href="/notes/others/lisp.html">[Others] Lisp</a></li>
-</ul>
-
-<h2 id="2017-04-13">2017-04-13</h2>
+<li><p>各程式說明</p>
 
 <ul>
-<li><a href="/notes/development/user-story.html">[Development] User Story</a></li>
-<li><a href="/notes/development/repository-pattern.html">[Development] Repository Pattern</a></li>
-<li><a href="/notes/golang/golang.html">[Golang] Golang</a></li>
-<li><a href="/notes/git/gitlab.html">[Git] Gitlab Demo</a></li>
-<li><a href="/notes/git/git.html">[Git] Git</a></li>
-<li><a href="/notes/laravel/laravel-performance.html">[Laravel] Laravel Performance</a></li>
-<li><a href="/notes/laravel/laravel-blade-parent.html">[Laravel] Laravel - 設計一個好的 Blade Template, 使用 @parent</a></li>
-<li><a href="/notes/laravel/laravel-42-to-50.html">[Laravel] Laravel Update 4.2 to 5.0</a></li>
-<li><a href="/notes/linux/linux.html">[Linux] Linux</a></li>
-<li><a href="/notes/linux/centos7.html">[Linux] CentOS 7</a></li>
-<li><a href="/notes/system/https.html">[System] HTTPS</a></li>
-<li><a href="/notes/system/nginx.html">[System] Nginx</a></li>
-<li><a href="/notes/system/nginx-php-fpm.html">[System] Nginx, Php-fpm</a></li>
-<li><a href="/notes/system/elk-elasticsearch-logstash-kibana.html">[System] ELK: Elasticsearch, Logstash, Kibana</a></li>
-<li><a href="/notes/web/html-input-hidden-defaultvalue-vs-value-with-jquery-val-vs-attr.html">[Web] HTML Input hidden defaultValue vs. value with jQuery val() vs. attr()</a></li>
-<li><a href="/notes/web/html-input-defaultvalue-vs-value-with-jquery-val-vs-attr.html">[Web] HTML Input defaultValue vs. value with jQuery val() vs. attr()</a></li>
-<li><a href="/notes/web/google-analytics.html">[Web] Google Analytics</a></li>
-<li><a href="/notes/editor/visual-studio-code.html">[Editor] Visual Studio Code</a></li>
-</ul>
+<li>taskse.exe  開啟 @wanadecryptor@.exe 跳出勒索訊息給你看</li>
+<li>taskdl.exe 刪除暫存檔</li>
+<li>tasksche.exe 尋找符合格式的檔案並加密</li>
+</ul></li>
 
-<h2 id="2017-04-12">2017-04-12</h2>
+<li><p>當你想付款的時候就會啟動 Tor.exe (Tor本身無害，他只是被用來創造全匿名的連線，跟他最有關係的是暗網)</p></li>
 
-<ul>
-<li><a href="/notes/database/postgresql.html">[Database] PostgreSQL</a></li>
-<li><a href="/notes/php/php-functional-programming-lambda.html">[Php] PHP Functional Programming Lambda</a></li>
-<li><a href="/notes/php/php-functional-programming-array-functions.html">[Php] PHP Functinoal Programming Array Functions</a></li>
-</ul>
+<li><p>用以下三個 windows 指令刪除你的 shadow copy (windows備份和系統還原)
+<img src="https://3.bp.blogspot.com/-Kl4zaGW7jDQ/WRYwl8gD4RI/AAAAAAAAA_s/tZGlUi9jmSMsaX6khcqVi2T1HkcJb-8RwCLcB/s1600/image1.png" alt="wannacrypt-shadow-copy-delete" /></p></li>
 
-<h2 id="2017-04-11">2017-04-11</h2>
+<li><p>病毒會用以下兩個 windows 指令去用你的隱藏檔和變更檔案存取權限</p>
 
-<ul>
-<li><a href="/notes/php/php.html">[Php] PHP</a></li>
-<li><a href="/notes/web/seo.html">[Web] SEO</a></li>
-</ul>
+<pre><code class="language-bash"># file control
+attrib +h [[Drive:][Path] FileName] [/s[/d]]
+# access control
+icacls . /grant Everyone:F /T /C /Q
+</code></pre></li>
+</ol>
 
-<h2 id="2017-04-10">2017-04-10</h2>
+<h3 id="kill-switch">Kill Switch</h3>
+
+<ol>
+<li><p>Cisco Umbrella 的研究人員發現有個奇怪的網址突然大量的被要求解析
+<img src="https://1.bp.blogspot.com/-jMtZ8ol4fu8/WRYwB-uRldI/AAAAAAAAA_Y/tAFnRICndIUSGHgmv7ffFgl8qoMOFcFOACLcB/s1600/image5.png" alt="wannacrypt-dns-query" /></p></li>
+
+<li><p>另外也有人分析病毒的行為後，得知病毒有個子程序會送一個HTTP請求給一個網址，若請求失敗，便會傳播，若請求成功，這個子程序就會結束。
+<img src="https://3.bp.blogspot.com/-EUgk1JpJjVU/WRYwHbKRO4I/AAAAAAAAA_c/t24Ea80MJOsv5giibrH42V4FjxoAQePywCLcB/s1600/image10.png" alt="wannacrypt-execution" /></p></li>
+
+<li><p>似乎以上兩個線索不謀而合，然後就有勇者花了10.69鎂去註冊了這個網域，讓病毒送請求成功。請求成功，子程序結束，便不會傳播。再次觀察病毒行為，成功的停止了病毒的擴散。
+<img src="https://pbs.twimg.com/media/C_pJ_3EXYAA0LAu.jpg" alt="wannacrypt-execution" /></p></li>
+</ol>
+
+<h2 id="reference">Reference</h2>
 
 <ul>
-<li><a href="/notes/others/taiwan-community.html">[Others] Taiwan Community</a></li>
-<li><a href="/notes/php/selenium_with_phpunit.html">[Php] Selenium with PHPUnit</a></li>
-</ul>
-
-<h2 id="2017-04-09">2017-04-09</h2>
-
-<ul>
-<li><a href="/notes/development/queue.html">[Development] Queue</a></li>
-<li><a href="/notes/database/redis.html">[Database] Redis</a></li>
-<li><a href="/notes/git/movetogitlab.html">[Git] Move Repo from Gitolite to Gitlab</a></li>
-</ul>
-
-<h2 id="2017-04-08">2017-04-08</h2>
-
-<ul>
-<li><a href="/notes/others/flowchart.html">[Others] Flowchart Test</a></li>
+<li><a href="http://blog.talosintelligence.com/2017/05/wannacry.html#h.t19xasesgr4p">Player 3 Has Entered the Game: Say Hello to &lsquo;WannaCry&rsquo;@talosintelligence</a></li>
+<li><a href="https://securelist.com/blog/incidents/78351/wannacry-ransomware-used-in-widespread-attacks-all-over-the-world/">WannaCry ransomware used in widespread attacks all over the world@Kaspersky Lab</a></li>
+<li><a href="https://news.ycombinator.com/item?id=14326439">Cyberattacks in 12 Nations Said to Use Leaked N.S.A. Hacking Tool@Hacker News</a></li>
+<li><a href="https://twitter.com/MalwareTechBlog">MalwareTech@Twitter</a></li>
+<li><a href="https://intel.malwaretech.com/WannaCrypt.html">Infection Live Map</a></li>
+<li><a href="https://intel.malwaretech.com/botnet/wcrypt">Botnet Trackers</a></li>
 </ul>
 
                         <gcse:searchresults-only></gcse:searchresults-only>
