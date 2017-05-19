@@ -4,13 +4,11 @@ import (
 	"io/ioutil"
 	"os"
 	"path"
+	"sort"
+	"strings"
 	"text/template"
 
-	"strings"
-
-	"sort"
-
-	"github.com/russross/blackfriday"
+	"github.com/dinos80152/dinos80152.github.io/pkg"
 )
 
 const (
@@ -24,16 +22,7 @@ const (
 	logLayout      string = "tpls/log.gtpl"
 )
 
-type note struct {
-	Title       string
-	Content     string
-	Category    string
-	UpdatedAt   string
-	UpdatedDate string
-	Href        string
-}
-
-type noteList map[string][]note
+type noteList pkg.NoteList
 
 var nl = noteList{}
 
@@ -42,22 +31,7 @@ func main() {
 	genNotes(noteMdDir, noteHTMLDir)
 	genUpdateLog()
 	readmeToIndex("./")
-}
-
-func readmeToIndex(dir string) {
-	paths, _ := ioutil.ReadDir(dir)
-	for _, path := range paths {
-		if path.IsDir() {
-			readmeToIndex(path.Name())
-		}
-		if strings.EqualFold(path.Name(), mdIndex) {
-			if dir == noteMdDir {
-				md2HTML(dir, noteHTMLDir, path, htmlIndex)
-			} else {
-				md2HTML(dir, dir, path, htmlIndex)
-			}
-		}
-	}
+	genSiteMap()
 }
 
 func cleanFolder(path string) {
@@ -87,44 +61,9 @@ func genNotes(mdDir, htmlDir string) {
 		if strings.EqualFold(f.Name(), mdIndex) {
 			continue
 		}
-		md2HTML(mdDir, htmlDir, f, "")
+		genHTML(mdDir, htmlDir, f, "")
 	}
 	genNoteList()
-}
-
-func md2HTML(sourceDir, outputDir string, fi os.FileInfo, outputBaseName string) {
-	baseName := fi.Name()
-	input, _ := ioutil.ReadFile(path.Join(sourceDir, baseName))
-	output := markdown(input)
-	content := string(output)
-
-	// TODO: use regexp
-	title := content[strings.Index(content, ">")+1 : strings.Index(content, "/")-1]
-	nt := note{
-		Title:       title,
-		Content:     content,
-		Category:    outputDir,
-		UpdatedAt:   fi.ModTime().Format("2006-01-02 15:04:05 MST Z07"),
-		UpdatedDate: fi.ModTime().Format("2006-01-02"),
-	}
-
-	// for note
-	if outputBaseName == "" {
-		outputBaseName = fileName(baseName) + ".html"
-	}
-
-	if path.Dir(sourceDir) == noteMdDir {
-		nt.Href = path.Join("/", outputDir, outputBaseName)
-		category := strings.Title(path.Base(sourceDir))
-		nt.Category = category
-		nl[category] = append(nl[category], nt)
-	}
-
-	f, _ := os.Create(path.Join(outputDir, outputBaseName))
-	defer f.Close()
-
-	t, _ := template.ParseFiles(layout)
-	t.Execute(f, nt)
 }
 
 func genNoteList() {
@@ -143,8 +82,7 @@ func genNoteList() {
 }
 
 func genUpdateLog() {
-
-	log := make(map[string][]note)
+	log := make(noteList)
 	logDate := make([]string, 0)
 
 	for _, notes := range nl {
@@ -164,7 +102,7 @@ func genUpdateLog() {
 
 	t, _ := template.ParseFiles(logLayout)
 	t.Execute(f, struct {
-		Log     map[string][]note
+		Log     noteList
 		LogDate []string
 	}{
 		log,
@@ -172,32 +110,29 @@ func genUpdateLog() {
 	})
 }
 
-func fileName(baseName string) string {
-	names := strings.Split(baseName, ".")
-	return names[0]
+func readmeToIndex(dir string) {
+	paths, _ := ioutil.ReadDir(dir)
+	for _, path := range paths {
+		if path.IsDir() {
+			readmeToIndex(path.Name())
+		}
+		if strings.EqualFold(path.Name(), mdIndex) {
+			if dir == noteMdDir {
+				genHTML(dir, noteHTMLDir, path, htmlIndex)
+			} else {
+				genHTML(dir, dir, path, htmlIndex)
+			}
+		}
+	}
 }
 
-func markdown(input []byte) []byte {
-	htmlFlags := 0 |
-		blackfriday.HTML_USE_XHTML |
-		blackfriday.HTML_USE_SMARTYPANTS |
-		blackfriday.HTML_SMARTYPANTS_FRACTIONS |
-		blackfriday.HTML_SMARTYPANTS_DASHES |
-		blackfriday.HTML_SMARTYPANTS_LATEX_DASHES
+func genSiteMap() {
+	us := pkg.NewURLSet(pkg.NoteList(nl))
+	us.GenSiteMap()
+}
 
-	extensions := 0 |
-		blackfriday.EXTENSION_NO_INTRA_EMPHASIS |
-		blackfriday.EXTENSION_TABLES |
-		blackfriday.EXTENSION_FENCED_CODE |
-		blackfriday.EXTENSION_AUTOLINK |
-		blackfriday.EXTENSION_STRIKETHROUGH |
-		blackfriday.EXTENSION_SPACE_HEADERS |
-		blackfriday.EXTENSION_HEADER_IDS |
-		blackfriday.EXTENSION_AUTO_HEADER_IDS |
-		blackfriday.EXTENSION_BACKSLASH_LINE_BREAK |
-		blackfriday.EXTENSION_DEFINITION_LISTS
-
-	renderer := blackfriday.HtmlRenderer(htmlFlags, "", "")
-	return blackfriday.MarkdownOptions(input, renderer, blackfriday.Options{
-		Extensions: extensions})
+func genHTML(sourceDir, outputDir string, fi os.FileInfo, outputBaseName string) {
+	note := pkg.NewNote(sourceDir, outputDir, fi, outputBaseName)
+	note.ToHTML()
+	nl[note.Category] = append(nl[note.Category], note)
 }
