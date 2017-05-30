@@ -1,176 +1,177 @@
 ﻿<html lang="UTF-8">
+
 <head>
 	<meta charset="UTF-8">
 	<title>選舉不選美</title>
-	<!--
-	<link rel="stylesheet" href="index.css" type="text/css">--
-	-->
 	<style typ="text/css">
-	.subtitle{
-		font-size:20pt;
-	}
-	a {
-		color:blue
-	}
+		.subtitle {
+			font-size: 20pt;
+		}
+
+		a {
+			color: blue
+		}
 	</style>
-	<script>
-	window.addEventListener("load", initial, false);
-	var cw;
-	//var wdth = cw/2;
-	function initial(){
-		setTable1Width(getWindowsWidth());
-		setTable2Width(getWindowsWidth());
-		alert("點擊候選人投下寶貴的一票");
-	}
-	
-	function setTable1Width(){
-		document.getElementById('1').style.width = cw/2;
-		document.getElementById('2').style.width = cw/2;
-	}
-	function setTable2Width(){
-		document.getElementById('detail1').style.width = cw/3;
-		document.getElementById('detail2').style.width = cw/3;
-		document.getElementById('detail3').style.width = cw/3;
-		document.getElementById('issue1').style.width = cw/3;
-		document.getElementById('issue2').style.width = cw/3;
-		document.getElementById('issue3').style.width = cw/3;
-		document.getElementById('policy1').style.width = cw/3;
-		document.getElementById('policy2').style.width = cw/3;
-		document.getElementById('policy3').style.width = cw/3;
-	}
-	
-	function getWindowsWidth(){
-		if (document.body.clientWidth){
-			cw = document.body.clientWidth;    
-		}
-		if(document.documentElement.clientWidth){
-			cw = document.documentElement.clientWidth;
-		}
-		if (window.innerWidth){
-			cw = window.innerWidth;
-		}
-		return cw;
-	}
-	
-	function vote(obj){
-		var wdth = parseInt(obj.style.width);	
-		var countid = "count"+obj.id;
-		var countidobj = document.getElementById(countid);
-		var count = parseInt(countidobj.innerText);
-		//alert(wdth);
-		count += 1; 
-		wdth = wdth + 10;
-		obj.style.width = wdth;
-		
-		countidobj.innerText = count;
-		//alert(voted.innerText);
-	}
-</script>
 </head>
-<body style="">
+<body>
 	<table style="width:100%;height:100%;">
 		<td id="1" style="padding:50px;background:blue;cursor:url(./image/vote.png);" onclick="vote(this);">
 			<div id='name' style="font-size:250%;cursor:help">
-			連勝文
+				連勝文
 			</div>
-			<div id="candidate1" style="height:100%;background-image:url(./image/LSW01.JPG)">
+			<div id="candidate1" style="height:100%;background-image:url(./image/LSW01.jpg)">
 			</div>
 			<div id='count1' style="font-size:250%">
-			0
+				0
 			</div>
 		</td>
 		<td id="2" style="padding:50px;background:green;" onclick="vote(this);">
 			<div id='name2' style="font-size:250%">
-			柯文哲
+				柯文哲
 			</div>
 			<div id="candidate2" style="height:100%;background-image:url(image/KWC01.jpg)">
 			</div>
 			<div id='count2' style="font-size:250%">
-			0
+				0
 			</div>
 		</td>
-		</table>
+	</table>
 	<p align="center" class="subtitle" onclick="document.getElementById('tb_detail').style.display = 'inline'">背景(點選以展開)</p>
 	<table id="tb_detail" style="width:100%;display:none">
 		<td id="detail1">
-		44
+			44
 		</td>
 		<td id="detail2">
-		<p align="center">年齡</p>
+			<p align="center">年齡</p>
 		</td>
 		<td id="detail3">
-		54
+			54
 		</td>
 		<tr>
-		<td id="">
-		美國哥倫比亞大學法律博士（JD）
-		</td>
-		<td id="">
-		<p align="center">最高學歷</p>
-		</td>
-		<td id="">
-		臺灣大學醫學院臨床醫學研究所博士
-		</td>
+			<td id="">
+				美國哥倫比亞大學法律博士（JD）
+			</td>
+			<td id="">
+				<p align="center">最高學歷</p>
+			</td>
+			<td id="">
+				臺灣大學醫學院臨床醫學研究所博士
+			</td>
 		</tr>
 		<tr>
-		<td id="">
-		<a target"_blank" href="https://www.facebook.com/pages/%E9%80%A3%E5%8B%9D%E6%96%87/652438848137404">https://www.facebook.com/pages/連勝文/652438848137404</a>
-		</td>
-		<td id="">
-		<p align="center">粉絲專頁</p>
-		</td>
-		<td id="">
-		<a target"_blank" href="https://www.facebook.com/DoctorKoWJ">https://www.facebook.com/DoctorKoWJ</a>
-		</td>
+			<td id="">
+				<a target "_blank" href="https://www.facebook.com/pages/%E9%80%A3%E5%8B%9D%E6%96%87/652438848137404">https://www.facebook.com/pages/連勝文/652438848137404</a>
+			</td>
+			<td id="">
+				<p align="center">粉絲專頁</p>
+			</td>
+			<td id="">
+				<a target "_blank" href="https://www.facebook.com/DoctorKoWJ">https://www.facebook.com/DoctorKoWJ</a>
+			</td>
 		</tr>
 	</table>
 	<hr></hr>
 	<p align="center" class="subtitle">市政議題</p>
 	<table style="width:100%">
 		<td id="policy1">
-		<a target="_blank" href="http://udn.com/NEWS/DOMESTIC/DOM2/8610969.shtml">連勝文／廢除前提 桃機得先修完</a>
+			<a target="_blank" href="http://udn.com/NEWS/DOMESTIC/DOM2/8610969.shtml">連勝文／廢除前提 桃機得先修完</a>
 		</td>
 		<td id="policy2">
-		<p align="center">松山機場</p>
+			<p align="center">松山機場</p>
 		</td>
 		<td id="policy3">
-		<a target="_blank" href="http://udn.com/NEWS/DOMESTIC/DOM2/8610969.shtml">柯文哲／遷移機場 有利長期發展</a>
+			<a target="_blank" href="http://udn.com/NEWS/DOMESTIC/DOM2/8610969.shtml">柯文哲／遷移機場 有利長期發展</a>
 		</td>
-	</table>	
+	</table>
 	<hr></hr>
 	<p align="center" class="subtitle">公共議題</p>
 	<table style="width:100%;">
 		<td id="issue1">
-		<a target="_blank" href="http://www.cna.com.tw/news/aipl/201404050095-1.aspx">連勝文：服貿已該回歸正當程序</a>
+			<a target="_blank" href="http://www.cna.com.tw/news/aipl/201404050095-1.aspx">連勝文：服貿已該回歸正當程序</a>
 		</td>
 		<td id="issue2">
-		<p align="center">服務貿易</p>
+			<p align="center">服務貿易</p>
 		</td>
 		<td id="issue3">
-		<a target="_blank" href="https://www.facebook.com/DoctorKoWJ/posts/400950173340302">服務貿易協議 醫療方面 立法院公聽會 柯文哲之發言</a>
+			<a target="_blank" href="https://www.facebook.com/DoctorKoWJ/posts/400950173340302">服務貿易協議 醫療方面 立法院公聽會 柯文哲之發言</a>
 		</td>
 		<tr>
-		<td >
-		<a target="_blank" href="http://udn.com/NEWS/BREAKINGNEWS/BREAKINGNEWS1/8639637.shtml">連勝文：核四政策支持黨中央</a>
-		</td>
-		<td >
-		<p align="center">核四</p>
-		</td>
-		<td >
-		<a target="_blank" href="http://udn.com/NEWS/NATIONAL/NAT4/8638633.shtml">柯文哲之發言柯文哲支持廢核四 但「要考慮配套」</a>
-		</td>
+			<td>
+				<a target="_blank" href="http://udn.com/NEWS/BREAKINGNEWS/BREAKINGNEWS1/8639637.shtml">連勝文：核四政策支持黨中央</a>
+			</td>
+			<td>
+				<p align="center">核四</p>
+			</td>
+			<td>
+				<a target="_blank" href="http://udn.com/NEWS/NATIONAL/NAT4/8638633.shtml">柯文哲之發言柯文哲支持廢核四 但「要考慮配套」</a>
+			</td>
 		</tr>
 		<tr>
-		<td >
-		<a target="_blank">無相關資料</a>
-		</td>
-		<td >
-		<p align="center">多元成家</p>
-		</td>
-		<td >
-		<a target="_blank" href="http://www.appledaily.com.tw/realtimenews/article/new/20140218/346775/">多元成家婚姻平權　柯文哲支持同志婚姻</a>
-		</td>
+			<td>
+				<a target="_blank">無相關資料</a>
+			</td>
+			<td>
+				<p align="center">多元成家</p>
+			</td>
+			<td>
+				<a target="_blank" href="http://www.appledaily.com.tw/realtimenews/article/new/20140218/346775/">多元成家婚姻平權　柯文哲支持同志婚姻</a>
+			</td>
 		</tr>
 	</table>
+	<script>
+		window.addEventListener("load", initial, false);
+		var cw;
+		//var wdth = cw/2;
+		function initial() {
+			setTable1Width(getWindowsWidth());
+			setTable2Width(getWindowsWidth());
+			alert("點擊候選人投下寶貴的一票");
+		}
+
+		function setTable1Width() {
+			document.getElementById('1').style.width = cw / 2;
+			document.getElementById('2').style.width = cw / 2;
+		}
+		function setTable2Width() {
+			document.getElementById('detail1').style.width = cw / 3;
+			document.getElementById('detail2').style.width = cw / 3;
+			document.getElementById('detail3').style.width = cw / 3;
+			document.getElementById('issue1').style.width = cw / 3;
+			document.getElementById('issue2').style.width = cw / 3;
+			document.getElementById('issue3').style.width = cw / 3;
+			document.getElementById('policy1').style.width = cw / 3;
+			document.getElementById('policy2').style.width = cw / 3;
+			document.getElementById('policy3').style.width = cw / 3;
+		}
+
+		function getWindowsWidth() {
+			if (document.body.clientWidth) {
+				cw = document.body.clientWidth;
+			}
+			if (document.documentElement.clientWidth) {
+				cw = document.documentElement.clientWidth;
+			}
+			if (window.innerWidth) {
+				cw = window.innerWidth;
+			}
+			return cw;
+		}
+
+		function vote(obj) {
+			var wdth = parseInt(obj.style.width);
+			var countid = "count" + obj.id;
+			var countidobj = document.getElementById(countid);
+			var count = parseInt(countidobj.innerText);
+			//alert(wdth);
+			count += 1;
+			wdth = wdth + 10;
+			obj.style.width = wdth;
+
+			countidobj.innerText = count;
+			//alert(voted.innerText);
+		}
+
+	</script>
 </body>
+
 </html>
