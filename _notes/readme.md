@@ -35,6 +35,7 @@
 
 |Title | Updated Date |
 |------|------------|
+| [Golang Delete Slice Item in Range Problem](/notes/golang/golang-delete-slice-item-in-range-problem.html) | 2017-06-07 |
 | [Golang](/notes/golang/golang.html) | 2017-04-13 |
 
 ## Laravel
