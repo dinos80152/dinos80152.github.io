@@ -53,7 +53,7 @@
 | JavaScript: The Good Parts | JavaScript：優良部分 | v | null |
 | ***PHP*** |
 | Modern PHP | 現代 PHP：新的特點及良好習慣 | v | null |
-| Laravel: From Apprentice To Artisan | Laravel - 从百草园到三味书屋 | | |
+| Laravel: From Apprentice To Artisan | [Laravel - 从百草园到三味书屋](https://my.oschina.net/zgldh/blog/389246) | | |
 | ***Management*** |||
 | The Goal: A Process of Ongoing Improvement | 目標：簡單有效的常識管理 |||
 | The Silo Effect | 穀倉效應 | reading |  |
