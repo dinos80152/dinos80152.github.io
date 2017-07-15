@@ -35,6 +35,7 @@
 
 |Title | Updated Date |
 |------|------------|
+| [Golang Refactor by Label](/notes/golang/golang-refactor-by-label.html) | 2017-07-15 |
 | [Golang Benchmark Reading Config from OS ENV and File](/notes/golang/golang-benchmark-reading-config-from-os-env-and-file.html) | 2017-06-12 |
 | [Golang Delete Slice Item in Range Problem](/notes/golang/golang-delete-slice-item-in-range-problem.html) | 2017-06-07 |
 | [Golang](/notes/golang/golang.html) | 2017-04-13 |
