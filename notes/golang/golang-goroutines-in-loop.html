@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Personal Web Site include Blogs, Tutorials and Code">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>Note List - Dinote</title>
+    <title>Golang Goroutines in Loop - Dinote</title>
     <!-- Facebook Open Graph -->
     <meta property="og:url" content="http://dinolai.com/" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Note List - Dinote" />
+    <meta property="og:title" content="Golang Goroutines in Loop - Dinote" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <!-- End Facebook Open Graph -->
@@ -67,380 +67,139 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2017-07-17 17:16:37 CST +08</header>
+                    <header>Updated: 2017-07-17 17:16:35 CST +08</header>
                     <main>
-                        <h1 id="note-list">Note List</h1>
-
-<h2 id="database">Database</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/database/mysql.html">MySQL</a></td>
-<td>2017-05-03</td>
-</tr>
-
-<tr>
-<td><a href="/notes/database/postgresql.html">PostgreSQL</a></td>
-<td>2017-04-12</td>
-</tr>
-
-<tr>
-<td><a href="/notes/database/redis.html">Redis</a></td>
-<td>2017-04-09</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="development">Development</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/development/object-oriented-programming.html">Object Oriented Programming</a></td>
-<td>2017-04-17</td>
-</tr>
-
-<tr>
-<td><a href="/notes/development/user-story.html">User Story</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/development/repository-pattern.html">Repository Pattern</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/development/queue.html">Queue</a></td>
-<td>2017-04-09</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="editor">Editor</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/editor/visual-studio-code.html">Visual Studio Code</a></td>
-<td>2017-04-13</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="git">Git</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/git/gitlab.html">Gitlab Demo</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/git/git.html">Git</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/git/movetogitlab.html">Move Repo from Gitolite to Gitlab</a></td>
-<td>2017-04-09</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="golang">Golang</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/golang/golang-goroutines-in-loop.html">Golang Goroutines in Loop</a></td>
-<td>2017-07-17</td>
-</tr>
-
-<tr>
-<td><a href="/notes/golang/golang.html">Golang</a></td>
-<td>2017-07-17</td>
-</tr>
-
-<tr>
-<td><a href="/notes/golang/golang-refactor-by-label.html">Golang Refactor by Label</a></td>
-<td>2017-07-15</td>
-</tr>
-
-<tr>
-<td><a href="/notes/golang/golang-benchmark-reading-config-from-os-env-and-file.html">Golang Benchmark Reading Config from OS ENV and File</a></td>
-<td>2017-06-12</td>
-</tr>
-
-<tr>
-<td><a href="/notes/golang/golang-delete-slice-item-in-range-problem.html">Golang Delete Slice Item in Range Problem</a></td>
-<td>2017-06-07</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="laravel">Laravel</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/laravel/laravel-performance.html">Laravel Performance</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/laravel/laravel-blade-parent.html">Laravel - 設計一個好的 Blade Template, 使用 @parent</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/laravel/laravel-42-to-50.html">Laravel Update 4.2 to 5.0</a></td>
-<td>2017-04-13</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="linux">Linux</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/linux/linux.html">Linux</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/linux/centos7.html">CentOS 7</a></td>
-<td>2017-04-13</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="os">Os</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/os/mac.html">Mac</a></td>
-<td>2017-04-22</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="others">Others</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/others/learning-resources.html">Learning Resources</a></td>
-<td>2017-05-30</td>
-</tr>
-
-<tr>
-<td><a href="/notes/others/lisp.html">Lisp</a></td>
-<td>2017-04-17</td>
-</tr>
-
-<tr>
-<td><a href="/notes/others/taiwan-community.html">Taiwan Community</a></td>
-<td>2017-04-10</td>
-</tr>
-
-<tr>
-<td><a href="/notes/others/flowchart.html">Flowchart Test</a></td>
-<td>2017-04-08</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="php">Php</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/php/php-functional-programming-lambda.html">PHP Functional Programming Lambda</a></td>
-<td>2017-04-12</td>
-</tr>
-
-<tr>
-<td><a href="/notes/php/php-functional-programming-array-functions.html">PHP Functinoal Programming Array Functions</a></td>
-<td>2017-04-12</td>
-</tr>
-
-<tr>
-<td><a href="/notes/php/php.html">PHP</a></td>
-<td>2017-04-11</td>
-</tr>
-
-<tr>
-<td><a href="/notes/php/selenium_with_phpunit.html">Selenium with PHPUnit</a></td>
-<td>2017-04-10</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="system">System</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/system/wannacrypt0r.html">WannaCrypt0r 2.0</a></td>
-<td>2017-05-19</td>
-</tr>
-
-<tr>
-<td><a href="/notes/system/docker.html">Docker</a></td>
-<td>2017-05-03</td>
-</tr>
-
-<tr>
-<td><a href="/notes/system/windows-shared-folder-with-virtualbox-linux.html">Windows 共用資料夾(Shared folder)至 VirtualBox Linux - 設定與自動掛載</a></td>
-<td>2017-04-26</td>
-</tr>
-
-<tr>
-<td><a href="/notes/system/https.html">HTTPS</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/system/nginx.html">Nginx</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/system/nginx-php-fpm.html">Nginx, Php-fpm</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/system/elk-elasticsearch-logstash-kibana.html">ELK: Elasticsearch, Logstash, Kibana</a></td>
-<td>2017-04-13</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="web">Web</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/web/google-custom-search.html">Google Custom Search</a></td>
-<td>2017-05-04</td>
-</tr>
-
-<tr>
-<td><a href="/notes/web/web-proper-noun.html">網站開發專有名詞 For Product Manager</a></td>
-<td>2017-05-04</td>
-</tr>
-
-<tr>
-<td><a href="/notes/web/html-input-hidden-defaultvalue-vs-value-with-jquery-val-vs-attr.html">HTML Input hidden defaultValue vs. value with jQuery val() vs. attr()</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/web/html-input-defaultvalue-vs-value-with-jquery-val-vs-attr.html">HTML Input defaultValue vs. value with jQuery val() vs. attr()</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/web/google-analytics.html">Google Analytics</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/web/seo.html">SEO</a></td>
-<td>2017-04-11</td>
-</tr>
-</tbody>
-</table>
+                        <h1 id="golang-goroutines-in-loop">Golang Goroutines in Loop</h1>
+
+<h2 id="problem">Problem</h2>
+
+<pre><code class="language-go">func main() {
+    for _, v := range values {
+        go func() {
+            fmt.Println(v)
+        }()
+    }
+}
+</code></pre>
+
+<blockquote>
+<p>each iteration of the loop uses the same instance of the variable v, so each closure shares that single variable. When the closure runs, it prints the value of v at the time fmt.Println is executed, but v may have been modified since the goroutine was launched. - &ldquo;What happens with closures running as goroutines?&rdquo;, Golang Frequently Asked Questions (FAQ)</p>
+</blockquote>
+
+<h2 id="example">Example</h2>
+
+<ul>
+<li><p>Incorrect</p>
+
+<pre><code class="language-go">func main() {
+    ints := []int{1,2,3}
+    for _, i := range ints {
+        go func() {
+            fmt.Println(i)
+        }()
+    }
+    time.Sleep(3 * time.Second)
+    // Output:
+    // 3
+    // 3
+    // 3
+}
+</code></pre></li>
+
+<li><p>Fixed: pass the variable as an argument to the closure.</p>
+
+<pre><code class="language-go">func main() {
+    ints := []int{1,2,3}
+    for _, i := range ints {
+        go func(i int) {
+            fmt.Println(i)
+        }(i)
+    }
+    time.Sleep(3 * time.Second)
+    // Output:
+    // 1
+    // 2
+    // 3
+}
+</code></pre></li>
+
+<li><p>Fixed: copy value to a new variable, because of variables declared within the body of a loop are not shared between iterations.</p>
+
+<pre><code class="language-go">func main() {
+    ints := []int{1,2,3}
+    for _, i := range ints {
+        i := i
+        go func() {
+            fmt.Println(i)
+        }()
+    }
+    time.Sleep(3 * time.Second)
+    // Output:
+    // 1
+    // 2
+    // 3
+}
+</code></pre></li>
+</ul>
+
+<h2 id="example-2-call-struct-method">Example 2: Call Struct Method</h2>
+
+<ul>
+<li><p>Incorrect</p>
+
+<pre><code class="language-go">type user struct {
+    name string
+}
+
+func(u *user) Print() {
+    fmt.Println(u.name)
+}
+
+func main() {
+    users := []user{{&quot;dino&quot;}, {&quot;liam&quot;}, {&quot;mei&quot;}}
+    for _, user := range users {
+            go user.Print()
+    }
+    time.Sleep(3 * time.Second)
+    // Output:
+    // mei
+    // mei
+    // mei
+}
+</code></pre></li>
+
+<li><p>Fixed: pass by reference</p>
+
+<pre><code class="language-go">
+type user struct {
+    name string
+}
+
+func(u *user) Print() {
+    fmt.Println(u.name)
+}
+
+func main() {
+    users := []*user{{&quot;dino&quot;}, {&quot;liam&quot;}, {&quot;mei&quot;}}
+    for _, user := range users {
+            go user.Print()
+    }
+    time.Sleep(3 * time.Second)
+    // Output:
+    // dino
+    // liam
+    // mei
+}
+</code></pre></li>
+</ul>
+
+<h2 id="reference">Reference</h2>
+
+<ul>
+<li><a href="http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/index.html#closure_for_it_vars">Iteration Variables and Closures in &ldquo;for&rdquo; Statements@50 Shades of Go: Traps, Gotchas, and Common Mistakes for New Golang Devs</a></li>
+<li><a href="https://github.com/golang/go/wiki/CommonMistakes">CommonMistakes@golang github wiki</a></li>
+<li><a href="https://golang.org/doc/faq#closures_and_goroutines">What happens with closures running as goroutines?@golang doc faq</a></li>
+</ul>
 
                         <gcse:searchresults-only></gcse:searchresults-only>
                     </main>
