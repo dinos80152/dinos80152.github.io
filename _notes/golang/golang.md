@@ -1,8 +1,17 @@
 # Golang
 
-## Concurrency
+## Articles and Videos
 
-### Reference
+### General
+
+* [50 Shades of Go: Traps, Gotchas, and Common Mistakes for New Golang Devs](http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/index.html#one_dim_slice_arr)
+  * [中譯：Go的50度灰：Golang新开发者要注意的陷阱和常见错误](http://colobu.com/2015/09/07/gotchas-and-common-mistakes-in-go-golang/)
+
+### Web
+
+* [Writing Web Applications](https://golang.org/doc/articles/wiki/)
+
+### Concurrency
 
 #### Basic
 
@@ -25,10 +34,9 @@
 
 * [An Introduction to Programming in Go.](https://www.golang-book.com/books/intro)
 * [Build Web Application with Golang](https://www.gitbook.com/book/astaxie/build-web-application-with-golang/details)
-* [Writing Web Applications](https://golang.org/doc/articles/wiki/)
 * [Go by Example](https://gobyexample.com/)
 
-## Advanced
+### Advanced
 
 * [The Go Blog](https://blog.golang.org/)
 * [Golang Github Wiki](https://github.com/golang/go/wiki)

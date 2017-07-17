@@ -1,5 +1,9 @@
 # Last Updated
 
+## 2017-07-17
+
+* [[Golang] Golang](/notes/golang/golang.html)
+
 ## 2017-07-15
 
 * [[Golang] Golang Refactor by Label](/notes/golang/golang-refactor-by-label.html)
@@ -27,8 +31,8 @@
 
 ## 2017-05-03
 
-* [[Database] MySQL](/notes/database/mysql.html)
 * [[System] Docker](/notes/system/docker.html)
+* [[Database] MySQL](/notes/database/mysql.html)
 
 ## 2017-04-26
 
@@ -45,19 +49,18 @@
 
 ## 2017-04-13
 
-* [[Golang] Golang](/notes/golang/golang.html)
-* [[Linux] Linux](/notes/linux/linux.html)
-* [[Linux] CentOS 7](/notes/linux/centos7.html)
 * [[Web] HTML Input hidden defaultValue vs. value with jQuery val() vs. attr()](/notes/web/html-input-hidden-defaultvalue-vs-value-with-jquery-val-vs-attr.html)
 * [[Web] HTML Input defaultValue vs. value with jQuery val() vs. attr()](/notes/web/html-input-defaultvalue-vs-value-with-jquery-val-vs-attr.html)
 * [[Web] Google Analytics](/notes/web/google-analytics.html)
+* [[Development] User Story](/notes/development/user-story.html)
+* [[Development] Repository Pattern](/notes/development/repository-pattern.html)
+* [[Editor] Visual Studio Code](/notes/editor/visual-studio-code.html)
+* [[Linux] Linux](/notes/linux/linux.html)
+* [[Linux] CentOS 7](/notes/linux/centos7.html)
 * [[System] HTTPS](/notes/system/https.html)
 * [[System] Nginx](/notes/system/nginx.html)
 * [[System] Nginx, Php-fpm](/notes/system/nginx-php-fpm.html)
 * [[System] ELK: Elasticsearch, Logstash, Kibana](/notes/system/elk-elasticsearch-logstash-kibana.html)
-* [[Development] User Story](/notes/development/user-story.html)
-* [[Development] Repository Pattern](/notes/development/repository-pattern.html)
-* [[Editor] Visual Studio Code](/notes/editor/visual-studio-code.html)
 * [[Git] Gitlab Demo](/notes/git/gitlab.html)
 * [[Git] Git](/notes/git/git.html)
 * [[Laravel] Laravel Performance](/notes/laravel/laravel-performance.html)
@@ -66,14 +69,14 @@
 
 ## 2017-04-12
 
-* [[Database] PostgreSQL](/notes/database/postgresql.html)
 * [[Php] PHP Functional Programming Lambda](/notes/php/php-functional-programming-lambda.html)
 * [[Php] PHP Functinoal Programming Array Functions](/notes/php/php-functional-programming-array-functions.html)
+* [[Database] PostgreSQL](/notes/database/postgresql.html)
 
 ## 2017-04-11
 
-* [[Web] SEO](/notes/web/seo.html)
 * [[Php] PHP](/notes/php/php.html)
+* [[Web] SEO](/notes/web/seo.html)
 
 ## 2017-04-10
 
@@ -82,8 +85,8 @@
 
 ## 2017-04-09
 
-* [[Database] Redis](/notes/database/redis.html)
 * [[Development] Queue](/notes/development/queue.html)
+* [[Database] Redis](/notes/database/redis.html)
 * [[Git] Move Repo from Gitolite to Gitlab](/notes/git/movetogitlab.html)
 
 ## 2017-04-08

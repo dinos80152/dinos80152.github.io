@@ -1,28 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
-        <loc>http://dinolai.com/notes/others/learning-resources.html</loc>
-        <lastmod>2017-05-30</lastmod>
+        <loc>http://dinolai.com/notes/linux/linux.html</loc>
+        <lastmod>2017-04-13</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.67</priority>
     </url>
     <url>
-        <loc>http://dinolai.com/notes/others/lisp.html</loc>
-        <lastmod>2017-04-17</lastmod>
+        <loc>http://dinolai.com/notes/linux/centos7.html</loc>
+        <lastmod>2017-04-13</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.67</priority>
     </url>
     <url>
-        <loc>http://dinolai.com/notes/others/taiwan-community.html</loc>
+        <loc>http://dinolai.com/notes/os/mac.html</loc>
+        <lastmod>2017-04-22</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.67</priority>
+    </url>
+    <url>
+        <loc>http://dinolai.com/notes/php/php-functional-programming-lambda.html</loc>
+        <lastmod>2017-04-12</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.67</priority>
+    </url>
+    <url>
+        <loc>http://dinolai.com/notes/php/php-functional-programming-array-functions.html</loc>
+        <lastmod>2017-04-12</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.67</priority>
+    </url>
+    <url>
+        <loc>http://dinolai.com/notes/php/php.html</loc>
+        <lastmod>2017-04-11</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.67</priority>
+    </url>
+    <url>
+        <loc>http://dinolai.com/notes/php/selenium_with_phpunit.html</loc>
         <lastmod>2017-04-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.67</priority>
     </url>
     <url>
-        <loc>http://dinolai.com/notes/others/flowchart.html</loc>
-        <lastmod>2017-04-08</lastmod>
+        <loc>http://dinolai.com/index.html</loc>
+        <lastmod>2017-07-17</lastmod>
         <changefreq>daily</changefreq>
-        <priority>0.67</priority>
+        <priority>1</priority>
     </url>
     <url>
         <loc>http://dinolai.com/notes/development/object-oriented-programming.html</loc>
@@ -49,20 +73,26 @@
         <priority>0.67</priority>
     </url>
     <url>
-        <loc>http://dinolai.com/notes/laravel/laravel-performance.html</loc>
+        <loc>http://dinolai.com/notes/git/gitlab.html</loc>
         <lastmod>2017-04-13</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.67</priority>
     </url>
     <url>
-        <loc>http://dinolai.com/notes/laravel/laravel-blade-parent.html</loc>
+        <loc>http://dinolai.com/notes/git/git.html</loc>
         <lastmod>2017-04-13</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.67</priority>
     </url>
     <url>
-        <loc>http://dinolai.com/notes/laravel/laravel-42-to-50.html</loc>
-        <lastmod>2017-04-13</lastmod>
+        <loc>http://dinolai.com/notes/git/movetogitlab.html</loc>
+        <lastmod>2017-04-09</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.67</priority>
+    </url>
+    <url>
+        <loc>http://dinolai.com/notes/golang/golang.html</loc>
+        <lastmod>2017-07-17</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.67</priority>
     </url>
@@ -85,38 +115,38 @@
         <priority>0.67</priority>
     </url>
     <url>
-        <loc>http://dinolai.com/notes/golang/golang.html</loc>
+        <loc>http://dinolai.com/notes/laravel/laravel-performance.html</loc>
         <lastmod>2017-04-13</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.67</priority>
     </url>
     <url>
-        <loc>http://dinolai.com/notes/linux/linux.html</loc>
+        <loc>http://dinolai.com/notes/laravel/laravel-blade-parent.html</loc>
         <lastmod>2017-04-13</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.67</priority>
     </url>
     <url>
-        <loc>http://dinolai.com/notes/linux/centos7.html</loc>
+        <loc>http://dinolai.com/notes/laravel/laravel-42-to-50.html</loc>
         <lastmod>2017-04-13</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.67</priority>
     </url>
     <url>
-        <loc>http://dinolai.com/notes/os/mac.html</loc>
-        <lastmod>2017-04-22</lastmod>
+        <loc>http://dinolai.com/info/index.html</loc>
+        <lastmod>2017-05-30</lastmod>
         <changefreq>daily</changefreq>
-        <priority>0.67</priority>
+        <priority>0.75</priority>
     </url>
     <url>
-        <loc>http://dinolai.com/index.html</loc>
-        <lastmod>2017-07-15</lastmod>
+        <loc>http://dinolai.com/info/index.html</loc>
+        <lastmod>2017-05-30</lastmod>
         <changefreq>daily</changefreq>
-        <priority>1</priority>
+        <priority>0.75</priority>
     </url>
     <url>
-        <loc>http://dinolai.com/slides/index.html</loc>
-        <lastmod>2017-04-13</lastmod>
+        <loc>http://dinolai.com/notes/index.html</loc>
+        <lastmod>2017-07-17</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.75</priority>
     </url>
@@ -145,50 +175,26 @@
         <priority>0.67</priority>
     </url>
     <url>
-        <loc>http://dinolai.com/notes/editor/visual-studio-code.html</loc>
-        <lastmod>2017-04-13</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.67</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/info/index.html</loc>
+        <loc>http://dinolai.com/notes/others/learning-resources.html</loc>
         <lastmod>2017-05-30</lastmod>
         <changefreq>daily</changefreq>
-        <priority>0.75</priority>
+        <priority>0.67</priority>
     </url>
     <url>
-        <loc>http://dinolai.com/info/index.html</loc>
-        <lastmod>2017-05-30</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.75</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/books/index.html</loc>
-        <lastmod>2017-07-15</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.75</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/search/index.html</loc>
-        <lastmod>2017-05-03</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.75</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/notes/git/gitlab.html</loc>
-        <lastmod>2017-04-13</lastmod>
+        <loc>http://dinolai.com/notes/others/lisp.html</loc>
+        <lastmod>2017-04-17</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.67</priority>
     </url>
     <url>
-        <loc>http://dinolai.com/notes/git/git.html</loc>
-        <lastmod>2017-04-13</lastmod>
+        <loc>http://dinolai.com/notes/others/taiwan-community.html</loc>
+        <lastmod>2017-04-10</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.67</priority>
     </url>
     <url>
-        <loc>http://dinolai.com/notes/git/movetogitlab.html</loc>
-        <lastmod>2017-04-09</lastmod>
+        <loc>http://dinolai.com/notes/others/flowchart.html</loc>
+        <lastmod>2017-04-08</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.67</priority>
     </url>
@@ -229,34 +235,28 @@
         <priority>0.67</priority>
     </url>
     <url>
-        <loc>http://dinolai.com/notes/index.html</loc>
+        <loc>http://dinolai.com/books/index.html</loc>
         <lastmod>2017-07-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
-        <loc>http://dinolai.com/notes/php/php-functional-programming-lambda.html</loc>
-        <lastmod>2017-04-12</lastmod>
+        <loc>http://dinolai.com/search/index.html</loc>
+        <lastmod>2017-05-03</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.75</priority>
+    </url>
+    <url>
+        <loc>http://dinolai.com/notes/editor/visual-studio-code.html</loc>
+        <lastmod>2017-04-13</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.67</priority>
     </url>
     <url>
-        <loc>http://dinolai.com/notes/php/php-functional-programming-array-functions.html</loc>
-        <lastmod>2017-04-12</lastmod>
+        <loc>http://dinolai.com/slides/index.html</loc>
+        <lastmod>2017-04-13</lastmod>
         <changefreq>daily</changefreq>
-        <priority>0.67</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/notes/php/php.html</loc>
-        <lastmod>2017-04-11</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.67</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/notes/php/selenium_with_phpunit.html</loc>
-        <lastmod>2017-04-10</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.67</priority>
+        <priority>0.75</priority>
     </url>
     <url>
         <loc>http://dinolai.com/notes/system/wannacrypt0r.html</loc>
