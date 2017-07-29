@@ -66,6 +66,7 @@
 
 |Title | Updated Date |
 |------|------------|
+| [Designer, Software, System Engineers Relationship](/notes/others/designer-software-system-engineers-relationship.html) | 2017-07-29 |
 | [Learning Resources](/notes/others/learning-resources.html) | 2017-05-30 |
 | [Lisp](/notes/others/lisp.html) | 2017-04-17 |
 | [Taiwan Community](/notes/others/taiwan-community.html) | 2017-04-10 |
