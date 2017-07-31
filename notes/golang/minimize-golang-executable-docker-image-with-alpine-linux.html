@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Personal Web Site include Blogs, Tutorials and Code">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>Designer, Software, System Engineers Relationship - Dinote</title>
+    <title>Building and Deploying Minimize Golang Executable Docker Image with Alpine Linux - Dinote</title>
     <!-- Facebook Open Graph -->
     <meta property="og:url" content="http://dinolai.com/" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Designer, Software, System Engineers Relationship - Dinote" />
+    <meta property="og:title" content="Building and Deploying Minimize Golang Executable Docker Image with Alpine Linux - Dinote" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <!-- End Facebook Open Graph -->
@@ -68,32 +68,116 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2017-07-31 14:32:37 CST +08</header>
+                    <header>Updated: 2017-07-31 16:15:45 CST +08</header>
                     <main>
-                        <h1 id="designer-software-system-engineers-relationship">Designer, Software, System Engineers Relationship</h1>
+                        <h1 id="building-and-deploying-minimize-golang-executable-docker-image-with-alpine-linux">Building and Deploying Minimize Golang Executable Docker Image with Alpine Linux</h1>
 
-<p><svg width="840" height="600" style="background:gray;">
-    <text x="95" y="250" fill="white">UI/UX Design</text>
-    <circle cx="150" cy="250" r="100" stroke="black" stroke-width="4" fill="red" fill-opacity="0.2"/>
-    <text x="270" y="250" fill="white">Front End</text>
-    <circle cx="300" cy="250" r="100" stroke="black" stroke-width="4" fill="orange" fill-opacity="0.2"/>
-    <text x="420" y="250" fill="white">Back End</text>
-    <circle cx="450" cy="250" r="100" stroke="black" stroke-width="4" fill="yellow" fill-opacity="0.2"/>
-    <text x="520" y="150" fill="white">Database</text>
-    <circle cx="550" cy="150" r="100" stroke="black" stroke-width="4" fill="green" fill-opacity="0.2"/>
-    <text x="520" y="350" fill="white">System</text>
-    <circle cx="550" cy="350" r="100" stroke="black" stroke-width="4" fill="blue" fill-opacity="0.2"/>
-    <text x="670" y="350" fill="white">Network</text>
-    <circle cx="700" cy="350" r="100" stroke="black" stroke-width="4" fill="indigo" fill-opacity="0.2"/>
-    <text x="575" y="475" fill="white">Infrastructure</text>
-    <circle cx="625" cy="475" r="100" stroke="black" stroke-width="4" fill="violet" fill-opacity="0.2"/>
-    <text x="390" y="375" fill="white">DevOps</text>
-    <circle cx="540" cy="330" r="125" stroke="black" opacity="0.2" fill="Aqua"/>
-    <text x="720" y="150" fill="white">Monitor</text>
-    <circle cx="625" cy="300" r="285" opacity="0.1" fill="Snow"/>
-    <text x="210" y="150" fill="white">QA</text>
-    <ellipse cx="220" cy="250" rx="200" ry="130" fill="Snow" opacity="0.1" />
-</svg></p>
+<h2 id="introduction">Introduction</h2>
+
+<p>Building a minimize golang docker image to save image upload time and repository space. <strong>The final image is only about 10 MB</strong>.</p>
+
+<h2 id="step-by-step">Step by Step</h2>
+
+<ol>
+<li><p>Write Dockerfile for compiling source code to binary on alpine linux</p>
+
+<ul>
+<li>DockerfileSrc</li>
+</ul>
+
+<pre><code class="language-dockerfile"># Start from an Alpine image with the latest version of Go installed
+FROM golang:alpine
+
+# Install Git for go get
+RUN set -eux; \
+    apk add --no-cache --virtual git
+
+# Set ENV
+ENV GOPATH /go/
+ENV GO_WORKDIR $GOPATH/src/github.com/dinos80152/golang-docker-alpine/
+
+# Set WORKDIR to go source code directory
+WORKDIR $GO_WORKDIR
+
+# Add files to image
+ADD . $GO_WORKDIR
+
+# Fetch Golang Dependency and Build Binary
+RUN go get
+RUN go install
+</code></pre></li>
+
+<li><p>Build image from DockerfileSrc</p>
+
+<pre><code class="language-bash"># build app binary on Alpine OS with golang package
+docker build -t dinos80152/golang-docker-alpine-src -f DockerfileSrc .
+</code></pre></li>
+
+<li><p>Copy binary from container to host</p>
+
+<pre><code class="language-bash"># Copy app binary from container to host
+docker cp $(docker create dinos80152/golang-docker-alpine-src):/go/bin/golang-docker-alpine ./
+</code></pre></li>
+
+<li><p>Write Dockerfile for building image include app binary and pure alpine linux</p>
+
+<ul>
+<li>DockerfileBin</li>
+</ul>
+
+<pre><code class="language-dockerfile"># Start from a raw Alpine image
+FROM alpine:latest
+
+# Install ca-certificates for ssl
+RUN set -eux; \
+    apk add --no-cache --virtual ca-certificates
+
+# Copy binary into image
+ADD golang-docker-alpine /
+
+# Execute binary when docker container starts
+CMD /golang-docker-alpine
+
+# Expose port 8080 to be connected from outside
+EXPOSE 8080
+</code></pre></li>
+
+<li><p>Build docker image from DockerfileBin</p>
+
+<pre><code class="language-bash"># Build docker image with pure alpine os and app binary
+docker build -t golang-docker-alpine -f DockerfileBin .
+</code></pre></li>
+
+<li><p>Test</p>
+
+<pre><code class="language-bash">docker run -p 80:8080 -d golang-docker-alpine
+</code></pre></li>
+</ol>
+
+<h2 id="warning">Warning</h2>
+
+<p>Function <strong>time.LoadLocation() will panic in binary image</strong>, because of</p>
+
+<blockquote>
+<p>LoadLocation looks in the directory or uncompressed zip file named by the ZONEINFO environment variable, if any, then looks in known installation locations on Unix systems, and finally looks in $GOROOT/lib/time/zoneinfo.zip.</p>
+</blockquote>
+
+<p>You have to <strong>set $GOROOT and copy zoneinfo.zip manually</strong>.</p>
+
+<h2 id="template">Template</h2>
+
+<p><a href="https://github.com/dinos80152/golang-docker-alpine">Github Repo online demo with Travis CI and Heroku</a></p>
+
+<h2 id="reference">Reference</h2>
+
+<ul>
+<li><a href="https://alpinelinux.org/">Alpine Linux</a></li>
+<li><a href="https://github.com/docker-library/golang/tree/64b88dc3e9d83e71eafc000fed1f0d5e289b3e65/1.8/alpine">Docker golang:alpine</a></li>
+<li><a href="https://stackoverflow.com/questions/25292198/">Docker - how can I copy a file from an image to a host?</a></li>
+<li><a href="https://docs.docker.com/engine/reference/commandline/docker/">Docker CLI@docker docs</a></li>
+<li><a href="https://docs.docker.com/engine/reference/builder/">Dockerfile reference@docker docs</a></li>
+<li><a href="https://github.com/zenazn/goji/issues/126">x509: failed to load system roots and no roots provided</a></li>
+</ul>
 
                         <gcse:searchresults-only></gcse:searchresults-only>
                     </main>
