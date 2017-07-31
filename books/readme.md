@@ -21,7 +21,7 @@
 | Working Effectively with Legacy Code | 修改代碼的藝術 | | |
 | Refactoring: Improving the Design of Existing Code | 重構：改善既有程式的設計 | | |
 | Refactoring to Patterns | 重構--向範式前進 |  |  |
-| Head First Design Patterns | 深入淺出設計模式 | reading | |
+| Head First Design Patterns | 深入淺出設計模式 | v | [連結](https://github.com/dinos80152/php-design-pattern-lol) |
 | Design Patterns | 設計模式 | | |
 | ***Computer Science*** |
 | How Program Works | 程序是怎樣跑起來的 | | |
@@ -54,6 +54,9 @@
 | ***PHP*** |
 | Modern PHP | 現代 PHP：新的特點及良好習慣 | v | null |
 | Laravel: From Apprentice To Artisan | [Laravel - 从百草园到三味书屋](https://my.oschina.net/zgldh/blog/389246) | | |
+| ***Golang*** |
+| [Effective Go](https://golang.org/doc/effective_go.html) | | reading | |
+| |Go at Google：Go語言實際上手| reading | |
 | ***Management*** |||
 | The Goal: A Process of Ongoing Improvement | 目標：簡單有效的常識管理 |||
 | The Silo Effect | 穀倉效應 | reading |  |

@@ -35,9 +35,11 @@
 
 |Title | Updated Date |
 |------|------------|
+| [Golang Goroutines in Loop](/notes/golang/golang-goroutines-in-loop.html) | 2017-07-17 |
+| [Golang](/notes/golang/golang.html) | 2017-07-17 |
+| [Golang Refactor by Label](/notes/golang/golang-refactor-by-label.html) | 2017-07-15 |
 | [Golang Benchmark Reading Config from OS ENV and File](/notes/golang/golang-benchmark-reading-config-from-os-env-and-file.html) | 2017-06-12 |
 | [Golang Delete Slice Item in Range Problem](/notes/golang/golang-delete-slice-item-in-range-problem.html) | 2017-06-07 |
-| [Golang](/notes/golang/golang.html) | 2017-04-13 |
 
 ## Laravel
 
@@ -64,6 +66,7 @@
 
 |Title | Updated Date |
 |------|------------|
+| [Designer, Software, System Engineers Relationship](/notes/others/designer-software-system-engineers-relationship.html) | 2017-07-29 |
 | [Learning Resources](/notes/others/learning-resources.html) | 2017-05-30 |
 | [Lisp](/notes/others/lisp.html) | 2017-04-17 |
 | [Taiwan Community](/notes/others/taiwan-community.html) | 2017-04-10 |
@@ -82,6 +85,7 @@
 
 |Title | Updated Date |
 |------|------------|
+| [AWS Docker Container CPU Utilization Running at High Percentage](/notes/system/aws-docker-container-cpu-high-usage.html) | 2017-07-22 |
 | [WannaCrypt0r 2.0](/notes/system/wannacrypt0r.html) | 2017-05-19 |
 | [Docker](/notes/system/docker.html) | 2017-05-03 |
 | [Windows 共用資料夾(Shared folder)至 VirtualBox Linux - 設定與自動掛載](/notes/system/windows-shared-folder-with-virtualbox-linux.html) | 2017-04-26 |

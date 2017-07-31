@@ -33,6 +33,7 @@
 ### Front End
 
 * [bootstrap](https://getbootstrap.com)
+* [Font Awesome](http://fontawesome.io/)
 * [github-markdown-css](https://github.com/sindresorhus/github-markdown-css)
 * [highlight.js](https://highlightjs.org/)
 * [jsSequence](https://bramp.github.io/js-sequence-diagrams/)

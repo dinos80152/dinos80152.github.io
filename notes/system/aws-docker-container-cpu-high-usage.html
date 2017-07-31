@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Personal Web Site include Blogs, Tutorials and Code">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>Gitlab Demo - Dinote</title>
+    <title>AWS Docker Container CPU Utilization Running at High Percentage - Dinote</title>
     <!-- Facebook Open Graph -->
     <meta property="og:url" content="http://dinolai.com/" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Gitlab Demo - Dinote" />
+    <meta property="og:title" content="AWS Docker Container CPU Utilization Running at High Percentage - Dinote" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <!-- End Facebook Open Graph -->
@@ -68,98 +68,45 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2017-04-13 17:33:06 CST +08</header>
+                    <header>Updated: 2017-07-22 18:30:47 CST +08</header>
                     <main>
-                        <h1 id="gitlab-demo">Gitlab Demo</h1>
+                        <h1 id="aws-docker-container-cpu-utilization-running-at-high-percentage">AWS Docker Container CPU Utilization Running at High Percentage</h1>
 
-<h2 id="帳號">帳號</h2>
+<h2 id="problem">Problem</h2>
 
-<ul>
-<li>申請帳號</li>
-<li>上傳 SSH Public Key</li>
-</ul>
+<p>Our service built on AWS EC2 in docker container getting high cpu utilization recently.</p>
 
-<h2 id="團隊">團隊</h2>
+<p><img src="https://farm5.staticflickr.com/4305/35589776790_ca7891c347_b.jpg" alt="container cpu utilization" /></p>
 
-<ul>
-<li>新建團隊</li>
-<li>加入團隊</li>
-</ul>
+<p>We thought it is some resource leaking in our process, so we reviewed our code and refactored.</p>
 
-<h2 id="專案">專案</h2>
+<p>However, it still happen twice a day.</p>
 
-<h3 id="開新專案">開新專案</h3>
+<h2 id="solution">Solution</h2>
 
-<ul>
-<li>調整專案設定</li>
-<li>Clone 空白 Repo</li>
-<li>Push 現有專案</li>
-<li>Readme</li>
-</ul>
+<p>Finally we found there is a limit of cpu usage in EC2 called <strong>&ldquo;CPU Credits&rdquo;</strong>.</p>
 
-<h3 id="開發流程">開發流程</h3>
+<p>EC2 consumes CPU Credits every 15 minutes, after credits exhausted, <strong>EC2 CPU Ulitization will be blocked at 10%</strong> on a t2.micro instance.</p>
 
-<ol>
-<li>開 Issue
+<p><img src="https://farm5.staticflickr.com/4320/35692577110_d18208861b_b.jpg" alt="instance cpu credit balance" /></p>
 
-<ul>
-<li>Description</li>
-<li>Assign</li>
-<li>Label</li>
-</ul></li>
-<li>開分支
+<p><img src="https://farm5.staticflickr.com/4325/35241900424_e9cb5acabb_b.jpg" alt="instance cpu utilization" /></p>
+
+<p>After CPU Utilization has been blocked, there is not enough CPU for container usage, so container CPU goes over 100%.</p>
+
+<h2 id="estimation">Estimation</h2>
+
+<p>for <strong>t2.micro</strong>, the average CPU utilization for 24 hours is <strong>12% CPU</strong> utilization</p>
+
+<pre><code class="language-math">30 credits + 6 earn credits per hour * 24 hours = 174 credits a day
+174 credits / 24 hours = 7.25 credits per hour
+7.25 credits * 10 CPU utilization / 6 credits = 12% CPU utilization
+</code></pre>
+
+<h2 id="reference">Reference</h2>
 
 <ul>
-<li>release</li>
-<li>develop</li>
-<li>[Label]/[Name]</li>
-</ul></li>
-<li>Commit
-
-<ul>
-<li>#12</li>
-<li>close #12</li>
-<li>fix #12</li>
-</ul></li>
-<li>Merge Request
-
-<ul>
-<li>Choose Branch</li>
-<li>Assign</li>
-<li>Set Related Issue(optional)</li>
-<li>Code Review</li>
-<li>Comment</li>
-<li>Modify</li>
-<li>Push</li>
-<li>Merge</li>
-<li>Remove Branch</li>
-</ul></li>
-<li>Milestones
-
-<ul>
-<li>Create</li>
-<li>Add Issues</li>
-</ul></li>
-<li>Wiki
-
-<ul>
-<li>Home</li>
-<li>Pages</li>
-</ul></li>
-</ol>
-
-<h2 id="integration">Integration</h2>
-
-<ul>
-<li>Google OAuth</li>
-<li>GitLab CI</li>
-<li>Deploy</li>
-</ul>
-
-<h2 id="補充">補充</h2>
-
-<ul>
-<li>Markdown</li>
+<li><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/t2-instances.html#t2-instances-cpu-credits">CPU Credits@AWS User Guide for Linux Instances</a></li>
 </ul>
 
                         <gcse:searchresults-only></gcse:searchresults-only>
