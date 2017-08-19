@@ -11,6 +11,10 @@
 
 * [Writing Web Applications](https://golang.org/doc/articles/wiki/)
 
+### Error Handling
+
+* [Error handling and Go](https://blog.golang.org/error-handling-and-go)
+
 ### Concurrency
 
 #### Basic
