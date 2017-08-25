@@ -35,7 +35,7 @@
 
 |Title | Updated Date |
 |------|------------|
-| [Golang](/notes/golang/golang.html) | 2017-08-19 |
+| [Golang](/notes/golang/golang.html) | 2017-08-26 |
 | [Building and Deploying Minimize Golang Executable Docker Image with Alpine Linux](/notes/golang/minimize-golang-executable-docker-image-with-alpine-linux.html) | 2017-07-31 |
 | [Golang Goroutines in Loop](/notes/golang/golang-goroutines-in-loop.html) | 2017-07-17 |
 | [Golang Refactor by Label](/notes/golang/golang-refactor-by-label.html) | 2017-07-15 |

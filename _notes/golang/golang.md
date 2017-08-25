@@ -31,6 +31,7 @@
 * [Visualizing Concurrency in Go](https://divan.github.io/posts/go_concurrency_visualize/)
 * [Google I/O 2012 - Go Concurrency Patterns](https://www.youtube.com/watch?v=f6kdp27TYZs)
 * [Google I/O 2013 - Advanced Go Concurrency Patterns](https://www.youtube.com/watch?v=QDDwwePbDtw)
+* [GopherCon 2017: Kavya Joshi - Understanding Channels](https://www.youtube.com/watch?v=KBZlN0izeiY)
 
 ## Resource
 
@@ -45,3 +46,4 @@
 * [The Go Blog](https://blog.golang.org/)
 * [Golang Github Wiki](https://github.com/golang/go/wiki)
 * [GopherAcademy](https://blog.gopheracademy.com/)
+* [GopherAcademy Youtube Channel](https://www.youtube.com/GopherAcademy)
