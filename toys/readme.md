@@ -10,6 +10,12 @@
 
 訂閱看板推文數、作者、關鍵字，即時通知 Ptt 最新文章。
 
+## XMind Ubuntu Installer
+
+<https://github.com/dinos80152/XMind-Linux-Installer>
+
+A simple BASH script to install XMind on Debian/Ubuntu 32/64 bit, include Launcher, MIME type link and icon.
+
 ## Ladder Game
 
 [Demo](http://dinos80152.github.io/toys/ladder.html)
