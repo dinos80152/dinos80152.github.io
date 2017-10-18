@@ -4,9 +4,9 @@
     <head>
         <meta charset="utf-8">
 
-        <title>Agile Development Introduction</title>
+        <title>Continuous Delivery</title>
 
-        <meta name="description" content="Agile Development Introduction">
+        <meta name="description" content="Continuous Delivery Introduction">
         <meta name="author" content="Dino Lai">
 
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,63 +34,76 @@
                 <!-- Use External -->
                 <section data-markdown data-separator="^\n\n\n" data-separator-vertical="^\n\n">
                     <script type="text/template">
-# Agile
-* 個人及互動勝於流程與工具
-* 可用的軟體勝於詳盡的文件
-* 與客戶合作勝於合約談判
-* 回應變更勝於墨守計劃
+## Continuous Delivery
 
-[The Agile Manifesto](http://www.agilealliance.org/the-alliance/the-agile-manifesto/)
+![Continuous_Delivery_process_diagram](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Continuous_Delivery_process_diagram.svg/1280px-Continuous_Delivery_process_diagram.svg.png)<!-- .element height="80%" width="70%"-->
+
+Dino Lai, 2017.10.18
 
 
 
-# Extreme Programming (XP)
-* Acceptance Testing
-* Pair Programming
-* Test-Driven Development (TDD)
-* Collective Ownership
-* Continuous Integration (CI)
-* Simple Design
-  * DRY
-* Refactoring
+## Continuous Delivery
+
+* Responding to change
+  * Frequency Delivery
+
+* Continuous
+  * Break the bottleneck
+  * Automation
+  * Feedback
+  * Correct
 
 
-## Pair Programming
-* Advantages
-  * Economics
-  * Design quality
-  * Satisfaction
-  * Learning
-  * Team-building and communication
-* Method
-  * Driver and Navigator
-  * Ping-Pong Pairing (TDD)
+## Pipeline
+
+![pipeline](https://jenkins.io/doc/book/resources/pipeline/realworld-pipeline-flow.png)
 
 
 
-# Preparation
-* DB Permission
-* System Permission
-* Sublime Text
-  * Version
-  * Plug-in
-* GitLab
+## Continuous Integration
+
+* Reliability
+* Testing
+* Code Quality
+
+
+## Testing
+
+![test-quadrant](https://continuousdelivery.com/images/test-quadrant.png)
 
 
 
-# Reference
-* [Pair programming@wikipedia](https://en.wikipedia.org/wiki/Pair_programming)
-* 敏捷軟體開發，原則、樣式及實務, Robert Cecil Martin, 2005
+## Continuous Deploy
+
+* Version to Environment
+  * uat → sit
+  * release → production
+  * v1.2.0 → production
+* Migration
+  * Database
+  * Configuration
+* Zero Downtime
+* Rollback
 
 
 
-# Books
-* 敏捷軟體開發，原則、樣式及實務
-* Clean Code 無瑕的程式碼
-* The Clean Coder 無瑕的程式碼 番外篇：專業程式設計師的生存之道
-* 重構：改善既有程式的設計
-* 重構─向範式前進
-* 物件導向設計模式－可再利用物件導向軟體之要素(精裝典藏版) (Design Patterns: Elements of Reusable Object-Oriented Software)
+## Sequence and Example
+
+* [Sequence](https://drive.google.com/open?id=0B_b6rlMZgwxdbWI0WGttTWpnQlk)
+* [Travis Config File](https://github.com/meifamily/ptt-alertor/blob/master/.travis.yml)
+* [Travis CI](https://travis-ci.org/meifamily/ptt-alertor)
+* [Codecov](https://codecov.io/gh/meifamily/ptt-alertor)
+* [Go Report](https://goreportcard.com/report/github.com/meifamily/ptt-alertor)
+
+
+
+## Reference
+
+* Continuous Delivery, Jez Humble, Devid Farley, 2014
+* [Travis CI Docs](https://docs.travis-ci.com/user/customizing-the-build/#The-Build-Lifecycle)
+* [Jenkins Handbook](https://jenkins.io/doc/book/)
+* [Continuous Delivery@wikipedia](https://en.wikipedia.org/wiki/Continuous_delivery)
+* [架設CI Server(Jenkins)](http://joel-zhong.logdown.com/posts/545549/setup-ci-server-using-jenkins)
                     </script>
                 </section>
             </div>
