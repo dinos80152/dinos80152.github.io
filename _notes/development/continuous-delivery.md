@@ -63,22 +63,47 @@ Note right of integration: after_script
 integration->integration: send notification
 ```
 
+## Continuous Delivery
+
+* Responding to change
+  * Frequency Delivery
+
+* Continuous
+  * Break the bottleneck
+  * Automation
+  * Feedback
+  * Correct
+
+## Pipeline
+
+![pipeline](https://jenkins.io/doc/book/resources/pipeline/realworld-pipeline-flow.png)
+
+## Continuous Integration
+
+* Reliability
+* Testing
+* Code Quality
+
 ## Testing
 
-### functional testing
+![test-quadrant](https://continuousdelivery.com/images/test-quadrant.png)
 
-* unit test
-* integration test
-* system test
-* user acceptance test
+## Continuous Deploy
 
-### non-functional testing
+* Version to Environment
+  * uat → sit
+  * release → production
+  * v1.2.0 → production
+* Migration
+  * Database
+  * Configuration
+* Zero Downtime
+* Rollback
 
-* security
-* performance
+## Reference
 
-### QA
-
-* exploratory testing
-  * corner case
-* usability testing
+* Continuous Delivery, Jez Humble, Devid Farley, 2014
+* [Travis CI Docs](https://docs.travis-ci.com/user/customizing-the-build/#The-Build-Lifecycle)
+* [Jenkins Handbook](https://jenkins.io/doc/book/)
+* [Continuous delivery@wikipedia](https://en.wikipedia.org/wiki/Continuous_delivery)
+* [架設CI Server(Jenkins)](http://joel-zhong.logdown.com/posts/545549/setup-ci-server-using-jenkins)
