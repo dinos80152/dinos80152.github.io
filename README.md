@@ -2,7 +2,7 @@
 
 ## 2017-10-21
 
-* [[Golang] Building and Deploying Minimize Golang Executable Docker Image with Alpine Linux](/notes/golang/minimize-golang-executable-docker-image-with-alpine-linux.html)
+* [[Golang] Building Minimize Golang Executable Docker Image with Alpine Linux](/notes/golang/minimize-golang-executable-docker-image-with-alpine-linux.html)
 * [[Golang] Golang testing and httptest Package](/notes/golang/golang-testing-and-httptest-package.html)
 
 ## 2017-10-19
@@ -56,8 +56,8 @@
 
 ## 2017-05-03
 
-* [[System] Docker](/notes/system/docker.html)
 * [[Database] MySQL](/notes/database/mysql.html)
+* [[System] Docker](/notes/system/docker.html)
 
 ## 2017-04-26
 
@@ -75,37 +75,37 @@
 ## 2017-04-13
 
 * [[Editor] Visual Studio Code](/notes/editor/visual-studio-code.html)
-* [[Laravel] Laravel Performance](/notes/laravel/laravel-performance.html)
-* [[Laravel] Laravel - 設計一個好的 Blade Template, 使用 @parent](/notes/laravel/laravel-blade-parent.html)
-* [[Laravel] Laravel Update 4.2 to 5.0](/notes/laravel/laravel-42-to-50.html)
 * [[System] HTTPS](/notes/system/https.html)
 * [[System] Nginx](/notes/system/nginx.html)
 * [[System] Nginx, Php-fpm](/notes/system/nginx-php-fpm.html)
 * [[System] ELK: Elasticsearch, Logstash, Kibana](/notes/system/elk-elasticsearch-logstash-kibana.html)
+* [[Web] HTML Input hidden defaultValue vs. value with jQuery val() vs. attr()](/notes/web/html-input-hidden-defaultvalue-vs-value-with-jquery-val-vs-attr.html)
+* [[Web] HTML Input defaultValue vs. value with jQuery val() vs. attr()](/notes/web/html-input-defaultvalue-vs-value-with-jquery-val-vs-attr.html)
+* [[Web] Google Analytics](/notes/web/google-analytics.html)
 * [[Development] User Story](/notes/development/user-story.html)
 * [[Development] Repository Pattern](/notes/development/repository-pattern.html)
 * [[Git] Gitlab Demo](/notes/git/gitlab.html)
 * [[Git] Git](/notes/git/git.html)
+* [[Laravel] Laravel Performance](/notes/laravel/laravel-performance.html)
+* [[Laravel] Laravel - 設計一個好的 Blade Template, 使用 @parent](/notes/laravel/laravel-blade-parent.html)
+* [[Laravel] Laravel Update 4.2 to 5.0](/notes/laravel/laravel-42-to-50.html)
 * [[Linux] CentOS 7](/notes/linux/centos7.html)
-* [[Web] HTML Input hidden defaultValue vs. value with jQuery val() vs. attr()](/notes/web/html-input-hidden-defaultvalue-vs-value-with-jquery-val-vs-attr.html)
-* [[Web] HTML Input defaultValue vs. value with jQuery val() vs. attr()](/notes/web/html-input-defaultvalue-vs-value-with-jquery-val-vs-attr.html)
-* [[Web] Google Analytics](/notes/web/google-analytics.html)
 
 ## 2017-04-12
 
+* [[Database] PostgreSQL](/notes/database/postgresql.html)
 * [[Php] PHP Functional Programming Lambda](/notes/php/php-functional-programming-lambda.html)
 * [[Php] PHP Functinoal Programming Array Functions](/notes/php/php-functional-programming-array-functions.html)
-* [[Database] PostgreSQL](/notes/database/postgresql.html)
 
 ## 2017-04-11
 
-* [[Php] PHP](/notes/php/php.html)
 * [[Web] SEO](/notes/web/seo.html)
+* [[Php] PHP](/notes/php/php.html)
 
 ## 2017-04-10
 
-* [[Php] Selenium with PHPUnit](/notes/php/selenium_with_phpunit.html)
 * [[Others] Taiwan Community](/notes/others/taiwan-community.html)
+* [[Php] Selenium with PHPUnit](/notes/php/selenium_with_phpunit.html)
 
 ## 2017-04-09
 

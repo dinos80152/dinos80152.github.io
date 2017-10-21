@@ -1,8 +1,10 @@
-# Building and Deploying Minimize Golang Executable Docker Image with Alpine Linux
+# Building Minimize Golang Executable Docker Image with Alpine Linux
 
 ## Introduction
 
-Building a minimize golang docker image to save image upload time and repository space. **The final image is only about 10 MB**.
+Building a minimize golang docker image to save image upload time and repository space.
+
+**The final image is only about 10 MB**.
 
 ## Step by Step
 
@@ -34,6 +36,7 @@ Building a minimize golang docker image to save image upload time and repository
     # Fetch Golang Dependency and Build Binary
     RUN go get
     RUN go install
+
 
     # Start from a raw Alpine Linux image
     FROM alpine:latest

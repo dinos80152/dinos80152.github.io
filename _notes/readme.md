@@ -35,7 +35,7 @@
 
 |Title | Updated Date |
 |------|------------|
-| [Building and Deploying Minimize Golang Executable Docker Image with Alpine Linux](/notes/golang/minimize-golang-executable-docker-image-with-alpine-linux.html) | 2017-10-21 |
+| [Building Minimize Golang Executable Docker Image with Alpine Linux](/notes/golang/minimize-golang-executable-docker-image-with-alpine-linux.html) | 2017-10-21 |
 | [Golang testing and httptest Package](/notes/golang/golang-testing-and-httptest-package.html) | 2017-10-21 |
 | [Golang](/notes/golang/golang.html) | 2017-08-26 |
 | [Golang Goroutines in Loop](/notes/golang/golang-goroutines-in-loop.html) | 2017-07-17 |
