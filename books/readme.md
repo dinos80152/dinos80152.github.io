@@ -23,6 +23,8 @@
 | Refactoring to Patterns | 重構--向範式前進 |  |  |
 | Head First Design Patterns | 深入淺出設計模式 | v | [連結](https://github.com/dinos80152/php-design-pattern-lol) |
 | Design Patterns | 設計模式 | | |
+| ***Database***| | | |
+| [How does a relational database work](http://coding-geek.com/how-databases-work/) | [如果有人问你数据库的原理，叫他看这篇文章](http://blog.jobbole.com/100349/) | v | |
 | ***Computer Science*** |
 | How Program Works | 程序是怎樣跑起來的 | | |
 | Compilers: Principles, Techniques, and Tools | 編譯系統設計 | | |
@@ -30,7 +32,6 @@
 | The Phoenix Project | 鳳凰項目：一個IT運維的傳奇故事 | v | null |
 | Continuous Delivery | Continuous Delivery 中文版 | | |
 | Domain-Driven Design: Tackling Complexity in the Heart of Software | 領域驅動設計 |
-|  |
 | Software Architecture in Practice | 軟件構架實踐 |  |  |
 | Patterns of Enterprise Application Architecture | 企业应用架构模式 |  |  |
 | ***Programmer*** |
@@ -55,12 +56,14 @@
 | Modern PHP | 現代 PHP：新的特點及良好習慣 | v | null |
 | Laravel: From Apprentice To Artisan | [Laravel - 从百草园到三味书屋](https://my.oschina.net/zgldh/blog/389246) | | |
 | ***Golang*** |
+| [Go coding in go way](http://tonybai.com/2017/04/20/go-coding-in-go-way/) | Go语言编程思维去写Go代码 | v | [連結](http://dinolai.com/notes/golang/golang-write-beautiful-code) |
 | [Effective Go](https://golang.org/doc/effective_go.html) | | reading | |
 | |Go at Google：Go語言實際上手| reading | |
 | ***Management*** |||
 | The Goal: A Process of Ongoing Improvement | 目標：簡單有效的常識管理 |||
 | The Silo Effect | 穀倉效應 | reading |  |
 | | 激發員工潛力的薩提爾教練模式 | v | null |
+| Thinking in Systems | 系統思考 | reading | |
 
 ## Reference
 
