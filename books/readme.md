@@ -34,6 +34,7 @@
 | Domain-Driven Design: Tackling Complexity in the Heart of Software | 領域驅動設計 |
 | Software Architecture in Practice | 軟件構架實踐 |  |  |
 | Patterns of Enterprise Application Architecture | 企业应用架构模式 |  |  |
+| [The Twelve-Factor App](https://12factor.net/) | | v | [連結](http://www.xmind.net/m/yCCT) |
 | ***Programmer*** |
 | Apprenticeship Patterns: Guidance for the Aspiring Software Craftsman | 學徒模式－優秀軟體開發者的養成之路 | v | [連結](https://www.facebook.com/photo.php?fbid=10208018161505524&set=pb.1043153060.-2207520000.1461484776.&type=3&theater) |
 | The Clean Coder | 無瑕的程式碼番外篇 | v | null |
