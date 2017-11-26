@@ -1,5 +1,16 @@
 # Golang testing and httptest Package
 
+* [Test Full Command Example](#test-full-command-example)
+* [TestMain](#testmain)
+  * [Example](#example)
+* [t.Log() and t.Logf()](#tlog-and-tlogf)
+* [httptest: End to End HTTP Testing](#httptest-end-to-end-http-testing)
+  * [Example](#example-1)
+    * [main.go](#maingo)
+    * [main_test.go](#main_testgo)
+* [Ignore File from Test Coverage](#ignore-file-from-test-coverage)
+* [Reference](#reference)
+
 ## Test Full Command Example
 
 * Test
@@ -158,8 +169,32 @@ func main() {
 	}
 	```
 
+## Ignore File from Test Coverage
+
+Use [Build Tag](https://golang.org/pkg/go/build/#hdr-Build_Constraints)
+
+* add tags on the top of file, **must have the `line break` between tags and package.**
+
+	```go
+	//+build !test
+
+	package main
+
+	func main() {
+		// codes
+	}
+	```
+
+* add `-tags` flag when test with coverage
+
+	```bash
+	$ go test -cover -tags test
+	ok      github.com/dinos80152/golang-lab/main    0.142s  coverage: 100% of statements
+	```
+
 ## Reference
 
 * [Main - Package testing](https://golang.org/pkg/testing/#hdr-Main)
 * [Package httptest](https://golang.org/pkg/net/http/httptest/)
 * [Testing Techniques](https://talks.golang.org/2014/testing.slide)
+* [Ignore code blocks in Golang test coverage calculation](https://stackoverflow.com/questions/25511076/ignore-code-blocks-in-golang-test-coverage-calculation)
