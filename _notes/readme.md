@@ -68,6 +68,7 @@
 
 |Title | Updated Date |
 |------|------------|
+| [Authorization Models: ACL, DAC, MAC, RBAC, ABAC](/notes/others/authorization-models-acl-dac-mac-rbac-abac.html) | 2017-12-31 |
 | [軟體工程師相關台灣勞動基準法](/notes/others/taiwan-labor-standard-act-for-developer.html) | 2017-09-11 |
 | [Designer, Software, System Engineers Relationship](/notes/others/designer-software-system-engineers-relationship.html) | 2017-07-29 |
 | [Learning Resources](/notes/others/learning-resources.html) | 2017-05-30 |
