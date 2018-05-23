@@ -6,22 +6,24 @@
 | The Mythical Man-Month | 人月神話 | v | null |
 | Joel on Software | 約耳趣談軟體：來自專案管理的現場實錄 | | |
 | More Joel on Software | 約耳續談軟體：探究軟體經營的根本實學 | | |
-| Peopleware: Productive Projects and Teams | Peopleware：腦力密集產業的人才管理之道(增訂版) | v | null |
 | ***Programming*** |||
 |  | 代碼之髓 | v | null |
-| The Art of Readable Code| 易讀程式之美學 | v | [連結](https://github.com/dinoistheboss/dinoistheboss.github.io) |
+| The Art of Readable Code| 易讀程式之美學 | v | [Link](https://github.com/sehowju/The-Art-of-Readable-Code) |
 | Code Craft | 編程創藝 : 編寫出卓越的程式碼 | | |
 | Code Complete | 軟體建構之道 | | |
 | Agile Software Development: Principles, Patterns, and Practices | 敏捷軟體開發，原則、樣式及實務 |  |  |
 | Clean Code | 無暇的程式碼 | v | null |
-| Implementation Patterns | Kent Beck 的實作模式 | v | [連結](https://www.facebook.com/photo.php?fbid=10207376791831683&set=a.10206889123960291&type=3&theater) |
+| Implementation Patterns | Kent Beck 的實作模式 | v | [Link](https://www.facebook.com/photo.php?fbid=10207376791831683&set=a.10206889123960291&type=3&theater) |
+| The Art of Unit Testing | 單元測試的藝術 | reading | [Link](https://github.com/sehowju/The-Art-of-Unit-Testing) |
+| Clean Architecture | 無瑕的程式碼：整潔的軟體設計與架構篇 | | |
 | **Data Structure & Algorithms** ||||
-| Introduction to Algorithms |算法導論 | | |
+| Introduction to Algorithms | 算法導論 | | |
+| Programming Pearls | 编程珠玑 | | |
 | **Refactor** |
 | Working Effectively with Legacy Code | 修改代碼的藝術 | | |
 | Refactoring: Improving the Design of Existing Code | 重構：改善既有程式的設計 | | |
 | Refactoring to Patterns | 重構--向範式前進 |  |  |
-| Head First Design Patterns | 深入淺出設計模式 | v | [連結](https://github.com/dinos80152/php-design-pattern-lol) |
+| Head First Design Patterns | 深入淺出設計模式 | v | [Link](https://github.com/dinos80152/php-design-pattern-lol) |
 | Design Patterns | 設計模式 | | |
 | ***Database***| | | |
 | [How does a relational database work](http://coding-geek.com/how-databases-work/) | [如果有人问你数据库的原理，叫他看这篇文章](http://blog.jobbole.com/100349/) | v | |
@@ -34,11 +36,11 @@
 | Domain-Driven Design: Tackling Complexity in the Heart of Software | 領域驅動設計 |
 | Software Architecture in Practice | 軟件構架實踐 |  |  |
 | Patterns of Enterprise Application Architecture | 企业应用架构模式 |  |  |
-| [The Twelve-Factor App](https://12factor.net/) | | v | [連結](http://www.xmind.net/m/yCCT) |
+| [The Twelve-Factor App](https://12factor.net/) | | v | [Link](http://www.xmind.net/m/yCCT) |
 | ***Programmer*** |
-| Apprenticeship Patterns: Guidance for the Aspiring Software Craftsman | 學徒模式－優秀軟體開發者的養成之路 | v | [連結](https://www.facebook.com/photo.php?fbid=10208018161505524&set=pb.1043153060.-2207520000.1461484776.&type=3&theater) |
+| Apprenticeship Patterns: Guidance for the Aspiring Software Craftsman | 學徒模式－優秀軟體開發者的養成之路 | v | [Link](https://www.facebook.com/photo.php?fbid=10208018161505524&set=pb.1043153060.-2207520000.1461484776.&type=3&theater) |
 | The Clean Coder | 無瑕的程式碼番外篇 | v | null |
-| The Pragmatic Programmer |程序員修煉之道︰從小工到專家 | | |
+| The Pragmatic Programmer |程序員修煉之道︰從小工到專家 | reading | |
 | Soft Skills: The software developer’s life manual | | | |
 | The Productive Programmer | 程式設計師提升生產力之秘笈 | v | null |
 | The Zen Programmer | 程式設計師之禪 | v | null |
@@ -57,14 +59,16 @@
 | Modern PHP | 現代 PHP：新的特點及良好習慣 | v | null |
 | Laravel: From Apprentice To Artisan | [Laravel - 从百草园到三味书屋](https://my.oschina.net/zgldh/blog/389246) | | |
 | ***Golang*** |
-| [Go coding in go way](http://tonybai.com/2017/04/20/go-coding-in-go-way/) | Go语言编程思维去写Go代码 | v | [連結](http://dinolai.com/notes/golang/golang-write-beautiful-code) |
+| [Go coding in go way](http://tonybai.com/2017/04/20/go-coding-in-go-way/) | Go语言编程思维去写Go代码 | v | [Link](http://dinolai.com/notes/golang/golang-write-beautiful-code) |
 | [Effective Go](https://golang.org/doc/effective_go.html) | | reading | |
 | |Go at Google：Go語言實際上手| reading | |
 | ***Management*** |||
+| Peopleware: Productive Projects and Teams | Peopleware：腦力密集產業的人才管理之道(增訂版) | v | null |
 | The Goal: A Process of Ongoing Improvement | 目標：簡單有效的常識管理 |||
-| The Silo Effect | 穀倉效應 | reading |  |
+| The Silo Effect | 穀倉效應 | abandoned |  |
 | | 激發員工潛力的薩提爾教練模式 | v | null |
 | Thinking in Systems | 系統思考 | reading | |
+| The Fifth Discipline: The Art & Practice of The Learning Organization | 第五項修練: 學習型組織的藝術與實務 | | |
 
 ## Reference
 
@@ -75,3 +79,4 @@
 * [计算机领域的日系书籍](http://droidyue.com/blog/2016/04/19/japanese-it-books/)
 * [What is the single most influential book every programmer should read?@stackoverflow](http://stackoverflow.com/questions/1711/what-is-the-single-most-influential-book-every-programmer-should-read?page=1&tab=votes#tab-top)
 * [程序员技术练级攻略@coolshell](http://coolshell.cn/articles/4990.html)
+* [Management 3.0 Recommended Books@goodreads](https://www.goodreads.com/list/show/24271.Management_3_0_Recommended_Books)
