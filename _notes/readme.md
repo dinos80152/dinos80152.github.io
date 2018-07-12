@@ -1,5 +1,11 @@
 # Note List
 
+## Books
+
+|Title | Updated Date |
+|------|------------|
+| [目標：簡單有效的常識管理](/notes/books/the-goal.html) | 2018-07-12 |
+
 ## Database
 
 |Title | Updated Date |
