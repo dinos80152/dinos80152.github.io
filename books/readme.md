@@ -64,7 +64,7 @@
 | |Go at Google：Go語言實際上手| reading | |
 | ***Management*** |||
 | Peopleware: Productive Projects and Teams | Peopleware：腦力密集產業的人才管理之道(增訂版) | v | null |
-| The Goal: A Process of Ongoing Improvement | 目標：簡單有效的常識管理 |||
+| The Goal: A Process of Ongoing Improvement | 目標：簡單有效的常識管理 | v | [Link](http://dinolai.com/notes/books/the-goal.html) |
 | The Silo Effect | 穀倉效應 | abandoned |  |
 | | 激發員工潛力的薩提爾教練模式 | v | null |
 | Thinking in Systems | 系統思考 | reading | |
