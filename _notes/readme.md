@@ -108,6 +108,7 @@
 
 |Title | Updated Date |
 |------|------------|
+| [JWT - JSON Web Token](/notes/web/jwt.html) | 2018-09-26 |
 | [Google Custom Search](/notes/web/google-custom-search.html) | 2017-05-04 |
 | [網站開發專有名詞 For Product Manager](/notes/web/web-proper-noun.html) | 2017-05-04 |
 | [HTML Input hidden defaultValue vs. value with jQuery val() vs. attr()](/notes/web/html-input-hidden-defaultvalue-vs-value-with-jquery-val-vs-attr.html) | 2017-04-13 |

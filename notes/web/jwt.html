@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Personal Web Site include Blogs, Tutorials and Code">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>Mac - Dinote</title>
+    <title>JWT - JSON Web Token - Dinote</title>
     <!-- Facebook Open Graph -->
     <meta property="og:url" content="http://dinolai.com/" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Mac - Dinote" />
+    <meta property="og:title" content="JWT - JSON Web Token - Dinote" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
     <!-- End Facebook Open Graph -->
@@ -67,50 +67,152 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2017-04-22 17:34:57 CST +08</header>
+                    <header>Updated: 2018-09-26 02:10:49 CST +08</header>
                     <main>
-                        <h1 id="mac">Mac</h1>
+                        <h1 id="jwt-json-web-token">JWT - JSON Web Token</h1>
 
-<h2 id="key-repeat">Key Repeat</h2>
+<h2 id="purpose">Purpose</h2>
 
-<p>Mac OS hold key down is show special char default, to change to repeat input char.</p>
+<p>Store data in client side, which could be read by can&rsquo;t be modified.</p>
 
 <ul>
-<li><p>Enable Key Repeat</p>
-
-<pre><code class="language-bash">defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
-</code></pre></li>
-
-<li><p>Disable Key Repeat</p>
-
-<pre><code class="language-bash">defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool true
-</code></pre></li>
-
-<li><p>Adjust key repeat speed</p>
-
-<ol>
-<li>System Preferences</li>
-<li>Keyboard</li>
-<li>Key Repeat</li>
-</ol></li>
+<li>Authentication</li>
+<li>Authorization</li>
 </ul>
 
-<h2 id="path">Path</h2>
+<h2 id="structure">Structure</h2>
 
-<ol>
-<li><p>change dir to paths.d</p>
+<p><code>base64(header).base64(payload).signature</code></p>
 
-<pre><code class="language-bash">/ect/paths.d/
-</code></pre></li>
+<p>eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9<strong>.</strong>eyJpc3MiOiJEaW5vIExhaSIsInN1YiI6ImRpbm9zODAxNTJAZ21haWwuY29tIiwiYXVkIjoiZGlub2xhaS5jb20iLCJleHAiOjE1MzczNTcyNjIsImlhdCI6MTUzNzM1NzE2MiwidXNlcklkIjo4MDE1Mn0<strong>.</strong>YaLyoBs8z5Va7YsIQaC6uEZDw8GZHBiV_2hIUSVQYUs</p>
 
-<li><p>add path file, name &ldquo;go&rdquo;</p>
+<h3 id="header">Header</h3>
 
-<pre><code class="language-bash">#go
-/usr/local/go/bin
-</code></pre></li>
+<pre><code class="language-json">{
+    &quot;alg&quot;: &quot;HS256&quot;, // algorithm
+    &quot;typ&quot;: &quot;JWT&quot; // type
+}
+</code></pre>
 
-<li><p>save file, and restart terminal</p></li>
-</ol>
+<h3 id="payload">Payload</h3>
+
+<pre><code class="language-json">{
+    &quot;iss&quot;: &quot;Dino Lai&quot;, // issuer
+    &quot;sub&quot;: &quot;dinos80152@gmail.com&quot;, // subject
+    &quot;aud&quot;: &quot;dinolai.com&quot;, // audience
+    &quot;exp&quot;: 1537357262, // expiration time
+    &quot;iat&quot;: 1537357162, // issued at
+    &quot;userId&quot;: 80152 // custom field
+}
+</code></pre>
+
+<h3 id="signature">Signature</h3>
+
+<p>Encrypt by algorithm defined in header</p>
+
+<pre><code class="language-sh">HmacSHA256(base64(header)+&quot;.&quot;+base64(payload), $secret)
+</code></pre>
+
+<h2 id="flow">Flow</h2>
+
+<pre><code class="language-mermaid">sequenceDiagram
+Client-&gt;&gt;Auth Server: login
+Auth Server-&gt;&gt;Auth Server: authenticate
+Auth Server-&gt;&gt;Auth Server: get user id
+opt Generate JWT
+    Auth Server-&gt;&gt;Auth Server: get JWT header
+    note right of Auth Server: {&quot;alg&quot;: &quot;HS256&quot;, &quot;typ&quot;: &quot;JWT&quot;}
+    Auth Server-&gt;&gt;Auth Server: base64 encode JWT header
+    note right of Auth Server: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+    Auth Server-&gt;&gt;Auth Server: put user id in JWT payload
+    note right of Auth Server: {&quot;iss&quot;: &quot;Dino Lai&quot;, &quot;sub&quot;: &quot;dinos80152@gmail.com&quot;, &quot;aud&quot;: &quot;dinolai.com&quot;, &quot;exp&quot;: 1537357262, &quot;iat&quot;: 1537357162 ,&quot;userId&quot;: 80152}
+    Auth Server-&gt;&gt;Auth Server: base64 encode JWT payload
+    note right of Auth Server: eyJpc3MiOiJEaW5vIExhaSIsInN1YiI6ImRpbm9zODAxNTJAZ21haWwuY29tIiwiYXVkIjoiZGlub2xhaS5jb20iLCJleHAiOjE1MzczNTcyNjIsImlhdCI6MTUzNzM1NzE2MiwidXNlcklkIjo4MDE1Mn0
+    Auth Server-&gt;&gt;Auth Server: generate signature: HS256(base64(header)+&quot;.&quot;+base64(payload), secret)
+    note right of Auth Server:  lNSYE_dZuNPCjCf9ybMfIDiUJ4CXFZCqOn5zpJ5oqPY
+    Auth Server-&gt;&gt;Auth Server: put it all together by [header].[payload].[signature]
+    note right of Auth Server: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.&lt;br/&gt;eyJpc3MiOiJEaW5vIExhaSIsInN1YiI6ImRpbm9zODAxNTJAZ21haWwuY29tIiwiYXVkIjoiZGlub2xhaS5jb20iLCJleHAiOjE1MzczNTcyNjIsImlhdCI6MTUzNzM1NzE2MiwidXNlcklkIjo4MDE1Mn0.&lt;br/&gt;YaLyoBs8z5Va7YsIQaC6uEZDw8GZHBiV_2hIUSVQYUs
+end
+alt cookie
+    Auth Server-&gt;&gt;Client: send cookie with JWT
+    note over Client, Auth Server: set-cookie: jwt=xxx, Http-only, max-age=...
+else header
+    Auth Server-&gt;&gt;Client: response with header
+    note over Client, Auth Server: Authorization: Bearer &lt;jwt&gt;
+end
+Client-&gt;&gt;Application Server: request with JWT
+opt verify JWT
+    Application Server-&gt;&gt;Application Server: check signature to prevent data tamper
+    note left of Application Server: generate signature by header and payload,&lt;br/&gt; is the same as request signature?
+    Application Server-&gt;&gt;Application Server: check expiration
+    note right of Application Server: check exp field in payload
+    Application Server-&gt;&gt;Application Server: check owner
+    note right of Application Server: check aud field in payload
+end
+alt is Fail
+    Application Server-&gt;&gt;Client: 401 UNAUTHORIZED
+else is OK
+    Application Server-&gt;&gt;Application Server: read user id from JWT
+end
+</code></pre>
+
+<h2 id="comparison">Comparison</h2>
+
+<table>
+<thead>
+<tr>
+<th>Comparison</th>
+<th>JWT</th>
+<th>Cookie</th>
+<th>Session</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Side</td>
+<td>Client</td>
+<td>Client</td>
+<td>Server</td>
+</tr>
+
+<tr>
+<td>Visible</td>
+<td>✓</td>
+<td>✓</td>
+<td>☓</td>
+</tr>
+
+<tr>
+<td>Tamper</td>
+<td>☓</td>
+<td>✓</td>
+<td>☓</td>
+</tr>
+
+<tr>
+<td>Identify</td>
+<td>✓</td>
+<td>☓</td>
+<td>✓</td>
+</tr>
+
+<tr>
+<td>additional resource</td>
+<td>spend computing for en/decode, encrypt</td>
+<td></td>
+<td>diskIO or network IO</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="reference">Reference</h2>
+
+<ul>
+<li><a href="https://jwt.io/">JSON Web Tokens - jwt.io</a></li>
+<li><a href="http://blog.leapoahead.com/2015/09/06/understanding-jwt/">JSON Web Token - 在Web应用间安全地传递信息</a></li>
+<li><a href="http://blog.leapoahead.com/2015/09/07/user-authentication-with-jwt/">八幅漫画理解使用JSON Web Token设计单点登录系统</a></li>
+</ul>
 
                         <gcse:searchresults-only></gcse:searchresults-only>
                     </main>

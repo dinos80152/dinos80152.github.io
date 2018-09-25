@@ -430,6 +430,7 @@ ok      github.com/dinos80152/golang-lab/main    0.142s  coverage: 100% of state
 <script src="/bower_components/js-sequence-diagrams/dist/sequence-diagram-min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.6/flowchart.min.js"></script>
+<script src="https://unpkg.com/mermaid@8.0.0-rc.8/dist/mermaid.min.js"></script>
 <script>
     $(document).ready(function () {
         // enable highlight.js
@@ -454,6 +455,9 @@ ok      github.com/dinos80152/golang-lab/main    0.142s  coverage: 100% of state
             element.id = id;
             flowchart.parse(md).drawSVG(id);
         }, this);
+
+        // use mermaid
+        mermaid.init(undefined, $("pre code.language-mermaid"));
 
         // navbar button active highlight
         $("div#navbar div.row ul.nav li").removeClass("active");
