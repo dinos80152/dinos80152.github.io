@@ -11,7 +11,7 @@ Store data in client side, which could be read by can't be modified.
 
 `base64(header).base64(payload).signature`
 
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9**.**eyJpc3MiOiJEaW5vIExhaSIsInN1YiI6ImRpbm9zODAxNTJAZ21haWwuY29tIiwiYXVkIjoiZGlub2xhaS5jb20iLCJleHAiOjE1MzczNTcyNjIsImlhdCI6MTUzNzM1NzE2MiwidXNlcklkIjo4MDE1Mn0**.**YaLyoBs8z5Va7YsIQaC6uEZDw8GZHBiV_2hIUSVQYUs
+> eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9**.**eyJpc3MiOiJEaW5vIExhaSIsInN1YiI6ImRpbm9zODAxNTJAZ21haWwuY29tIiwiYXVkIjoiZGlub2xhaS5jb20iLCJleHAiOjE1MzczNTcyNjIsImlhdCI6MTUzNzM1NzE2MiwidXNlcklkIjo4MDE1Mn0**.**YaLyoBs8z5Va7YsIQaC6uEZDw8GZHBiV_2hIUSVQYUs
 
 ### Header
 
