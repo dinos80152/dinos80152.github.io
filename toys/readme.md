@@ -16,11 +16,17 @@
 
 A simple BASH script to install XMind on Debian/Ubuntu 32/64 bit, include Launcher, MIME type link and icon.
 
+## Mega Link Decrypter
+
+[Demo](http://dinos80152.github.io/toys/mega-link-decrypter.html)
+
+Decrypt links encrypted by megadownloader
+
 ## Ladder Game
 
 [Demo](http://dinos80152.github.io/toys/ladder.html)
 
-javascript 寫的爬梯子遊戲
+javascript, svg 寫的爬梯子遊戲
 
 ## Real Time Polls
 
