@@ -17,7 +17,7 @@ http://megadownloaderapp.blogspot.com/2013/03/explaining-mega-links.html
 <body>
     <header>
         <h1>Mega Link Decrypter</h1>
-        <h2>Decipher <code>mega://enc?</code> or <code>mega://enc2?</code> links</h2>
+        <h2>Decipher <code>mega://(f)enc?</code> or <code>mega://(f)enc2?</code> links</h2>
     </header>
     <main>
         <section>
@@ -74,17 +74,23 @@ http://megadownloaderapp.blogspot.com/2013/03/explaining-mega-links.html
         // example:
         // version 1
         // mega://enc?sjh3hoftyW8m5MmJDKW1c4TApgdMHLa2t7vtGQnag8VhGElc7r2JMrOdLqX0qpGR-MIqFh0jjxR0-NlAKxAuTQ
+        // mega://fenc?ahc5Kx7gP-41l8GlalamcPAq9GqCMIALVCUNgvmKLh8BOwFYBaxWRkN-vsHFmOwo
         // version 2
         // mega://enc2?VdFBBVBv_AUzfGCkXt_Qrw5pC0PjzWzj3trelIvZZ4fRNuVo5GVeyepiMWqNb08eQUOk1sBvU0UqXriiOnnaVw
+        // mega://fenc2?6Bn4WcYTWhHDGfi7WnrnTwOukwhWy6Q1UPtKeARrrkL1Dt5Kyrt0w2XaCPYy9Htf
         var decryptURL = function (url) {
-            var rootURL= "https://mega.co.nz/#";
+            var rootURL= "https://mega.nz/#";
+            var isFolder = url.charAt(7) === "f" ? true : false;
+            if (isFolder) {
+                rootURL += "F"
+            }
             var urlpatterns = {
                 megadownloaderapp: {
-                    regexp: new RegExp("mega://enc?\\?([A-Za-z0-9-_,]+)", 'i'),
+                    regexp: new RegExp("mega://f?enc?\\?([A-Za-z0-9-_,]+)", 'i'),
                     process: megadownloaderappDecrypt
                 },
                 megadownloaderapp2: {
-                    regexp: new RegExp("mega://enc2?\\?([A-Za-z0-9-_,]+)", 'i'),
+                    regexp: new RegExp("mega://f?enc2?\\?([A-Za-z0-9-_,]+)", 'i'),
                     process: megadownloaderappDecrypt2
                 }
             };
