@@ -21,6 +21,13 @@
         <!--[if lt IE 9]>
         <script src="lib/js/html5shiv.js"></script>
         <![endif]-->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
     </head>
 
     <body>
@@ -38,29 +45,36 @@
 * Github: https://github.com/dinos80152
 * LinkedIn: https://www.linkedin.com/in/dinolai
 
-2017.08.16
+2018.11.30
 
 
 
 # 工作經歷
 
+* mlytics 軟體工程師
 * 自由軟體開發者
 * Garena 技術部門手遊組組長
 * Garena 網路應用工程師
 
 
+## mlytics 軟體工程師
+
+開發與架構雲端 Saas 服務，採用微服務架構, 容器化技術, Restful, API gateway, Messaging and Workflow.
+
+* Integrated Multiple CDN Providers with self-hosting DNS and self-hosting WAF.
+* Developed microservices with unit tests and integration tests by Golang, PostgreSQL,
+Redis, Kafka, and Elasticsearch.
+* Assisted in DevOps like Git, Docker, Kubernetes, Jenkins and automated testing.
+* Assisted in building logging and monitoring system by Prometheus, Grafana, and ELK.
+
+
 ## 自由軟體開發者
+
 * Ptt Alertor
   * 個人化設定條件，透過各平台 Bot 即時通知
-  * 6500 註冊用戶，4000 用戶使用中
+  * 15000 註冊用戶，10000 用戶使用中
   * Golang, AWS, Redis
   * Travis CI, Docker, ELK
-* Personal Website
-  * 靜態網站產生器 by golang
-  * Write Markdown, Generate HTML
-* Self Learning
-  * Design Pattern
-  * Regular Expression
 
 
 ## Ptt Alertor
@@ -68,14 +82,9 @@
 ![pttalertor](https://farm5.staticflickr.com/4431/36545026396_bbbfc02d3d_h.jpg)<!-- .element height="40%" width="35%" -->
 
 
-## dinolai.com
-
-![dinolai.com](https://farm5.staticflickr.com/4405/36453556861_86d4402a1e_b.jpg)<!-- .element height="40%" width="75%" -->
-
-
 ## Garena 技術部門手遊組組長
 
-* 帶領三到五位開發人員
+* 帶領三到五位開發人員負責七款手遊、兩個核心業務
 * 改善開發流程
   * 導入 Srcum 與 Kanban 方法
   * 導入 DevOps 工具與流程，Gitlab, Jenkins, ELK
@@ -84,6 +93,7 @@
   * Google Analytics
   * 技術專有名詞 for PM
 * 建置內部私有套件庫 Satis、撰寫公用套件
+* [程式設計社團](http://dinolai.com/slides/autohotkey.html#/)
 
 
 ## Garena 網路應用工程師
@@ -109,8 +119,9 @@
   * 農場助手、包車司機
 
 * 宜蘭深溝國小教育替代役
-  * 特教班課輔暑期才藝老師
+  * 學校資訊系統軟硬體維護
   * 深溝國小校友通訊錄
+  * 特教班課輔暑期才藝老師
 
 
 ## 深溝國小校友通訊錄
@@ -125,14 +136,19 @@
 
 * 國立中央大學，資訊管理碩士
   * 以色彩特徵權重建立相片搜尋輔助系統之研究
+  * 國科會：主機板式智慧型輕量化移動載具前瞻技術
   * MoneyOK
-  * AvBody
 * 國立嘉義大學，資訊管理學士
   * 以循序式探勘實作之網站推薦系統－以奇摩新聞為例
   * 國民電腦關懷天使
+  * 系上計算機中心系統管理員
+  * 系上 OOP 競賽第二名
+  * 系上 SA/D 專案競賽第三名
+  * 系上 OS 專案競賽第四名
 
 
 ## MoneyOK
+
 * ExtJS
 * Java Spring, Hibernate
 
@@ -148,11 +164,15 @@
 
 # 其它經歷
 
-* [社群活動](https://www.flickr.com/photos/dinolai/albums/72157681332762750)
 * 2015 Agile Conf 志工
-* [讀書會](https://www.flickr.com/photos/dinolai/albums/72157681332762750)
-* [程式設計社團](http://dinolai.com/slides/autohotkey.html#/)
+* [社群活動](https://www.flickr.com/photos/dinolai/albums/72157681332762750)
+* [讀書會](https://github.com/sehowju)
 * Ptt EZsoft 板工
+* Open source contributor
+  * gorm
+  * gormigrate
+  * aliyungo
+  * Golang GitHub wiki
 
 
 ## 2015 Agile Conf 志工
