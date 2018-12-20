@@ -67,7 +67,7 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2017-11-27 01:41:46 CST +08</header>
+                    <header>Updated: 2017-11-27 01:44:21 CST +08</header>
                     <main>
                         <h1 id="golang-testing-and-httptest-package">Golang testing and httptest Package</h1>
 
@@ -141,26 +141,26 @@
 <h3 id="example">Example</h3>
 
 <pre><code class="language-go">func TestMain(m *testing.M) {
-    setup()
-    v := m.Run() // run testing
+	setup()
+	v := m.Run() // run testing
     teardown()
-    os.Exit(v)
+	os.Exit(v)
 }
 
 func setup() {
-    fmt.Println(&quot;before testing&quot;)
+	fmt.Println(&quot;before testing&quot;)
 }
 
 func teardown() {
-    fmt.Println(&quot;after testing&quot;)
+	fmt.Println(&quot;after testing&quot;)
 }
 </code></pre>
 
 <h2 id="t-log-and-t-logf">t.Log() and t.Logf()</h2>
 
 <pre><code class="language-go">func TestFunc(t *testing.T) {
-    t.Log(&quot;Print Something&quot;)
-    t.Logf(&quot;Print %s&quot;, str)
+	t.Log(&quot;Print Something&quot;)
+	t.Logf(&quot;Print %s&quot;, str)
 }
 </code></pre>
 
@@ -183,17 +183,17 @@ func teardown() {
 <h4 id="main-go">main.go</h4>
 
 <pre><code class="language-go">func nameHandler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, &quot;%s&quot;, &quot;dinolai&quot;)
+	fmt.Fprintf(w, &quot;%s&quot;, &quot;dinolai&quot;)
 }
 
 func router() *http.ServeMux {
-    h := http.NewServeMux()
-    h.HandleFunc(&quot;/name&quot;, nameHandler)
-    return h
+	h := http.NewServeMux()
+	h.HandleFunc(&quot;/name&quot;, nameHandler)
+	return h
 }
 
 func main() {
-    http.ListenAndServe(&quot;:8080&quot;, router())
+	http.ListenAndServe(&quot;:8080&quot;, router())
 }
 
 </code></pre>
