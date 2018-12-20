@@ -1,11 +1,14 @@
 package pkg
 
 import (
+	"fmt"
 	"io/ioutil"
 	"os"
+	"os/exec"
 	"path"
 	"strings"
 	"text/template"
+	"time"
 
 	"github.com/russross/blackfriday"
 )
@@ -23,6 +26,8 @@ type Note struct {
 	outputDir      string
 	fi             os.FileInfo
 	outputBaseName string
+	baseName       string
+	filePath       string
 }
 
 type NoteList map[string][]*Note
@@ -33,12 +38,13 @@ func NewNote(sourceDir, outputDir string, fi os.FileInfo, outputBaseName string)
 	note.outputDir = outputDir
 	note.fi = fi
 	note.outputBaseName = outputBaseName
+	note.baseName = fi.Name()
+	note.filePath = path.Join(sourceDir, note.baseName)
 	return note
 }
 
 func (nt *Note) ToHTML() {
-	baseName := nt.fi.Name()
-	input, _ := ioutil.ReadFile(path.Join(nt.sourceDir, baseName))
+	input, _ := ioutil.ReadFile(nt.filePath)
 	output := markdown(input)
 	content := string(output)
 
@@ -48,12 +54,18 @@ func (nt *Note) ToHTML() {
 	nt.Title = title
 	nt.Content = content
 	nt.Category = nt.outputDir
-	nt.UpdatedAt = nt.fi.ModTime().Format("2006-01-02 15:04:05 MST Z07")
-	nt.UpdatedDate = nt.fi.ModTime().Format("2006-01-02")
+
+	t, err := nt.modifiedTime()
+	if err != nil {
+		fmt.Println(nt.filePath)
+		panic(err)
+	}
+	nt.UpdatedAt = t.Format("2006-01-02 15:04:05 MST Z07")
+	nt.UpdatedDate = t.Format("2006-01-02")
 
 	// for note
 	if nt.outputBaseName == "" {
-		nt.outputBaseName = fileName(baseName) + ".html"
+		nt.outputBaseName = nt.fileName() + ".html"
 	}
 
 	nt.Href = path.Join("/", nt.outputDir, nt.outputBaseName)
@@ -63,12 +75,25 @@ func (nt *Note) ToHTML() {
 	f, _ := os.Create(path.Join(nt.outputDir, nt.outputBaseName))
 	defer f.Close()
 
-	t, _ := template.ParseFiles(layout)
-	t.Execute(f, nt)
+	tpl, _ := template.ParseFiles(layout)
+	tpl.Execute(f, nt)
 }
 
-func fileName(baseName string) string {
-	names := strings.Split(baseName, ".")
+func (nt *Note) modifiedTime() (time.Time, error) {
+	cmd := exec.Command("git", "log", "-n 1", "--pretty=%ai", nt.filePath)
+	output, err := cmd.Output()
+	if err != nil {
+		return time.Time{}, err
+	}
+	t, err := time.Parse("2006-01-02 15:04:05 -0700", strings.TrimSpace(string(output)))
+	if err != nil {
+		return time.Time{}, err
+	}
+	return t, err
+}
+
+func (nt *Note) fileName() string {
+	names := strings.Split(nt.baseName, ".")
 	return names[0]
 }
 
