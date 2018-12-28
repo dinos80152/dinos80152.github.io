@@ -4,6 +4,7 @@ import (
 	"encoding/xml"
 	"net/url"
 	"os"
+	"sort"
 	"strconv"
 	"strings"
 	"text/template"
@@ -29,8 +30,15 @@ func NewURLSet(nl NoteList) *urlSet {
 }
 
 func (us *urlSet) createURLs(nl NoteList) {
-	for _, notes := range nl {
-		for _, note := range notes {
+	sortCategories := make([]string, len(nl))
+	i := 0
+	for category := range nl {
+		sortCategories[i] = category
+		i++
+	}
+	sort.Sort(sort.StringSlice(sortCategories))
+	for _, category := range sortCategories {
+		for _, note := range nl[category] {
 			u := &xmlURL{
 				Location:   hostURL + note.Href,
 				Lastmod:    note.UpdatedDate,

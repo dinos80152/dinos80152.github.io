@@ -91,8 +91,17 @@ func genUpdateLog() {
 		}
 	}
 
-	for key := range log {
-		logDate = append(logDate, key)
+	for _, notes := range log {
+		sort.Slice(notes, func(i, j int) bool {
+			if notes[i].Category == notes[j].Category {
+				return notes[i].Title < notes[j].Title
+			}
+			return notes[i].Category < notes[j].Category
+		})
+	}
+
+	for date := range log {
+		logDate = append(logDate, date)
 	}
 
 	sort.Sort(sort.Reverse(sort.StringSlice(logDate)))

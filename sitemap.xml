@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
+        <loc>http://dinolai.com/index.html</loc>
+        <lastmod>2018-12-28</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1</priority>
+    </url>
+    <url>
         <loc>http://dinolai.com/notes/books/the-goal.html</loc>
         <lastmod>2018-07-12</lastmod>
         <changefreq>daily</changefreq>
@@ -25,6 +31,24 @@
         <priority>0.75</priority>
     </url>
     <url>
+        <loc>http://dinolai.com/notes/database/mysql.html</loc>
+        <lastmod>2017-05-03</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.67</priority>
+    </url>
+    <url>
+        <loc>http://dinolai.com/notes/database/postgresql.html</loc>
+        <lastmod>2017-04-13</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.67</priority>
+    </url>
+    <url>
+        <loc>http://dinolai.com/notes/database/redis.html</loc>
+        <lastmod>2017-04-13</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.67</priority>
+    </url>
+    <url>
         <loc>http://dinolai.com/notes/development/object-oriented-programming.html</loc>
         <lastmod>2017-04-20</lastmod>
         <changefreq>daily</changefreq>
@@ -44,6 +68,30 @@
     </url>
     <url>
         <loc>http://dinolai.com/notes/development/user-story.html</loc>
+        <lastmod>2017-04-13</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.67</priority>
+    </url>
+    <url>
+        <loc>http://dinolai.com/notes/editor/visual-studio-code.html</loc>
+        <lastmod>2017-04-13</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.67</priority>
+    </url>
+    <url>
+        <loc>http://dinolai.com/notes/git/git.html</loc>
+        <lastmod>2017-04-13</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.67</priority>
+    </url>
+    <url>
+        <loc>http://dinolai.com/notes/git/gitlab.html</loc>
+        <lastmod>2017-04-13</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.67</priority>
+    </url>
+    <url>
+        <loc>http://dinolai.com/notes/git/movetogitlab.html</loc>
         <lastmod>2017-04-13</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.67</priority>
@@ -91,6 +139,18 @@
         <priority>0.67</priority>
     </url>
     <url>
+        <loc>http://dinolai.com/info/index.html</loc>
+        <lastmod>2017-07-29</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.75</priority>
+    </url>
+    <url>
+        <loc>http://dinolai.com/info/index.html</loc>
+        <lastmod>2017-07-29</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.75</priority>
+    </url>
+    <url>
         <loc>http://dinolai.com/notes/laravel/laravel-42-to-50.html</loc>
         <lastmod>2017-04-13</lastmod>
         <changefreq>daily</changefreq>
@@ -119,84 +179,6 @@
         <lastmod>2017-04-13</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.67</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/toys/index.html</loc>
-        <lastmod>2018-11-20</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.75</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/notes/system/aws-docker-container-cpu-high-usage.html</loc>
-        <lastmod>2017-07-22</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.67</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/notes/system/wannacrypt0r.html</loc>
-        <lastmod>2017-05-13</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.67</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/notes/system/docker.html</loc>
-        <lastmod>2017-05-03</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.67</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/notes/system/windows-shared-folder-with-virtualbox-linux.html</loc>
-        <lastmod>2017-04-26</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.67</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/notes/system/elk-elasticsearch-logstash-kibana.html</loc>
-        <lastmod>2017-04-13</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.67</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/notes/system/https.html</loc>
-        <lastmod>2017-04-13</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.67</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/notes/system/nginx-php-fpm.html</loc>
-        <lastmod>2017-04-13</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.67</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/notes/system/nginx.html</loc>
-        <lastmod>2017-04-13</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.67</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/info/index.html</loc>
-        <lastmod>2017-07-29</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.75</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/info/index.html</loc>
-        <lastmod>2017-07-29</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.75</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/index.html</loc>
-        <lastmod>2018-09-26</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>1</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/slides/index.html</loc>
-        <lastmod>2017-04-13</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.75</priority>
     </url>
     <url>
         <loc>http://dinolai.com/notes/os/mac.html</loc>
@@ -271,6 +253,72 @@
         <priority>0.67</priority>
     </url>
     <url>
+        <loc>http://dinolai.com/search/index.html</loc>
+        <lastmod>2017-05-03</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.75</priority>
+    </url>
+    <url>
+        <loc>http://dinolai.com/slides/index.html</loc>
+        <lastmod>2018-12-28</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.75</priority>
+    </url>
+    <url>
+        <loc>http://dinolai.com/notes/system/aws-docker-container-cpu-high-usage.html</loc>
+        <lastmod>2017-07-22</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.67</priority>
+    </url>
+    <url>
+        <loc>http://dinolai.com/notes/system/wannacrypt0r.html</loc>
+        <lastmod>2017-05-13</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.67</priority>
+    </url>
+    <url>
+        <loc>http://dinolai.com/notes/system/docker.html</loc>
+        <lastmod>2017-05-03</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.67</priority>
+    </url>
+    <url>
+        <loc>http://dinolai.com/notes/system/windows-shared-folder-with-virtualbox-linux.html</loc>
+        <lastmod>2017-04-26</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.67</priority>
+    </url>
+    <url>
+        <loc>http://dinolai.com/notes/system/elk-elasticsearch-logstash-kibana.html</loc>
+        <lastmod>2017-04-13</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.67</priority>
+    </url>
+    <url>
+        <loc>http://dinolai.com/notes/system/https.html</loc>
+        <lastmod>2017-04-13</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.67</priority>
+    </url>
+    <url>
+        <loc>http://dinolai.com/notes/system/nginx-php-fpm.html</loc>
+        <lastmod>2017-04-13</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.67</priority>
+    </url>
+    <url>
+        <loc>http://dinolai.com/notes/system/nginx.html</loc>
+        <lastmod>2017-04-13</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.67</priority>
+    </url>
+    <url>
+        <loc>http://dinolai.com/toys/index.html</loc>
+        <lastmod>2018-11-20</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.75</priority>
+    </url>
+    <url>
         <loc>http://dinolai.com/notes/web/jwt.html</loc>
         <lastmod>2018-09-26</lastmod>
         <changefreq>daily</changefreq>
@@ -314,56 +362,8 @@
     </url>
     <url>
         <loc>http://dinolai.com/notes/index.html</loc>
-        <lastmod>2018-09-26</lastmod>
+        <lastmod>2018-12-20</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.75</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/search/index.html</loc>
-        <lastmod>2017-05-03</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.75</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/notes/database/mysql.html</loc>
-        <lastmod>2017-05-03</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.67</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/notes/database/postgresql.html</loc>
-        <lastmod>2017-04-13</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.67</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/notes/database/redis.html</loc>
-        <lastmod>2017-04-13</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.67</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/notes/editor/visual-studio-code.html</loc>
-        <lastmod>2017-04-13</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.67</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/notes/git/git.html</loc>
-        <lastmod>2017-04-13</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.67</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/notes/git/gitlab.html</loc>
-        <lastmod>2017-04-13</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.67</priority>
-    </url>
-    <url>
-        <loc>http://dinolai.com/notes/git/movetogitlab.html</loc>
-        <lastmod>2017-04-13</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.67</priority>
     </url>
 </urlset>
