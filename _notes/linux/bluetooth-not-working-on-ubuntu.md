@@ -8,7 +8,7 @@ Turn Bluetooth on by Indicator Applet, but there are no adapters showing on Blue
 
 * Check bluetooth process, *OK*.
 
-    ```bash
+    ```shell
     $ systemctl status bluetooth
     ● bluetooth.service - Bluetooth service
     Loaded: loaded (/lib/systemd/system/bluetooth.service; enabled; vendor preset: enabled)
@@ -23,7 +23,7 @@ Turn Bluetooth on by Indicator Applet, but there are no adapters showing on Blue
 
 * Check bluetooth devices by `hciconfig`, **no device found**.
 
-    ```bash
+    ```shell
     $ hciconfig -a
     hci0:	Type: Primary  Bus: USB
         BD Address: 00:00:00:00:00:00  ACL MTU: 0:0  SCO MTU: 0:0
@@ -38,7 +38,7 @@ Turn Bluetooth on by Indicator Applet, but there are no adapters showing on Blue
 
 * Check bluetooth control interface, **no default controller available**.
 
-    ```bash
+    ```shell
     $ bluetoothctl
     Agent registered
     [bluetooth]# scan on
@@ -56,7 +56,7 @@ Turn Bluetooth on by Indicator Applet, but there are no adapters showing on Blue
 
 * Check bluetooth devices by `hciconfig` again.
 
-    ```bash
+    ```shell
     $ hciconfig -a
     hci0:	Type: Primary  Bus: USB
         BD Address: 58:00:E3:C5:C1:E8  ACL MTU: 1024:8  SCO MTU: 50:8
@@ -78,7 +78,7 @@ Turn Bluetooth on by Indicator Applet, but there are no adapters showing on Blue
 
 * Use `bluetoothctl` to manipulate bluetooth.
 
-    ```bash
+    ```shell
     $ bluetoothctl
     [NEW] Controller 58:00:E3:C5:C1:E8 ideapad-510S [default]
     [NEW] Device 00:11:67:55:66:AA Soundbody
