@@ -61,6 +61,7 @@
 
 |Title | Updated Date |
 |------|------------|
+| [Bluetooth Not Working on Ubuntu](/notes/linux/bluetooth-not-working-on-ubuntu.html) | 2018-12-31 |
 | [CentOS 7](/notes/linux/centos7.html) | 2017-04-13 |
 | [Linux](/notes/linux/linux.html) | 2017-04-13 |
 
