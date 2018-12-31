@@ -169,6 +169,12 @@
         <priority>0.67</priority>
     </url>
     <url>
+        <loc>http://dinolai.com/notes/linux/bluetooth-not-working-on-ubuntu.html</loc>
+        <lastmod>2018-12-31</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.67</priority>
+    </url>
+    <url>
         <loc>http://dinolai.com/notes/linux/centos7.html</loc>
         <lastmod>2017-04-13</lastmod>
         <changefreq>daily</changefreq>

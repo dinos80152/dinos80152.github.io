@@ -1,5 +1,9 @@
 # Last Updated
 
+## 2018-12-31
+
+* [[Linux] Bluetooth Not Working on Ubuntu](/notes/linux/bluetooth-not-working-on-ubuntu.html)
+
 ## 2018-09-26
 
 * [[Web] JWT - JSON Web Token](/notes/web/jwt.html)
