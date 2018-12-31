@@ -67,7 +67,7 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2018-12-31 21:30:50 CST +08</header>
+                    <header>Updated: 2018-12-31 21:37:51 CST +08</header>
                     <main>
                         <h1 id="bluetooth-not-working-on-ubuntu">Bluetooth Not Working on Ubuntu</h1>
 
@@ -80,7 +80,7 @@
 <ul>
 <li><p>Check bluetooth process, <em>OK</em>.</p>
 
-<pre><code class="language-bash">$ systemctl status bluetooth
+<pre><code class="language-shell">$ systemctl status bluetooth
 ● bluetooth.service - Bluetooth service
 Loaded: loaded (/lib/systemd/system/bluetooth.service; enabled; vendor preset: enabled)
 Active: active (running) since Sun 2018-12-30 01:33:45 CST; 1 day 17h ago
@@ -94,7 +94,7 @@ CGroup: /system.slice/bluetooth.service
 
 <li><p>Check bluetooth devices by <code>hciconfig</code>, <strong>no device found</strong>.</p>
 
-<pre><code class="language-bash">$ hciconfig -a
+<pre><code class="language-shell">$ hciconfig -a
 hci0:   Type: Primary  Bus: USB
     BD Address: 00:00:00:00:00:00  ACL MTU: 0:0  SCO MTU: 0:0
     DOWN
@@ -108,7 +108,7 @@ hci0:   Type: Primary  Bus: USB
 
 <li><p>Check bluetooth control interface, <strong>no default controller available</strong>.</p>
 
-<pre><code class="language-bash">$ bluetoothctl
+<pre><code class="language-shell">$ bluetoothctl
 Agent registered
 [bluetooth]# scan on
 No default controller available
@@ -126,7 +126,7 @@ $ sudo modprobe btusb
 
 <li><p>Check bluetooth devices by <code>hciconfig</code> again.</p>
 
-<pre><code class="language-bash">$ hciconfig -a
+<pre><code class="language-shell">$ hciconfig -a
 hci0:   Type: Primary  Bus: USB
     BD Address: 58:00:E3:C5:C1:E8  ACL MTU: 1024:8  SCO MTU: 50:8
     UP RUNNING
@@ -147,7 +147,7 @@ hci0:   Type: Primary  Bus: USB
 
 <li><p>Use <code>bluetoothctl</code> to manipulate bluetooth.</p>
 
-<pre><code class="language-bash">$ bluetoothctl
+<pre><code class="language-shell">$ bluetoothctl
 [NEW] Controller 58:00:E3:C5:C1:E8 ideapad-510S [default]
 [NEW] Device 00:11:67:55:66:AA Soundbody
 Agent registered
