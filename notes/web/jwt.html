@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/vs.min.css">
     <link rel="stylesheet" href="/node_modules/github-markdown-css/github-markdown.css">
     <link rel="stylesheet" href="/assets/css/layout.css">
-    <script src="/assets/js/google-analytics.js"></script>
+    <script src="/assets/js/google-tags.js"></script>
 </head>
 
 <body>
