@@ -10,7 +10,7 @@ import (
 	"text/template"
 )
 
-const hostURL string = "http://dinolai.com"
+const hostURL string = "https://dinolai.com"
 
 type urlSet struct {
 	XMLName        xml.Name `xml:"urlset"`
@@ -22,9 +22,9 @@ type urlSet struct {
 
 func NewURLSet(nl NoteList) *urlSet {
 	us := new(urlSet)
-	us.XMLNS = "http://www.sitemaps.org/schemas/sitemap/0.9"
-	us.XSI = "http://www.w3.org/2001/XMLSchema-instance"
-	us.SchemaLocation = "http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+	us.XMLNS = "https://www.sitemaps.org/schemas/sitemap/0.9"
+	us.XSI = "https://www.w3.org/2001/XMLSchema-instance"
+	us.SchemaLocation = "https://www.sitemaps.org/schemas/sitemap/0.9 https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
 	us.createURLs(nl)
 	return us
 }
