@@ -1,5 +1,9 @@
 # Last Updated
 
+## 2019-01-18
+
+* [[Linux] Make Emoji Colorful on Chrome in Ubuntu Linux](/notes/linux/make-emoji-colorful-on-chrome-in-ubuntu-linux.html)
+
 ## 2018-12-31
 
 * [[Linux] Bluetooth Not Working on Ubuntu](/notes/linux/bluetooth-not-working-on-ubuntu.html)
