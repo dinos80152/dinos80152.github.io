@@ -38,6 +38,7 @@
 * [highlight.js](https://highlightjs.org/)
 * [jsSequence](https://bramp.github.io/js-sequence-diagrams/)
 * [flowchart.js](http://flowchart.js.org/)
+* [mermaid](https://mermaidjs.github.io/)
 
 ### Integrated Tools
 
