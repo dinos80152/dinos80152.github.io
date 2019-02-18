@@ -32,6 +32,8 @@ func main() {
 	genUpdateLog()
 	readmeToIndex("./")
 	genSiteMap()
+	// find ./ -type d -exec chmod 755 {} \;
+	// find ./ -type f -exec chmod 644 {} \;
 }
 
 func cleanFolder(path string) {
