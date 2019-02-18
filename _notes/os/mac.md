@@ -1,5 +1,9 @@
 # Mac
 
+## Keyboard Shortcut
+
+* [Spectacle](https://www.spectacleapp.com/): Move and Resize Window
+
 ## Key Repeat
 
 Mac OS hold key down is show special char default, to change to repeat input char.
@@ -16,17 +20,24 @@ Mac OS hold key down is show special char default, to change to repeat input cha
     defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool true
     ```
 
+* Restart your computer
+
 * Adjust key repeat speed
   1. System Preferences
   1. Keyboard
   1. Key Repeat
+  1. Delay Until Repeat
+
+## Chinese Input
+
+* [McBopomofo](https://mcbopomofo.openvanilla.org/): for Old Style Chinese Input like 「ㄅ半」
 
 ## Path
 
 1. change dir to paths.d
 
     ```bash
-    /ect/paths.d/
+    /etc/paths.d/
     ```
 
 1. add path file, name "go"
