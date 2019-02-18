@@ -70,7 +70,7 @@
 
 |Title | Updated Date |
 |------|------------|
-| [Mac](/notes/os/mac.html) | 2017-04-22 |
+| [Mac](/notes/os/mac.html) | 2019-02-18 |
 
 ## Others
 
