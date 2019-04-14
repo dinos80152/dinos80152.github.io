@@ -48,3 +48,57 @@ Mac OS hold key down is show special char default, to change to repeat input cha
     ```
 
 1. save file, and restart terminal
+
+## System Limit
+
+### Kernel
+
+* View
+
+    ```sh
+    $sudo sysctl -a
+    ```
+
+* Adjust
+
+    ```sh
+    $sudo sysctl -w kern.maxfiles=1048600
+    $sudo sysctl -w kern.maxfilesperproc=1048576
+    ```
+
+### Open Files Limit
+
+* Check ulimit
+
+    ```sh
+    ulimit -n
+    ```
+
+#### Session
+
+* Adjust ulimit
+
+    ```sh
+    ulimit -S -n 1048576
+    ```
+
+#### System Wide
+
+* Temporarily
+
+    ```sh
+    $sudo sysctl -w fs.file-max=1048576
+    ```
+
+* Persist
+  * Add `fs.file-max=1048576` in `/etc/sysctl.conf`
+
+#### User Level
+
+* Edit `/etc/security/limits.conf`
+
+    ```bash
+    <domain>    <type>  <item>  <value>
+    dinolai     hard    nofile  4096
+    dinolai     soft    nofile  1024
+    ```
