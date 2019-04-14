@@ -67,7 +67,7 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2019-02-18 15:52:00 CST +08</header>
+                    <header>Updated: 2019-04-15 01:57:26 CST +08</header>
                     <main>
                         <h1 id="mac">Mac</h1>
 
@@ -126,6 +126,67 @@
 
 <li><p>save file, and restart terminal</p></li>
 </ol>
+
+<h2 id="system-limit">System Limit</h2>
+
+<h3 id="kernel">Kernel</h3>
+
+<ul>
+<li><p>View</p>
+
+<pre><code class="language-sh">$sudo sysctl -a
+</code></pre></li>
+
+<li><p>Adjust</p>
+
+<pre><code class="language-sh">$sudo sysctl -w kern.maxfiles=1048600
+$sudo sysctl -w kern.maxfilesperproc=1048576
+</code></pre></li>
+</ul>
+
+<h3 id="open-files-limit">Open Files Limit</h3>
+
+<ul>
+<li><p>Check ulimit</p>
+
+<pre><code class="language-sh">ulimit -n
+</code></pre></li>
+</ul>
+
+<h4 id="session">Session</h4>
+
+<ul>
+<li><p>Adjust ulimit</p>
+
+<pre><code class="language-sh">ulimit -S -n 1048576
+</code></pre></li>
+</ul>
+
+<h4 id="system-wide">System Wide</h4>
+
+<ul>
+<li><p>Temporarily</p>
+
+<pre><code class="language-sh">$sudo sysctl -w fs.file-max=1048576
+</code></pre></li>
+
+<li><p>Persist</p>
+
+<ul>
+<li>Add <code>fs.file-max=1048576</code> in <code>/etc/sysctl.conf</code></li>
+</ul></li>
+</ul>
+
+<h4 id="user-level">User Level</h4>
+
+<ul>
+<li><p>Edit <code>/etc/security/limits.conf</code></p>
+
+<pre><code class="language-bash">&lt;domain&gt;    &lt;type&gt;  &lt;item&gt;  &lt;value&gt;
+dinolai     hard    nofile  4096
+dinolai     soft    nofile  1024
+</code></pre></li>
+</ul>
 
                         <gcse:searchresults-only></gcse:searchresults-only>
                     </main>
