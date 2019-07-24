@@ -1,5 +1,9 @@
 # Last Updated
 
+## 2019-04-15
+
+* [[Os] Mac](/notes/os/mac.html)
+
 ## 2019-01-18
 
 * [[Linux] Make Emoji Colorful on Chrome in Ubuntu Linux](/notes/linux/make-emoji-colorful-on-chrome-in-ubuntu-linux.html)
@@ -81,10 +85,6 @@
 ## 2017-04-26
 
 * [[System] Windows 共用資料夾(Shared folder)至 VirtualBox Linux - 設定與自動掛載](/notes/system/windows-shared-folder-with-virtualbox-linux.html)
-
-## 2017-04-22
-
-* [[Os] Mac](/notes/os/mac.html)
 
 ## 2017-04-20
 
