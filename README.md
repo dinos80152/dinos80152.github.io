@@ -1,8 +1,12 @@
 # Last Updated
 
-## 2019-04-15
+## 2019-08-11
 
 * [[Os] Mac](/notes/os/mac.html)
+
+## 2019-07-24
+
+* [[Books] 給力 Powerful](/notes/books/powerful.html)
 
 ## 2019-01-18
 

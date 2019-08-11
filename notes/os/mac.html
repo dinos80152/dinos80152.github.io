@@ -67,7 +67,7 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2019-04-15 01:57:26 CST +08</header>
+                    <header>Updated: 2019-08-11 13:49:02 CST +08</header>
                     <main>
                         <h1 id="mac">Mac</h1>
 
@@ -77,21 +77,48 @@
 <li><a href="https://www.spectacleapp.com/">Spectacle</a>: Move and Resize Window</li>
 </ul>
 
+<h3 id="iterm-2">iTerm 2</h3>
+
+<h4 id="use-and-to-jump-forwards-backwards-words">Use ⌥ ← and ⌥ → to jump forwards / backwards words</h4>
+
+<p><a href="https://coderwall.com/p/h6yfda/use-and-to-jump-forwards-backwards-words-in-iterm-2-on-os-x">Use ⌥ ← and ⌥→ to jump forwards / backwards words in iTerm 2, on OS X@coderwall</a></p>
+
+<ol>
+<li>set left ⌥ key to act as an escape character
+
+<ol>
+<li>iterm2 &gt; preferences &gt; profile &gt; keys</li>
+<li>left ⌥ key &gt; Esc+</li>
+</ol></li>
+<li>set ⌥← to jump backwards
+
+<ol>
+<li>Keyboard Shortcut: ⌥←</li>
+<li>Action: Send Escape Sequence</li>
+<li>Esc+: b</li>
+</ol></li>
+<li>⌥ → as well</li>
+</ol>
+
 <h2 id="key-repeat">Key Repeat</h2>
 
 <p>Mac OS hold key down is show special char default, to change to repeat input char.</p>
 
 <ul>
-<li><p>Enable Key Repeat</p>
+<li>Enable Key Repeat</li>
+</ul>
 
-<pre><code class="language-bash">defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
-</code></pre></li>
+<pre><code class="language-bash">  defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+</code></pre>
 
-<li><p>Disable Key Repeat</p>
+<ul>
+<li>Disable Key Repeat</li>
+</ul>
 
-<pre><code class="language-bash">defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool true
-</code></pre></li>
+<pre><code class="language-bash">  defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool true
+</code></pre>
 
+<ul>
 <li><p>Restart your computer</p></li>
 
 <li><p>Adjust key repeat speed</p>
@@ -113,18 +140,22 @@
 <h2 id="path">Path</h2>
 
 <ol>
-<li><p>change dir to paths.d</p>
+<li>change dir to paths.d</li>
+</ol>
 
-<pre><code class="language-bash">/etc/paths.d/
-</code></pre></li>
+<pre><code class="language-bash">   /etc/paths.d/
+</code></pre>
 
-<li><p>add path file, name &ldquo;go&rdquo;</p>
+<ol>
+<li>add path file, name &ldquo;go&rdquo;</li>
+</ol>
 
-<pre><code class="language-bash">#go
-/usr/local/go/bin
-</code></pre></li>
+<pre><code class="language-bash">   #go
+   /usr/local/go/bin
+</code></pre>
 
-<li><p>save file, and restart terminal</p></li>
+<ol>
+<li>save file, and restart terminal</li>
 </ol>
 
 <h2 id="system-limit">System Limit</h2>
@@ -132,45 +163,49 @@
 <h3 id="kernel">Kernel</h3>
 
 <ul>
-<li><p>View</p>
-
-<pre><code class="language-sh">$sudo sysctl -a
-</code></pre></li>
-
-<li><p>Adjust</p>
-
-<pre><code class="language-sh">$sudo sysctl -w kern.maxfiles=1048600
-$sudo sysctl -w kern.maxfilesperproc=1048576
-</code></pre></li>
+<li>View</li>
 </ul>
+
+<pre><code class="language-sh">  $sudo sysctl -a
+</code></pre>
+
+<ul>
+<li>Adjust</li>
+</ul>
+
+<pre><code class="language-sh">  $sudo sysctl -w kern.maxfiles=1048600
+  $sudo sysctl -w kern.maxfilesperproc=1048576
+</code></pre>
 
 <h3 id="open-files-limit">Open Files Limit</h3>
 
 <ul>
-<li><p>Check ulimit</p>
-
-<pre><code class="language-sh">ulimit -n
-</code></pre></li>
+<li>Check ulimit</li>
 </ul>
+
+<pre><code class="language-sh">  ulimit -n
+</code></pre>
 
 <h4 id="session">Session</h4>
 
 <ul>
-<li><p>Adjust ulimit</p>
-
-<pre><code class="language-sh">ulimit -S -n 1048576
-</code></pre></li>
+<li>Adjust ulimit</li>
 </ul>
+
+<pre><code class="language-sh">  ulimit -S -n 1048576
+</code></pre>
 
 <h4 id="system-wide">System Wide</h4>
 
 <ul>
-<li><p>Temporarily</p>
+<li>Temporarily</li>
+</ul>
 
-<pre><code class="language-sh">$sudo sysctl -w fs.file-max=1048576
-</code></pre></li>
+<pre><code class="language-sh">  $sudo sysctl -w fs.file-max=1048576
+</code></pre>
 
-<li><p>Persist</p>
+<ul>
+<li>Persist
 
 <ul>
 <li>Add <code>fs.file-max=1048576</code> in <code>/etc/sysctl.conf</code></li>
@@ -180,13 +215,13 @@ $sudo sysctl -w kern.maxfilesperproc=1048576
 <h4 id="user-level">User Level</h4>
 
 <ul>
-<li><p>Edit <code>/etc/security/limits.conf</code></p>
-
-<pre><code class="language-bash">&lt;domain&gt;    &lt;type&gt;  &lt;item&gt;  &lt;value&gt;
-dinolai     hard    nofile  4096
-dinolai     soft    nofile  1024
-</code></pre></li>
+<li>Edit <code>/etc/security/limits.conf</code></li>
 </ul>
+
+<pre><code class="language-bash">  &lt;domain&gt;    &lt;type&gt;  &lt;item&gt;  &lt;value&gt;
+  dinolai     hard    nofile  4096
+  dinolai     soft    nofile  1024
+</code></pre>
 
                         <gcse:searchresults-only></gcse:searchresults-only>
                     </main>

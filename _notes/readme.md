@@ -4,6 +4,7 @@
 
 |Title | Updated Date |
 |------|------------|
+| [給力 Powerful](/notes/books/powerful.html) | 2019-07-24 |
 | [目標：簡單有效的常識管理](/notes/books/the-goal.html) | 2018-07-12 |
 
 ## Database
@@ -70,7 +71,7 @@
 
 |Title | Updated Date |
 |------|------------|
-| [Mac](/notes/os/mac.html) | 2019-04-15 |
+| [Mac](/notes/os/mac.html) | 2019-08-11 |
 
 ## Others
 
