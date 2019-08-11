@@ -2,7 +2,7 @@
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://www.sitemaps.org/schemas/sitemap/0.9 https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
         <loc>https://dinolai.com/index.html</loc>
-        <lastmod>2019-04-15</lastmod>
+        <lastmod>2019-08-11</lastmod>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
@@ -380,7 +380,7 @@
     </url>
     <url>
         <loc>https://dinolai.com/notes/index.html</loc>
-        <lastmod>2019-04-15</lastmod>
+        <lastmod>2019-08-11</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.75</priority>
     </url>
