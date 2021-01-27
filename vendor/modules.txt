@@ -1,0 +1,6 @@
+# github.com/russross/blackfriday v0.0.0-20161003162722-5f33e7b78783
+## explicit
+github.com/russross/blackfriday
+# github.com/shurcooL/sanitized_anchor_name v0.0.0-20160918041101-1dba4b3954bc
+## explicit
+github.com/shurcooL/sanitized_anchor_name
