@@ -32,15 +32,15 @@ jobs:
           fetch-depth: 0
 
       - name: Build Website
-        if: ${{ github.event.head_commit.message != '\01F4DD update blog' }}
+        if: ${{ github.event.head_commit.message != '📝 update blog' }}
         run: go run main.go
 
       # Runs a single command using the runners shell
       - name: Commit and Push
-        if: ${{ github.event.head_commit.message != '\01F4DD update blog' }}
+        if: ${{ github.event.head_commit.message != '📝 update blog' }}
         run: |
           git config --global user.name ${GIT_USER_NAME}
           git config --global user.email ${GIT_USER_EMAIL}
           git add .
-          git commit -m "\01F4DD update blog"
+          git commit -m "📝 update blog"
           git push origin master
