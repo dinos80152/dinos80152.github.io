@@ -1,6 +1,6 @@
 # Book List
 
-| 英文 | 中文 | 進度 | 心得 |
+| 英文 | 中文 | 進度 | 筆記 |
 | --- | --- | :---: | --- |
 | ***Project Management*** |||
 | The Mythical Man-Month | 人月神話 | v | null |
@@ -43,6 +43,7 @@
 | Compilers: Principles, Techniques, and Tools | 編譯系統設計 | | |
 | ***Software Engineering*** |
 | The Phoenix Project | 鳳凰項目：一個IT運維的傳奇故事 | v | null |
+| The Unicorn Project | 獨角獸專案 | v | [Link](http://dinolai.com/notes/books/the-unicorn-project.html) |
 | Continuous Delivery | Continuous Delivery 中文版 | | |
 | Domain-Driven Design: Tackling Complexity in the Heart of Software | 領域驅動設計 |
 | Software Architecture in Practice | 軟件構架實踐 |  |  |
