@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Software Blogs include Notes, Records and Resources">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>PHP Functional Programming Lambda - Dinote</title>
+    <title>DNS Cache - Dinote</title>
     <!-- Facebook Open Graph -->
-    <meta property="og:url" content="https://dinolai.com/notes/php/php-functional-programming-lambda.html" />
+    <meta property="og:url" content="https://dinolai.com/notes/os/dns_cache.html" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="PHP Functional Programming Lambda - Dinote" />
+    <meta property="og:title" content="DNS Cache - Dinote" />
     <meta property="og:description" content="Dino Lai Software Blogs include Notes, Records and Resources" />
     <meta property="og:image" content="https://dinolai.com/assets/images/logo-icon-name.png" />
     <!-- End Facebook Open Graph -->
@@ -67,166 +67,32 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2017-04-13 18:52:38 +0800 +08</header>
+                    <header>Updated: 2021-01-27 20:40:50 +0800 +08</header>
                     <main>
-                        <h1 id="php-functional-programming-lambda">PHP Functional Programming Lambda</h1>
+                        <h1 id="dns-cache">DNS Cache</h1>
 
-<h2 id="recursion">Recursion</h2>
+<h2 id="cache-policy-on-different-os">Cache Policy on different OS</h2>
 
-<p>遞迴。例：運算連續整數總合</p>
+<h3 id="windows">Windows</h3>
 
+<p><a href="https://superuser.com/a/80799">https://superuser.com/a/80799</a></p>
+
+<blockquote>
 <ul>
-<li>loop</li>
+<li>if DNS zone TTL &lt; MaxCacheEntryTtlLimit, then DNS TTL is used</li>
+<li>if DNS zone TTL &gt; MaxCacheEntryTtlLimit, then MaxCacheEntryTtlLimit is used</li>
 </ul>
+</blockquote>
 
-<pre><code class="language-php">function head_sum($x) {
-    for($x; $x &gt; 0; $x--) {
-        $sum += $x;
-    }
-    return $sum;
-}
-</code></pre>
+<h3 id="linux">Linux</h3>
 
-<ul>
-<li>recursion</li>
-</ul>
+<p><a href="https://stackoverflow.com/a/11021207/4810199">https://stackoverflow.com/a/11021207/4810199</a>
+&gt; On Linux (and probably most Unix), there is no OS-level DNS caching unless nscd is installed and running.</p>
 
-<pre><code class="language-php">function head_sum($x) {
-    return ($x == 1) ? $x : $x + head_sum($x - 1);
-}
-head_sum(10)
-</code></pre>
+<h3 id="macos">macOS</h3>
 
-<h2 id="anonymous-function">Anonymous function</h2>
-
-<p>匿名函数</p>
-
-<pre><code class="language-php">$value = 5;
-$func_name = function($param) use ($value) {
-    return $param + $value;
-};
-echo $func_name(3); //8
-</code></pre>
-
-<pre><code class="language-php">$plus_one = function($var) {
-    return $var + 1;
-};
-
-$func_name = function($param) use ($plus_one) {
-    return $param + $plus_one($param);
-};
-echo $func_name(3); //7
-</code></pre>
-
-<h2 id="advanced">Advanced</h2>
-
-<p>判斷隨機數為奇偶數後對陣列裡的值做運算。</p>
-
-<pre><code class="language-php">function get_algorithm($rand_seed_func) {
-    return (odd_even($rand_seed_func()))
-        ? function($value) {
-            return $value * $value;
-        }
-        : function($value) use ($rand_seed_func) {
-            return ($value * $value / $rand_seed_func()) + 10;
-        };
-}
-
-function odd_even($value) {
-    return ($value % 2 === 0);
-}
-
-$rand_seed_func = function() {
-    return rand();
-};
-
-$data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-$results = array_map(get_algorithm($rand_seed_func), $data);
-</code></pre>
-
-<h2 id="partial-function-application-https-en-wikipedia-org-wiki-partial-application"><a href="https://en.wikipedia.org/wiki/Partial_application">Partial Function Application</a></h2>
-
-<p>從一函數中創造出它的局部函數出來。</p>
-
-<pre><code class="language-php">$first_char = function($string) {
-    return substr($string, 0, 1);
-};
-
-$second_char = function($string) {
-    return substr($string, 1, 2);
-};
-
-array_map($first_char, ['Dino', 'Amy', 'Birdy']);
-// ['D', 'A', 'B']
-
-array_map($second_char, ['Dino', 'Amy', 'Birdy']);
-// ['i', 'm', 'i']
-</code></pre>
-
-<p>動態創建局部函數</p>
-
-<pre><code class="language-php">function partial(/* $func, $args... */)
-{
-    $args = func_get_args();
-    $func = array_shift($args);
-
-    return function() use ($func, $args)
-    {
-        return call_user_func_array($func, array_merge($args, func_get_args()));
-    };
-}
-
-function add($a, $b)
-{
-    return $a + $b;
-}
-
-$inc = partial('add', 1);
-$dec = partial('add', -1);
-
-echo $inc(3); //4
-echo $dec(3); //2
-</code></pre>
-
-<h2 id="currying-https-en-wikipedia-org-wiki-currying"><a href="https://en.wikipedia.org/wiki/Currying">Currying</a></h2>
-
-<p>將接受多個參數的函數變成一個一個接受單個參數的函數，並返回結果的新函數。使得固定某一值後的函數可再被重覆化利用。</p>
-
-<pre><code class="language-php">$first_char = function($start) {
-    return function($length) use ($start) {
-        return function($string) use ($start, $length) {
-            return substr($string, $start, $length);
-        };
-    };
-};
-$a = $first_char(0);
-$b = $a(1);
-$b('foo'); //f
-$c = $a(2);
-$c('foo'); //fo
-</code></pre>
-
-<h2 id="memoization">Memoization</h2>
-
-<p>如果你需要返回的函式需要經過繁重的運算或串接，可以使用記憶化將它快取住，下次取用減少資源浪費。</p>
-
-<pre><code class="language-php">function demo() {
-    static $cache;
-    if(is_null($cache)) {
-        $cache = some_expensive_operation();
-    }
-    return $cache;
-}
-</code></pre>
-
-<h2 id="reference">Reference</h2>
-
-<ul>
-<li><a href="https://www.simonholywell.com/static/slides/2014-02-12/">Functional Programming in PHP by Simon Holywell</a></li>
-<li><a href="http://php.net/manual/en/function.array.php">PHP Manual - Variable functions</a></li>
-<li><a href="http://php.net/manual/en/functions.anonymous.php">PHP Manual - Anonymous functions</a></li>
-<li><a href="http://eddmann.com/posts/using-partial-application-in-php/">Using Partial Application in PHP • edd mann</a></li>
-</ul>
+<p><a href="https://apple.stackexchange.com/questions/93949/how-long-does-the-dns-cache-last-in-mac-os-x">https://apple.stackexchange.com/questions/93949/how-long-does-the-dns-cache-last-in-mac-os-x</a>
+&gt; How long a DNS entry is cached typically depends on the TTL of that DNS record, which is configured by the DNS admin of the relevant hostname.</p>
 
                         <gcse:searchresults-only></gcse:searchresults-only>
                     </main>

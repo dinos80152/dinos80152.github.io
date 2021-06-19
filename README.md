@@ -1,5 +1,9 @@
 # Last Updated
 
+## 2021-01-27
+
+* [[Os] DNS Cache](/notes/os/dns_cache.html)
+
 ## 2019-08-11
 
 * [[Os] Mac](/notes/os/mac.html)
