@@ -2,7 +2,9 @@ package main
 
 import (
 	"io/ioutil"
+	"log"
 	"os"
+	"os/exec"
 	"path"
 	"sort"
 	"strings"
@@ -32,8 +34,7 @@ func main() {
 	genUpdateLog()
 	readmeToIndex("./")
 	genSiteMap()
-	// find ./ -type d -exec chmod 755 {} \;
-	// find ./ -type f -exec chmod 644 {} \;
+	changePermission()
 }
 
 func cleanFolder(path string) {
@@ -146,4 +147,15 @@ func genHTML(sourceDir, outputDir string, fi os.FileInfo, outputBaseName string)
 	note := pkg.NewNote(sourceDir, outputDir, fi, outputBaseName)
 	note.ToHTML()
 	nl[note.Category] = append(nl[note.Category], note)
+}
+
+func changePermission() {
+	_, err := exec.Command("sh", "-c", `find ./ -type d -exec chmod 755 {} \;`).Output()
+	if err != nil {
+		log.Fatal(err)
+	}
+	_, err = exec.Command("sh", "-c", `find ./ -type f -exec chmod 644 {} \;`).Output()
+	if err != nil {
+		log.Fatal(err)
+	}
 }
