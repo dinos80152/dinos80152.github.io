@@ -1,5 +1,10 @@
 # Last Updated
 
+## 2021-07-04
+
+* [[Aws] AWS Athena Create Table Manually](/notes/aws/aws-athena-create-table-manually.html)
+* [[Aws] AWS Docker Container CPU Utilization Running at High Percentage](/notes/aws/aws-docker-container-cpu-high-usage.html)
+
 ## 2021-06-19
 
 * [[Books] 獨角獸專案 The Unicorn Project](/notes/books/the-unicorn-project.html)
@@ -55,10 +60,6 @@
 ## 2017-07-29
 
 * [[Others] Designer, Software, System Engineers Relationship](/notes/others/designer-software-system-engineers-relationship.html)
-
-## 2017-07-22
-
-* [[System] AWS Docker Container CPU Utilization Running at High Percentage](/notes/system/aws-docker-container-cpu-high-usage.html)
 
 ## 2017-07-17
 

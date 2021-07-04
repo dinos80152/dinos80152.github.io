@@ -7,6 +7,18 @@
         <priority>1</priority>
     </url>
     <url>
+        <loc>https://dinolai.com/notes/aws/aws-docker-container-cpu-high-usage.html</loc>
+        <lastmod>2021-07-04</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.67</priority>
+    </url>
+    <url>
+        <loc>https://dinolai.com/notes/aws/aws-athena-create-table-manually.html</loc>
+        <lastmod>2021-07-04</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.67</priority>
+    </url>
+    <url>
         <loc>https://dinolai.com/notes/books/the-unicorn-project.html</loc>
         <lastmod>2021-06-19</lastmod>
         <changefreq>daily</changefreq>
@@ -293,12 +305,6 @@
         <lastmod>2018-12-28</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.75</priority>
-    </url>
-    <url>
-        <loc>https://dinolai.com/notes/system/aws-docker-container-cpu-high-usage.html</loc>
-        <lastmod>2017-07-22</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.67</priority>
     </url>
     <url>
         <loc>https://dinolai.com/notes/system/wannacrypt0r.html</loc>

@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Software Blogs include Notes, Records and Resources">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>Golang Goroutines in Loop - Dinote</title>
+    <title>AWS Athena Create Table Manually - Dinote</title>
     <!-- Facebook Open Graph -->
-    <meta property="og:url" content="https://dinolai.com/notes/golang/golang-goroutines-in-loop.html" />
+    <meta property="og:url" content="https://dinolai.com/notes/aws/aws-athena-create-table-manually.html" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Golang Goroutines in Loop - Dinote" />
+    <meta property="og:title" content="AWS Athena Create Table Manually - Dinote" />
     <meta property="og:description" content="Dino Lai Software Blogs include Notes, Records and Resources" />
     <meta property="og:image" content="https://dinolai.com/assets/images/logo-icon-name.png" />
     <!-- End Facebook Open Graph -->
@@ -67,139 +67,66 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2017-07-17 17:17:24 +0800 +08</header>
+                    <header>Updated: 2021-07-04 23:22:54 +0800 +08</header>
                     <main>
-                        <h1 id="golang-goroutines-in-loop">Golang Goroutines in Loop</h1>
+                        <h1 id="aws-athena-create-table-manually">AWS Athena Create Table Manually</h1>
 
-<h2 id="problem">Problem</h2>
+<ol>
+<li><p>Create Table</p>
 
-<pre><code class="language-go">func main() {
-    for _, v := range values {
-        go func() {
-            fmt.Println(v)
-        }()
-    }
-}
-</code></pre>
-
-<blockquote>
-<p>each iteration of the loop uses the same instance of the variable v, so each closure shares that single variable. When the closure runs, it prints the value of v at the time fmt.Println is executed, but v may have been modified since the goroutine was launched. - &ldquo;What happens with closures running as goroutines?&rdquo;, Golang Frequently Asked Questions (FAQ)</p>
-</blockquote>
-
-<h2 id="example">Example</h2>
-
-<ul>
-<li><p>Incorrect</p>
-
-<pre><code class="language-go">func main() {
-    ints := []int{1,2,3}
-    for _, i := range ints {
-        go func() {
-            fmt.Println(i)
-        }()
-    }
-    time.Sleep(3 * time.Second)
-    // Output:
-    // 3
-    // 3
-    // 3
-}
+<pre><code class="language-sql">CREATE EXTERNAL TABLE `20210121_test_log`(
+  `uuid` string,
+  `hostid` string,
+  `hostname` string,
+  `osname` string)
+PARTITIONED BY (
+  `x` string,
+  `year` string,
+  `month` string,
+  `day` string)
+ROW FORMAT SERDE
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
+STORED AS INPUTFORMAT
+  'org.apache.hadoop.mapred.TextInputFormat'
+OUTPUTFORMAT
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  's3://dinolai-test-log/'
+TBLPROPERTIES (
+  'has_encrypted_data'='false',
+  'transient_lastDdlTime'='1611144510')
 </code></pre></li>
 
-<li><p>Fixed: pass the variable as an argument to the closure.</p>
+<li><p>Add Partition</p>
 
-<pre><code class="language-go">func main() {
-    ints := []int{1,2,3}
-    for _, i := range ints {
-        go func(i int) {
-            fmt.Println(i)
-        }(i)
-    }
-    time.Sleep(3 * time.Second)
-    // Output:
-    // 1
-    // 2
-    // 3
-}
+<pre><code class="language-sql">ALTER TABLE `20210121_test_log` ADD
+  PARTITION (x = '0', year = '2021', month = '01', day = '20')
+  PARTITION (x = '1', year = '2021', month = '01', day = '20')
+  PARTITION (x = '2', year = '2021', month = '01', day = '20')
+  PARTITION (x = '3', year = '2021', month = '01', day = '20')
+  PARTITION (x = '4', year = '2021', month = '01', day = '20')
+  PARTITION (x = '5', year = '2021', month = '01', day = '20')
+  PARTITION (x = '6', year = '2021', month = '01', day = '20')
+  PARTITION (x = '7', year = '2021', month = '01', day = '20')
+  PARTITION (x = '8', year = '2021', month = '01', day = '20')
+  PARTITION (x = '9', year = '2021', month = '01', day = '20')
+  PARTITION (x = 'a', year = '2021', month = '01', day = '20')
+  PARTITION (x = 'b', year = '2021', month = '01', day = '20')
+  PARTITION (x = 'c', year = '2021', month = '01', day = '20')
+  PARTITION (x = 'd', year = '2021', month = '01', day = '20')
+  PARTITION (x = 'e', year = '2021', month = '01', day = '20')
+  PARTITION (x = 'f', year = '2021', month = '01', day = '20')
+;
 </code></pre></li>
 
-<li><p>Fixed: copy value to a new variable, because of variables declared within the body of a loop are not shared between iterations.</p>
+<li><p>Query</p>
 
-<pre><code class="language-go">func main() {
-    ints := []int{1,2,3}
-    for _, i := range ints {
-        i := i
-        go func() {
-            fmt.Println(i)
-        }()
-    }
-    time.Sleep(3 * time.Second)
-    // Output:
-    // 1
-    // 2
-    // 3
-}
+<pre><code class="language-sql">SELECT osname, hostname, count(distinct(hostid)) as host_count, count(*) as log_count
+FROM &quot;default&quot;.&quot;20210121_test_log&quot;
+WHERE osname = 'linux'
+GROUP BY osname;
 </code></pre></li>
-</ul>
-
-<h2 id="example-2-call-struct-method">Example 2: Call Struct Method</h2>
-
-<ul>
-<li><p>Incorrect</p>
-
-<pre><code class="language-go">type user struct {
-    name string
-}
-
-func(u *user) Print() {
-    fmt.Println(u.name)
-}
-
-func main() {
-    users := []user{{&quot;dino&quot;}, {&quot;liam&quot;}, {&quot;mei&quot;}}
-    for _, user := range users {
-            go user.Print()
-    }
-    time.Sleep(3 * time.Second)
-    // Output:
-    // mei
-    // mei
-    // mei
-}
-</code></pre></li>
-
-<li><p>Fixed: pass by reference</p>
-
-<pre><code class="language-go">
-type user struct {
-    name string
-}
-
-func(u *user) Print() {
-    fmt.Println(u.name)
-}
-
-func main() {
-    users := []*user{{&quot;dino&quot;}, {&quot;liam&quot;}, {&quot;mei&quot;}}
-    for _, user := range users {
-            go user.Print()
-    }
-    time.Sleep(3 * time.Second)
-    // Output:
-    // dino
-    // liam
-    // mei
-}
-</code></pre></li>
-</ul>
-
-<h2 id="reference">Reference</h2>
-
-<ul>
-<li><a href="http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/index.html#closure_for_it_vars">Iteration Variables and Closures in &ldquo;for&rdquo; Statements@50 Shades of Go: Traps, Gotchas, and Common Mistakes for New Golang Devs</a></li>
-<li><a href="https://github.com/golang/go/wiki/CommonMistakes">CommonMistakes@golang github wiki</a></li>
-<li><a href="https://golang.org/doc/faq#closures_and_goroutines">What happens with closures running as goroutines?@golang doc faq</a></li>
-</ul>
+</ol>
 
                         <gcse:searchresults-only></gcse:searchresults-only>
                     </main>
