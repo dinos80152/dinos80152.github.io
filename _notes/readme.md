@@ -11,8 +11,8 @@
 
 |Title | Updated Date |
 |------|------------|
+| [給力 Powerful](/notes/books/powerful.html) | 2021-07-17 |
 | [獨角獸專案 The Unicorn Project](/notes/books/the-unicorn-project.html) | 2021-06-19 |
-| [給力 Powerful](/notes/books/powerful.html) | 2019-07-24 |
 | [目標：簡單有效的常識管理](/notes/books/the-goal.html) | 2018-07-12 |
 
 ## Database

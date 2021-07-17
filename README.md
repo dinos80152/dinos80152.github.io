@@ -1,5 +1,9 @@
 # Last Updated
 
+## 2021-07-17
+
+* [[Books] 給力 Powerful](/notes/books/powerful.html)
+
 ## 2021-07-04
 
 * [[Aws] AWS Athena Create Table Manually](/notes/aws/aws-athena-create-table-manually.html)
@@ -16,10 +20,6 @@
 ## 2019-08-11
 
 * [[Os] Mac](/notes/os/mac.html)
-
-## 2019-07-24
-
-* [[Books] 給力 Powerful](/notes/books/powerful.html)
 
 ## 2019-01-18
 
