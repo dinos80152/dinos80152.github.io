@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Software Blogs include Notes, Records and Resources">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>Note List - Dinote</title>
+    <title>AWS Allocate EBS Expand Volume - Dinote</title>
     <!-- Facebook Open Graph -->
-    <meta property="og:url" content="https://dinolai.com/notes/index.html" />
+    <meta property="og:url" content="https://dinolai.com/notes/aws/aws-allocate-ebs-expand-volume.html" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Note List - Dinote" />
+    <meta property="og:title" content="AWS Allocate EBS Expand Volume - Dinote" />
     <meta property="og:description" content="Dino Lai Software Blogs include Notes, Records and Resources" />
     <meta property="og:image" content="https://dinolai.com/assets/images/logo-icon-name.png" />
     <!-- End Facebook Open Graph -->
@@ -67,481 +67,62 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2021-07-17 08:47:42 UTC Z</header>
+                    <header>Updated: 2021-09-04 18:42:23 +0800 +08</header>
                     <main>
-                        <h1 id="note-list">Note List</h1>
-
-<h2 id="aws">Aws</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/aws/aws-allocate-ebs-expand-volume.html">AWS Allocate EBS Expand Volume</a></td>
-<td>2021-09-04</td>
-</tr>
-
-<tr>
-<td><a href="/notes/aws/aws-docker-container-cpu-high-usage.html">AWS Docker Container CPU Utilization Running at High Percentage</a></td>
-<td>2021-07-04</td>
-</tr>
-
-<tr>
-<td><a href="/notes/aws/aws-athena-create-table-manually.html">AWS Athena Create Table Manually</a></td>
-<td>2021-07-04</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="books">Books</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/books/powerful.html">給力 Powerful</a></td>
-<td>2021-07-17</td>
-</tr>
-
-<tr>
-<td><a href="/notes/books/the-unicorn-project.html">獨角獸專案 The Unicorn Project</a></td>
-<td>2021-06-19</td>
-</tr>
-
-<tr>
-<td><a href="/notes/books/the-goal.html">目標：簡單有效的常識管理</a></td>
-<td>2018-07-12</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="database">Database</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/database/mysql.html">MySQL</a></td>
-<td>2017-05-03</td>
-</tr>
-
-<tr>
-<td><a href="/notes/database/postgresql.html">PostgreSQL</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/database/redis.html">Redis</a></td>
-<td>2017-04-13</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="development">Development</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/development/object-oriented-programming.html">Object Oriented Programming</a></td>
-<td>2017-04-20</td>
-</tr>
-
-<tr>
-<td><a href="/notes/development/queue.html">Queue</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/development/repository-pattern.html">Repository Pattern</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/development/user-story.html">User Story</a></td>
-<td>2017-04-13</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="editor">Editor</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/editor/visual-studio-code.html">Visual Studio Code</a></td>
-<td>2017-04-13</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="git">Git</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/git/git.html">Git</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/git/gitlab.html">Gitlab Demo</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/git/movetogitlab.html">Move Repo from Gitolite to Gitlab</a></td>
-<td>2017-04-13</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="golang">Golang</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/golang/golang-testing-and-httptest-package.html">Golang testing and httptest Package</a></td>
-<td>2017-11-27</td>
-</tr>
-
-<tr>
-<td><a href="/notes/golang/minimize-golang-executable-docker-image-with-alpine-linux.html">Building Minimize Golang Executable Docker Image with Alpine Linux</a></td>
-<td>2017-10-21</td>
-</tr>
-
-<tr>
-<td><a href="/notes/golang/golang.html">Golang</a></td>
-<td>2017-08-26</td>
-</tr>
-
-<tr>
-<td><a href="/notes/golang/golang-goroutines-in-loop.html">Golang Goroutines in Loop</a></td>
-<td>2017-07-17</td>
-</tr>
-
-<tr>
-<td><a href="/notes/golang/golang-refactor-by-label.html">Golang Refactor by Label</a></td>
-<td>2017-07-15</td>
-</tr>
-
-<tr>
-<td><a href="/notes/golang/golang-benchmark-reading-config-from-os-env-and-file.html">Golang Benchmark Reading Config from OS ENV and File</a></td>
-<td>2017-06-12</td>
-</tr>
-
-<tr>
-<td><a href="/notes/golang/golang-delete-slice-item-in-range-problem.html">Golang Delete Slice Item in Range Problem</a></td>
-<td>2017-06-07</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="laravel">Laravel</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/laravel/laravel-42-to-50.html">Laravel Update 4.2 to 5.0</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/laravel/laravel-blade-parent.html">Laravel - 設計一個好的 Blade Template, 使用 @parent</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/laravel/laravel-performance.html">Laravel Performance</a></td>
-<td>2017-04-13</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="linux">Linux</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/linux/make-emoji-colorful-on-chrome-in-ubuntu-linux.html">Make Emoji Colorful on Chrome in Ubuntu Linux</a></td>
-<td>2019-01-18</td>
-</tr>
-
-<tr>
-<td><a href="/notes/linux/bluetooth-not-working-on-ubuntu.html">Bluetooth Not Working on Ubuntu</a></td>
-<td>2018-12-31</td>
-</tr>
-
-<tr>
-<td><a href="/notes/linux/centos7.html">CentOS 7</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/linux/linux.html">Linux</a></td>
-<td>2017-04-13</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="os">Os</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/os/dns_cache.html">DNS Cache</a></td>
-<td>2021-01-27</td>
-</tr>
-
-<tr>
-<td><a href="/notes/os/mac.html">Mac</a></td>
-<td>2019-08-11</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="others">Others</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/others/authorization-models-acl-dac-mac-rbac-abac.html">Authorization Models: ACL, DAC, MAC, RBAC, ABAC</a></td>
-<td>2017-12-31</td>
-</tr>
-
-<tr>
-<td><a href="/notes/others/taiwan-labor-standard-act-for-developer.html">軟體工程師相關台灣勞動基準法</a></td>
-<td>2017-09-11</td>
-</tr>
-
-<tr>
-<td><a href="/notes/others/designer-software-system-engineers-relationship.html">Designer, Software, System Engineers Relationship</a></td>
-<td>2017-07-29</td>
-</tr>
-
-<tr>
-<td><a href="/notes/others/learning-resources.html">Learning Resources</a></td>
-<td>2017-05-30</td>
-</tr>
-
-<tr>
-<td><a href="/notes/others/lisp.html">Lisp</a></td>
-<td>2017-04-17</td>
-</tr>
-
-<tr>
-<td><a href="/notes/others/flowchart.html">Flowchart Test</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/others/taiwan-community.html">Taiwan Community</a></td>
-<td>2017-04-13</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="php">Php</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/php/php-functional-programming-array-functions.html">PHP Functinoal Programming Array Functions</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/php/php-functional-programming-lambda.html">PHP Functional Programming Lambda</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/php/php.html">PHP</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/php/selenium_with_phpunit.html">Selenium with PHPUnit</a></td>
-<td>2017-04-13</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="system">System</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/system/wannacrypt0r.html">WannaCrypt0r 2.0</a></td>
-<td>2017-05-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/system/docker.html">Docker</a></td>
-<td>2017-05-03</td>
-</tr>
-
-<tr>
-<td><a href="/notes/system/windows-shared-folder-with-virtualbox-linux.html">Windows 共用資料夾(Shared folder)至 VirtualBox Linux - 設定與自動掛載</a></td>
-<td>2017-04-26</td>
-</tr>
-
-<tr>
-<td><a href="/notes/system/elk-elasticsearch-logstash-kibana.html">ELK: Elasticsearch, Logstash, Kibana</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/system/https.html">HTTPS</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/system/nginx-php-fpm.html">Nginx, Php-fpm</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/system/nginx.html">Nginx</a></td>
-<td>2017-04-13</td>
-</tr>
-</tbody>
-</table>
-
-<h2 id="web">Web</h2>
-
-<table>
-<thead>
-<tr>
-<th>Title</th>
-<th>Updated Date</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td><a href="/notes/web/jwt.html">JWT - JSON Web Token</a></td>
-<td>2018-09-26</td>
-</tr>
-
-<tr>
-<td><a href="/notes/web/google-custom-search.html">Google Custom Search</a></td>
-<td>2017-05-04</td>
-</tr>
-
-<tr>
-<td><a href="/notes/web/web-proper-noun.html">網站開發專有名詞 For Product Manager</a></td>
-<td>2017-05-04</td>
-</tr>
-
-<tr>
-<td><a href="/notes/web/html-input-defaultvalue-vs-value-with-jquery-val-vs-attr.html">HTML Input defaultValue vs. value with jQuery val() vs. attr()</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/web/html-input-hidden-defaultvalue-vs-value-with-jquery-val-vs-attr.html">HTML Input hidden defaultValue vs. value with jQuery val() vs. attr()</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/web/seo.html">SEO</a></td>
-<td>2017-04-13</td>
-</tr>
-
-<tr>
-<td><a href="/notes/web/google-analytics.html">Google Analytics</a></td>
-<td>2017-04-13</td>
-</tr>
-</tbody>
-</table>
+                        <h1 id="aws-allocate-ebs-expand-volume">AWS Allocate EBS Expand Volume</h1>
+
+<ol>
+<li>Expand EBS Volume
+<img src="https://github.com/dinos80152/dinos80152.github.io/blob/master/_data/aws-ebs-modify-volume.png?raw=true" alt="alt tag" /></li>
+<li>Connect to instance</li>
+
+<li><p>Find disk space and mount point</p>
+
+<pre><code class="language-sh">[root@ip-10-103-224-94 /]# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        187G  104K  187G   1% /dev
+tmpfs           187G  4.0K  187G   1% /dev/shm
+/dev/nvme0n1p1  7.9G  2.0G  5.8G  26% /
+/dev/dm-3       9.8G   93M  9.2G   1% /var/lib/docker/devicemapper/mnt/d3a092243df961a990444ce90710b55cac3418147156d0ac35a8125ef8bf594e
+shm              64M     0   64M   0% /var/lib/docker/containers/7ca9f9cfead972d931d69ab11fb84c3ee5c5af0a96e8c544b39c8581db30ae14/mounts/shm
+/dev/dm-4       9.8G   37M  9.3G   1% /var/lib/docker/devicemapper/mnt/140aa6872d9638ccbd69825a6bbbf68c4f98376f5a71c9006832d82a98b211b7
+shm              64M     0   64M   0% /var/lib/docker/containers/a3615fa2900c14dff8f5cfc75364c452fb15fc9af4b614f291d60892d7e3cbc1/mounts/shm
+/dev/dm-5       9.8G  165M  9.2G   2% /var/lib/docker/devicemapper/mnt/680b7e0fad7001f62626680d0138587c6206aa904718867a2a955f37dd024466
+shm              64M     0   64M   0% /var/lib/docker/containers/f9075f1f8dd3c2046c251f1232dac06d5b3587e2d26f0a0bb3358da1fb39bb39/mounts/shm
+/dev/xvdo       4.9T  1.7T  3.0T  37% /var/lib/docker/plugins/b88a69330fd8d1f46cbc9148f6ca3a7a8a3aa06cc736d253d5bd56a73fe6605a/propagated-mount/volumes/prometheus-vol
+</code></pre></li>
+
+<li><p>Resize mount point by resize2fs</p>
+
+<pre><code class="language-sh">[root@ip-10-103-224-94 /]# sudo resize2fs -f /dev/xvdo
+resize2fs 1.43.5 (04-Aug-2017)
+Filesystem at /dev/xvdo is mounted on /var/lib/docker/plugins/b88a69330fd8d1f46cbc9148f6ca3a7a8a3aa06cc736d253d5bd56a73fe6605a/propagated-mount/volumes/prometheus-vol; on-line resizing required
+old_desc_blocks = 625, new_desc_blocks = 1250
+The filesystem on /dev/xvdo is now 2621440000 (4k) blocks long.
+</code></pre></li>
+
+<li><p>Check size</p>
+
+<pre><code class="language-sh">[root@ip-10-103-224-94 /]# df -h
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        187G  104K  187G   1% /dev
+tmpfs           187G  4.0K  187G   1% /dev/shm
+/dev/nvme0n1p1  7.9G  2.0G  5.8G  26% /
+/dev/dm-3       9.8G   93M  9.2G   1% /var/lib/docker/devicemapper/mnt/d3a092243df961a990444ce90710b55cac3418147156d0ac35a8125ef8bf594e
+shm              64M     0   64M   0% /var/lib/docker/containers/7ca9f9cfead972d931d69ab11fb84c3ee5c5af0a96e8c544b39c8581db30ae14/mounts/shm
+/dev/dm-4       9.8G   37M  9.3G   1% /var/lib/docker/devicemapper/mnt/140aa6872d9638ccbd69825a6bbbf68c4f98376f5a71c9006832d82a98b211b7
+shm              64M     0   64M   0% /var/lib/docker/containers/a3615fa2900c14dff8f5cfc75364c452fb15fc9af4b614f291d60892d7e3cbc1/mounts/shm
+/dev/dm-5       9.8G  165M  9.2G   2% /var/lib/docker/devicemapper/mnt/680b7e0fad7001f62626680d0138587c6206aa904718867a2a955f37dd024466
+shm              64M     0   64M   0% /var/lib/docker/containers/f9075f1f8dd3c2046c251f1232dac06d5b3587e2d26f0a0bb3358da1fb39bb39/mounts/shm
+/dev/xvdo       9.7T  1.7T  7.6T  19% /var/lib/docker/plugins/b88a69330fd8d1f46cbc9148f6ca3a7a8a3aa06cc736d253d5bd56a73fe6605a/propagated-mount/volumes/prometheus-vol
+</code></pre></li>
+</ol>
+
+<h2 id="reference">Reference</h2>
+
+<ul>
+<li><a href="https://winstonkotzan.com/blog/2017/03/03/how-to-resize-a-volume-in-aws.html">How to Resize a Volume in AWS@Winston Kotzan&rsquo;s Technology Blog</a></li>
+</ul>
 
                         <gcse:searchresults-only></gcse:searchresults-only>
                     </main>
