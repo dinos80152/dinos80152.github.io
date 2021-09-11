@@ -56,7 +56,7 @@
 | The Pragmatic Programmer |程序員修煉之道︰從小工到專家 | reading | |
 | [Soft Skills: The Software Developer's Life Manual](https://www.goodreads.com/book/show/23232941-soft-skills) | [Soft Skills 軟實力｜軟體開發人員的生存手冊](https://www.tenlong.com.tw/products/9789864766383) | | |
 | The Productive Programmer | 程式設計師提升生產力之秘笈 | v | null |
-| The Zen Programmer | 程式設計師之禪 | v | null |
+| The Zen Programmer | 程式設計師之禪 | v | [Link](http://dinolai.com/notes/books/the-zen-programmer.html) |
 | ***Security*** |
 | | 白帽子講Web安全 | | |
 | ***Agile*** |
