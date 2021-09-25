@@ -18,6 +18,7 @@
 | | 激發員工潛力的薩提爾教練模式 | v | null |
 | The Fifth Discipline: The Art & Practice of The Learning Organization | 第五項修練: 學習型組織的藝術與實務 | | |
 | The Peter Principle: Why Things Always Go Wrong | 彼得原理 | v | [Link](http://dinolai.com/notes/books/the-peter-principle.html) |
+| How to Win Friends & Influence People | 人性的弱點 | v | [Link](http://dinolai.com/notes/books/how-to-win-friends-and-influence-people.html) |
 | ***Programming*** |||
 |  | 代碼之髓 | v | null |
 | The Art of Readable Code| 易讀程式之美學 | v | [Link](https://github.com/sehowju/The-Art-of-Readable-Code) |
