@@ -1,5 +1,9 @@
 # Last Updated
 
+## 2021-09-25
+
+* [[Books] 人性的弱點 How to Win Friends &amp; Influence People](/notes/books/how-to-win-friends-and-influence-people.html)
+
 ## 2021-09-11
 
 * [[Books] 彼得原理 The Peter Principle](/notes/books/the-peter-principle.html)
