@@ -1,5 +1,7 @@
 # 人性的弱點 How to Win Friends & Influence People
 
+read on 2020/11/08
+
 「如果你想教一個人去做某件事，那他永遠都學不會。」— 蕭伯納
 
 ## Part1 與人相處的技巧
