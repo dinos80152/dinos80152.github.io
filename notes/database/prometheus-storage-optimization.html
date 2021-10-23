@@ -67,7 +67,7 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2021-10-24 01:45:51 +0800 +08</header>
+                    <header>Updated: 2021-10-24 01:52:17 +0800 +08</header>
                     <main>
                         <h1 id="prometheus-storage-optimization">Prometheus Storage Optimization</h1>
 
@@ -84,7 +84,9 @@
 <li>./data
 
 <ul>
-<li>01BKGTZQ1SYQJTR4PB43C8PD98 (Ingested samples are grouped into blocks of two hours)</li>
+<li>01BKGTZQ1SYQJTR4PB43C8PD98 (Ingested samples are grouped into blocks of two hours)
+
+<ul>
 <li>chunks (containing all the time series samples for that window of time)
 
 <ul>
@@ -93,14 +95,21 @@
 <li>tombstones (When series are deleted via the API, deletion records are stored here)</li>
 <li>index (indexes metric names and labels to time series in the chunks directory)</li>
 <li>meta.json</li>
-<li>chunks_head</li>
+</ul></li>
+<li>chunks_head
+
+<ul>
 <li>000001</li>
-<li>wal (keep at least two hours of raw data; replayed when the Prometheus server restarts; has not yet been compacted)</li>
+</ul></li>
+<li>wal (keep at least two hours of raw data; replayed when the Prometheus server restarts; has not yet been compacted)
+
+<ul>
 <li>000000002 (stored in the wal directory in 128MB segments;retain a minimum of three write-ahead log files)</li>
 <li>checkpoint.00000001
 
 <ul>
 <li>00000000</li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
