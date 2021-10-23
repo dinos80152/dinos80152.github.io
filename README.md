@@ -1,5 +1,11 @@
 # Last Updated
 
+## 2021-10-24
+
+* [[Database] Prometheus Performance Tuning](/notes/database/prometheus-performance-tuning.html)
+* [[Database] Prometheus Scrape and Metrics](/notes/database/prometheus-scrape-and-metrics.html)
+* [[Database] Prometheus Storage Optimization](/notes/database/prometheus-storage-optimization.html)
+
 ## 2021-09-25
 
 * [[Books] 人性的弱點 How to Win Friends &amp; Influence People](/notes/books/how-to-win-friends-and-influence-people.html)
