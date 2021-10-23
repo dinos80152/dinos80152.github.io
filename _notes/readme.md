@@ -12,6 +12,9 @@
 
 |Title | Updated Date |
 |------|------------|
+| [人性的弱點 How to Win Friends &amp; Influence People](/notes/books/how-to-win-friends-and-influence-people.html) | 2021-09-25 |
+| [程式設計師之禪 The Zen Programmer](/notes/books/the-zen-programmer.html) | 2021-09-11 |
+| [彼得原理 The Peter Principle](/notes/books/the-peter-principle.html) | 2021-09-11 |
 | [給力 Powerful](/notes/books/powerful.html) | 2021-07-17 |
 | [獨角獸專案 The Unicorn Project](/notes/books/the-unicorn-project.html) | 2021-06-19 |
 | [目標：簡單有效的常識管理](/notes/books/the-goal.html) | 2018-07-12 |

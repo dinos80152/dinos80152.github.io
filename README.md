@@ -1,5 +1,14 @@
 # Last Updated
 
+## 2021-09-25
+
+* [[Books] 人性的弱點 How to Win Friends &amp; Influence People](/notes/books/how-to-win-friends-and-influence-people.html)
+
+## 2021-09-11
+
+* [[Books] 彼得原理 The Peter Principle](/notes/books/the-peter-principle.html)
+* [[Books] 程式設計師之禪 The Zen Programmer](/notes/books/the-zen-programmer.html)
+
 ## 2021-09-04
 
 * [[Aws] AWS Allocate EBS Expand Volume](/notes/aws/aws-allocate-ebs-expand-volume.html)
