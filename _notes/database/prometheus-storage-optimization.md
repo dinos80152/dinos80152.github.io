@@ -12,17 +12,17 @@ The current block for incoming samples is kept in memory and is not fully persis
 
 - ./data
   - 01BKGTZQ1SYQJTR4PB43C8PD98 (Ingested samples are grouped into blocks of two hours)
-    - chunks (containing all the time series samples for that window of time)
-      - 000001 (segment files of up to 512MB)
-    - tombstones (When series are deleted via the API, deletion records are stored here)
-    - index (indexes metric names and labels to time series in the chunks directory)
-    - meta.json
+      - chunks (containing all the time series samples for that window of time)
+          - 000001 (segment files of up to 512MB)
+      - tombstones (When series are deleted via the API, deletion records are stored here)
+      - index (indexes metric names and labels to time series in the chunks directory)
+      - meta.json
   - chunks_head
-    - 000001
+      - 000001
   - wal (keep at least two hours of raw data; replayed when the Prometheus server restarts; has not yet been compacted)
-    - 000000002 (stored in the wal directory in 128MB segments;retain a minimum of three write-ahead log files)
-    - checkpoint.00000001
-      - 00000000
+      - 000000002 (stored in the wal directory in 128MB segments;retain a minimum of three write-ahead log files)
+      - checkpoint.00000001
+          - 00000000
 
 > take up to two hours to remove expired blocks
 
