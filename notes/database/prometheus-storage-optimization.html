@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Software Blogs include Notes, Records and Resources">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>Last Updated - Dinote</title>
+    <title>Prometheus Storage Optimization - Dinote</title>
     <!-- Facebook Open Graph -->
-    <meta property="og:url" content="https://dinolai.com/index.html" />
+    <meta property="og:url" content="https://dinolai.com/notes/database/prometheus-storage-optimization.html" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Last Updated - Dinote" />
+    <meta property="og:title" content="Prometheus Storage Optimization - Dinote" />
     <meta property="og:description" content="Dino Lai Software Blogs include Notes, Records and Resources" />
     <meta property="og:image" content="https://dinolai.com/assets/images/logo-icon-name.png" />
     <!-- End Facebook Open Graph -->
@@ -67,227 +67,115 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2021-09-25 15:27:58 UTC Z</header>
+                    <header>Updated: 2021-10-24 01:45:51 +0800 +08</header>
                     <main>
-                        <h1 id="last-updated">Last Updated</h1>
+                        <h1 id="prometheus-storage-optimization">Prometheus Storage Optimization</h1>
 
-<h2 id="2021-10-24">2021-10-24</h2>
+<h2 id="storage-size-evaluation">Storage Size Evaluation</h2>
+
+<pre><code class="language-math">needed_disk_space = retention_time_seconds * ingested_samples_per_second * bytes_per_sample (average 1-2 bytes per sample)
+</code></pre>
+
+<h2 id="data-structure">Data Structure</h2>
+
+<p>The current block for incoming samples is kept in memory and is not fully persisted.</p>
 
 <ul>
-<li><a href="/notes/database/prometheus-performance-tuning.html">[Database] Prometheus Performance Tuning</a></li>
-<li><a href="/notes/database/prometheus-scrape-and-metrics.html">[Database] Prometheus Scrape and Metrics</a></li>
-<li><a href="/notes/database/prometheus-storage-optimization.html">[Database] Prometheus Storage Optimization</a></li>
+<li>./data
+
+<ul>
+<li>01BKGTZQ1SYQJTR4PB43C8PD98 (Ingested samples are grouped into blocks of two hours)</li>
+<li>chunks (containing all the time series samples for that window of time)
+
+<ul>
+<li>000001 (segment files of up to 512MB)</li>
+</ul></li>
+<li>tombstones (When series are deleted via the API, deletion records are stored here)</li>
+<li>index (indexes metric names and labels to time series in the chunks directory)</li>
+<li>meta.json</li>
+<li>chunks_head</li>
+<li>000001</li>
+<li>wal (keep at least two hours of raw data; replayed when the Prometheus server restarts; has not yet been compacted)</li>
+<li>000000002 (stored in the wal directory in 128MB segments;retain a minimum of three write-ahead log files)</li>
+<li>checkpoint.00000001
+
+<ul>
+<li>00000000</li>
+</ul></li>
+</ul></li>
 </ul>
 
-<h2 id="2021-09-25">2021-09-25</h2>
+<blockquote>
+<p>take up to two hours to remove expired blocks</p>
+</blockquote>
+
+<h2 id="find-largest-volume-metrics">Find largest volume metrics</h2>
 
 <ul>
-<li><a href="/notes/books/how-to-win-friends-and-influence-people.html">[Books] 人性的弱點 How to Win Friends &amp; Influence People</a></li>
+<li>web: <a href="http://your.prometheus.host:9090/tsdb-status">http://your.prometheus.host:9090/tsdb-status</a></li>
+<li>query: <code>topk(10, count({__name__=~&quot;.+&quot;}) by (__name__))</code></li>
 </ul>
 
-<h2 id="2021-09-11">2021-09-11</h2>
+<h2 id="delete-metrics">Delete metrics</h2>
+
+<p><a href="https://prometheus.io/docs/prometheus/latest/querying/api/#delete-series">https://prometheus.io/docs/prometheus/latest/querying/api/#delete-series</a></p>
+
+<pre><code class="language-sh">$ curl -X POST \
+  -g 'http://your.prometheus.host:9090/api/v1/admin/tsdb/delete_series? \
+  match[]=up&amp; \
+  match[]=http_request{status=&quot;200&quot;}&amp; \
+  start=1595521900&amp; \
+  end=1595521990'
+</code></pre>
+
+<h2 id="use-relabel-to-reduce-metrics">Use relabel to reduce metrics</h2>
+
+<p>1 target could have N metrics</p>
 
 <ul>
-<li><a href="/notes/books/the-peter-principle.html">[Books] 彼得原理 The Peter Principle</a></li>
-<li><a href="/notes/books/the-zen-programmer.html">[Books] 程式設計師之禪 The Zen Programmer</a></li>
+<li>reduce target by <code>relabel_configs</code></li>
+<li>reduce metrics from target by <code>source_labels</code> in <code>metric_relabel_configs</code></li>
+<li>reduct label from metrics by directly use <code>metric_relabel_configs</code></li>
 </ul>
 
-<h2 id="2021-09-04">2021-09-04</h2>
+<pre><code class="language-yaml">scrape_configs:
+  - job_name: 'node'
+    ec2_sd_configs:
+      - region: us-west-2
+        port: 8080
+        # only discover tag Name is myapp
+        filters:
+          - name: &quot;tag:name&quot;
+            values:
+              - &quot;myapp&quot;
+    relabel_configs:
+      # Drop all metrics from windows server
+      - source_labels: [__meta_ec2_platform]
+        regex: windows
+        action: drop
+    metric_relabel_configs:
+    # keep only http_request with label status 20X metric
+    - source_labels: [__name__, status]
+      regex: 'http_request;20.'
+      action: keep
+    # drop all source ip label
+    - regex: 'source_ip'
+      action: labeldrop
+</code></pre>
+
+<blockquote>
+<p>Care must be taken with <code>labeldrop</code> and <code>labelkeep</code> to ensure that metrics are still uniquely labeled once the labels are removed.</p>
+</blockquote>
+
+<h3 id="reference">Reference</h3>
 
 <ul>
-<li><a href="/notes/aws/aws-allocate-ebs-expand-volume.html">[Aws] AWS Allocate EBS Expand Volume</a></li>
-</ul>
-
-<h2 id="2021-07-17">2021-07-17</h2>
-
-<ul>
-<li><a href="/notes/books/powerful.html">[Books] 給力 Powerful</a></li>
-</ul>
-
-<h2 id="2021-07-04">2021-07-04</h2>
-
-<ul>
-<li><a href="/notes/aws/aws-athena-create-table-manually.html">[Aws] AWS Athena Create Table Manually</a></li>
-<li><a href="/notes/aws/aws-docker-container-cpu-high-usage.html">[Aws] AWS Docker Container CPU Utilization Running at High Percentage</a></li>
-</ul>
-
-<h2 id="2021-06-19">2021-06-19</h2>
-
-<ul>
-<li><a href="/notes/books/the-unicorn-project.html">[Books] 獨角獸專案 The Unicorn Project</a></li>
-</ul>
-
-<h2 id="2021-01-27">2021-01-27</h2>
-
-<ul>
-<li><a href="/notes/os/dns_cache.html">[Os] DNS Cache</a></li>
-</ul>
-
-<h2 id="2019-08-11">2019-08-11</h2>
-
-<ul>
-<li><a href="/notes/os/mac.html">[Os] Mac</a></li>
-</ul>
-
-<h2 id="2019-01-18">2019-01-18</h2>
-
-<ul>
-<li><a href="/notes/linux/make-emoji-colorful-on-chrome-in-ubuntu-linux.html">[Linux] Make Emoji Colorful on Chrome in Ubuntu Linux</a></li>
-</ul>
-
-<h2 id="2018-12-31">2018-12-31</h2>
-
-<ul>
-<li><a href="/notes/linux/bluetooth-not-working-on-ubuntu.html">[Linux] Bluetooth Not Working on Ubuntu</a></li>
-</ul>
-
-<h2 id="2018-09-26">2018-09-26</h2>
-
-<ul>
-<li><a href="/notes/web/jwt.html">[Web] JWT - JSON Web Token</a></li>
-</ul>
-
-<h2 id="2018-07-12">2018-07-12</h2>
-
-<ul>
-<li><a href="/notes/books/the-goal.html">[Books] 目標：簡單有效的常識管理</a></li>
-</ul>
-
-<h2 id="2017-12-31">2017-12-31</h2>
-
-<ul>
-<li><a href="/notes/others/authorization-models-acl-dac-mac-rbac-abac.html">[Others] Authorization Models: ACL, DAC, MAC, RBAC, ABAC</a></li>
-</ul>
-
-<h2 id="2017-11-27">2017-11-27</h2>
-
-<ul>
-<li><a href="/notes/golang/golang-testing-and-httptest-package.html">[Golang] Golang testing and httptest Package</a></li>
-</ul>
-
-<h2 id="2017-10-21">2017-10-21</h2>
-
-<ul>
-<li><a href="/notes/golang/minimize-golang-executable-docker-image-with-alpine-linux.html">[Golang] Building Minimize Golang Executable Docker Image with Alpine Linux</a></li>
-</ul>
-
-<h2 id="2017-09-11">2017-09-11</h2>
-
-<ul>
-<li><a href="/notes/others/taiwan-labor-standard-act-for-developer.html">[Others] 軟體工程師相關台灣勞動基準法</a></li>
-</ul>
-
-<h2 id="2017-08-26">2017-08-26</h2>
-
-<ul>
-<li><a href="/notes/golang/golang.html">[Golang] Golang</a></li>
-</ul>
-
-<h2 id="2017-07-29">2017-07-29</h2>
-
-<ul>
-<li><a href="/notes/others/designer-software-system-engineers-relationship.html">[Others] Designer, Software, System Engineers Relationship</a></li>
-</ul>
-
-<h2 id="2017-07-17">2017-07-17</h2>
-
-<ul>
-<li><a href="/notes/golang/golang-goroutines-in-loop.html">[Golang] Golang Goroutines in Loop</a></li>
-</ul>
-
-<h2 id="2017-07-15">2017-07-15</h2>
-
-<ul>
-<li><a href="/notes/golang/golang-refactor-by-label.html">[Golang] Golang Refactor by Label</a></li>
-</ul>
-
-<h2 id="2017-06-12">2017-06-12</h2>
-
-<ul>
-<li><a href="/notes/golang/golang-benchmark-reading-config-from-os-env-and-file.html">[Golang] Golang Benchmark Reading Config from OS ENV and File</a></li>
-</ul>
-
-<h2 id="2017-06-07">2017-06-07</h2>
-
-<ul>
-<li><a href="/notes/golang/golang-delete-slice-item-in-range-problem.html">[Golang] Golang Delete Slice Item in Range Problem</a></li>
-</ul>
-
-<h2 id="2017-05-30">2017-05-30</h2>
-
-<ul>
-<li><a href="/notes/others/learning-resources.html">[Others] Learning Resources</a></li>
-</ul>
-
-<h2 id="2017-05-13">2017-05-13</h2>
-
-<ul>
-<li><a href="/notes/system/wannacrypt0r.html">[System] WannaCrypt0r 2.0</a></li>
-</ul>
-
-<h2 id="2017-05-04">2017-05-04</h2>
-
-<ul>
-<li><a href="/notes/web/google-custom-search.html">[Web] Google Custom Search</a></li>
-<li><a href="/notes/web/web-proper-noun.html">[Web] 網站開發專有名詞 For Product Manager</a></li>
-</ul>
-
-<h2 id="2017-05-03">2017-05-03</h2>
-
-<ul>
-<li><a href="/notes/database/mysql.html">[Database] MySQL</a></li>
-<li><a href="/notes/system/docker.html">[System] Docker</a></li>
-</ul>
-
-<h2 id="2017-04-26">2017-04-26</h2>
-
-<ul>
-<li><a href="/notes/system/windows-shared-folder-with-virtualbox-linux.html">[System] Windows 共用資料夾(Shared folder)至 VirtualBox Linux - 設定與自動掛載</a></li>
-</ul>
-
-<h2 id="2017-04-20">2017-04-20</h2>
-
-<ul>
-<li><a href="/notes/development/object-oriented-programming.html">[Development] Object Oriented Programming</a></li>
-</ul>
-
-<h2 id="2017-04-17">2017-04-17</h2>
-
-<ul>
-<li><a href="/notes/others/lisp.html">[Others] Lisp</a></li>
-</ul>
-
-<h2 id="2017-04-13">2017-04-13</h2>
-
-<ul>
-<li><a href="/notes/database/postgresql.html">[Database] PostgreSQL</a></li>
-<li><a href="/notes/database/redis.html">[Database] Redis</a></li>
-<li><a href="/notes/development/queue.html">[Development] Queue</a></li>
-<li><a href="/notes/development/repository-pattern.html">[Development] Repository Pattern</a></li>
-<li><a href="/notes/development/user-story.html">[Development] User Story</a></li>
-<li><a href="/notes/editor/visual-studio-code.html">[Editor] Visual Studio Code</a></li>
-<li><a href="/notes/git/git.html">[Git] Git</a></li>
-<li><a href="/notes/git/gitlab.html">[Git] Gitlab Demo</a></li>
-<li><a href="/notes/git/movetogitlab.html">[Git] Move Repo from Gitolite to Gitlab</a></li>
-<li><a href="/notes/laravel/laravel-blade-parent.html">[Laravel] Laravel - 設計一個好的 Blade Template, 使用 @parent</a></li>
-<li><a href="/notes/laravel/laravel-performance.html">[Laravel] Laravel Performance</a></li>
-<li><a href="/notes/laravel/laravel-42-to-50.html">[Laravel] Laravel Update 4.2 to 5.0</a></li>
-<li><a href="/notes/linux/centos7.html">[Linux] CentOS 7</a></li>
-<li><a href="/notes/linux/linux.html">[Linux] Linux</a></li>
-<li><a href="/notes/others/flowchart.html">[Others] Flowchart Test</a></li>
-<li><a href="/notes/others/taiwan-community.html">[Others] Taiwan Community</a></li>
-<li><a href="/notes/php/php.html">[Php] PHP</a></li>
-<li><a href="/notes/php/php-functional-programming-array-functions.html">[Php] PHP Functinoal Programming Array Functions</a></li>
-<li><a href="/notes/php/php-functional-programming-lambda.html">[Php] PHP Functional Programming Lambda</a></li>
-<li><a href="/notes/php/selenium_with_phpunit.html">[Php] Selenium with PHPUnit</a></li>
-<li><a href="/notes/system/elk-elasticsearch-logstash-kibana.html">[System] ELK: Elasticsearch, Logstash, Kibana</a></li>
-<li><a href="/notes/system/https.html">[System] HTTPS</a></li>
-<li><a href="/notes/system/nginx.html">[System] Nginx</a></li>
-<li><a href="/notes/system/nginx-php-fpm.html">[System] Nginx, Php-fpm</a></li>
-<li><a href="/notes/web/google-analytics.html">[Web] Google Analytics</a></li>
-<li><a href="/notes/web/html-input-defaultvalue-vs-value-with-jquery-val-vs-attr.html">[Web] HTML Input defaultValue vs. value with jQuery val() vs. attr()</a></li>
-<li><a href="/notes/web/html-input-hidden-defaultvalue-vs-value-with-jquery-val-vs-attr.html">[Web] HTML Input hidden defaultValue vs. value with jQuery val() vs. attr()</a></li>
-<li><a href="/notes/web/seo.html">[Web] SEO</a></li>
+<li><a href="https://prometheus.io/docs/prometheus/latest/storage/">STORAGE@Prometheus</a></li>
+<li><a href="https://github.com/prometheus/prometheus/blob/release-2.29/tsdb/docs/format/README.md">TSDB format@Prometheus</a></li>
+<li><a href="https://www.robustperception.io/dropping-metrics-at-scrape-time-with-prometheus">Dropping metrics at scrape time with Prometheus@Robust Perception</a></li>
+<li><a href="https://www.robustperception.io/relabel_configs-vs-metric_relabel_configs">relabel_configs vs metric_relabel_configs@Robust Perception</a></li>
+<li><a href="https://medium.com/quiq-blog/prometheus-relabeling-tricks-6ae62c56cbda">Prometheus relabeling tricks@Quiq</a></li>
+<li><a href="https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config">relabel_config@Prometheus</a></li>
 </ul>
 
                         <gcse:searchresults-only></gcse:searchresults-only>
