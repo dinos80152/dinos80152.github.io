@@ -67,7 +67,7 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2021-10-24 01:45:51 +0800 +08</header>
+                    <header>Updated: 2021-10-24 02:12:19 +0800 +08</header>
                     <main>
                         <h1 id="prometheus-performance-tuning">Prometheus Performance Tuning</h1>
 
@@ -83,6 +83,32 @@
 <li>go pprof <a href="http://your.prometheus.host:9090/debug/pprof/heap">http://your.prometheus.host:9090/debug/pprof/heap</a></li>
 <li>go pprof web</li>
 </ol>
+
+<h2 id="system">System</h2>
+
+<h3 id="adjust-nofile">Adjust nofile</h3>
+
+<ol>
+<li><p>find the current ulimit number of open file</p>
+
+<pre><code class="language-sh">ulimit -a
+</code></pre></li>
+
+<li><p>increase open files (file descriptor) limit</p>
+
+<pre><code class="language-sh">ulimit -n 102400
+</code></pre></li>
+</ol>
+
+<h2 id="startup-flag">Startup Flag</h2>
+
+<p>adjust query flag</p>
+
+<ul>
+<li><code>query.timeout</code></li>
+<li><code>query.max-samples</code></li>
+<li><code>query.max-concurrency</code></li>
+</ul>
 
 <h2 id="federation">Federation</h2>
 

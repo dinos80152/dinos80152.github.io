@@ -23,8 +23,8 @@
 
 |Title | Updated Date |
 |------|------------|
-| [Prometheus Storage Optimization](/notes/database/prometheus-storage-optimization.html) | 2021-10-24 |
 | [Prometheus Performance Tuning](/notes/database/prometheus-performance-tuning.html) | 2021-10-24 |
+| [Prometheus Storage Optimization](/notes/database/prometheus-storage-optimization.html) | 2021-10-24 |
 | [Prometheus Scrape and Metrics](/notes/database/prometheus-scrape-and-metrics.html) | 2021-10-24 |
 | [MySQL](/notes/database/mysql.html) | 2017-05-03 |
 | [PostgreSQL](/notes/database/postgresql.html) | 2017-04-13 |
