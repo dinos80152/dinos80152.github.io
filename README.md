@@ -1,5 +1,9 @@
 # Last Updated
 
+## 2022-01-19
+
+* [[Os] macOS](/notes/os/macOS.html)
+
 ## 2021-10-24
 
 * [[Database] Prometheus Performance Tuning](/notes/database/prometheus-performance-tuning.html)
@@ -35,10 +39,6 @@
 ## 2021-01-27
 
 * [[Os] DNS Cache](/notes/os/dns_cache.html)
-
-## 2019-08-11
-
-* [[Os] Mac](/notes/os/mac.html)
 
 ## 2019-01-18
 

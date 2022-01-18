@@ -86,8 +86,8 @@
 
 |Title | Updated Date |
 |------|------------|
+| [macOS](/notes/os/macOS.html) | 2022-01-19 |
 | [DNS Cache](/notes/os/dns_cache.html) | 2021-01-27 |
-| [Mac](/notes/os/mac.html) | 2019-08-11 |
 
 ## Others
 
