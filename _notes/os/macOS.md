@@ -1,8 +1,8 @@
-# Mac
+# macOS
 
 ## Keyboard Shortcut
 
-- [Spectacle](https://www.spectacleapp.com/): Move and Resize Window
+- [Rectangle](https://rectangleapp.com/): Move and Resize Window
 
 ### iTerm 2
 

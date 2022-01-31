@@ -7,11 +7,11 @@
     <meta name="description" content="Dino Lai Software Blogs include Notes, Records and Resources">
     <meta name="keywords" content="Programming,System,Coding,Software Develop">
     <meta name="author" content="Dino Lai">
-    <title>Repository Pattern - Dinote</title>
+    <title>Prometheus Scrape and Metrics - Dinote</title>
     <!-- Facebook Open Graph -->
-    <meta property="og:url" content="https://dinolai.com/notes/development/repository-pattern.html" />
+    <meta property="og:url" content="https://dinolai.com/notes/database/prometheus-scrape-and-metrics.html" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Repository Pattern - Dinote" />
+    <meta property="og:title" content="Prometheus Scrape and Metrics - Dinote" />
     <meta property="og:description" content="Dino Lai Software Blogs include Notes, Records and Resources" />
     <meta property="og:image" content="https://dinolai.com/assets/images/logo-icon-name.png" />
     <!-- End Facebook Open Graph -->
@@ -67,63 +67,76 @@
         <div class="row">
             <div class="col-lg-9">
                 <article class="markdown-body">
-                    <header>Updated: 2017-04-13 18:52:38 +0800 +08</header>
+                    <header>Updated: 2021-10-24 01:45:51 +0800 +08</header>
                     <main>
-                        <h1 id="repository-pattern">Repository Pattern</h1>
+                        <h1 id="prometheus-scrape-and-metrics">Prometheus Scrape and Metrics</h1>
 
-<p>源自 c#
-repository: 知識庫</p>
+<h2 id="scrape">Scrape</h2>
 
-<h2 id="好處">好處</h2>
-
-<ul>
-<li>隔離資料層
+<h3 id="relabel">Relabel</h3>
 
 <ul>
-<li>方便單元測試</li>
-<li>利於將來可抽換 (ex: 從 Relational Database 換到 NoSQL or API)</li>
+<li><a href="https://godleon.github.io/blog/Prometheus/Prometheus-Relabel/">[Prometheus] Service Discovery &amp; Relabel@小信豬的原始部落</a></li>
+</ul>
+
+<h2 id="metrics">Metrics</h2>
+
+<h3 id="counter">Counter</h3>
+
+<blockquote>
+<p>A counter starts at 0, and is incremented. At each scrape Prometheus takes a sample of this state.</p>
+
+<p>what happens when the process restarts and the counter is reset to 0? <br>
+<code>rate()</code> will automatically handle this. Any time a counter appears to decrease it&rsquo;ll be treated as though there was a reset to 0 right after the first data point.</p>
+</blockquote>
+
+<h4 id="query">Query</h4>
+
+<ul>
+<li>rate()
+
+<ul>
+<li>returns per second values,</li>
+<li><code>rate(counter[5s])</code> is <code>(v5 - v1) / (t5 - t1)</code></li>
+</ul></li>
+<li>increase()
+
+<ul>
+<li>returns the total across the time period.</li>
+<li><code>increase(counter[5s])</code> is exactly <code>rate(counter[5s]) * 5</code></li>
+</ul></li>
+<li>irate()
+
+<ul>
+<li>only looks at the last two samples</li>
+<li>useful for high precision graphs over short time frames.</li>
+<li><code>irate(counter[5s])</code> is <code>(v5 - v4) / (t5 - t4)</code></li>
+</ul></li>
+<li>offset
+
+<ul>
+<li><code>counter - counter offest 5s</code></li>
+<li>it can&rsquo;t handle reset situation</li>
+</ul></li>
+<li>resets()
+
+<ul>
+<li>how often the counter resets</li>
+<li>useful for debugging.</li>
 </ul></li>
 </ul>
 
-<h2 id="example">Example</h2>
-
-<p>Controllers/NewsController.php</p>
-
-<pre><code class="language-php">class NewsController extends Controller
-{
-    public function index() {
-        return News::listAllAble();
-    }
-}
-</code></pre>
-
-<p>Models/News.php</p>
-
-<pre><code class="language-php">class News extends Model
-{
-    public function listAllAble() {
-        return $this-&gt;where('status', 1)-&gt;get();
-    }
-}
-</code></pre>
-
-<p>Repositories/NewsRepository.php</p>
-
-<pre><code class="language-php">use App\Models\News;
-
-class NewsRepository
-{
-    public function listAllAble() {
-        return News::where('status', 1)-&gt;get();
-    }
-}
-</code></pre>
-
-<h2 id="reference">Reference</h2>
+<h4 id="reference">Reference</h4>
 
 <ul>
-<li><a href="https://msdn.microsoft.com/en-us/library/ff649690.aspx">The Repository Pattern</a></li>
-<li><a href="http://huan-lin.blogspot.com/2012/11/repository-yagni.html">Repository，我可能不會用你</a></li>
+<li><a href="https://www.robustperception.io/how-does-a-prometheus-counter-work">How does a Prometheus Counter work?@Robust Perception</a></li>
+<li><a href="https://stackoverflow.com/q/54494394/4810199">Do I understand Prometheus&rsquo;s rate vs increase functions correctly?@stackoverflow</a></li>
+</ul>
+
+<h3 id="useful-query-example">Useful Query Example</h3>
+
+<ul>
+<li><a href="https://github.com/infinityworks/prometheus-example-queries/blob/master/README.md">https://github.com/infinityworks/prometheus-example-queries/blob/master/README.md</a></li>
 </ul>
 
                         <gcse:searchresults-only></gcse:searchresults-only>

@@ -23,6 +23,9 @@
 
 |Title | Updated Date |
 |------|------------|
+| [Prometheus Performance Tuning](/notes/database/prometheus-performance-tuning.html) | 2021-10-24 |
+| [Prometheus Storage Optimization](/notes/database/prometheus-storage-optimization.html) | 2021-10-24 |
+| [Prometheus Scrape and Metrics](/notes/database/prometheus-scrape-and-metrics.html) | 2021-10-24 |
 | [MySQL](/notes/database/mysql.html) | 2017-05-03 |
 | [PostgreSQL](/notes/database/postgresql.html) | 2017-04-13 |
 | [Redis](/notes/database/redis.html) | 2017-04-13 |
@@ -83,8 +86,8 @@
 
 |Title | Updated Date |
 |------|------------|
+| [macOS](/notes/os/macOS.html) | 2022-01-19 |
 | [DNS Cache](/notes/os/dns_cache.html) | 2021-01-27 |
-| [Mac](/notes/os/mac.html) | 2019-08-11 |
 
 ## Others
 
