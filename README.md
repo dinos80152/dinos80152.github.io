@@ -1,5 +1,9 @@
 # Last Updated
 
+## 2022-01-31
+
+* [[Books] 逍遙之樂－傅佩榮談《莊子》](/notes/books/zhuangzi.html)
+
 ## 2022-01-19
 
 * [[Os] macOS](/notes/os/macOS.html)

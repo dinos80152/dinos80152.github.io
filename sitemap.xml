@@ -2,7 +2,7 @@
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://www.sitemaps.org/schemas/sitemap/0.9 https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
         <loc>https://dinolai.com/index.html</loc>
-        <lastmod>2021-10-23</lastmod>
+        <lastmod>2022-01-18</lastmod>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
@@ -21,6 +21,12 @@
     <url>
         <loc>https://dinolai.com/notes/aws/aws-athena-create-table-manually.html</loc>
         <lastmod>2021-07-04</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.67</priority>
+    </url>
+    <url>
+        <loc>https://dinolai.com/notes/books/zhuangzi.html</loc>
+        <lastmod>2022-01-31</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.67</priority>
     </url>
@@ -440,7 +446,7 @@
     </url>
     <url>
         <loc>https://dinolai.com/notes/index.html</loc>
-        <lastmod>2021-10-23</lastmod>
+        <lastmod>2022-01-18</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.75</priority>
     </url>

@@ -12,6 +12,7 @@
 
 |Title | Updated Date |
 |------|------------|
+| [逍遙之樂－傅佩榮談《莊子》](/notes/books/zhuangzi.html) | 2022-01-31 |
 | [人性的弱點 How to Win Friends &amp; Influence People](/notes/books/how-to-win-friends-and-influence-people.html) | 2021-09-25 |
 | [程式設計師之禪 The Zen Programmer](/notes/books/the-zen-programmer.html) | 2021-09-11 |
 | [彼得原理 The Peter Principle](/notes/books/the-peter-principle.html) | 2021-09-11 |
