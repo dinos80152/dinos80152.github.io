@@ -2,6 +2,7 @@
 
 ## 2023-08-19
 
+* [[Books] 愛的藝術](/notes/books/the-art-of-loving.html)
 * [[Books] 蛤蟆先生去看心理師](/notes/books/counselling-for-toads.html)
 
 ## 2022-01-31

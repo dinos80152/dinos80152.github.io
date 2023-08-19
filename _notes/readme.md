@@ -12,6 +12,7 @@
 
 |Title | Updated Date |
 |------|------------|
+| [愛的藝術](/notes/books/the-art-of-loving.html) | 2023-08-19 |
 | [蛤蟆先生去看心理師](/notes/books/counselling-for-toads.html) | 2023-08-19 |
 | [逍遙之樂－傅佩榮談《莊子》](/notes/books/zhuangzi.html) | 2022-01-31 |
 | [人性的弱點 How to Win Friends &amp; Influence People](/notes/books/how-to-win-friends-and-influence-people.html) | 2021-09-25 |
