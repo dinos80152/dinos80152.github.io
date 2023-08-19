@@ -84,6 +84,7 @@
 | | [逍遙之樂：傅佩榮談《莊子》](https://www.books.com.tw/products/0010569094) | v | [Link](http://dinolai.com/notes/books/the-unicorn-project.html) |
 | [Counselling for Toads: A Psychological Adventure](https://www.goodreads.com/book/show/548887.Counselling_for_Toads) | [蛤蟆先生去看心理師](https://www.books.com.tw/products/0010914794) | v | [Link](http://dinolai.com/notes/books/counselling-for-toads.html) |
 | [The Art of Loving](https://www.goodreads.com/book/show/14142.The_Art_of_Loving) | [愛的藝術](https://www.books.com.tw/products/0010903645) | v | [Link](http://dinolai.com/notes/books/the-art-of-loving.html) |
+| [The Headspace Guide to Meditation & Mindfulness](https://www.goodreads.com/tr/book/show/27414493-the-headspace-guide-to-meditation-mindfulness) | [Headspace 冥想正念手冊](https://www.books.com.tw/products/0010820792) | v | [Link](http://dinolai.com/notes/books/the-headspace-guide-to-meditation-and-mindfulness.html) |
 
 ## Reference
 
