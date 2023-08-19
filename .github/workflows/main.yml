@@ -27,9 +27,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.ACCESS_TOKEN }}
-          fetch-depth: 0
+        # with:
+        #   token: ${{ secrets.ACCESS_TOKEN }}
+        #   fetch-depth: 0
 
       - name: Build Website
         if: ${{ github.event.head_commit.message != '📝 update blog' }}
