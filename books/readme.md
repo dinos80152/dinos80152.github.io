@@ -83,6 +83,7 @@
 | ***Life*** |||
 | | [逍遙之樂：傅佩榮談《莊子》](https://www.books.com.tw/products/0010569094) | v | [Link](http://dinolai.com/notes/books/the-unicorn-project.html) |
 | [Counselling for Toads: A Psychological Adventure](https://www.goodreads.com/book/show/548887.Counselling_for_Toads) | [蛤蟆先生去看心理師](https://www.books.com.tw/products/0010914794) | v | [Link](http://dinolai.com/notes/books/counselling-for-toads.html) |
+| [The Art of Loving](https://www.goodreads.com/book/show/14142.The_Art_of_Loving) | [愛的藝術](https://www.books.com.tw/products/0010903645) | v | [Link](http://dinolai.com/notes/books/the-art-of-loving.html) |
 
 ## Reference
 
