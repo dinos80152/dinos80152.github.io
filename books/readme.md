@@ -78,10 +78,11 @@
 | |Go at Google：Go語言實際上手| reading | |
 | ***Business*** |||
 | [Rework](https://www.goodreads.com/book/show/6732019-rework) | [重来：更为简单有效的商业思维](https://book.douban.com/subject/5320866/) | | |
-| [The Cathedral & the Bazaar: Musings on Linux and Open Source by an Accidental Revolutionary](https://www.goodreads.com/book/show/134825.The_Cathedral_the_Bazaar) | [ 大教堂与集市](https://book.douban.com/subject/25881855/) | | |
+| [The Cathedral & the Bazaar: Musings on Linux and Open Source by an Accidental Revolutionary](https://www.goodreads.com/book/show/134825.The_Cathedral_the_Bazaar) | [大教堂与集市](https://book.douban.com/subject/25881855/) | | |
 | [Bad Blood: Secrets and Lies in a Silicon Valley Startup](https://www.goodreads.com/book/show/37976541-bad-blood) | [惡血：矽谷獨角獸的醫療騙局！深藏血液裡的祕密、謊言與金錢](https://www.taaze.tw/goods/11100856174.html) | v | |
 | ***Life*** |||
 | | [逍遙之樂：傅佩榮談《莊子》](https://www.books.com.tw/products/0010569094) | v | [Link](http://dinolai.com/notes/books/the-unicorn-project.html) |
+| [Counselling for Toads: A Psychological Adventure](https://www.goodreads.com/book/show/548887.Counselling_for_Toads) | [蛤蟆先生去看心理師](https://www.books.com.tw/products/0010914794) | v | [Link](http://dinolai.com/notes/books/counselling-for-toads.html) |
 
 ## Reference
 
