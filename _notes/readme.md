@@ -12,6 +12,7 @@
 
 |Title | Updated Date |
 |------|------------|
+| [蛤蟆先生去看心理師](/notes/books/counselling-for-toads.html) | 2023-08-19 |
 | [逍遙之樂－傅佩榮談《莊子》](/notes/books/zhuangzi.html) | 2022-01-31 |
 | [人性的弱點 How to Win Friends &amp; Influence People](/notes/books/how-to-win-friends-and-influence-people.html) | 2021-09-25 |
 | [程式設計師之禪 The Zen Programmer](/notes/books/the-zen-programmer.html) | 2021-09-11 |
@@ -130,8 +131,8 @@
 | [JWT - JSON Web Token](/notes/web/jwt.html) | 2018-09-26 |
 | [Google Custom Search](/notes/web/google-custom-search.html) | 2017-05-04 |
 | [網站開發專有名詞 For Product Manager](/notes/web/web-proper-noun.html) | 2017-05-04 |
+| [Google Analytics](/notes/web/google-analytics.html) | 2017-04-13 |
 | [HTML Input defaultValue vs. value with jQuery val() vs. attr()](/notes/web/html-input-defaultvalue-vs-value-with-jquery-val-vs-attr.html) | 2017-04-13 |
 | [HTML Input hidden defaultValue vs. value with jQuery val() vs. attr()](/notes/web/html-input-hidden-defaultvalue-vs-value-with-jquery-val-vs-attr.html) | 2017-04-13 |
 | [SEO](/notes/web/seo.html) | 2017-04-13 |
-| [Google Analytics](/notes/web/google-analytics.html) | 2017-04-13 |
 
