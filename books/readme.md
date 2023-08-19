@@ -19,6 +19,7 @@
 | The Fifth Discipline: The Art & Practice of The Learning Organization | 第五項修練: 學習型組織的藝術與實務 | | |
 | The Peter Principle: Why Things Always Go Wrong | 彼得原理 | v | [Link](http://dinolai.com/notes/books/the-peter-principle.html) |
 | How to Win Friends & Influence People | 人性的弱點 | v | [Link](http://dinolai.com/notes/books/how-to-win-friends-and-influence-people.html) |
+| [The Art of Gathering: How We Meet and Why It Matters](https://www.goodreads.com/en/book/show/37424706) | [這樣聚會，最成功！](https://www.books.com.tw/products/0010949670) | v | [Link](http://dinolai.com/notes/books/the-art-of-gathering.html) |
 | ***Programming*** |||
 |  | 代碼之髓 | v | null |
 | The Art of Readable Code| 易讀程式之美學 | v | [Link](https://github.com/sehowju/The-Art-of-Readable-Code) |
