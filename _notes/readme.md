@@ -12,6 +12,8 @@
 
 |Title | Updated Date |
 |------|------------|
+| [這樣聚會，最成功](/notes/books/the-art-of-gathering.html) | 2023-08-19 |
+| [Headspace 冥想正念手冊](/notes/books/the-headspace-guide-to-meditation-and-mindfulness.html) | 2023-08-19 |
 | [愛的藝術](/notes/books/the-art-of-loving.html) | 2023-08-19 |
 | [蛤蟆先生去看心理師](/notes/books/counselling-for-toads.html) | 2023-08-19 |
 | [逍遙之樂－傅佩榮談《莊子》](/notes/books/zhuangzi.html) | 2022-01-31 |

@@ -2,8 +2,10 @@
 
 ## 2023-08-19
 
+* [[Books] Headspace 冥想正念手冊](/notes/books/the-headspace-guide-to-meditation-and-mindfulness.html)
 * [[Books] 愛的藝術](/notes/books/the-art-of-loving.html)
 * [[Books] 蛤蟆先生去看心理師](/notes/books/counselling-for-toads.html)
+* [[Books] 這樣聚會，最成功](/notes/books/the-art-of-gathering.html)
 
 ## 2022-01-31
 
