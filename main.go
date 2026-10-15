@@ -6,6 +6,7 @@ import (
 	"os"
 	"os/exec"
 	"path"
+	"path/filepath"
 	"sort"
 	"strings"
 	"text/template"
@@ -59,6 +60,9 @@ func genNotes(mdDir, htmlDir string) {
 			nextHTMLDir := path.Join(htmlDir, f.Name())
 			os.Mkdir(nextHTMLDir, 755)
 			genNotes(nextMdDir, nextHTMLDir)
+			continue
+		}
+		if !strings.EqualFold(filepath.Ext(f.Name()), ".md") {
 			continue
 		}
 		if strings.EqualFold(f.Name(), mdIndex) {
