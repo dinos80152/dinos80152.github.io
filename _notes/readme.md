@@ -91,7 +91,7 @@
 
 |Title | Updated Date |
 |------|------------|
-| [macOS](/notes/os/macOS.html) | 2022-01-19 |
+| [macOS](/notes/os/macOS.html) | 2026-10-15 |
 | [DNS Cache](/notes/os/dns_cache.html) | 2021-01-27 |
 
 ## Others

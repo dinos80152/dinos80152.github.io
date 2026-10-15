@@ -1,5 +1,9 @@
 # Last Updated
 
+## 2026-10-15
+
+* [[Os] macOS](/notes/os/macOS.html)
+
 ## 2023-08-19
 
 * [[Books] Headspace 冥想正念手冊](/notes/books/the-headspace-guide-to-meditation-and-mindfulness.html)
@@ -10,10 +14,6 @@
 ## 2022-01-31
 
 * [[Books] 逍遙之樂－傅佩榮談《莊子》](/notes/books/zhuangzi.html)
-
-## 2022-01-19
-
-* [[Os] macOS](/notes/os/macOS.html)
 
 ## 2021-10-24
 
