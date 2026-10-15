@@ -117,3 +117,13 @@ Mac OS hold key down is show special char default, to change to repeat input cha
   dinolai     hard    nofile  4096
   dinolai     soft    nofile  1024
   ```
+
+## Monitor
+
+### Screen Testing
+
+- [Defective Pixel](https://www.ginifab.com.tw/tools/screen_test/)
+
+### External Monitor
+
+- [Monitor Control](https://github.com/MonitorControl/MonitorControl): Control external display brightness and volume
